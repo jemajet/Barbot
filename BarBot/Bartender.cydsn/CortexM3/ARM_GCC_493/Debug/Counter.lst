@@ -1,0 +1,1902 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"Counter.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.Counter_Enable,"ax",%progbits
+  19              		.align	2
+  20              		.global	Counter_Enable
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	Counter_Enable, %function
+  24              	Counter_Enable:
+  25              	.LFB1:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\Counter.c"
+   1:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/Counter.c **** * File Name: Counter.c  
+   3:.\Generated_Source\PSoC5/Counter.c **** * Version 3.0
+   4:.\Generated_Source\PSoC5/Counter.c **** *
+   5:.\Generated_Source\PSoC5/Counter.c **** *  Description:
+   6:.\Generated_Source\PSoC5/Counter.c **** *     The Counter component consists of a 8, 16, 24 or 32-bit counter with
+   7:.\Generated_Source\PSoC5/Counter.c **** *     a selectable period between 2 and 2^Width - 1.  
+   8:.\Generated_Source\PSoC5/Counter.c **** *
+   9:.\Generated_Source\PSoC5/Counter.c **** *   Note:
+  10:.\Generated_Source\PSoC5/Counter.c **** *     None
+  11:.\Generated_Source\PSoC5/Counter.c **** *
+  12:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+  13:.\Generated_Source\PSoC5/Counter.c **** * Copyright 2008-2012, Cypress Semiconductor Corporation.  All rights reserved.
+  14:.\Generated_Source\PSoC5/Counter.c **** * You may use this file only in accordance with the license, terms, conditions, 
+  15:.\Generated_Source\PSoC5/Counter.c **** * disclaimers, and limitations in the end user license agreement accompanying 
+  16:.\Generated_Source\PSoC5/Counter.c **** * the software package with which this file was provided.
+  17:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+  18:.\Generated_Source\PSoC5/Counter.c **** 
+  19:.\Generated_Source\PSoC5/Counter.c **** #include "Counter.h"
+  20:.\Generated_Source\PSoC5/Counter.c **** 
+  21:.\Generated_Source\PSoC5/Counter.c **** uint8 Counter_initVar = 0u;
+  22:.\Generated_Source\PSoC5/Counter.c **** 
+  23:.\Generated_Source\PSoC5/Counter.c **** 
+  24:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+  25:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_Init
+  26:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+  27:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+  28:.\Generated_Source\PSoC5/Counter.c **** *     Initialize to the schematic state
+  29:.\Generated_Source\PSoC5/Counter.c **** * 
+  30:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+  31:.\Generated_Source\PSoC5/Counter.c **** *  void  
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/Counter.c **** *
+  33:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+  34:.\Generated_Source\PSoC5/Counter.c **** *  void
+  35:.\Generated_Source\PSoC5/Counter.c **** *
+  36:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+  37:.\Generated_Source\PSoC5/Counter.c **** void Counter_Init(void) 
+  38:.\Generated_Source\PSoC5/Counter.c **** {
+  39:.\Generated_Source\PSoC5/Counter.c ****         #if (!Counter_UsingFixedFunction && !Counter_ControlRegRemoved)
+  40:.\Generated_Source\PSoC5/Counter.c ****             uint8 ctrl;
+  41:.\Generated_Source\PSoC5/Counter.c ****         #endif /* (!Counter_UsingFixedFunction && !Counter_ControlRegRemoved) */
+  42:.\Generated_Source\PSoC5/Counter.c ****         
+  43:.\Generated_Source\PSoC5/Counter.c ****         #if(!Counter_UsingFixedFunction) 
+  44:.\Generated_Source\PSoC5/Counter.c ****             /* Interrupt State Backup for Critical Region*/
+  45:.\Generated_Source\PSoC5/Counter.c ****             uint8 Counter_interruptState;
+  46:.\Generated_Source\PSoC5/Counter.c ****         #endif /* (!Counter_UsingFixedFunction) */
+  47:.\Generated_Source\PSoC5/Counter.c ****         
+  48:.\Generated_Source\PSoC5/Counter.c ****         #if (Counter_UsingFixedFunction)
+  49:.\Generated_Source\PSoC5/Counter.c ****             /* Clear all bits but the enable bit (if it's already set for Timer operation */
+  50:.\Generated_Source\PSoC5/Counter.c ****             Counter_CONTROL &= Counter_CTRL_ENABLE;
+  51:.\Generated_Source\PSoC5/Counter.c ****             
+  52:.\Generated_Source\PSoC5/Counter.c ****             /* Clear the mode bits for continuous run mode */
+  53:.\Generated_Source\PSoC5/Counter.c ****             #if (CY_PSOC5A)
+  54:.\Generated_Source\PSoC5/Counter.c ****                 Counter_CONTROL2 &= ((uint8)(~Counter_CTRL_MODE_MASK));
+  55:.\Generated_Source\PSoC5/Counter.c ****             #endif /* (CY_PSOC5A) */
+  56:.\Generated_Source\PSoC5/Counter.c ****             #if (CY_PSOC3 || CY_PSOC5LP)
+  57:.\Generated_Source\PSoC5/Counter.c ****                 Counter_CONTROL3 &= ((uint8)(~Counter_CTRL_MODE_MASK));                
+  58:.\Generated_Source\PSoC5/Counter.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+  59:.\Generated_Source\PSoC5/Counter.c ****             /* Check if One Shot mode is enabled i.e. RunMode !=0*/
+  60:.\Generated_Source\PSoC5/Counter.c ****             #if (Counter_RunModeUsed != 0x0u)
+  61:.\Generated_Source\PSoC5/Counter.c ****                 /* Set 3rd bit of Control register to enable one shot mode */
+  62:.\Generated_Source\PSoC5/Counter.c ****                 Counter_CONTROL |= Counter_ONESHOT;
+  63:.\Generated_Source\PSoC5/Counter.c ****             #endif /* (Counter_RunModeUsed != 0x0u) */
+  64:.\Generated_Source\PSoC5/Counter.c ****             
+  65:.\Generated_Source\PSoC5/Counter.c ****             /* Set the IRQ to use the status register interrupts */
+  66:.\Generated_Source\PSoC5/Counter.c ****             Counter_CONTROL2 |= Counter_CTRL2_IRQ_SEL;
+  67:.\Generated_Source\PSoC5/Counter.c ****             
+  68:.\Generated_Source\PSoC5/Counter.c ****             /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
+  69:.\Generated_Source\PSoC5/Counter.c ****             Counter_RT1 &= ((uint8)(~Counter_RT1_MASK));
+  70:.\Generated_Source\PSoC5/Counter.c ****             Counter_RT1 |= Counter_SYNC;     
+  71:.\Generated_Source\PSoC5/Counter.c ****                     
+  72:.\Generated_Source\PSoC5/Counter.c ****             /*Enable DSI Sync all all inputs of the Timer*/
+  73:.\Generated_Source\PSoC5/Counter.c ****             Counter_RT1 &= ((uint8)(~Counter_SYNCDSI_MASK));
+  74:.\Generated_Source\PSoC5/Counter.c ****             Counter_RT1 |= Counter_SYNCDSI_EN;
+  75:.\Generated_Source\PSoC5/Counter.c **** 
+  76:.\Generated_Source\PSoC5/Counter.c ****         #else
+  77:.\Generated_Source\PSoC5/Counter.c ****             #if(!Counter_ControlRegRemoved)
+  78:.\Generated_Source\PSoC5/Counter.c ****             /* Set the default compare mode defined in the parameter */
+  79:.\Generated_Source\PSoC5/Counter.c ****             ctrl = Counter_CONTROL & ((uint8)(~Counter_CTRL_CMPMODE_MASK));
+  80:.\Generated_Source\PSoC5/Counter.c ****             Counter_CONTROL = ctrl | Counter_DEFAULT_COMPARE_MODE;
+  81:.\Generated_Source\PSoC5/Counter.c ****             
+  82:.\Generated_Source\PSoC5/Counter.c ****             /* Set the default capture mode defined in the parameter */
+  83:.\Generated_Source\PSoC5/Counter.c ****             ctrl = Counter_CONTROL & ((uint8)(~Counter_CTRL_CAPMODE_MASK));
+  84:.\Generated_Source\PSoC5/Counter.c ****             
+  85:.\Generated_Source\PSoC5/Counter.c ****             #if( 0 != Counter_CAPTURE_MODE_CONF)
+  86:.\Generated_Source\PSoC5/Counter.c ****                 Counter_CONTROL = ctrl | Counter_DEFAULT_CAPTURE_MODE;
+  87:.\Generated_Source\PSoC5/Counter.c ****             #else
+  88:.\Generated_Source\PSoC5/Counter.c ****                 Counter_CONTROL = ctrl;
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 3
+
+
+  89:.\Generated_Source\PSoC5/Counter.c ****             #endif /* 0 != Counter_CAPTURE_MODE */ 
+  90:.\Generated_Source\PSoC5/Counter.c ****             
+  91:.\Generated_Source\PSoC5/Counter.c ****             #endif /* (!Counter_ControlRegRemoved) */
+  92:.\Generated_Source\PSoC5/Counter.c ****         #endif /* (Counter_UsingFixedFunction) */
+  93:.\Generated_Source\PSoC5/Counter.c ****         
+  94:.\Generated_Source\PSoC5/Counter.c ****         /* Clear all data in the FIFO's */
+  95:.\Generated_Source\PSoC5/Counter.c ****         #if (!Counter_UsingFixedFunction)
+  96:.\Generated_Source\PSoC5/Counter.c ****             Counter_ClearFIFO();
+  97:.\Generated_Source\PSoC5/Counter.c ****         #endif /* (!Counter_UsingFixedFunction) */
+  98:.\Generated_Source\PSoC5/Counter.c ****         
+  99:.\Generated_Source\PSoC5/Counter.c ****         /* Set Initial values from Configuration */
+ 100:.\Generated_Source\PSoC5/Counter.c ****         Counter_WritePeriod(Counter_INIT_PERIOD_VALUE);
+ 101:.\Generated_Source\PSoC5/Counter.c ****         #if (!(Counter_UsingFixedFunction && (CY_PSOC5A)))
+ 102:.\Generated_Source\PSoC5/Counter.c ****             Counter_WriteCounter(Counter_INIT_COUNTER_VALUE);
+ 103:.\Generated_Source\PSoC5/Counter.c ****         #endif /* (!(Counter_UsingFixedFunction && (CY_PSOC5A))) */
+ 104:.\Generated_Source\PSoC5/Counter.c ****         Counter_SetInterruptMode(Counter_INIT_INTERRUPTS_MASK);
+ 105:.\Generated_Source\PSoC5/Counter.c ****         
+ 106:.\Generated_Source\PSoC5/Counter.c ****         #if (!Counter_UsingFixedFunction)
+ 107:.\Generated_Source\PSoC5/Counter.c ****             /* Read the status register to clear the unwanted interrupts */
+ 108:.\Generated_Source\PSoC5/Counter.c ****             (void)Counter_ReadStatusRegister();
+ 109:.\Generated_Source\PSoC5/Counter.c ****             /* Set the compare value (only available to non-fixed function implementation */
+ 110:.\Generated_Source\PSoC5/Counter.c ****             Counter_WriteCompare(Counter_INIT_COMPARE_VALUE);
+ 111:.\Generated_Source\PSoC5/Counter.c ****             /* Use the interrupt output of the status register for IRQ output */
+ 112:.\Generated_Source\PSoC5/Counter.c ****             
+ 113:.\Generated_Source\PSoC5/Counter.c ****             /* CyEnterCriticalRegion and CyExitCriticalRegion are used to mark following region cri
+ 114:.\Generated_Source\PSoC5/Counter.c ****             /* Enter Critical Region*/
+ 115:.\Generated_Source\PSoC5/Counter.c ****             Counter_interruptState = CyEnterCriticalSection();
+ 116:.\Generated_Source\PSoC5/Counter.c ****             
+ 117:.\Generated_Source\PSoC5/Counter.c ****             Counter_STATUS_AUX_CTRL |= Counter_STATUS_ACTL_INT_EN_MASK;
+ 118:.\Generated_Source\PSoC5/Counter.c ****             
+ 119:.\Generated_Source\PSoC5/Counter.c ****             /* Exit Critical Region*/
+ 120:.\Generated_Source\PSoC5/Counter.c ****             CyExitCriticalSection(Counter_interruptState);
+ 121:.\Generated_Source\PSoC5/Counter.c ****             
+ 122:.\Generated_Source\PSoC5/Counter.c ****         #endif /* (!Counter_UsingFixedFunction) */
+ 123:.\Generated_Source\PSoC5/Counter.c **** }
+ 124:.\Generated_Source\PSoC5/Counter.c **** 
+ 125:.\Generated_Source\PSoC5/Counter.c **** 
+ 126:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 127:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_Enable
+ 128:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 129:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 130:.\Generated_Source\PSoC5/Counter.c **** *     Enable the Counter
+ 131:.\Generated_Source\PSoC5/Counter.c **** * 
+ 132:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 133:.\Generated_Source\PSoC5/Counter.c **** *  void  
+ 134:.\Generated_Source\PSoC5/Counter.c **** *
+ 135:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 136:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 137:.\Generated_Source\PSoC5/Counter.c **** *
+ 138:.\Generated_Source\PSoC5/Counter.c **** * Side Effects: 
+ 139:.\Generated_Source\PSoC5/Counter.c **** *   If the Enable mode is set to Hardware only then this function has no effect 
+ 140:.\Generated_Source\PSoC5/Counter.c **** *   on the operation of the counter.
+ 141:.\Generated_Source\PSoC5/Counter.c **** *
+ 142:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 143:.\Generated_Source\PSoC5/Counter.c **** void Counter_Enable(void) 
+ 144:.\Generated_Source\PSoC5/Counter.c **** {
+  27              		.loc 1 144 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 4
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+ 145:.\Generated_Source\PSoC5/Counter.c ****     /* Globally Enable the Fixed Function Block chosen */
+ 146:.\Generated_Source\PSoC5/Counter.c ****     #if (Counter_UsingFixedFunction)
+ 147:.\Generated_Source\PSoC5/Counter.c ****         Counter_GLOBAL_ENABLE |= Counter_BLOCK_EN_MASK;
+  32              		.loc 1 147 0
+  33 0000 084A     		ldr	r2, .L2
+  34 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  35 0004 43F00103 		orr	r3, r3, #1
+  36 0008 1370     		strb	r3, [r2]
+ 148:.\Generated_Source\PSoC5/Counter.c ****         Counter_GLOBAL_STBY_ENABLE |= Counter_BLOCK_STBY_EN_MASK;
+  37              		.loc 1 148 0
+  38 000a 1032     		adds	r2, r2, #16
+  39 000c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  40 000e 43F00103 		orr	r3, r3, #1
+  41 0012 1370     		strb	r3, [r2]
+ 149:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (Counter_UsingFixedFunction) */  
+ 150:.\Generated_Source\PSoC5/Counter.c ****         
+ 151:.\Generated_Source\PSoC5/Counter.c ****     /* Enable the counter from the control register  */
+ 152:.\Generated_Source\PSoC5/Counter.c ****     /* If Fixed Function then make sure Mode is set correctly */
+ 153:.\Generated_Source\PSoC5/Counter.c ****     /* else make sure reset is clear */
+ 154:.\Generated_Source\PSoC5/Counter.c ****     #if(!Counter_ControlRegRemoved || Counter_UsingFixedFunction)
+ 155:.\Generated_Source\PSoC5/Counter.c ****         Counter_CONTROL |= Counter_CTRL_ENABLE;                
+  42              		.loc 1 155 0
+  43 0014 02F64D32 		addw	r2, r2, #2893
+  44 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  45 001a 43F00103 		orr	r3, r3, #1
+  46 001e 1370     		strb	r3, [r2]
+  47 0020 7047     		bx	lr
+  48              	.L3:
+  49 0022 00BF     		.align	2
+  50              	.L2:
+  51 0024 A3430040 		.word	1073759139
+  52              		.cfi_endproc
+  53              	.LFE1:
+  54              		.size	Counter_Enable, .-Counter_Enable
+  55              		.section	.text.Counter_Stop,"ax",%progbits
+  56              		.align	2
+  57              		.global	Counter_Stop
+  58              		.thumb
+  59              		.thumb_func
+  60              		.type	Counter_Stop, %function
+  61              	Counter_Stop:
+  62              	.LFB3:
+ 156:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (!Counter_ControlRegRemoved || Counter_UsingFixedFunction) */
+ 157:.\Generated_Source\PSoC5/Counter.c ****     
+ 158:.\Generated_Source\PSoC5/Counter.c **** }
+ 159:.\Generated_Source\PSoC5/Counter.c **** 
+ 160:.\Generated_Source\PSoC5/Counter.c **** 
+ 161:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 162:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_Start
+ 163:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 164:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 165:.\Generated_Source\PSoC5/Counter.c **** *  Enables the counter for operation 
+ 166:.\Generated_Source\PSoC5/Counter.c **** *
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 5
+
+
+ 167:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 168:.\Generated_Source\PSoC5/Counter.c **** *  void  
+ 169:.\Generated_Source\PSoC5/Counter.c **** *
+ 170:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 171:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 172:.\Generated_Source\PSoC5/Counter.c **** *
+ 173:.\Generated_Source\PSoC5/Counter.c **** * Global variables:
+ 174:.\Generated_Source\PSoC5/Counter.c **** *  Counter_initVar: Is modified when this function is called for the  
+ 175:.\Generated_Source\PSoC5/Counter.c **** *   first time. Is used to ensure that initialization happens only once.
+ 176:.\Generated_Source\PSoC5/Counter.c **** *
+ 177:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 178:.\Generated_Source\PSoC5/Counter.c **** void Counter_Start(void) 
+ 179:.\Generated_Source\PSoC5/Counter.c **** {
+ 180:.\Generated_Source\PSoC5/Counter.c ****     if(Counter_initVar == 0u)
+ 181:.\Generated_Source\PSoC5/Counter.c ****     {
+ 182:.\Generated_Source\PSoC5/Counter.c ****         Counter_Init();
+ 183:.\Generated_Source\PSoC5/Counter.c ****         
+ 184:.\Generated_Source\PSoC5/Counter.c ****         Counter_initVar = 1u; /* Clear this bit for Initialization */        
+ 185:.\Generated_Source\PSoC5/Counter.c ****     }
+ 186:.\Generated_Source\PSoC5/Counter.c ****     
+ 187:.\Generated_Source\PSoC5/Counter.c ****     /* Enable the Counter */
+ 188:.\Generated_Source\PSoC5/Counter.c ****     Counter_Enable();        
+ 189:.\Generated_Source\PSoC5/Counter.c **** }
+ 190:.\Generated_Source\PSoC5/Counter.c **** 
+ 191:.\Generated_Source\PSoC5/Counter.c **** 
+ 192:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 193:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_Stop
+ 194:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 195:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 196:.\Generated_Source\PSoC5/Counter.c **** * Halts the counter, but does not change any modes or disable interrupts.
+ 197:.\Generated_Source\PSoC5/Counter.c **** *
+ 198:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 199:.\Generated_Source\PSoC5/Counter.c **** *  void  
+ 200:.\Generated_Source\PSoC5/Counter.c **** *
+ 201:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 202:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 203:.\Generated_Source\PSoC5/Counter.c **** *
+ 204:.\Generated_Source\PSoC5/Counter.c **** * Side Effects: If the Enable mode is set to Hardware only then this function
+ 205:.\Generated_Source\PSoC5/Counter.c **** *               has no effect on the operation of the counter.
+ 206:.\Generated_Source\PSoC5/Counter.c **** *
+ 207:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 208:.\Generated_Source\PSoC5/Counter.c **** void Counter_Stop(void) 
+ 209:.\Generated_Source\PSoC5/Counter.c **** {
+  63              		.loc 1 209 0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
+ 210:.\Generated_Source\PSoC5/Counter.c ****     /* Disable Counter */
+ 211:.\Generated_Source\PSoC5/Counter.c ****     #if(!Counter_ControlRegRemoved || Counter_UsingFixedFunction)
+ 212:.\Generated_Source\PSoC5/Counter.c ****         Counter_CONTROL &= ((uint8)(~Counter_CTRL_ENABLE));        
+  68              		.loc 1 212 0
+  69 0000 084A     		ldr	r2, .L5
+  70 0002 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  71 0004 03F0FE03 		and	r3, r3, #254
+  72 0008 1370     		strb	r3, [r2]
+ 213:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (!Counter_ControlRegRemoved || Counter_UsingFixedFunction) */
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 6
+
+
+ 214:.\Generated_Source\PSoC5/Counter.c ****     
+ 215:.\Generated_Source\PSoC5/Counter.c ****     /* Globally disable the Fixed Function Block chosen */
+ 216:.\Generated_Source\PSoC5/Counter.c ****     #if (Counter_UsingFixedFunction)
+ 217:.\Generated_Source\PSoC5/Counter.c ****         Counter_GLOBAL_ENABLE &= ((uint8)(~Counter_BLOCK_EN_MASK));
+  73              		.loc 1 217 0
+  74 000a A2F65D32 		subw	r2, r2, #2909
+  75 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  76 0010 03F0FE03 		and	r3, r3, #254
+  77 0014 1370     		strb	r3, [r2]
+ 218:.\Generated_Source\PSoC5/Counter.c ****         Counter_GLOBAL_STBY_ENABLE &= ((uint8)(~Counter_BLOCK_STBY_EN_MASK));
+  78              		.loc 1 218 0
+  79 0016 1032     		adds	r2, r2, #16
+  80 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  81 001a 03F0FE03 		and	r3, r3, #254
+  82 001e 1370     		strb	r3, [r2]
+  83 0020 7047     		bx	lr
+  84              	.L6:
+  85 0022 00BF     		.align	2
+  86              	.L5:
+  87 0024 004F0040 		.word	1073762048
+  88              		.cfi_endproc
+  89              	.LFE3:
+  90              		.size	Counter_Stop, .-Counter_Stop
+  91              		.section	.text.Counter_SetInterruptMode,"ax",%progbits
+  92              		.align	2
+  93              		.global	Counter_SetInterruptMode
+  94              		.thumb
+  95              		.thumb_func
+  96              		.type	Counter_SetInterruptMode, %function
+  97              	Counter_SetInterruptMode:
+  98              	.LFB4:
+ 219:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (Counter_UsingFixedFunction) */
+ 220:.\Generated_Source\PSoC5/Counter.c **** }
+ 221:.\Generated_Source\PSoC5/Counter.c **** 
+ 222:.\Generated_Source\PSoC5/Counter.c **** 
+ 223:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 224:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_SetInterruptMode
+ 225:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 226:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 227:.\Generated_Source\PSoC5/Counter.c **** * Configures which interrupt sources are enabled to generate the final interrupt
+ 228:.\Generated_Source\PSoC5/Counter.c **** *
+ 229:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 230:.\Generated_Source\PSoC5/Counter.c **** *  InterruptsMask: This parameter is an or'd collection of the status bits
+ 231:.\Generated_Source\PSoC5/Counter.c **** *                   which will be allowed to generate the counters interrupt.   
+ 232:.\Generated_Source\PSoC5/Counter.c **** *
+ 233:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 234:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 235:.\Generated_Source\PSoC5/Counter.c **** *
+ 236:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 237:.\Generated_Source\PSoC5/Counter.c **** void Counter_SetInterruptMode(uint8 interruptsMask) 
+ 238:.\Generated_Source\PSoC5/Counter.c **** {
+  99              		.loc 1 238 0
+ 100              		.cfi_startproc
+ 101              		@ args = 0, pretend = 0, frame = 0
+ 102              		@ frame_needed = 0, uses_anonymous_args = 0
+ 103              		@ link register save eliminated.
+ 104              	.LVL0:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 7
+
+
+ 239:.\Generated_Source\PSoC5/Counter.c ****     Counter_STATUS_MASK = interruptsMask;
+ 105              		.loc 1 239 0
+ 106 0000 014B     		ldr	r3, .L8
+ 107 0002 1870     		strb	r0, [r3]
+ 108 0004 7047     		bx	lr
+ 109              	.L9:
+ 110 0006 00BF     		.align	2
+ 111              	.L8:
+ 112 0008 034F0040 		.word	1073762051
+ 113              		.cfi_endproc
+ 114              	.LFE4:
+ 115              		.size	Counter_SetInterruptMode, .-Counter_SetInterruptMode
+ 116              		.section	.text.Counter_ReadStatusRegister,"ax",%progbits
+ 117              		.align	2
+ 118              		.global	Counter_ReadStatusRegister
+ 119              		.thumb
+ 120              		.thumb_func
+ 121              		.type	Counter_ReadStatusRegister, %function
+ 122              	Counter_ReadStatusRegister:
+ 123              	.LFB5:
+ 240:.\Generated_Source\PSoC5/Counter.c **** }
+ 241:.\Generated_Source\PSoC5/Counter.c **** 
+ 242:.\Generated_Source\PSoC5/Counter.c **** 
+ 243:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 244:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_ReadStatusRegister
+ 245:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 246:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 247:.\Generated_Source\PSoC5/Counter.c **** *   Reads the status register and returns it's state. This function should use
+ 248:.\Generated_Source\PSoC5/Counter.c **** *       defined types for the bit-field information as the bits in this
+ 249:.\Generated_Source\PSoC5/Counter.c **** *       register may be permuteable.
+ 250:.\Generated_Source\PSoC5/Counter.c **** *
+ 251:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 252:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 253:.\Generated_Source\PSoC5/Counter.c **** *
+ 254:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 255:.\Generated_Source\PSoC5/Counter.c **** *  (uint8) The contents of the status register
+ 256:.\Generated_Source\PSoC5/Counter.c **** *
+ 257:.\Generated_Source\PSoC5/Counter.c **** * Side Effects:
+ 258:.\Generated_Source\PSoC5/Counter.c **** *   Status register bits may be clear on read. 
+ 259:.\Generated_Source\PSoC5/Counter.c **** *
+ 260:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 261:.\Generated_Source\PSoC5/Counter.c **** uint8   Counter_ReadStatusRegister(void) 
+ 262:.\Generated_Source\PSoC5/Counter.c **** {
+ 124              		.loc 1 262 0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+ 263:.\Generated_Source\PSoC5/Counter.c ****     return Counter_STATUS;
+ 129              		.loc 1 263 0
+ 130 0000 014B     		ldr	r3, .L11
+ 131 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 264:.\Generated_Source\PSoC5/Counter.c **** }
+ 132              		.loc 1 264 0
+ 133 0004 7047     		bx	lr
+ 134              	.L12:
+ 135 0006 00BF     		.align	2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 8
+
+
+ 136              	.L11:
+ 137 0008 034F0040 		.word	1073762051
+ 138              		.cfi_endproc
+ 139              	.LFE5:
+ 140              		.size	Counter_ReadStatusRegister, .-Counter_ReadStatusRegister
+ 141              		.section	.text.Counter_ReadControlRegister,"ax",%progbits
+ 142              		.align	2
+ 143              		.global	Counter_ReadControlRegister
+ 144              		.thumb
+ 145              		.thumb_func
+ 146              		.type	Counter_ReadControlRegister, %function
+ 147              	Counter_ReadControlRegister:
+ 148              	.LFB6:
+ 265:.\Generated_Source\PSoC5/Counter.c **** 
+ 266:.\Generated_Source\PSoC5/Counter.c **** 
+ 267:.\Generated_Source\PSoC5/Counter.c **** #if(!Counter_ControlRegRemoved)
+ 268:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 269:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_ReadControlRegister
+ 270:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 271:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 272:.\Generated_Source\PSoC5/Counter.c **** *   Reads the control register and returns it's state. This function should use
+ 273:.\Generated_Source\PSoC5/Counter.c **** *       defined types for the bit-field information as the bits in this
+ 274:.\Generated_Source\PSoC5/Counter.c **** *       register may be permuteable.
+ 275:.\Generated_Source\PSoC5/Counter.c **** *
+ 276:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 277:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 278:.\Generated_Source\PSoC5/Counter.c **** *
+ 279:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 280:.\Generated_Source\PSoC5/Counter.c **** *  (uint8) The contents of the control register
+ 281:.\Generated_Source\PSoC5/Counter.c **** *
+ 282:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 283:.\Generated_Source\PSoC5/Counter.c **** uint8   Counter_ReadControlRegister(void) 
+ 284:.\Generated_Source\PSoC5/Counter.c **** {
+ 149              		.loc 1 284 0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+ 285:.\Generated_Source\PSoC5/Counter.c ****     return Counter_CONTROL;
+ 154              		.loc 1 285 0
+ 155 0000 014B     		ldr	r3, .L14
+ 156 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 286:.\Generated_Source\PSoC5/Counter.c **** }
+ 157              		.loc 1 286 0
+ 158 0004 7047     		bx	lr
+ 159              	.L15:
+ 160 0006 00BF     		.align	2
+ 161              	.L14:
+ 162 0008 004F0040 		.word	1073762048
+ 163              		.cfi_endproc
+ 164              	.LFE6:
+ 165              		.size	Counter_ReadControlRegister, .-Counter_ReadControlRegister
+ 166              		.section	.text.Counter_WriteControlRegister,"ax",%progbits
+ 167              		.align	2
+ 168              		.global	Counter_WriteControlRegister
+ 169              		.thumb
+ 170              		.thumb_func
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 9
+
+
+ 171              		.type	Counter_WriteControlRegister, %function
+ 172              	Counter_WriteControlRegister:
+ 173              	.LFB7:
+ 287:.\Generated_Source\PSoC5/Counter.c **** 
+ 288:.\Generated_Source\PSoC5/Counter.c **** 
+ 289:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 290:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_WriteControlRegister
+ 291:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 292:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 293:.\Generated_Source\PSoC5/Counter.c **** *   Sets the bit-field of the control register.  This function should use
+ 294:.\Generated_Source\PSoC5/Counter.c **** *       defined types for the bit-field information as the bits in this
+ 295:.\Generated_Source\PSoC5/Counter.c **** *       register may be permuteable.
+ 296:.\Generated_Source\PSoC5/Counter.c **** *
+ 297:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 298:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 299:.\Generated_Source\PSoC5/Counter.c **** *
+ 300:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 301:.\Generated_Source\PSoC5/Counter.c **** *  (uint8) The contents of the control register
+ 302:.\Generated_Source\PSoC5/Counter.c **** *
+ 303:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 304:.\Generated_Source\PSoC5/Counter.c **** void    Counter_WriteControlRegister(uint8 control) 
+ 305:.\Generated_Source\PSoC5/Counter.c **** {
+ 174              		.loc 1 305 0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178              		@ link register save eliminated.
+ 179              	.LVL1:
+ 306:.\Generated_Source\PSoC5/Counter.c ****     Counter_CONTROL = control;
+ 180              		.loc 1 306 0
+ 181 0000 014B     		ldr	r3, .L17
+ 182 0002 1870     		strb	r0, [r3]
+ 183 0004 7047     		bx	lr
+ 184              	.L18:
+ 185 0006 00BF     		.align	2
+ 186              	.L17:
+ 187 0008 004F0040 		.word	1073762048
+ 188              		.cfi_endproc
+ 189              	.LFE7:
+ 190              		.size	Counter_WriteControlRegister, .-Counter_WriteControlRegister
+ 191              		.section	.text.Counter_WriteCounter,"ax",%progbits
+ 192              		.align	2
+ 193              		.global	Counter_WriteCounter
+ 194              		.thumb
+ 195              		.thumb_func
+ 196              		.type	Counter_WriteCounter, %function
+ 197              	Counter_WriteCounter:
+ 198              	.LFB8:
+ 307:.\Generated_Source\PSoC5/Counter.c **** }
+ 308:.\Generated_Source\PSoC5/Counter.c **** 
+ 309:.\Generated_Source\PSoC5/Counter.c **** #endif  /* (!Counter_ControlRegRemoved) */
+ 310:.\Generated_Source\PSoC5/Counter.c **** 
+ 311:.\Generated_Source\PSoC5/Counter.c **** 
+ 312:.\Generated_Source\PSoC5/Counter.c **** #if (!(Counter_UsingFixedFunction && (CY_PSOC5A)))
+ 313:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 314:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_WriteCounter
+ 315:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 10
+
+
+ 316:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 317:.\Generated_Source\PSoC5/Counter.c **** *   This funtion is used to set the counter to a specific value
+ 318:.\Generated_Source\PSoC5/Counter.c **** *
+ 319:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 320:.\Generated_Source\PSoC5/Counter.c **** *  counter:  New counter value. 
+ 321:.\Generated_Source\PSoC5/Counter.c **** *
+ 322:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 323:.\Generated_Source\PSoC5/Counter.c **** *  void 
+ 324:.\Generated_Source\PSoC5/Counter.c **** *
+ 325:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 326:.\Generated_Source\PSoC5/Counter.c **** void Counter_WriteCounter(uint8 counter) \
+ 327:.\Generated_Source\PSoC5/Counter.c ****                                    
+ 328:.\Generated_Source\PSoC5/Counter.c **** {
+ 199              		.loc 1 328 0
+ 200              		.cfi_startproc
+ 201              		@ args = 0, pretend = 0, frame = 0
+ 202              		@ frame_needed = 0, uses_anonymous_args = 0
+ 203              	.LVL2:
+ 204 0000 10B5     		push	{r4, lr}
+ 205              		.cfi_def_cfa_offset 8
+ 206              		.cfi_offset 4, -8
+ 207              		.cfi_offset 14, -4
+ 208 0002 0446     		mov	r4, r0
+ 329:.\Generated_Source\PSoC5/Counter.c ****     #if(Counter_UsingFixedFunction)
+ 330:.\Generated_Source\PSoC5/Counter.c ****         /* assert if block is already enabled */
+ 331:.\Generated_Source\PSoC5/Counter.c ****         CYASSERT (0u == (Counter_GLOBAL_ENABLE & Counter_BLOCK_EN_MASK));
+ 209              		.loc 1 331 0
+ 210 0004 0A4B     		ldr	r3, .L22
+ 211 0006 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 212 0008 13F0010F 		tst	r3, #1
+ 213 000c 02D0     		beq	.L20
+ 214              		.loc 1 331 0 is_stmt 0 discriminator 1
+ 215 000e 0020     		movs	r0, #0
+ 216              	.LVL3:
+ 217 0010 FFF7FEFF 		bl	CyHalt
+ 218              	.LVL4:
+ 219              	.L20:
+ 332:.\Generated_Source\PSoC5/Counter.c ****         /* If block is disabled, enable it and then write the counter */
+ 333:.\Generated_Source\PSoC5/Counter.c ****         Counter_GLOBAL_ENABLE |= Counter_BLOCK_EN_MASK;
+ 220              		.loc 1 333 0 is_stmt 1
+ 221 0014 064B     		ldr	r3, .L22
+ 222 0016 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 223 0018 42F00102 		orr	r2, r2, #1
+ 224 001c 1A70     		strb	r2, [r3]
+ 334:.\Generated_Source\PSoC5/Counter.c ****         CY_SET_REG16(Counter_COUNTER_LSB_PTR, (uint16)counter);
+ 225              		.loc 1 334 0
+ 226 001e A4B2     		uxth	r4, r4
+ 227 0020 044A     		ldr	r2, .L22+4
+ 228 0022 1480     		strh	r4, [r2]	@ movhi
+ 335:.\Generated_Source\PSoC5/Counter.c ****         Counter_GLOBAL_ENABLE &= ((uint8)(~Counter_BLOCK_EN_MASK));
+ 229              		.loc 1 335 0
+ 230 0024 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 231 0026 02F0FE02 		and	r2, r2, #254
+ 232 002a 1A70     		strb	r2, [r3]
+ 233 002c 10BD     		pop	{r4, pc}
+ 234              	.L23:
+ 235 002e 00BF     		.align	2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 11
+
+
+ 236              	.L22:
+ 237 0030 A3430040 		.word	1073759139
+ 238 0034 064F0040 		.word	1073762054
+ 239              		.cfi_endproc
+ 240              	.LFE8:
+ 241              		.size	Counter_WriteCounter, .-Counter_WriteCounter
+ 242              		.section	.text.Counter_ReadCounter,"ax",%progbits
+ 243              		.align	2
+ 244              		.global	Counter_ReadCounter
+ 245              		.thumb
+ 246              		.thumb_func
+ 247              		.type	Counter_ReadCounter, %function
+ 248              	Counter_ReadCounter:
+ 249              	.LFB9:
+ 336:.\Generated_Source\PSoC5/Counter.c ****     #else
+ 337:.\Generated_Source\PSoC5/Counter.c ****         CY_SET_REG8(Counter_COUNTER_LSB_PTR, counter);
+ 338:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (Counter_UsingFixedFunction) */
+ 339:.\Generated_Source\PSoC5/Counter.c **** }
+ 340:.\Generated_Source\PSoC5/Counter.c **** #endif /* (!(Counter_UsingFixedFunction && (CY_PSOC5A))) */
+ 341:.\Generated_Source\PSoC5/Counter.c **** 
+ 342:.\Generated_Source\PSoC5/Counter.c **** 
+ 343:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 344:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_ReadCounter
+ 345:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 346:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 347:.\Generated_Source\PSoC5/Counter.c **** * Returns the current value of the counter.  It doesn't matter
+ 348:.\Generated_Source\PSoC5/Counter.c **** * if the counter is enabled or running.
+ 349:.\Generated_Source\PSoC5/Counter.c **** *
+ 350:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 351:.\Generated_Source\PSoC5/Counter.c **** *  void:  
+ 352:.\Generated_Source\PSoC5/Counter.c **** *
+ 353:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 354:.\Generated_Source\PSoC5/Counter.c **** *  (uint8) The present value of the counter.
+ 355:.\Generated_Source\PSoC5/Counter.c **** *
+ 356:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 357:.\Generated_Source\PSoC5/Counter.c **** uint8 Counter_ReadCounter(void) 
+ 358:.\Generated_Source\PSoC5/Counter.c **** {
+ 250              		.loc 1 358 0
+ 251              		.cfi_startproc
+ 252              		@ args = 0, pretend = 0, frame = 0
+ 253              		@ frame_needed = 0, uses_anonymous_args = 0
+ 254              		@ link register save eliminated.
+ 359:.\Generated_Source\PSoC5/Counter.c ****     /* Force capture by reading Accumulator */
+ 360:.\Generated_Source\PSoC5/Counter.c ****     /* Must first do a software capture to be able to read the counter */
+ 361:.\Generated_Source\PSoC5/Counter.c ****     /* It is up to the user code to make sure there isn't already captured data in the FIFO */
+ 362:.\Generated_Source\PSoC5/Counter.c ****     #if(Counter_UsingFixedFunction)
+ 363:.\Generated_Source\PSoC5/Counter.c **** 		(void)CY_GET_REG16(Counter_COUNTER_LSB_PTR);
+ 255              		.loc 1 363 0
+ 256 0000 024B     		ldr	r3, .L25
+ 257 0002 1B88     		ldrh	r3, [r3]
+ 364:.\Generated_Source\PSoC5/Counter.c **** 	#else
+ 365:.\Generated_Source\PSoC5/Counter.c **** 		(void)CY_GET_REG8(Counter_COUNTER_LSB_PTR_8BIT);
+ 366:.\Generated_Source\PSoC5/Counter.c **** 	#endif/* (Counter_UsingFixedFunction) */
+ 367:.\Generated_Source\PSoC5/Counter.c ****     
+ 368:.\Generated_Source\PSoC5/Counter.c ****     /* Read the data from the FIFO (or capture register for Fixed Function)*/
+ 369:.\Generated_Source\PSoC5/Counter.c ****     #if(Counter_UsingFixedFunction)
+ 370:.\Generated_Source\PSoC5/Counter.c ****         return ((uint8)CY_GET_REG16(Counter_STATICCOUNT_LSB_PTR));
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 12
+
+
+ 258              		.loc 1 370 0
+ 259 0004 024B     		ldr	r3, .L25+4
+ 260 0006 1888     		ldrh	r0, [r3]
+ 371:.\Generated_Source\PSoC5/Counter.c ****     #else
+ 372:.\Generated_Source\PSoC5/Counter.c ****         return (CY_GET_REG8(Counter_STATICCOUNT_LSB_PTR));
+ 373:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (Counter_UsingFixedFunction) */
+ 374:.\Generated_Source\PSoC5/Counter.c **** }
+ 261              		.loc 1 374 0
+ 262 0008 C0B2     		uxtb	r0, r0
+ 263 000a 7047     		bx	lr
+ 264              	.L26:
+ 265              		.align	2
+ 266              	.L25:
+ 267 000c 064F0040 		.word	1073762054
+ 268 0010 084F0040 		.word	1073762056
+ 269              		.cfi_endproc
+ 270              	.LFE9:
+ 271              		.size	Counter_ReadCounter, .-Counter_ReadCounter
+ 272              		.section	.text.Counter_ReadCapture,"ax",%progbits
+ 273              		.align	2
+ 274              		.global	Counter_ReadCapture
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.type	Counter_ReadCapture, %function
+ 278              	Counter_ReadCapture:
+ 279              	.LFB10:
+ 375:.\Generated_Source\PSoC5/Counter.c **** 
+ 376:.\Generated_Source\PSoC5/Counter.c **** 
+ 377:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 378:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_ReadCapture
+ 379:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 380:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 381:.\Generated_Source\PSoC5/Counter.c **** *   This function returns the last value captured.
+ 382:.\Generated_Source\PSoC5/Counter.c **** *
+ 383:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 384:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 385:.\Generated_Source\PSoC5/Counter.c **** *
+ 386:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 387:.\Generated_Source\PSoC5/Counter.c **** *  (uint8) Present Capture value.
+ 388:.\Generated_Source\PSoC5/Counter.c **** *
+ 389:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 390:.\Generated_Source\PSoC5/Counter.c **** uint8 Counter_ReadCapture(void) 
+ 391:.\Generated_Source\PSoC5/Counter.c **** {
+ 280              		.loc 1 391 0
+ 281              		.cfi_startproc
+ 282              		@ args = 0, pretend = 0, frame = 0
+ 283              		@ frame_needed = 0, uses_anonymous_args = 0
+ 284              		@ link register save eliminated.
+ 392:.\Generated_Source\PSoC5/Counter.c ****     #if(Counter_UsingFixedFunction)
+ 393:.\Generated_Source\PSoC5/Counter.c ****         return ((uint8)CY_GET_REG16(Counter_STATICCOUNT_LSB_PTR));
+ 285              		.loc 1 393 0
+ 286 0000 014B     		ldr	r3, .L28
+ 287 0002 1888     		ldrh	r0, [r3]
+ 394:.\Generated_Source\PSoC5/Counter.c ****     #else
+ 395:.\Generated_Source\PSoC5/Counter.c ****         return (CY_GET_REG8(Counter_STATICCOUNT_LSB_PTR));
+ 396:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (Counter_UsingFixedFunction) */
+ 397:.\Generated_Source\PSoC5/Counter.c **** }
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 13
+
+
+ 288              		.loc 1 397 0
+ 289 0004 C0B2     		uxtb	r0, r0
+ 290 0006 7047     		bx	lr
+ 291              	.L29:
+ 292              		.align	2
+ 293              	.L28:
+ 294 0008 084F0040 		.word	1073762056
+ 295              		.cfi_endproc
+ 296              	.LFE10:
+ 297              		.size	Counter_ReadCapture, .-Counter_ReadCapture
+ 298              		.section	.text.Counter_WritePeriod,"ax",%progbits
+ 299              		.align	2
+ 300              		.global	Counter_WritePeriod
+ 301              		.thumb
+ 302              		.thumb_func
+ 303              		.type	Counter_WritePeriod, %function
+ 304              	Counter_WritePeriod:
+ 305              	.LFB11:
+ 398:.\Generated_Source\PSoC5/Counter.c **** 
+ 399:.\Generated_Source\PSoC5/Counter.c **** 
+ 400:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 401:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_WritePeriod
+ 402:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 403:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 404:.\Generated_Source\PSoC5/Counter.c **** * Changes the period of the counter.  The new period 
+ 405:.\Generated_Source\PSoC5/Counter.c **** * will be loaded the next time terminal count is detected.
+ 406:.\Generated_Source\PSoC5/Counter.c **** *
+ 407:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 408:.\Generated_Source\PSoC5/Counter.c **** *  period: (uint8) A value of 0 will result in
+ 409:.\Generated_Source\PSoC5/Counter.c **** *         the counter remaining at zero.  
+ 410:.\Generated_Source\PSoC5/Counter.c **** *
+ 411:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 412:.\Generated_Source\PSoC5/Counter.c **** *  void
+ 413:.\Generated_Source\PSoC5/Counter.c **** *
+ 414:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 415:.\Generated_Source\PSoC5/Counter.c **** void Counter_WritePeriod(uint8 period) 
+ 416:.\Generated_Source\PSoC5/Counter.c **** {
+ 306              		.loc 1 416 0
+ 307              		.cfi_startproc
+ 308              		@ args = 0, pretend = 0, frame = 0
+ 309              		@ frame_needed = 0, uses_anonymous_args = 0
+ 310              		@ link register save eliminated.
+ 311              	.LVL5:
+ 417:.\Generated_Source\PSoC5/Counter.c ****     #if(Counter_UsingFixedFunction)
+ 418:.\Generated_Source\PSoC5/Counter.c ****         CY_SET_REG16(Counter_PERIOD_LSB_PTR,(uint16)period);
+ 312              		.loc 1 418 0
+ 313 0000 014B     		ldr	r3, .L31
+ 314 0002 1880     		strh	r0, [r3]	@ movhi
+ 315 0004 7047     		bx	lr
+ 316              	.L32:
+ 317 0006 00BF     		.align	2
+ 318              	.L31:
+ 319 0008 044F0040 		.word	1073762052
+ 320              		.cfi_endproc
+ 321              	.LFE11:
+ 322              		.size	Counter_WritePeriod, .-Counter_WritePeriod
+ 323              		.section	.text.Counter_Init,"ax",%progbits
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 14
+
+
+ 324              		.align	2
+ 325              		.global	Counter_Init
+ 326              		.thumb
+ 327              		.thumb_func
+ 328              		.type	Counter_Init, %function
+ 329              	Counter_Init:
+ 330              	.LFB0:
+  38:.\Generated_Source\PSoC5/Counter.c ****         #if (!Counter_UsingFixedFunction && !Counter_ControlRegRemoved)
+ 331              		.loc 1 38 0
+ 332              		.cfi_startproc
+ 333              		@ args = 0, pretend = 0, frame = 0
+ 334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 335 0000 08B5     		push	{r3, lr}
+ 336              		.cfi_def_cfa_offset 8
+ 337              		.cfi_offset 3, -8
+ 338              		.cfi_offset 14, -4
+  50:.\Generated_Source\PSoC5/Counter.c ****             
+ 339              		.loc 1 50 0
+ 340 0002 154A     		ldr	r2, .L35
+ 341 0004 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 342 0006 03F00103 		and	r3, r3, #1
+ 343 000a 1370     		strb	r3, [r2]
+  57:.\Generated_Source\PSoC5/Counter.c ****             #endif /* (CY_PSOC3 || CY_PSOC5LP) */
+ 344              		.loc 1 57 0
+ 345 000c 0232     		adds	r2, r2, #2
+ 346 000e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 347 0010 03F0FC03 		and	r3, r3, #252
+ 348 0014 1370     		strb	r3, [r2]
+  66:.\Generated_Source\PSoC5/Counter.c ****             
+ 349              		.loc 1 66 0
+ 350 0016 013A     		subs	r2, r2, #1
+ 351 0018 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 352 001a 43F00103 		orr	r3, r3, #1
+ 353 001e 1370     		strb	r3, [r2]
+  69:.\Generated_Source\PSoC5/Counter.c ****             Counter_RT1 |= Counter_SYNC;     
+ 354              		.loc 1 69 0
+ 355 0020 0E4B     		ldr	r3, .L35+4
+ 356 0022 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 357 0024 02F0CF02 		and	r2, r2, #207
+ 358 0028 1A70     		strb	r2, [r3]
+  70:.\Generated_Source\PSoC5/Counter.c ****                     
+ 359              		.loc 1 70 0
+ 360 002a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 361 002c 42F03002 		orr	r2, r2, #48
+ 362 0030 1A70     		strb	r2, [r3]
+  73:.\Generated_Source\PSoC5/Counter.c ****             Counter_RT1 |= Counter_SYNCDSI_EN;
+ 363              		.loc 1 73 0
+ 364 0032 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 365 0034 02F0F002 		and	r2, r2, #240
+ 366 0038 1A70     		strb	r2, [r3]
+  74:.\Generated_Source\PSoC5/Counter.c **** 
+ 367              		.loc 1 74 0
+ 368 003a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 369 003c 42F00F02 		orr	r2, r2, #15
+ 370 0040 1A70     		strb	r2, [r3]
+ 100:.\Generated_Source\PSoC5/Counter.c ****         #if (!(Counter_UsingFixedFunction && (CY_PSOC5A)))
+ 371              		.loc 1 100 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 15
+
+
+ 372 0042 6420     		movs	r0, #100
+ 373 0044 FFF7FEFF 		bl	Counter_WritePeriod
+ 374              	.LVL6:
+ 102:.\Generated_Source\PSoC5/Counter.c ****         #endif /* (!(Counter_UsingFixedFunction && (CY_PSOC5A))) */
+ 375              		.loc 1 102 0
+ 376 0048 0020     		movs	r0, #0
+ 377 004a FFF7FEFF 		bl	Counter_WriteCounter
+ 378              	.LVL7:
+ 104:.\Generated_Source\PSoC5/Counter.c ****         
+ 379              		.loc 1 104 0
+ 380 004e 0020     		movs	r0, #0
+ 381 0050 FFF7FEFF 		bl	Counter_SetInterruptMode
+ 382              	.LVL8:
+ 383 0054 08BD     		pop	{r3, pc}
+ 384              	.L36:
+ 385 0056 00BF     		.align	2
+ 386              	.L35:
+ 387 0058 004F0040 		.word	1073762048
+ 388 005c 0B4F0040 		.word	1073762059
+ 389              		.cfi_endproc
+ 390              	.LFE0:
+ 391              		.size	Counter_Init, .-Counter_Init
+ 392              		.section	.text.Counter_Start,"ax",%progbits
+ 393              		.align	2
+ 394              		.global	Counter_Start
+ 395              		.thumb
+ 396              		.thumb_func
+ 397              		.type	Counter_Start, %function
+ 398              	Counter_Start:
+ 399              	.LFB2:
+ 179:.\Generated_Source\PSoC5/Counter.c ****     if(Counter_initVar == 0u)
+ 400              		.loc 1 179 0
+ 401              		.cfi_startproc
+ 402              		@ args = 0, pretend = 0, frame = 0
+ 403              		@ frame_needed = 0, uses_anonymous_args = 0
+ 404 0000 08B5     		push	{r3, lr}
+ 405              		.cfi_def_cfa_offset 8
+ 406              		.cfi_offset 3, -8
+ 407              		.cfi_offset 14, -4
+ 180:.\Generated_Source\PSoC5/Counter.c ****     {
+ 408              		.loc 1 180 0
+ 409 0002 054B     		ldr	r3, .L40
+ 410 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 411 0006 23B9     		cbnz	r3, .L38
+ 182:.\Generated_Source\PSoC5/Counter.c ****         
+ 412              		.loc 1 182 0
+ 413 0008 FFF7FEFF 		bl	Counter_Init
+ 414              	.LVL9:
+ 184:.\Generated_Source\PSoC5/Counter.c ****     }
+ 415              		.loc 1 184 0
+ 416 000c 0122     		movs	r2, #1
+ 417 000e 024B     		ldr	r3, .L40
+ 418 0010 1A70     		strb	r2, [r3]
+ 419              	.L38:
+ 188:.\Generated_Source\PSoC5/Counter.c **** }
+ 420              		.loc 1 188 0
+ 421 0012 FFF7FEFF 		bl	Counter_Enable
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 16
+
+
+ 422              	.LVL10:
+ 423 0016 08BD     		pop	{r3, pc}
+ 424              	.L41:
+ 425              		.align	2
+ 426              	.L40:
+ 427 0018 00000000 		.word	.LANCHOR0
+ 428              		.cfi_endproc
+ 429              	.LFE2:
+ 430              		.size	Counter_Start, .-Counter_Start
+ 431              		.section	.text.Counter_ReadPeriod,"ax",%progbits
+ 432              		.align	2
+ 433              		.global	Counter_ReadPeriod
+ 434              		.thumb
+ 435              		.thumb_func
+ 436              		.type	Counter_ReadPeriod, %function
+ 437              	Counter_ReadPeriod:
+ 438              	.LFB12:
+ 419:.\Generated_Source\PSoC5/Counter.c ****     #else
+ 420:.\Generated_Source\PSoC5/Counter.c ****         CY_SET_REG8(Counter_PERIOD_LSB_PTR, period);
+ 421:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (Counter_UsingFixedFunction) */
+ 422:.\Generated_Source\PSoC5/Counter.c **** }
+ 423:.\Generated_Source\PSoC5/Counter.c **** 
+ 424:.\Generated_Source\PSoC5/Counter.c **** 
+ 425:.\Generated_Source\PSoC5/Counter.c **** /*******************************************************************************
+ 426:.\Generated_Source\PSoC5/Counter.c **** * Function Name: Counter_ReadPeriod
+ 427:.\Generated_Source\PSoC5/Counter.c **** ********************************************************************************
+ 428:.\Generated_Source\PSoC5/Counter.c **** * Summary:
+ 429:.\Generated_Source\PSoC5/Counter.c **** * Reads the current period value without affecting counter operation.
+ 430:.\Generated_Source\PSoC5/Counter.c **** *
+ 431:.\Generated_Source\PSoC5/Counter.c **** * Parameters:  
+ 432:.\Generated_Source\PSoC5/Counter.c **** *  void:  
+ 433:.\Generated_Source\PSoC5/Counter.c **** *
+ 434:.\Generated_Source\PSoC5/Counter.c **** * Return: 
+ 435:.\Generated_Source\PSoC5/Counter.c **** *  (uint8) Present period value.
+ 436:.\Generated_Source\PSoC5/Counter.c **** *
+ 437:.\Generated_Source\PSoC5/Counter.c **** *******************************************************************************/
+ 438:.\Generated_Source\PSoC5/Counter.c **** uint8 Counter_ReadPeriod(void) 
+ 439:.\Generated_Source\PSoC5/Counter.c **** {
+ 439              		.loc 1 439 0
+ 440              		.cfi_startproc
+ 441              		@ args = 0, pretend = 0, frame = 0
+ 442              		@ frame_needed = 0, uses_anonymous_args = 0
+ 443              		@ link register save eliminated.
+ 440:.\Generated_Source\PSoC5/Counter.c ****     #if(Counter_UsingFixedFunction)
+ 441:.\Generated_Source\PSoC5/Counter.c ****         return ((uint8)CY_GET_REG16(Counter_PERIOD_LSB_PTR));
+ 444              		.loc 1 441 0
+ 445 0000 014B     		ldr	r3, .L43
+ 446 0002 1888     		ldrh	r0, [r3]
+ 442:.\Generated_Source\PSoC5/Counter.c ****     #else
+ 443:.\Generated_Source\PSoC5/Counter.c ****         return (CY_GET_REG8(Counter_PERIOD_LSB_PTR));
+ 444:.\Generated_Source\PSoC5/Counter.c ****     #endif /* (Counter_UsingFixedFunction) */
+ 445:.\Generated_Source\PSoC5/Counter.c **** }
+ 447              		.loc 1 445 0
+ 448 0004 C0B2     		uxtb	r0, r0
+ 449 0006 7047     		bx	lr
+ 450              	.L44:
+ 451              		.align	2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 17
+
+
+ 452              	.L43:
+ 453 0008 044F0040 		.word	1073762052
+ 454              		.cfi_endproc
+ 455              	.LFE12:
+ 456              		.size	Counter_ReadPeriod, .-Counter_ReadPeriod
+ 457              		.global	Counter_initVar
+ 458              		.bss
+ 459              		.set	.LANCHOR0,. + 0
+ 460              		.type	Counter_initVar, %object
+ 461              		.size	Counter_initVar, 1
+ 462              	Counter_initVar:
+ 463 0000 00       		.space	1
+ 464              		.text
+ 465              	.Letext0:
+ 466              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 467              		.file 3 ".\\Generated_Source\\PSoC5\\CyLib.h"
+ 468              		.section	.debug_info,"",%progbits
+ 469              	.Ldebug_info0:
+ 470 0000 83020000 		.4byte	0x283
+ 471 0004 0400     		.2byte	0x4
+ 472 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 473 000a 04       		.byte	0x4
+ 474 000b 01       		.uleb128 0x1
+ 475 000c 4E010000 		.4byte	.LASF34
+ 476 0010 01       		.byte	0x1
+ 477 0011 14020000 		.4byte	.LASF35
+ 478 0015 5A020000 		.4byte	.LASF36
+ 479 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 480 001d 00000000 		.4byte	0
+ 481 0021 00000000 		.4byte	.Ldebug_line0
+ 482 0025 02       		.uleb128 0x2
+ 483 0026 01       		.byte	0x1
+ 484 0027 06       		.byte	0x6
+ 485 0028 CB020000 		.4byte	.LASF0
+ 486 002c 02       		.uleb128 0x2
+ 487 002d 01       		.byte	0x1
+ 488 002e 08       		.byte	0x8
+ 489 002f C0000000 		.4byte	.LASF1
+ 490 0033 02       		.uleb128 0x2
+ 491 0034 02       		.byte	0x2
+ 492 0035 05       		.byte	0x5
+ 493 0036 9D020000 		.4byte	.LASF2
+ 494 003a 02       		.uleb128 0x2
+ 495 003b 02       		.byte	0x2
+ 496 003c 07       		.byte	0x7
+ 497 003d 66000000 		.4byte	.LASF3
+ 498 0041 02       		.uleb128 0x2
+ 499 0042 04       		.byte	0x4
+ 500 0043 05       		.byte	0x5
+ 501 0044 C2020000 		.4byte	.LASF4
+ 502 0048 02       		.uleb128 0x2
+ 503 0049 04       		.byte	0x4
+ 504 004a 07       		.byte	0x7
+ 505 004b D3000000 		.4byte	.LASF5
+ 506 004f 02       		.uleb128 0x2
+ 507 0050 08       		.byte	0x8
+ 508 0051 05       		.byte	0x5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 18
+
+
+ 509 0052 47020000 		.4byte	.LASF6
+ 510 0056 02       		.uleb128 0x2
+ 511 0057 08       		.byte	0x8
+ 512 0058 07       		.byte	0x7
+ 513 0059 FD010000 		.4byte	.LASF7
+ 514 005d 03       		.uleb128 0x3
+ 515 005e 04       		.byte	0x4
+ 516 005f 05       		.byte	0x5
+ 517 0060 696E7400 		.ascii	"int\000"
+ 518 0064 02       		.uleb128 0x2
+ 519 0065 04       		.byte	0x4
+ 520 0066 07       		.byte	0x7
+ 521 0067 DC010000 		.4byte	.LASF8
+ 522 006b 04       		.uleb128 0x4
+ 523 006c E5000000 		.4byte	.LASF9
+ 524 0070 02       		.byte	0x2
+ 525 0071 9201     		.2byte	0x192
+ 526 0073 2C000000 		.4byte	0x2c
+ 527 0077 04       		.uleb128 0x4
+ 528 0078 47010000 		.4byte	.LASF10
+ 529 007c 02       		.byte	0x2
+ 530 007d 9301     		.2byte	0x193
+ 531 007f 3A000000 		.4byte	0x3a
+ 532 0083 02       		.uleb128 0x2
+ 533 0084 04       		.byte	0x4
+ 534 0085 04       		.byte	0x4
+ 535 0086 38000000 		.4byte	.LASF11
+ 536 008a 02       		.uleb128 0x2
+ 537 008b 08       		.byte	0x8
+ 538 008c 04       		.byte	0x4
+ 539 008d 16010000 		.4byte	.LASF12
+ 540 0091 02       		.uleb128 0x2
+ 541 0092 01       		.byte	0x1
+ 542 0093 08       		.byte	0x8
+ 543 0094 55020000 		.4byte	.LASF13
+ 544 0098 04       		.uleb128 0x4
+ 545 0099 CE000000 		.4byte	.LASF14
+ 546 009d 02       		.byte	0x2
+ 547 009e 3C02     		.2byte	0x23c
+ 548 00a0 A4000000 		.4byte	0xa4
+ 549 00a4 05       		.uleb128 0x5
+ 550 00a5 6B000000 		.4byte	0x6b
+ 551 00a9 04       		.uleb128 0x4
+ 552 00aa 00000000 		.4byte	.LASF15
+ 553 00ae 02       		.byte	0x2
+ 554 00af 3D02     		.2byte	0x23d
+ 555 00b1 B5000000 		.4byte	0xb5
+ 556 00b5 05       		.uleb128 0x5
+ 557 00b6 77000000 		.4byte	0x77
+ 558 00ba 02       		.uleb128 0x2
+ 559 00bb 04       		.byte	0x4
+ 560 00bc 07       		.byte	0x7
+ 561 00bd 3E020000 		.4byte	.LASF16
+ 562 00c1 06       		.uleb128 0x6
+ 563 00c2 06000000 		.4byte	.LASF17
+ 564 00c6 01       		.byte	0x1
+ 565 00c7 8F       		.byte	0x8f
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 19
+
+
+ 566 00c8 00000000 		.4byte	.LFB1
+ 567 00cc 28000000 		.4byte	.LFE1-.LFB1
+ 568 00d0 01       		.uleb128 0x1
+ 569 00d1 9C       		.byte	0x9c
+ 570 00d2 06       		.uleb128 0x6
+ 571 00d3 3A010000 		.4byte	.LASF18
+ 572 00d7 01       		.byte	0x1
+ 573 00d8 D0       		.byte	0xd0
+ 574 00d9 00000000 		.4byte	.LFB3
+ 575 00dd 28000000 		.4byte	.LFE3-.LFB3
+ 576 00e1 01       		.uleb128 0x1
+ 577 00e2 9C       		.byte	0x9c
+ 578 00e3 07       		.uleb128 0x7
+ 579 00e4 D7020000 		.4byte	.LASF21
+ 580 00e8 01       		.byte	0x1
+ 581 00e9 ED       		.byte	0xed
+ 582 00ea 00000000 		.4byte	.LFB4
+ 583 00ee 0C000000 		.4byte	.LFE4-.LFB4
+ 584 00f2 01       		.uleb128 0x1
+ 585 00f3 9C       		.byte	0x9c
+ 586 00f4 06010000 		.4byte	0x106
+ 587 00f8 08       		.uleb128 0x8
+ 588 00f9 F3000000 		.4byte	.LASF23
+ 589 00fd 01       		.byte	0x1
+ 590 00fe ED       		.byte	0xed
+ 591 00ff 6B000000 		.4byte	0x6b
+ 592 0103 01       		.uleb128 0x1
+ 593 0104 50       		.byte	0x50
+ 594 0105 00       		.byte	0
+ 595 0106 09       		.uleb128 0x9
+ 596 0107 A7020000 		.4byte	.LASF19
+ 597 010b 01       		.byte	0x1
+ 598 010c 0501     		.2byte	0x105
+ 599 010e 6B000000 		.4byte	0x6b
+ 600 0112 00000000 		.4byte	.LFB5
+ 601 0116 0C000000 		.4byte	.LFE5-.LFB5
+ 602 011a 01       		.uleb128 0x1
+ 603 011b 9C       		.byte	0x9c
+ 604 011c 09       		.uleb128 0x9
+ 605 011d 79000000 		.4byte	.LASF20
+ 606 0121 01       		.byte	0x1
+ 607 0122 1B01     		.2byte	0x11b
+ 608 0124 6B000000 		.4byte	0x6b
+ 609 0128 00000000 		.4byte	.LFB6
+ 610 012c 0C000000 		.4byte	.LFE6-.LFB6
+ 611 0130 01       		.uleb128 0x1
+ 612 0131 9C       		.byte	0x9c
+ 613 0132 0A       		.uleb128 0xa
+ 614 0133 1D010000 		.4byte	.LASF22
+ 615 0137 01       		.byte	0x1
+ 616 0138 3001     		.2byte	0x130
+ 617 013a 00000000 		.4byte	.LFB7
+ 618 013e 0C000000 		.4byte	.LFE7-.LFB7
+ 619 0142 01       		.uleb128 0x1
+ 620 0143 9C       		.byte	0x9c
+ 621 0144 57010000 		.4byte	0x157
+ 622 0148 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 20
+
+
+ 623 0149 EB000000 		.4byte	.LASF24
+ 624 014d 01       		.byte	0x1
+ 625 014e 3001     		.2byte	0x130
+ 626 0150 6B000000 		.4byte	0x6b
+ 627 0154 01       		.uleb128 0x1
+ 628 0155 50       		.byte	0x50
+ 629 0156 00       		.byte	0
+ 630 0157 0A       		.uleb128 0xa
+ 631 0158 AB000000 		.4byte	.LASF25
+ 632 015c 01       		.byte	0x1
+ 633 015d 4601     		.2byte	0x146
+ 634 015f 00000000 		.4byte	.LFB8
+ 635 0163 38000000 		.4byte	.LFE8-.LFB8
+ 636 0167 01       		.uleb128 0x1
+ 637 0168 9C       		.byte	0x9c
+ 638 0169 8D010000 		.4byte	0x18d
+ 639 016d 0C       		.uleb128 0xc
+ 640 016e A3000000 		.4byte	.LASF26
+ 641 0172 01       		.byte	0x1
+ 642 0173 4601     		.2byte	0x146
+ 643 0175 6B000000 		.4byte	0x6b
+ 644 0179 00000000 		.4byte	.LLST0
+ 645 017d 0D       		.uleb128 0xd
+ 646 017e 14000000 		.4byte	.LVL4
+ 647 0182 79020000 		.4byte	0x279
+ 648 0186 0E       		.uleb128 0xe
+ 649 0187 01       		.uleb128 0x1
+ 650 0188 50       		.byte	0x50
+ 651 0189 01       		.uleb128 0x1
+ 652 018a 30       		.byte	0x30
+ 653 018b 00       		.byte	0
+ 654 018c 00       		.byte	0
+ 655 018d 09       		.uleb128 0x9
+ 656 018e 02010000 		.4byte	.LASF27
+ 657 0192 01       		.byte	0x1
+ 658 0193 6501     		.2byte	0x165
+ 659 0195 6B000000 		.4byte	0x6b
+ 660 0199 00000000 		.4byte	.LFB9
+ 661 019d 14000000 		.4byte	.LFE9-.LFB9
+ 662 01a1 01       		.uleb128 0x1
+ 663 01a2 9C       		.byte	0x9c
+ 664 01a3 09       		.uleb128 0x9
+ 665 01a4 3E000000 		.4byte	.LASF28
+ 666 01a8 01       		.byte	0x1
+ 667 01a9 8601     		.2byte	0x186
+ 668 01ab 6B000000 		.4byte	0x6b
+ 669 01af 00000000 		.4byte	.LFB10
+ 670 01b3 0C000000 		.4byte	.LFE10-.LFB10
+ 671 01b7 01       		.uleb128 0x1
+ 672 01b8 9C       		.byte	0x9c
+ 673 01b9 0A       		.uleb128 0xa
+ 674 01ba E9010000 		.4byte	.LASF29
+ 675 01be 01       		.byte	0x1
+ 676 01bf 9F01     		.2byte	0x19f
+ 677 01c1 00000000 		.4byte	.LFB11
+ 678 01c5 0C000000 		.4byte	.LFE11-.LFB11
+ 679 01c9 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 21
+
+
+ 680 01ca 9C       		.byte	0x9c
+ 681 01cb DE010000 		.4byte	0x1de
+ 682 01cf 0B       		.uleb128 0xb
+ 683 01d0 52000000 		.4byte	.LASF30
+ 684 01d4 01       		.byte	0x1
+ 685 01d5 9F01     		.2byte	0x19f
+ 686 01d7 6B000000 		.4byte	0x6b
+ 687 01db 01       		.uleb128 0x1
+ 688 01dc 50       		.byte	0x50
+ 689 01dd 00       		.byte	0
+ 690 01de 07       		.uleb128 0x7
+ 691 01df 59000000 		.4byte	.LASF31
+ 692 01e3 01       		.byte	0x1
+ 693 01e4 25       		.byte	0x25
+ 694 01e5 00000000 		.4byte	.LFB0
+ 695 01e9 60000000 		.4byte	.LFE0-.LFB0
+ 696 01ed 01       		.uleb128 0x1
+ 697 01ee 9C       		.byte	0x9c
+ 698 01ef 2A020000 		.4byte	0x22a
+ 699 01f3 0F       		.uleb128 0xf
+ 700 01f4 48000000 		.4byte	.LVL6
+ 701 01f8 B9010000 		.4byte	0x1b9
+ 702 01fc 07020000 		.4byte	0x207
+ 703 0200 0E       		.uleb128 0xe
+ 704 0201 01       		.uleb128 0x1
+ 705 0202 50       		.byte	0x50
+ 706 0203 02       		.uleb128 0x2
+ 707 0204 08       		.byte	0x8
+ 708 0205 64       		.byte	0x64
+ 709 0206 00       		.byte	0
+ 710 0207 0F       		.uleb128 0xf
+ 711 0208 4E000000 		.4byte	.LVL7
+ 712 020c 57010000 		.4byte	0x157
+ 713 0210 1A020000 		.4byte	0x21a
+ 714 0214 0E       		.uleb128 0xe
+ 715 0215 01       		.uleb128 0x1
+ 716 0216 50       		.byte	0x50
+ 717 0217 01       		.uleb128 0x1
+ 718 0218 30       		.byte	0x30
+ 719 0219 00       		.byte	0
+ 720 021a 0D       		.uleb128 0xd
+ 721 021b 54000000 		.4byte	.LVL8
+ 722 021f E3000000 		.4byte	0xe3
+ 723 0223 0E       		.uleb128 0xe
+ 724 0224 01       		.uleb128 0x1
+ 725 0225 50       		.byte	0x50
+ 726 0226 01       		.uleb128 0x1
+ 727 0227 30       		.byte	0x30
+ 728 0228 00       		.byte	0
+ 729 0229 00       		.byte	0
+ 730 022a 07       		.uleb128 0x7
+ 731 022b 95000000 		.4byte	.LASF32
+ 732 022f 01       		.byte	0x1
+ 733 0230 B2       		.byte	0xb2
+ 734 0231 00000000 		.4byte	.LFB2
+ 735 0235 1C000000 		.4byte	.LFE2-.LFB2
+ 736 0239 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 22
+
+
+ 737 023a 9C       		.byte	0x9c
+ 738 023b 52020000 		.4byte	0x252
+ 739 023f 10       		.uleb128 0x10
+ 740 0240 0C000000 		.4byte	.LVL9
+ 741 0244 DE010000 		.4byte	0x1de
+ 742 0248 10       		.uleb128 0x10
+ 743 0249 16000000 		.4byte	.LVL10
+ 744 024d C1000000 		.4byte	0xc1
+ 745 0251 00       		.byte	0
+ 746 0252 09       		.uleb128 0x9
+ 747 0253 15000000 		.4byte	.LASF33
+ 748 0257 01       		.byte	0x1
+ 749 0258 B601     		.2byte	0x1b6
+ 750 025a 6B000000 		.4byte	0x6b
+ 751 025e 00000000 		.4byte	.LFB12
+ 752 0262 0C000000 		.4byte	.LFE12-.LFB12
+ 753 0266 01       		.uleb128 0x1
+ 754 0267 9C       		.byte	0x9c
+ 755 0268 11       		.uleb128 0x11
+ 756 0269 28000000 		.4byte	.LASF37
+ 757 026d 01       		.byte	0x1
+ 758 026e 15       		.byte	0x15
+ 759 026f 6B000000 		.4byte	0x6b
+ 760 0273 05       		.uleb128 0x5
+ 761 0274 03       		.byte	0x3
+ 762 0275 00000000 		.4byte	Counter_initVar
+ 763 0279 12       		.uleb128 0x12
+ 764 027a 37020000 		.4byte	.LASF38
+ 765 027e 03       		.byte	0x3
+ 766 027f 7F       		.byte	0x7f
+ 767 0280 13       		.uleb128 0x13
+ 768 0281 6B000000 		.4byte	0x6b
+ 769 0285 00       		.byte	0
+ 770 0286 00       		.byte	0
+ 771              		.section	.debug_abbrev,"",%progbits
+ 772              	.Ldebug_abbrev0:
+ 773 0000 01       		.uleb128 0x1
+ 774 0001 11       		.uleb128 0x11
+ 775 0002 01       		.byte	0x1
+ 776 0003 25       		.uleb128 0x25
+ 777 0004 0E       		.uleb128 0xe
+ 778 0005 13       		.uleb128 0x13
+ 779 0006 0B       		.uleb128 0xb
+ 780 0007 03       		.uleb128 0x3
+ 781 0008 0E       		.uleb128 0xe
+ 782 0009 1B       		.uleb128 0x1b
+ 783 000a 0E       		.uleb128 0xe
+ 784 000b 55       		.uleb128 0x55
+ 785 000c 17       		.uleb128 0x17
+ 786 000d 11       		.uleb128 0x11
+ 787 000e 01       		.uleb128 0x1
+ 788 000f 10       		.uleb128 0x10
+ 789 0010 17       		.uleb128 0x17
+ 790 0011 00       		.byte	0
+ 791 0012 00       		.byte	0
+ 792 0013 02       		.uleb128 0x2
+ 793 0014 24       		.uleb128 0x24
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 23
+
+
+ 794 0015 00       		.byte	0
+ 795 0016 0B       		.uleb128 0xb
+ 796 0017 0B       		.uleb128 0xb
+ 797 0018 3E       		.uleb128 0x3e
+ 798 0019 0B       		.uleb128 0xb
+ 799 001a 03       		.uleb128 0x3
+ 800 001b 0E       		.uleb128 0xe
+ 801 001c 00       		.byte	0
+ 802 001d 00       		.byte	0
+ 803 001e 03       		.uleb128 0x3
+ 804 001f 24       		.uleb128 0x24
+ 805 0020 00       		.byte	0
+ 806 0021 0B       		.uleb128 0xb
+ 807 0022 0B       		.uleb128 0xb
+ 808 0023 3E       		.uleb128 0x3e
+ 809 0024 0B       		.uleb128 0xb
+ 810 0025 03       		.uleb128 0x3
+ 811 0026 08       		.uleb128 0x8
+ 812 0027 00       		.byte	0
+ 813 0028 00       		.byte	0
+ 814 0029 04       		.uleb128 0x4
+ 815 002a 16       		.uleb128 0x16
+ 816 002b 00       		.byte	0
+ 817 002c 03       		.uleb128 0x3
+ 818 002d 0E       		.uleb128 0xe
+ 819 002e 3A       		.uleb128 0x3a
+ 820 002f 0B       		.uleb128 0xb
+ 821 0030 3B       		.uleb128 0x3b
+ 822 0031 05       		.uleb128 0x5
+ 823 0032 49       		.uleb128 0x49
+ 824 0033 13       		.uleb128 0x13
+ 825 0034 00       		.byte	0
+ 826 0035 00       		.byte	0
+ 827 0036 05       		.uleb128 0x5
+ 828 0037 35       		.uleb128 0x35
+ 829 0038 00       		.byte	0
+ 830 0039 49       		.uleb128 0x49
+ 831 003a 13       		.uleb128 0x13
+ 832 003b 00       		.byte	0
+ 833 003c 00       		.byte	0
+ 834 003d 06       		.uleb128 0x6
+ 835 003e 2E       		.uleb128 0x2e
+ 836 003f 00       		.byte	0
+ 837 0040 3F       		.uleb128 0x3f
+ 838 0041 19       		.uleb128 0x19
+ 839 0042 03       		.uleb128 0x3
+ 840 0043 0E       		.uleb128 0xe
+ 841 0044 3A       		.uleb128 0x3a
+ 842 0045 0B       		.uleb128 0xb
+ 843 0046 3B       		.uleb128 0x3b
+ 844 0047 0B       		.uleb128 0xb
+ 845 0048 27       		.uleb128 0x27
+ 846 0049 19       		.uleb128 0x19
+ 847 004a 11       		.uleb128 0x11
+ 848 004b 01       		.uleb128 0x1
+ 849 004c 12       		.uleb128 0x12
+ 850 004d 06       		.uleb128 0x6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 24
+
+
+ 851 004e 40       		.uleb128 0x40
+ 852 004f 18       		.uleb128 0x18
+ 853 0050 9742     		.uleb128 0x2117
+ 854 0052 19       		.uleb128 0x19
+ 855 0053 00       		.byte	0
+ 856 0054 00       		.byte	0
+ 857 0055 07       		.uleb128 0x7
+ 858 0056 2E       		.uleb128 0x2e
+ 859 0057 01       		.byte	0x1
+ 860 0058 3F       		.uleb128 0x3f
+ 861 0059 19       		.uleb128 0x19
+ 862 005a 03       		.uleb128 0x3
+ 863 005b 0E       		.uleb128 0xe
+ 864 005c 3A       		.uleb128 0x3a
+ 865 005d 0B       		.uleb128 0xb
+ 866 005e 3B       		.uleb128 0x3b
+ 867 005f 0B       		.uleb128 0xb
+ 868 0060 27       		.uleb128 0x27
+ 869 0061 19       		.uleb128 0x19
+ 870 0062 11       		.uleb128 0x11
+ 871 0063 01       		.uleb128 0x1
+ 872 0064 12       		.uleb128 0x12
+ 873 0065 06       		.uleb128 0x6
+ 874 0066 40       		.uleb128 0x40
+ 875 0067 18       		.uleb128 0x18
+ 876 0068 9742     		.uleb128 0x2117
+ 877 006a 19       		.uleb128 0x19
+ 878 006b 01       		.uleb128 0x1
+ 879 006c 13       		.uleb128 0x13
+ 880 006d 00       		.byte	0
+ 881 006e 00       		.byte	0
+ 882 006f 08       		.uleb128 0x8
+ 883 0070 05       		.uleb128 0x5
+ 884 0071 00       		.byte	0
+ 885 0072 03       		.uleb128 0x3
+ 886 0073 0E       		.uleb128 0xe
+ 887 0074 3A       		.uleb128 0x3a
+ 888 0075 0B       		.uleb128 0xb
+ 889 0076 3B       		.uleb128 0x3b
+ 890 0077 0B       		.uleb128 0xb
+ 891 0078 49       		.uleb128 0x49
+ 892 0079 13       		.uleb128 0x13
+ 893 007a 02       		.uleb128 0x2
+ 894 007b 18       		.uleb128 0x18
+ 895 007c 00       		.byte	0
+ 896 007d 00       		.byte	0
+ 897 007e 09       		.uleb128 0x9
+ 898 007f 2E       		.uleb128 0x2e
+ 899 0080 00       		.byte	0
+ 900 0081 3F       		.uleb128 0x3f
+ 901 0082 19       		.uleb128 0x19
+ 902 0083 03       		.uleb128 0x3
+ 903 0084 0E       		.uleb128 0xe
+ 904 0085 3A       		.uleb128 0x3a
+ 905 0086 0B       		.uleb128 0xb
+ 906 0087 3B       		.uleb128 0x3b
+ 907 0088 05       		.uleb128 0x5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 25
+
+
+ 908 0089 27       		.uleb128 0x27
+ 909 008a 19       		.uleb128 0x19
+ 910 008b 49       		.uleb128 0x49
+ 911 008c 13       		.uleb128 0x13
+ 912 008d 11       		.uleb128 0x11
+ 913 008e 01       		.uleb128 0x1
+ 914 008f 12       		.uleb128 0x12
+ 915 0090 06       		.uleb128 0x6
+ 916 0091 40       		.uleb128 0x40
+ 917 0092 18       		.uleb128 0x18
+ 918 0093 9742     		.uleb128 0x2117
+ 919 0095 19       		.uleb128 0x19
+ 920 0096 00       		.byte	0
+ 921 0097 00       		.byte	0
+ 922 0098 0A       		.uleb128 0xa
+ 923 0099 2E       		.uleb128 0x2e
+ 924 009a 01       		.byte	0x1
+ 925 009b 3F       		.uleb128 0x3f
+ 926 009c 19       		.uleb128 0x19
+ 927 009d 03       		.uleb128 0x3
+ 928 009e 0E       		.uleb128 0xe
+ 929 009f 3A       		.uleb128 0x3a
+ 930 00a0 0B       		.uleb128 0xb
+ 931 00a1 3B       		.uleb128 0x3b
+ 932 00a2 05       		.uleb128 0x5
+ 933 00a3 27       		.uleb128 0x27
+ 934 00a4 19       		.uleb128 0x19
+ 935 00a5 11       		.uleb128 0x11
+ 936 00a6 01       		.uleb128 0x1
+ 937 00a7 12       		.uleb128 0x12
+ 938 00a8 06       		.uleb128 0x6
+ 939 00a9 40       		.uleb128 0x40
+ 940 00aa 18       		.uleb128 0x18
+ 941 00ab 9742     		.uleb128 0x2117
+ 942 00ad 19       		.uleb128 0x19
+ 943 00ae 01       		.uleb128 0x1
+ 944 00af 13       		.uleb128 0x13
+ 945 00b0 00       		.byte	0
+ 946 00b1 00       		.byte	0
+ 947 00b2 0B       		.uleb128 0xb
+ 948 00b3 05       		.uleb128 0x5
+ 949 00b4 00       		.byte	0
+ 950 00b5 03       		.uleb128 0x3
+ 951 00b6 0E       		.uleb128 0xe
+ 952 00b7 3A       		.uleb128 0x3a
+ 953 00b8 0B       		.uleb128 0xb
+ 954 00b9 3B       		.uleb128 0x3b
+ 955 00ba 05       		.uleb128 0x5
+ 956 00bb 49       		.uleb128 0x49
+ 957 00bc 13       		.uleb128 0x13
+ 958 00bd 02       		.uleb128 0x2
+ 959 00be 18       		.uleb128 0x18
+ 960 00bf 00       		.byte	0
+ 961 00c0 00       		.byte	0
+ 962 00c1 0C       		.uleb128 0xc
+ 963 00c2 05       		.uleb128 0x5
+ 964 00c3 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 26
+
+
+ 965 00c4 03       		.uleb128 0x3
+ 966 00c5 0E       		.uleb128 0xe
+ 967 00c6 3A       		.uleb128 0x3a
+ 968 00c7 0B       		.uleb128 0xb
+ 969 00c8 3B       		.uleb128 0x3b
+ 970 00c9 05       		.uleb128 0x5
+ 971 00ca 49       		.uleb128 0x49
+ 972 00cb 13       		.uleb128 0x13
+ 973 00cc 02       		.uleb128 0x2
+ 974 00cd 17       		.uleb128 0x17
+ 975 00ce 00       		.byte	0
+ 976 00cf 00       		.byte	0
+ 977 00d0 0D       		.uleb128 0xd
+ 978 00d1 898201   		.uleb128 0x4109
+ 979 00d4 01       		.byte	0x1
+ 980 00d5 11       		.uleb128 0x11
+ 981 00d6 01       		.uleb128 0x1
+ 982 00d7 31       		.uleb128 0x31
+ 983 00d8 13       		.uleb128 0x13
+ 984 00d9 00       		.byte	0
+ 985 00da 00       		.byte	0
+ 986 00db 0E       		.uleb128 0xe
+ 987 00dc 8A8201   		.uleb128 0x410a
+ 988 00df 00       		.byte	0
+ 989 00e0 02       		.uleb128 0x2
+ 990 00e1 18       		.uleb128 0x18
+ 991 00e2 9142     		.uleb128 0x2111
+ 992 00e4 18       		.uleb128 0x18
+ 993 00e5 00       		.byte	0
+ 994 00e6 00       		.byte	0
+ 995 00e7 0F       		.uleb128 0xf
+ 996 00e8 898201   		.uleb128 0x4109
+ 997 00eb 01       		.byte	0x1
+ 998 00ec 11       		.uleb128 0x11
+ 999 00ed 01       		.uleb128 0x1
+ 1000 00ee 31       		.uleb128 0x31
+ 1001 00ef 13       		.uleb128 0x13
+ 1002 00f0 01       		.uleb128 0x1
+ 1003 00f1 13       		.uleb128 0x13
+ 1004 00f2 00       		.byte	0
+ 1005 00f3 00       		.byte	0
+ 1006 00f4 10       		.uleb128 0x10
+ 1007 00f5 898201   		.uleb128 0x4109
+ 1008 00f8 00       		.byte	0
+ 1009 00f9 11       		.uleb128 0x11
+ 1010 00fa 01       		.uleb128 0x1
+ 1011 00fb 31       		.uleb128 0x31
+ 1012 00fc 13       		.uleb128 0x13
+ 1013 00fd 00       		.byte	0
+ 1014 00fe 00       		.byte	0
+ 1015 00ff 11       		.uleb128 0x11
+ 1016 0100 34       		.uleb128 0x34
+ 1017 0101 00       		.byte	0
+ 1018 0102 03       		.uleb128 0x3
+ 1019 0103 0E       		.uleb128 0xe
+ 1020 0104 3A       		.uleb128 0x3a
+ 1021 0105 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 27
+
+
+ 1022 0106 3B       		.uleb128 0x3b
+ 1023 0107 0B       		.uleb128 0xb
+ 1024 0108 49       		.uleb128 0x49
+ 1025 0109 13       		.uleb128 0x13
+ 1026 010a 3F       		.uleb128 0x3f
+ 1027 010b 19       		.uleb128 0x19
+ 1028 010c 02       		.uleb128 0x2
+ 1029 010d 18       		.uleb128 0x18
+ 1030 010e 00       		.byte	0
+ 1031 010f 00       		.byte	0
+ 1032 0110 12       		.uleb128 0x12
+ 1033 0111 2E       		.uleb128 0x2e
+ 1034 0112 01       		.byte	0x1
+ 1035 0113 3F       		.uleb128 0x3f
+ 1036 0114 19       		.uleb128 0x19
+ 1037 0115 03       		.uleb128 0x3
+ 1038 0116 0E       		.uleb128 0xe
+ 1039 0117 3A       		.uleb128 0x3a
+ 1040 0118 0B       		.uleb128 0xb
+ 1041 0119 3B       		.uleb128 0x3b
+ 1042 011a 0B       		.uleb128 0xb
+ 1043 011b 27       		.uleb128 0x27
+ 1044 011c 19       		.uleb128 0x19
+ 1045 011d 3C       		.uleb128 0x3c
+ 1046 011e 19       		.uleb128 0x19
+ 1047 011f 00       		.byte	0
+ 1048 0120 00       		.byte	0
+ 1049 0121 13       		.uleb128 0x13
+ 1050 0122 05       		.uleb128 0x5
+ 1051 0123 00       		.byte	0
+ 1052 0124 49       		.uleb128 0x49
+ 1053 0125 13       		.uleb128 0x13
+ 1054 0126 00       		.byte	0
+ 1055 0127 00       		.byte	0
+ 1056 0128 00       		.byte	0
+ 1057              		.section	.debug_loc,"",%progbits
+ 1058              	.Ldebug_loc0:
+ 1059              	.LLST0:
+ 1060 0000 00000000 		.4byte	.LVL2
+ 1061 0004 10000000 		.4byte	.LVL3
+ 1062 0008 0100     		.2byte	0x1
+ 1063 000a 50       		.byte	0x50
+ 1064 000b 10000000 		.4byte	.LVL3
+ 1065 000f 38000000 		.4byte	.LFE8
+ 1066 0013 0400     		.2byte	0x4
+ 1067 0015 F3       		.byte	0xf3
+ 1068 0016 01       		.uleb128 0x1
+ 1069 0017 50       		.byte	0x50
+ 1070 0018 9F       		.byte	0x9f
+ 1071 0019 00000000 		.4byte	0
+ 1072 001d 00000000 		.4byte	0
+ 1073              		.section	.debug_aranges,"",%progbits
+ 1074 0000 7C000000 		.4byte	0x7c
+ 1075 0004 0200     		.2byte	0x2
+ 1076 0006 00000000 		.4byte	.Ldebug_info0
+ 1077 000a 04       		.byte	0x4
+ 1078 000b 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 28
+
+
+ 1079 000c 0000     		.2byte	0
+ 1080 000e 0000     		.2byte	0
+ 1081 0010 00000000 		.4byte	.LFB1
+ 1082 0014 28000000 		.4byte	.LFE1-.LFB1
+ 1083 0018 00000000 		.4byte	.LFB3
+ 1084 001c 28000000 		.4byte	.LFE3-.LFB3
+ 1085 0020 00000000 		.4byte	.LFB4
+ 1086 0024 0C000000 		.4byte	.LFE4-.LFB4
+ 1087 0028 00000000 		.4byte	.LFB5
+ 1088 002c 0C000000 		.4byte	.LFE5-.LFB5
+ 1089 0030 00000000 		.4byte	.LFB6
+ 1090 0034 0C000000 		.4byte	.LFE6-.LFB6
+ 1091 0038 00000000 		.4byte	.LFB7
+ 1092 003c 0C000000 		.4byte	.LFE7-.LFB7
+ 1093 0040 00000000 		.4byte	.LFB8
+ 1094 0044 38000000 		.4byte	.LFE8-.LFB8
+ 1095 0048 00000000 		.4byte	.LFB9
+ 1096 004c 14000000 		.4byte	.LFE9-.LFB9
+ 1097 0050 00000000 		.4byte	.LFB10
+ 1098 0054 0C000000 		.4byte	.LFE10-.LFB10
+ 1099 0058 00000000 		.4byte	.LFB11
+ 1100 005c 0C000000 		.4byte	.LFE11-.LFB11
+ 1101 0060 00000000 		.4byte	.LFB0
+ 1102 0064 60000000 		.4byte	.LFE0-.LFB0
+ 1103 0068 00000000 		.4byte	.LFB2
+ 1104 006c 1C000000 		.4byte	.LFE2-.LFB2
+ 1105 0070 00000000 		.4byte	.LFB12
+ 1106 0074 0C000000 		.4byte	.LFE12-.LFB12
+ 1107 0078 00000000 		.4byte	0
+ 1108 007c 00000000 		.4byte	0
+ 1109              		.section	.debug_ranges,"",%progbits
+ 1110              	.Ldebug_ranges0:
+ 1111 0000 00000000 		.4byte	.LFB1
+ 1112 0004 28000000 		.4byte	.LFE1
+ 1113 0008 00000000 		.4byte	.LFB3
+ 1114 000c 28000000 		.4byte	.LFE3
+ 1115 0010 00000000 		.4byte	.LFB4
+ 1116 0014 0C000000 		.4byte	.LFE4
+ 1117 0018 00000000 		.4byte	.LFB5
+ 1118 001c 0C000000 		.4byte	.LFE5
+ 1119 0020 00000000 		.4byte	.LFB6
+ 1120 0024 0C000000 		.4byte	.LFE6
+ 1121 0028 00000000 		.4byte	.LFB7
+ 1122 002c 0C000000 		.4byte	.LFE7
+ 1123 0030 00000000 		.4byte	.LFB8
+ 1124 0034 38000000 		.4byte	.LFE8
+ 1125 0038 00000000 		.4byte	.LFB9
+ 1126 003c 14000000 		.4byte	.LFE9
+ 1127 0040 00000000 		.4byte	.LFB10
+ 1128 0044 0C000000 		.4byte	.LFE10
+ 1129 0048 00000000 		.4byte	.LFB11
+ 1130 004c 0C000000 		.4byte	.LFE11
+ 1131 0050 00000000 		.4byte	.LFB0
+ 1132 0054 60000000 		.4byte	.LFE0
+ 1133 0058 00000000 		.4byte	.LFB2
+ 1134 005c 1C000000 		.4byte	.LFE2
+ 1135 0060 00000000 		.4byte	.LFB12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 29
+
+
+ 1136 0064 0C000000 		.4byte	.LFE12
+ 1137 0068 00000000 		.4byte	0
+ 1138 006c 00000000 		.4byte	0
+ 1139              		.section	.debug_line,"",%progbits
+ 1140              	.Ldebug_line0:
+ 1141 0000 59010000 		.section	.debug_str,"MS",%progbits,1
+ 1141      02005100 
+ 1141      00000201 
+ 1141      FB0E0D00 
+ 1141      01010101 
+ 1142              	.LASF15:
+ 1143 0000 72656731 		.ascii	"reg16\000"
+ 1143      3600
+ 1144              	.LASF17:
+ 1145 0006 436F756E 		.ascii	"Counter_Enable\000"
+ 1145      7465725F 
+ 1145      456E6162 
+ 1145      6C6500
+ 1146              	.LASF33:
+ 1147 0015 436F756E 		.ascii	"Counter_ReadPeriod\000"
+ 1147      7465725F 
+ 1147      52656164 
+ 1147      50657269 
+ 1147      6F6400
+ 1148              	.LASF37:
+ 1149 0028 436F756E 		.ascii	"Counter_initVar\000"
+ 1149      7465725F 
+ 1149      696E6974 
+ 1149      56617200 
+ 1150              	.LASF11:
+ 1151 0038 666C6F61 		.ascii	"float\000"
+ 1151      7400
+ 1152              	.LASF28:
+ 1153 003e 436F756E 		.ascii	"Counter_ReadCapture\000"
+ 1153      7465725F 
+ 1153      52656164 
+ 1153      43617074 
+ 1153      75726500 
+ 1154              	.LASF30:
+ 1155 0052 70657269 		.ascii	"period\000"
+ 1155      6F6400
+ 1156              	.LASF31:
+ 1157 0059 436F756E 		.ascii	"Counter_Init\000"
+ 1157      7465725F 
+ 1157      496E6974 
+ 1157      00
+ 1158              	.LASF3:
+ 1159 0066 73686F72 		.ascii	"short unsigned int\000"
+ 1159      7420756E 
+ 1159      7369676E 
+ 1159      65642069 
+ 1159      6E7400
+ 1160              	.LASF20:
+ 1161 0079 436F756E 		.ascii	"Counter_ReadControlRegister\000"
+ 1161      7465725F 
+ 1161      52656164 
+ 1161      436F6E74 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 30
+
+
+ 1161      726F6C52 
+ 1162              	.LASF32:
+ 1163 0095 436F756E 		.ascii	"Counter_Start\000"
+ 1163      7465725F 
+ 1163      53746172 
+ 1163      7400
+ 1164              	.LASF26:
+ 1165 00a3 636F756E 		.ascii	"counter\000"
+ 1165      74657200 
+ 1166              	.LASF25:
+ 1167 00ab 436F756E 		.ascii	"Counter_WriteCounter\000"
+ 1167      7465725F 
+ 1167      57726974 
+ 1167      65436F75 
+ 1167      6E746572 
+ 1168              	.LASF1:
+ 1169 00c0 756E7369 		.ascii	"unsigned char\000"
+ 1169      676E6564 
+ 1169      20636861 
+ 1169      7200
+ 1170              	.LASF14:
+ 1171 00ce 72656738 		.ascii	"reg8\000"
+ 1171      00
+ 1172              	.LASF5:
+ 1173 00d3 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1173      20756E73 
+ 1173      69676E65 
+ 1173      6420696E 
+ 1173      7400
+ 1174              	.LASF9:
+ 1175 00e5 75696E74 		.ascii	"uint8\000"
+ 1175      3800
+ 1176              	.LASF24:
+ 1177 00eb 636F6E74 		.ascii	"control\000"
+ 1177      726F6C00 
+ 1178              	.LASF23:
+ 1179 00f3 696E7465 		.ascii	"interruptsMask\000"
+ 1179      72727570 
+ 1179      74734D61 
+ 1179      736B00
+ 1180              	.LASF27:
+ 1181 0102 436F756E 		.ascii	"Counter_ReadCounter\000"
+ 1181      7465725F 
+ 1181      52656164 
+ 1181      436F756E 
+ 1181      74657200 
+ 1182              	.LASF12:
+ 1183 0116 646F7562 		.ascii	"double\000"
+ 1183      6C6500
+ 1184              	.LASF22:
+ 1185 011d 436F756E 		.ascii	"Counter_WriteControlRegister\000"
+ 1185      7465725F 
+ 1185      57726974 
+ 1185      65436F6E 
+ 1185      74726F6C 
+ 1186              	.LASF18:
+ 1187 013a 436F756E 		.ascii	"Counter_Stop\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 31
+
+
+ 1187      7465725F 
+ 1187      53746F70 
+ 1187      00
+ 1188              	.LASF10:
+ 1189 0147 75696E74 		.ascii	"uint16\000"
+ 1189      313600
+ 1190              	.LASF34:
+ 1191 014e 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1191      4320342E 
+ 1191      392E3320 
+ 1191      32303135 
+ 1191      30333033 
+ 1192 0181 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1192      20726576 
+ 1192      6973696F 
+ 1192      6E203232 
+ 1192      31323230 
+ 1193 01b4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1193      66756E63 
+ 1193      74696F6E 
+ 1193      2D736563 
+ 1193      74696F6E 
+ 1194              	.LASF8:
+ 1195 01dc 756E7369 		.ascii	"unsigned int\000"
+ 1195      676E6564 
+ 1195      20696E74 
+ 1195      00
+ 1196              	.LASF29:
+ 1197 01e9 436F756E 		.ascii	"Counter_WritePeriod\000"
+ 1197      7465725F 
+ 1197      57726974 
+ 1197      65506572 
+ 1197      696F6400 
+ 1198              	.LASF7:
+ 1199 01fd 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1199      206C6F6E 
+ 1199      6720756E 
+ 1199      7369676E 
+ 1199      65642069 
+ 1200              	.LASF35:
+ 1201 0214 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\Counter.c\000"
+ 1201      6E657261 
+ 1201      7465645F 
+ 1201      536F7572 
+ 1201      63655C50 
+ 1202              	.LASF38:
+ 1203 0237 43794861 		.ascii	"CyHalt\000"
+ 1203      6C7400
+ 1204              	.LASF16:
+ 1205 023e 73697A65 		.ascii	"sizetype\000"
+ 1205      74797065 
+ 1205      00
+ 1206              	.LASF6:
+ 1207 0247 6C6F6E67 		.ascii	"long long int\000"
+ 1207      206C6F6E 
+ 1207      6720696E 
+ 1207      7400
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccJyvRVP.s 			page 32
+
+
+ 1208              	.LASF13:
+ 1209 0255 63686172 		.ascii	"char\000"
+ 1209      00
+ 1210              	.LASF36:
+ 1211 025a 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\Projects\\BarBot\\B"
+ 1211      73657273 
+ 1211      5C6D6172 
+ 1211      6B365C47 
+ 1211      6F6F676C 
+ 1212 0287 6172426F 		.ascii	"arBot\\Bartender.cydsn\000"
+ 1212      745C4261 
+ 1212      7274656E 
+ 1212      6465722E 
+ 1212      63796473 
+ 1213              	.LASF2:
+ 1214 029d 73686F72 		.ascii	"short int\000"
+ 1214      7420696E 
+ 1214      7400
+ 1215              	.LASF19:
+ 1216 02a7 436F756E 		.ascii	"Counter_ReadStatusRegister\000"
+ 1216      7465725F 
+ 1216      52656164 
+ 1216      53746174 
+ 1216      75735265 
+ 1217              	.LASF4:
+ 1218 02c2 6C6F6E67 		.ascii	"long int\000"
+ 1218      20696E74 
+ 1218      00
+ 1219              	.LASF0:
+ 1220 02cb 7369676E 		.ascii	"signed char\000"
+ 1220      65642063 
+ 1220      68617200 
+ 1221              	.LASF21:
+ 1222 02d7 436F756E 		.ascii	"Counter_SetInterruptMode\000"
+ 1222      7465725F 
+ 1222      53657449 
+ 1222      6E746572 
+ 1222      72757074 
+ 1223              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

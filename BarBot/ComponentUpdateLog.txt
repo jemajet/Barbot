@@ -1,0 +1,12 @@
+Last Modified Date & Time: 06/11/2020 21:47:39
+
+Bartender: TopDesign.cysch
+	MOSI [v2.20] to [v2.20]
+	SCLK [v2.20] to [v2.20]
+	SS [v2.20] to [v2.20]
+	MISO [v2.20] to [v2.20]
+	DC [v2.20] to [v2.20]
+	RESET [v2.20] to [v2.20]
+	LED [v2.20] to [v2.20]
+
+

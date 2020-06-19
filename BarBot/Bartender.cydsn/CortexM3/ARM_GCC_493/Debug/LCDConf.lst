@@ -1,0 +1,2904 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LCDConf.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._InitController,"ax",%progbits
+  19              		.align	2
+  20              		.thumb
+  21              		.thumb_func
+  22              		.type	_InitController, %function
+  23              	_InitController:
+  24              	.LFB63:
+  25              		.file 1 "..\\..\\..\\..\\College-MIT\\S6Spring2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_5_F
+   1:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** /*********************************************************************
+   2:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *        Solutions for real time microcontroller applications        *
+   4:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** **********************************************************************
+   5:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *                                                                    *
+   6:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *                                                                    *
+   8:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *                                                                    *
+  10:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** **********************************************************************
+  11:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  12:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** ** emWin V5.46 - Graphical user interface for embedded applications **
+  13:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** source code may not be used to write a similar product.  This file may
+  16:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** only be used in accordance with the following terms:
+  17:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  18:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** The software  has been licensed to  Cypress Semiconductor Corporation,
+  19:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** whose registered  office is situated  at 198 Champion Ct. San Jose, CA 
+  20:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 95134 USA  solely for the  purposes of creating  libraries for Cypress
+  21:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** PSoC3 and  PSoC5 processor-based devices,  sublicensed and distributed
+  22:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** under  the  terms  and  conditions  of  the  Cypress  End User License
+  23:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Agreement.
+  24:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Full source code is available at: www.segger.com
+  25:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  26:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** We appreciate your understanding and fairness.
+  27:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** ----------------------------------------------------------------------
+  28:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Licensing information
+  29:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Licensor:                 SEGGER Microcontroller Systems LLC
+  30:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Licensed to:              Cypress Semiconductor Corp, 198 Champion Ct., San Jose, CA 95134, USA
+  31:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Licensed SEGGER software: emWin
+  32:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** License number:           GUI-00319
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 2
+
+
+  33:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** License model:            Services and License Agreement, signed June 10th, 2009
+  34:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Licensed platform:        Any Cypress platform (Initial targets are: PSoC3, PSoC5)
+  35:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** ----------------------------------------------------------------------
+  36:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Support and Update Agreement (SUA)
+  37:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** SUA period:               2009-06-12 - 2022-07-27
+  38:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Contact to extend SUA:    sales@segger.com
+  39:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** ----------------------------------------------------------------------
+  40:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** File        : LCDConf.c
+  41:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** Purpose     : Display controller configuration (single layer)
+  42:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** ---------------------------END-OF-HEADER------------------------------
+  43:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** */
+  44:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  45:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #include "project.h" 
+  46:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  47:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #include "GUI.h"
+  48:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #include "GUIDRV_FlexColor.h"
+  49:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  50:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #include "tft.h"
+  51:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  52:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** /*********************************************************************
+  53:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+  54:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *       Layer configuration (to be modified)
+  55:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+  56:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** **********************************************************************
+  57:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** */
+  58:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //
+  59:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** // Physical display size
+  60:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //   The display size should be adapted in order to match the size of
+  61:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //   the target display.
+  62:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //
+  63:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #define XSIZE_PHYS 240
+  64:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #define YSIZE_PHYS 320
+  65:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #define LCD_CONTROLLER GUIDRV_FLEXCOLOR_F66709
+  66:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  67:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  68:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //
+  69:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** // Color conversion
+  70:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //   The color conversion functions should be selected according to
+  71:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //   the color mode of the target display. Details can be found in
+  72:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //   the chapter "Colors" in the emWin user manual.
+  73:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //
+  74:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #define COLOR_CONVERSION GUICC_M565
+  75:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  76:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //
+  77:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** // Display driver
+  78:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** //
+  79:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #define DISPLAY_DRIVER GUIDRV_FLEXCOLOR
+  80:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+  81:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** /*********************************************************************
+  82:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+  83:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *       Configuration checking
+  84:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+  85:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** **********************************************************************
+  86:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** */
+  87:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #ifndef   VXSIZE_PHYS
+  88:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   #define VXSIZE_PHYS XSIZE_PHYS
+  89:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #endif
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 3
+
+
+  90:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #ifndef   VYSIZE_PHYS
+  91:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   #define VYSIZE_PHYS YSIZE_PHYS
+  92:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #endif
+  93:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #ifndef   XSIZE_PHYS
+  94:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   #error Physical X size of display is not defined!
+  95:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #endif
+  96:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #ifndef   YSIZE_PHYS
+  97:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   #error Physical Y size of display is not defined!
+  98:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #endif
+  99:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #ifndef   COLOR_CONVERSION
+ 100:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   #error Color conversion not defined!
+ 101:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #endif
+ 102:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #ifndef   DISPLAY_DRIVER
+ 103:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   #error No display driver defined!
+ 104:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** #endif
+ 105:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+ 106:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** /********************************************************************
+ 107:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 108:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *       _InitController
+ 109:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 110:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** * Purpose:
+ 111:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   Initializes the LCD controller
+ 112:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 113:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** */
+ 114:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** static void _InitController(void) {
+  26              		.loc 1 114 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30 0000 08B5     		push	{r3, lr}
+  31              		.cfi_def_cfa_offset 8
+  32              		.cfi_offset 3, -8
+  33              		.cfi_offset 14, -4
+ 115:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   /* Set up the display controller and put it into operation. If the 
+ 116:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   *  display controller is not initialized by any external routine 
+ 117:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   *  this needs to be adapted by the customer.
+ 118:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   */
+ 119:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     tftStart();
+  34              		.loc 1 119 0
+  35 0002 FFF7FEFF 		bl	tftStart
+  36              	.LVL0:
+  37 0006 08BD     		pop	{r3, pc}
+  38              		.cfi_endproc
+  39              	.LFE63:
+  40              		.size	_InitController, .-_InitController
+  41              		.section	.text.LCD_X_Config,"ax",%progbits
+  42              		.align	2
+  43              		.global	LCD_X_Config
+  44              		.thumb
+  45              		.thumb_func
+  46              		.type	LCD_X_Config, %function
+  47              	LCD_X_Config:
+  48              	.LFB64:
+ 120:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** }
+ 121:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+ 122:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** /*********************************************************************
+ 123:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 4
+
+
+ 124:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *       Public code
+ 125:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 126:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** **********************************************************************
+ 127:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** */
+ 128:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** /*********************************************************************
+ 129:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 130:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *       LCD_X_Config
+ 131:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 132:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** * Function description
+ 133:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   Called during the initialization process in order to set up the
+ 134:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   display driver configuration.
+ 135:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** */
+ 136:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** void LCD_X_Config(void) {
+  49              		.loc 1 136 0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 128
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53 0000 30B5     		push	{r4, r5, lr}
+  54              		.cfi_def_cfa_offset 12
+  55              		.cfi_offset 4, -12
+  56              		.cfi_offset 5, -8
+  57              		.cfi_offset 14, -4
+  58 0002 A1B0     		sub	sp, sp, #132
+  59              		.cfi_def_cfa_offset 144
+ 137:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   GUI_DEVICE * pDevice;
+ 138:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   CONFIG_FLEXCOLOR Config = {0};
+  60              		.loc 1 138 0
+  61 0004 0024     		movs	r4, #0
+  62 0006 1B94     		str	r4, [sp, #108]
+  63 0008 1C94     		str	r4, [sp, #112]
+  64 000a 1D94     		str	r4, [sp, #116]
+  65 000c 1E94     		str	r4, [sp, #120]
+  66 000e 1F94     		str	r4, [sp, #124]
+ 139:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   GUI_PORT_API PortAPI = {0};
+  67              		.loc 1 139 0
+  68 0010 01A8     		add	r0, sp, #4
+  69 0012 2146     		mov	r1, r4
+  70 0014 6822     		movs	r2, #104
+  71 0016 FFF7FEFF 		bl	memset
+  72              	.LVL1:
+ 140:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 141:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   // Set the display driver and color conversion
+ 142:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 143:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   pDevice = GUI_DEVICE_CreateAndLink(DISPLAY_DRIVER, COLOR_CONVERSION, 0, 0);
+  73              		.loc 1 143 0
+  74 001a 1548     		ldr	r0, .L5
+  75 001c 1549     		ldr	r1, .L5+4
+  76 001e 2246     		mov	r2, r4
+  77 0020 2346     		mov	r3, r4
+  78 0022 FFF7FEFF 		bl	GUI_DEVICE_CreateAndLink
+  79              	.LVL2:
+  80 0026 0546     		mov	r5, r0
+  81              	.LVL3:
+ 144:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 145:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   // Display driver configuration
+ 146:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 147:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   LCD_SetSizeEx    (0, XSIZE_PHYS,   YSIZE_PHYS);
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 5
+
+
+  82              		.loc 1 147 0
+  83 0028 2046     		mov	r0, r4
+  84              	.LVL4:
+  85 002a F021     		movs	r1, #240
+  86 002c 4FF4A072 		mov	r2, #320
+  87 0030 FFF7FEFF 		bl	LCD_SetSizeEx
+  88              	.LVL5:
+ 148:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   LCD_SetVSizeEx   (0, VXSIZE_PHYS,  VYSIZE_PHYS);
+  89              		.loc 1 148 0
+  90 0034 2046     		mov	r0, r4
+  91 0036 F021     		movs	r1, #240
+  92 0038 4FF4A072 		mov	r2, #320
+  93 003c FFF7FEFF 		bl	LCD_SetVSizeEx
+  94              	.LVL6:
+ 149:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 150:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   // Orientation
+ 151:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 152:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   Config.Orientation = GUI_SWAP_XY;
+  95              		.loc 1 152 0
+  96 0040 0423     		movs	r3, #4
+  97 0042 1D93     		str	r3, [sp, #116]
+ 153:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+ 154:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   GUIDRV_FlexColor_Config(pDevice, &Config);
+  98              		.loc 1 154 0
+  99 0044 2846     		mov	r0, r5
+ 100 0046 1BA9     		add	r1, sp, #108
+ 101 0048 FFF7FEFF 		bl	GUIDRV_FlexColor_Config
+ 102              	.LVL7:
+ 155:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 156:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   // Set controller and operation mode
+ 157:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   //
+ 158:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   PortAPI.pfWrite8_A0 = write8_a0;
+ 103              		.loc 1 158 0
+ 104 004c 0A4B     		ldr	r3, .L5+8
+ 105 004e 0193     		str	r3, [sp, #4]
+ 159:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   PortAPI.pfWrite8_A1 = write8_a1;
+ 106              		.loc 1 159 0
+ 107 0050 0A4B     		ldr	r3, .L5+12
+ 108 0052 0293     		str	r3, [sp, #8]
+ 160:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   PortAPI.pfWriteM8_A1 = writeM8_a1;
+ 109              		.loc 1 160 0
+ 110 0054 0A4B     		ldr	r3, .L5+16
+ 111 0056 0493     		str	r3, [sp, #16]
+ 161:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   PortAPI.pfRead8_A1 = read8_a1;
+ 112              		.loc 1 161 0
+ 113 0058 0A4B     		ldr	r3, .L5+20
+ 114 005a 0693     		str	r3, [sp, #24]
+ 162:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   PortAPI.pfReadM8_A1 = readM8_a1;
+ 115              		.loc 1 162 0
+ 116 005c 0A4B     		ldr	r3, .L5+24
+ 117 005e 0893     		str	r3, [sp, #32]
+ 163:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   
+ 164:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   GUIDRV_FlexColor_SetFunc(pDevice, &PortAPI, LCD_CONTROLLER, GUIDRV_FLEXCOLOR_M16C0B8);
+ 118              		.loc 1 164 0
+ 119 0060 2846     		mov	r0, r5
+ 120 0062 01A9     		add	r1, sp, #4
+ 121 0064 094A     		ldr	r2, .L5+28
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 6
+
+
+ 122 0066 0A4B     		ldr	r3, .L5+32
+ 123 0068 FFF7FEFF 		bl	GUIDRV_FlexColor_SetFunc
+ 124              	.LVL8:
+ 165:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** }
+ 125              		.loc 1 165 0
+ 126 006c 21B0     		add	sp, sp, #132
+ 127              		.cfi_def_cfa_offset 12
+ 128              		@ sp needed
+ 129 006e 30BD     		pop	{r4, r5, pc}
+ 130              	.LVL9:
+ 131              	.L6:
+ 132              		.align	2
+ 133              	.L5:
+ 134 0070 00000000 		.word	GUIDRV_FlexColor_API
+ 135 0074 00000000 		.word	LCD_API_ColorConv_M565
+ 136 0078 00000000 		.word	write8_a0
+ 137 007c 00000000 		.word	write8_a1
+ 138 0080 00000000 		.word	writeM8_a1
+ 139 0084 00000000 		.word	read8_a1
+ 140 0088 00000000 		.word	readM8_a1
+ 141 008c 00000000 		.word	GUIDRV_FlexColor_SetFunc66709
+ 142 0090 00000000 		.word	GUIDRV_FlexColor_SetMode16bppC0B8
+ 143              		.cfi_endproc
+ 144              	.LFE64:
+ 145              		.size	LCD_X_Config, .-LCD_X_Config
+ 146              		.section	.text.LCD_X_DisplayDriver,"ax",%progbits
+ 147              		.align	2
+ 148              		.global	LCD_X_DisplayDriver
+ 149              		.thumb
+ 150              		.thumb_func
+ 151              		.type	LCD_X_DisplayDriver, %function
+ 152              	LCD_X_DisplayDriver:
+ 153              	.LFB65:
+ 166:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** 
+ 167:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** /*********************************************************************
+ 168:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 169:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *       LCD_X_DisplayDriver
+ 170:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 171:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** * Purpose:
+ 172:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   This function is called by the display driver for several purposes.
+ 173:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   To support the according task, the routine needs to be adapted to
+ 174:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   the display controller. Note that the commands marked
+ 175:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   "optional" are not cogently required and should only be adapted if 
+ 176:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   the display controller supports these features.
+ 177:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *
+ 178:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** * Parameter:
+ 179:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   LayerIndex - Zero based layer index
+ 180:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   Cmd        - Command to be executed
+ 181:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   pData      - Pointer to a data structure.
+ 182:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** * 
+ 183:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** * Return Value:
+ 184:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *   < -1 - Error
+ 185:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *     -1 - The command is not handled.
+ 186:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** *      0 - OK.
+ 187:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** */
+ 188:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c **** int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData) {
+ 154              		.loc 1 188 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 7
+
+
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              	.LVL10:
+ 189:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   int r;
+ 190:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   
+ 191:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   GUI_USE_PARA(LayerIndex);
+ 192:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   GUI_USE_PARA(pData);
+ 193:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   
+ 194:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   switch (Cmd) {
+ 159              		.loc 1 194 0
+ 160 0000 0129     		cmp	r1, #1
+ 161 0002 04D1     		bne	.L11
+ 188:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   int r;
+ 162              		.loc 1 188 0
+ 163 0004 08B5     		push	{r3, lr}
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 3, -8
+ 166              		.cfi_offset 14, -4
+ 195:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   case LCD_X_INITCONTROLLER: {
+ 196:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     //
+ 197:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     // Called during the initialization process in order to set up the
+ 198:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     // display controller and put it into operation. If the display
+ 199:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     // controller is not initialized by any external routine, this needs
+ 200:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     // to be adapted by the customer...
+ 201:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     //
+ 202:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     // ...
+ 203:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     _InitController();
+ 167              		.loc 1 203 0
+ 168 0006 FFF7FEFF 		bl	_InitController
+ 169              	.LVL11:
+ 204:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     return 0;
+ 170              		.loc 1 204 0
+ 171 000a 0020     		movs	r0, #0
+ 172 000c 08BD     		pop	{r3, pc}
+ 173              	.LVL12:
+ 174              	.L11:
+ 175              		.cfi_def_cfa_offset 0
+ 176              		.cfi_restore 3
+ 177              		.cfi_restore 14
+ 205:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   }
+ 206:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   default:
+ 207:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****     r = -1;
+ 208:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   }
+ 209:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/LCDConf.c ****   return r;
+ 178              		.loc 1 209 0
+ 179 000e 4FF0FF30 		mov	r0, #-1
+ 180              	.LVL13:
+ 181 0012 7047     		bx	lr
+ 182              		.cfi_endproc
+ 183              	.LFE65:
+ 184              		.size	LCD_X_DisplayDriver, .-LCD_X_DisplayDriver
+ 185              		.text
+ 186              	.Letext0:
+ 187              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 188              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 189              		.file 4 "..\\..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/LCD.h"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 8
+
+
+ 190              		.file 5 "..\\..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI.h"
+ 191              		.file 6 "..\\..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI_Type.h"
+ 192              		.file 7 "..\\..\\..\\..\\College-MIT\\S6Spring2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_5_F
+ 193              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 194              		.file 9 "..\\..\\..\\..\\College-MIT\\S6Spring2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_5_F
+ 195              		.section	.debug_info,"",%progbits
+ 196              	.Ldebug_info0:
+ 197 0000 7C090000 		.4byte	0x97c
+ 198 0004 0400     		.2byte	0x4
+ 199 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 200 000a 04       		.byte	0x4
+ 201 000b 01       		.uleb128 0x1
+ 202 000c 06040000 		.4byte	.LASF98
+ 203 0010 01       		.byte	0x1
+ 204 0011 92020000 		.4byte	.LASF99
+ 205 0015 31010000 		.4byte	.LASF100
+ 206 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 207 001d 00000000 		.4byte	0
+ 208 0021 00000000 		.4byte	.Ldebug_line0
+ 209 0025 02       		.uleb128 0x2
+ 210 0026 01       		.byte	0x1
+ 211 0027 06       		.byte	0x6
+ 212 0028 38030000 		.4byte	.LASF0
+ 213 002c 02       		.uleb128 0x2
+ 214 002d 01       		.byte	0x1
+ 215 002e 08       		.byte	0x8
+ 216 002f 2A030000 		.4byte	.LASF1
+ 217 0033 02       		.uleb128 0x2
+ 218 0034 02       		.byte	0x2
+ 219 0035 05       		.byte	0x5
+ 220 0036 80000000 		.4byte	.LASF2
+ 221 003a 02       		.uleb128 0x2
+ 222 003b 02       		.byte	0x2
+ 223 003c 07       		.byte	0x7
+ 224 003d 01050000 		.4byte	.LASF3
+ 225 0041 03       		.uleb128 0x3
+ 226 0042 AB050000 		.4byte	.LASF9
+ 227 0046 02       		.byte	0x2
+ 228 0047 3F       		.byte	0x3f
+ 229 0048 4C000000 		.4byte	0x4c
+ 230 004c 02       		.uleb128 0x2
+ 231 004d 04       		.byte	0x4
+ 232 004e 05       		.byte	0x5
+ 233 004f 0B020000 		.4byte	.LASF4
+ 234 0053 02       		.uleb128 0x2
+ 235 0054 04       		.byte	0x4
+ 236 0055 07       		.byte	0x7
+ 237 0056 2E050000 		.4byte	.LASF5
+ 238 005a 02       		.uleb128 0x2
+ 239 005b 08       		.byte	0x8
+ 240 005c 05       		.byte	0x5
+ 241 005d DB010000 		.4byte	.LASF6
+ 242 0061 02       		.uleb128 0x2
+ 243 0062 08       		.byte	0x8
+ 244 0063 07       		.byte	0x7
+ 245 0064 44030000 		.4byte	.LASF7
+ 246 0068 04       		.uleb128 0x4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 9
+
+
+ 247 0069 04       		.byte	0x4
+ 248 006a 05       		.byte	0x5
+ 249 006b 696E7400 		.ascii	"int\000"
+ 250 006f 02       		.uleb128 0x2
+ 251 0070 04       		.byte	0x4
+ 252 0071 07       		.byte	0x7
+ 253 0072 8D030000 		.4byte	.LASF8
+ 254 0076 03       		.uleb128 0x3
+ 255 0077 94040000 		.4byte	.LASF10
+ 256 007b 03       		.byte	0x3
+ 257 007c 2C       		.byte	0x2c
+ 258 007d 41000000 		.4byte	0x41
+ 259 0081 02       		.uleb128 0x2
+ 260 0082 04       		.byte	0x4
+ 261 0083 04       		.byte	0x4
+ 262 0084 C2010000 		.4byte	.LASF11
+ 263 0088 02       		.uleb128 0x2
+ 264 0089 08       		.byte	0x8
+ 265 008a 04       		.byte	0x4
+ 266 008b 40050000 		.4byte	.LASF12
+ 267 008f 02       		.uleb128 0x2
+ 268 0090 01       		.byte	0x1
+ 269 0091 08       		.byte	0x8
+ 270 0092 F2030000 		.4byte	.LASF13
+ 271 0096 05       		.uleb128 0x5
+ 272 0097 04       		.byte	0x4
+ 273 0098 9C000000 		.4byte	0x9c
+ 274 009c 06       		.uleb128 0x6
+ 275 009d 02       		.uleb128 0x2
+ 276 009e 04       		.byte	0x4
+ 277 009f 07       		.byte	0x7
+ 278 00a0 8A000000 		.4byte	.LASF14
+ 279 00a4 07       		.uleb128 0x7
+ 280 00a5 04       		.byte	0x4
+ 281 00a6 05       		.uleb128 0x5
+ 282 00a7 04       		.byte	0x4
+ 283 00a8 2C000000 		.4byte	0x2c
+ 284 00ac 03       		.uleb128 0x3
+ 285 00ad 0B010000 		.4byte	.LASF15
+ 286 00b1 04       		.byte	0x4
+ 287 00b2 6A       		.byte	0x6a
+ 288 00b3 53000000 		.4byte	0x53
+ 289 00b7 08       		.uleb128 0x8
+ 290 00b8 08       		.byte	0x8
+ 291 00b9 04       		.byte	0x4
+ 292 00ba 71       		.byte	0x71
+ 293 00bb EC000000 		.4byte	0xec
+ 294 00bf 09       		.uleb128 0x9
+ 295 00c0 783000   		.ascii	"x0\000"
+ 296 00c3 04       		.byte	0x4
+ 297 00c4 71       		.byte	0x71
+ 298 00c5 33000000 		.4byte	0x33
+ 299 00c9 00       		.byte	0
+ 300 00ca 09       		.uleb128 0x9
+ 301 00cb 793000   		.ascii	"y0\000"
+ 302 00ce 04       		.byte	0x4
+ 303 00cf 71       		.byte	0x71
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 10
+
+
+ 304 00d0 33000000 		.4byte	0x33
+ 305 00d4 02       		.byte	0x2
+ 306 00d5 09       		.uleb128 0x9
+ 307 00d6 783100   		.ascii	"x1\000"
+ 308 00d9 04       		.byte	0x4
+ 309 00da 71       		.byte	0x71
+ 310 00db 33000000 		.4byte	0x33
+ 311 00df 04       		.byte	0x4
+ 312 00e0 09       		.uleb128 0x9
+ 313 00e1 793100   		.ascii	"y1\000"
+ 314 00e4 04       		.byte	0x4
+ 315 00e5 71       		.byte	0x71
+ 316 00e6 33000000 		.4byte	0x33
+ 317 00ea 06       		.byte	0x6
+ 318 00eb 00       		.byte	0
+ 319 00ec 03       		.uleb128 0x3
+ 320 00ed 21030000 		.4byte	.LASF16
+ 321 00f1 04       		.byte	0x4
+ 322 00f2 71       		.byte	0x71
+ 323 00f3 B7000000 		.4byte	0xb7
+ 324 00f7 03       		.uleb128 0x3
+ 325 00f8 11060000 		.4byte	.LASF17
+ 326 00fc 04       		.byte	0x4
+ 327 00fd 88       		.byte	0x88
+ 328 00fe 02010000 		.4byte	0x102
+ 329 0102 0A       		.uleb128 0xa
+ 330 0103 AC000000 		.4byte	0xac
+ 331 0107 11010000 		.4byte	0x111
+ 332 010b 0B       		.uleb128 0xb
+ 333 010c 53000000 		.4byte	0x53
+ 334 0110 00       		.byte	0
+ 335 0111 03       		.uleb128 0x3
+ 336 0112 6A060000 		.4byte	.LASF18
+ 337 0116 04       		.byte	0x4
+ 338 0117 89       		.byte	0x89
+ 339 0118 1C010000 		.4byte	0x11c
+ 340 011c 0A       		.uleb128 0xa
+ 341 011d 53000000 		.4byte	0x53
+ 342 0121 2B010000 		.4byte	0x12b
+ 343 0125 0B       		.uleb128 0xb
+ 344 0126 AC000000 		.4byte	0xac
+ 345 012a 00       		.byte	0
+ 346 012b 03       		.uleb128 0x3
+ 347 012c F6010000 		.4byte	.LASF19
+ 348 0130 04       		.byte	0x4
+ 349 0131 8A       		.byte	0x8a
+ 350 0132 36010000 		.4byte	0x136
+ 351 0136 0C       		.uleb128 0xc
+ 352 0137 53000000 		.4byte	0x53
+ 353 013b 03       		.uleb128 0x3
+ 354 013c F9050000 		.4byte	.LASF20
+ 355 0140 04       		.byte	0x4
+ 356 0141 8C       		.byte	0x8c
+ 357 0142 46010000 		.4byte	0x146
+ 358 0146 0D       		.uleb128 0xd
+ 359 0147 60010000 		.4byte	0x160
+ 360 014b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 11
+
+
+ 361 014c A4000000 		.4byte	0xa4
+ 362 0150 0B       		.uleb128 0xb
+ 363 0151 60010000 		.4byte	0x160
+ 364 0155 0B       		.uleb128 0xb
+ 365 0156 53000000 		.4byte	0x53
+ 366 015a 0B       		.uleb128 0xb
+ 367 015b 2C000000 		.4byte	0x2c
+ 368 015f 00       		.byte	0
+ 369 0160 05       		.uleb128 0x5
+ 370 0161 04       		.byte	0x4
+ 371 0162 AC000000 		.4byte	0xac
+ 372 0166 03       		.uleb128 0x3
+ 373 0167 DA030000 		.4byte	.LASF21
+ 374 016b 04       		.byte	0x4
+ 375 016c 8D       		.byte	0x8d
+ 376 016d 71010000 		.4byte	0x171
+ 377 0171 0D       		.uleb128 0xd
+ 378 0172 8B010000 		.4byte	0x18b
+ 379 0176 0B       		.uleb128 0xb
+ 380 0177 60010000 		.4byte	0x160
+ 381 017b 0B       		.uleb128 0xb
+ 382 017c A4000000 		.4byte	0xa4
+ 383 0180 0B       		.uleb128 0xb
+ 384 0181 53000000 		.4byte	0x53
+ 385 0185 0B       		.uleb128 0xb
+ 386 0186 2C000000 		.4byte	0x2c
+ 387 018a 00       		.byte	0
+ 388 018b 08       		.uleb128 0x8
+ 389 018c 18       		.byte	0x18
+ 390 018d 04       		.byte	0x4
+ 391 018e 93       		.byte	0x93
+ 392 018f DC010000 		.4byte	0x1dc
+ 393 0193 0E       		.uleb128 0xe
+ 394 0194 BF030000 		.4byte	.LASF22
+ 395 0198 04       		.byte	0x4
+ 396 0199 94       		.byte	0x94
+ 397 019a DC010000 		.4byte	0x1dc
+ 398 019e 00       		.byte	0
+ 399 019f 0E       		.uleb128 0xe
+ 400 01a0 7F030000 		.4byte	.LASF23
+ 401 01a4 04       		.byte	0x4
+ 402 01a5 95       		.byte	0x95
+ 403 01a6 E2010000 		.4byte	0x1e2
+ 404 01aa 04       		.byte	0x4
+ 405 01ab 0E       		.uleb128 0xe
+ 406 01ac 22010000 		.4byte	.LASF24
+ 407 01b0 04       		.byte	0x4
+ 408 01b1 96       		.byte	0x96
+ 409 01b2 E8010000 		.4byte	0x1e8
+ 410 01b6 08       		.byte	0x8
+ 411 01b7 0E       		.uleb128 0xe
+ 412 01b8 77030000 		.4byte	.LASF25
+ 413 01bc 04       		.byte	0x4
+ 414 01bd 97       		.byte	0x97
+ 415 01be 68000000 		.4byte	0x68
+ 416 01c2 0C       		.byte	0xc
+ 417 01c3 0E       		.uleb128 0xe
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 12
+
+
+ 418 01c4 74010000 		.4byte	.LASF26
+ 419 01c8 04       		.byte	0x4
+ 420 01c9 98       		.byte	0x98
+ 421 01ca EE010000 		.4byte	0x1ee
+ 422 01ce 10       		.byte	0x10
+ 423 01cf 0E       		.uleb128 0xe
+ 424 01d0 B3040000 		.4byte	.LASF27
+ 425 01d4 04       		.byte	0x4
+ 426 01d5 99       		.byte	0x99
+ 427 01d6 F4010000 		.4byte	0x1f4
+ 428 01da 14       		.byte	0x14
+ 429 01db 00       		.byte	0
+ 430 01dc 05       		.uleb128 0x5
+ 431 01dd 04       		.byte	0x4
+ 432 01de 11010000 		.4byte	0x111
+ 433 01e2 05       		.uleb128 0x5
+ 434 01e3 04       		.byte	0x4
+ 435 01e4 F7000000 		.4byte	0xf7
+ 436 01e8 05       		.uleb128 0x5
+ 437 01e9 04       		.byte	0x4
+ 438 01ea 2B010000 		.4byte	0x12b
+ 439 01ee 05       		.uleb128 0x5
+ 440 01ef 04       		.byte	0x4
+ 441 01f0 66010000 		.4byte	0x166
+ 442 01f4 05       		.uleb128 0x5
+ 443 01f5 04       		.byte	0x4
+ 444 01f6 3B010000 		.4byte	0x13b
+ 445 01fa 03       		.uleb128 0x3
+ 446 01fb 24020000 		.4byte	.LASF28
+ 447 01ff 04       		.byte	0x4
+ 448 0200 9A       		.byte	0x9a
+ 449 0201 8B010000 		.4byte	0x18b
+ 450 0205 05       		.uleb128 0x5
+ 451 0206 04       		.byte	0x4
+ 452 0207 EC000000 		.4byte	0xec
+ 453 020b 0F       		.uleb128 0xf
+ 454 020c A8040000 		.4byte	.LASF29
+ 455 0210 04       		.byte	0x4
+ 456 0211 4301     		.2byte	0x143
+ 457 0213 17020000 		.4byte	0x217
+ 458 0217 10       		.uleb128 0x10
+ 459 0218 A8040000 		.4byte	.LASF29
+ 460 021c 1C       		.byte	0x1c
+ 461 021d 05       		.byte	0x5
+ 462 021e B0       		.byte	0xb0
+ 463 021f 76020000 		.4byte	0x276
+ 464 0223 0E       		.uleb128 0xe
+ 465 0224 E9010000 		.4byte	.LASF30
+ 466 0228 05       		.byte	0x5
+ 467 0229 B4       		.byte	0xb4
+ 468 022a 7E050000 		.4byte	0x57e
+ 469 022e 00       		.byte	0
+ 470 022f 0E       		.uleb128 0xe
+ 471 0230 70020000 		.4byte	.LASF31
+ 472 0234 05       		.byte	0x5
+ 473 0235 B5       		.byte	0xb5
+ 474 0236 7E050000 		.4byte	0x57e
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 13
+
+
+ 475 023a 04       		.byte	0x4
+ 476 023b 09       		.uleb128 0x9
+ 477 023c 7500     		.ascii	"u\000"
+ 478 023e 05       		.byte	0x5
+ 479 023f BC       		.byte	0xbc
+ 480 0240 9E060000 		.4byte	0x69e
+ 481 0244 08       		.byte	0x8
+ 482 0245 0E       		.uleb128 0xe
+ 483 0246 E4000000 		.4byte	.LASF32
+ 484 024a 05       		.byte	0x5
+ 485 024b C0       		.byte	0xc0
+ 486 024c BD060000 		.4byte	0x6bd
+ 487 0250 0C       		.byte	0xc
+ 488 0251 0E       		.uleb128 0xe
+ 489 0252 00000000 		.4byte	.LASF33
+ 490 0256 05       		.byte	0x5
+ 491 0257 C1       		.byte	0xc1
+ 492 0258 47030000 		.4byte	0x347
+ 493 025c 10       		.byte	0x10
+ 494 025d 0E       		.uleb128 0xe
+ 495 025e BC010000 		.4byte	.LASF34
+ 496 0262 05       		.byte	0x5
+ 497 0263 C2       		.byte	0xc2
+ 498 0264 3A000000 		.4byte	0x3a
+ 499 0268 14       		.byte	0x14
+ 500 0269 0E       		.uleb128 0xe
+ 501 026a D0010000 		.4byte	.LASF35
+ 502 026e 05       		.byte	0x5
+ 503 026f C3       		.byte	0xc3
+ 504 0270 68000000 		.4byte	0x68
+ 505 0274 18       		.byte	0x18
+ 506 0275 00       		.byte	0
+ 507 0276 0F       		.uleb128 0xf
+ 508 0277 FC000000 		.4byte	.LASF36
+ 509 027b 04       		.byte	0x4
+ 510 027c 4401     		.2byte	0x144
+ 511 027e 82020000 		.4byte	0x282
+ 512 0282 10       		.uleb128 0x10
+ 513 0283 FC000000 		.4byte	.LASF36
+ 514 0287 34       		.byte	0x34
+ 515 0288 05       		.byte	0x5
+ 516 0289 6A       		.byte	0x6a
+ 517 028a 2B030000 		.4byte	0x32b
+ 518 028e 0E       		.uleb128 0xe
+ 519 028f 6F000000 		.4byte	.LASF37
+ 520 0293 05       		.byte	0x5
+ 521 0294 6E       		.byte	0x6e
+ 522 0295 68000000 		.4byte	0x68
+ 523 0299 00       		.byte	0
+ 524 029a 0E       		.uleb128 0xe
+ 525 029b F4040000 		.4byte	.LASF38
+ 526 029f 05       		.byte	0x5
+ 527 02a0 72       		.byte	0x72
+ 528 02a1 8F050000 		.4byte	0x58f
+ 529 02a5 04       		.byte	0x4
+ 530 02a6 0E       		.uleb128 0xe
+ 531 02a7 B0010000 		.4byte	.LASF39
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 14
+
+
+ 532 02ab 05       		.byte	0x5
+ 533 02ac 73       		.byte	0x73
+ 534 02ad AF050000 		.4byte	0x5af
+ 535 02b1 08       		.byte	0x8
+ 536 02b2 0E       		.uleb128 0xe
+ 537 02b3 C0000000 		.4byte	.LASF40
+ 538 02b7 05       		.byte	0x5
+ 539 02b8 74       		.byte	0x74
+ 540 02b9 AF050000 		.4byte	0x5af
+ 541 02bd 0C       		.byte	0xc
+ 542 02be 0E       		.uleb128 0xe
+ 543 02bf 3D000000 		.4byte	.LASF41
+ 544 02c3 05       		.byte	0x5
+ 545 02c4 75       		.byte	0x75
+ 546 02c5 D4050000 		.4byte	0x5d4
+ 547 02c9 10       		.byte	0x10
+ 548 02ca 0E       		.uleb128 0xe
+ 549 02cb 14020000 		.4byte	.LASF42
+ 550 02cf 05       		.byte	0x5
+ 551 02d0 76       		.byte	0x76
+ 552 02d1 F3050000 		.4byte	0x5f3
+ 553 02d5 14       		.byte	0x14
+ 554 02d6 0E       		.uleb128 0xe
+ 555 02d7 9A030000 		.4byte	.LASF43
+ 556 02db 05       		.byte	0x5
+ 557 02dc 77       		.byte	0x77
+ 558 02dd 13060000 		.4byte	0x613
+ 559 02e1 18       		.byte	0x18
+ 560 02e2 0E       		.uleb128 0xe
+ 561 02e3 CB050000 		.4byte	.LASF44
+ 562 02e7 05       		.byte	0x5
+ 563 02e8 78       		.byte	0x78
+ 564 02e9 2E060000 		.4byte	0x62e
+ 565 02ed 1C       		.byte	0x1c
+ 566 02ee 0E       		.uleb128 0xe
+ 567 02ef D6050000 		.4byte	.LASF45
+ 568 02f3 05       		.byte	0x5
+ 569 02f4 7C       		.byte	0x7c
+ 570 02f5 2E060000 		.4byte	0x62e
+ 571 02f9 20       		.byte	0x20
+ 572 02fa 0E       		.uleb128 0xe
+ 573 02fb 14050000 		.4byte	.LASF46
+ 574 02ff 05       		.byte	0x5
+ 575 0300 80       		.byte	0x80
+ 576 0301 4E060000 		.4byte	0x64e
+ 577 0305 24       		.byte	0x24
+ 578 0306 0E       		.uleb128 0xe
+ 579 0307 5D060000 		.4byte	.LASF47
+ 580 030b 05       		.byte	0x5
+ 581 030c 81       		.byte	0x81
+ 582 030d 68060000 		.4byte	0x668
+ 583 0311 28       		.byte	0x28
+ 584 0312 0E       		.uleb128 0xe
+ 585 0313 93000000 		.4byte	.LASF48
+ 586 0317 05       		.byte	0x5
+ 587 0318 82       		.byte	0x82
+ 588 0319 82060000 		.4byte	0x682
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 15
+
+
+ 589 031d 2C       		.byte	0x2c
+ 590 031e 0E       		.uleb128 0xe
+ 591 031f DA000000 		.4byte	.LASF49
+ 592 0323 05       		.byte	0x5
+ 593 0324 83       		.byte	0x83
+ 594 0325 98060000 		.4byte	0x698
+ 595 0329 30       		.byte	0x30
+ 596 032a 00       		.byte	0
+ 597 032b 05       		.uleb128 0x5
+ 598 032c 04       		.byte	0x4
+ 599 032d 31030000 		.4byte	0x331
+ 600 0331 11       		.uleb128 0x11
+ 601 0332 2C000000 		.4byte	0x2c
+ 602 0336 0D       		.uleb128 0xd
+ 603 0337 41030000 		.4byte	0x341
+ 604 033b 0B       		.uleb128 0xb
+ 605 033c 53000000 		.4byte	0x53
+ 606 0340 00       		.byte	0
+ 607 0341 05       		.uleb128 0x5
+ 608 0342 04       		.byte	0x4
+ 609 0343 36030000 		.4byte	0x336
+ 610 0347 05       		.uleb128 0x5
+ 611 0348 04       		.byte	0x4
+ 612 0349 4D030000 		.4byte	0x34d
+ 613 034d 11       		.uleb128 0x11
+ 614 034e FA010000 		.4byte	0x1fa
+ 615 0352 0D       		.uleb128 0xd
+ 616 0353 5D030000 		.4byte	0x35d
+ 617 0357 0B       		.uleb128 0xb
+ 618 0358 3A000000 		.4byte	0x3a
+ 619 035c 00       		.byte	0
+ 620 035d 12       		.uleb128 0x12
+ 621 035e 68       		.byte	0x68
+ 622 035f 06       		.byte	0x6
+ 623 0360 7102     		.2byte	0x271
+ 624 0362 B9040000 		.4byte	0x4b9
+ 625 0366 13       		.uleb128 0x13
+ 626 0367 47050000 		.4byte	.LASF50
+ 627 036b 06       		.byte	0x6
+ 628 036c 7502     		.2byte	0x275
+ 629 036e C4040000 		.4byte	0x4c4
+ 630 0372 00       		.byte	0
+ 631 0373 13       		.uleb128 0x13
+ 632 0374 53050000 		.4byte	.LASF51
+ 633 0378 06       		.byte	0x6
+ 634 0379 7602     		.2byte	0x276
+ 635 037b C4040000 		.4byte	0x4c4
+ 636 037f 04       		.byte	0x4
+ 637 0380 13       		.uleb128 0x13
+ 638 0381 DE040000 		.4byte	.LASF52
+ 639 0385 06       		.byte	0x6
+ 640 0386 7702     		.2byte	0x277
+ 641 0388 DA040000 		.4byte	0x4da
+ 642 038c 08       		.byte	0x8
+ 643 038d 13       		.uleb128 0x13
+ 644 038e 15010000 		.4byte	.LASF53
+ 645 0392 06       		.byte	0x6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 16
+
+
+ 646 0393 7802     		.2byte	0x278
+ 647 0395 DA040000 		.4byte	0x4da
+ 648 0399 0C       		.byte	0xc
+ 649 039a 13       		.uleb128 0x13
+ 650 039b B5050000 		.4byte	.LASF54
+ 651 039f 06       		.byte	0x6
+ 652 03a0 7902     		.2byte	0x279
+ 653 03a2 E5040000 		.4byte	0x4e5
+ 654 03a6 10       		.byte	0x10
+ 655 03a7 13       		.uleb128 0x13
+ 656 03a8 C0050000 		.4byte	.LASF55
+ 657 03ac 06       		.byte	0x6
+ 658 03ad 7A02     		.2byte	0x27a
+ 659 03af E5040000 		.4byte	0x4e5
+ 660 03b3 14       		.byte	0x14
+ 661 03b4 13       		.uleb128 0x13
+ 662 03b5 C5040000 		.4byte	.LASF56
+ 663 03b9 06       		.byte	0x6
+ 664 03ba 7B02     		.2byte	0x27b
+ 665 03bc DA040000 		.4byte	0x4da
+ 666 03c0 18       		.byte	0x18
+ 667 03c1 13       		.uleb128 0x13
+ 668 03c2 15030000 		.4byte	.LASF57
+ 669 03c6 06       		.byte	0x6
+ 670 03c7 7C02     		.2byte	0x27c
+ 671 03c9 DA040000 		.4byte	0x4da
+ 672 03cd 1C       		.byte	0x1c
+ 673 03ce 13       		.uleb128 0x13
+ 674 03cf DF050000 		.4byte	.LASF58
+ 675 03d3 06       		.byte	0x6
+ 676 03d4 8002     		.2byte	0x280
+ 677 03d6 EB040000 		.4byte	0x4eb
+ 678 03da 20       		.byte	0x20
+ 679 03db 13       		.uleb128 0x13
+ 680 03dc EC050000 		.4byte	.LASF59
+ 681 03e0 06       		.byte	0x6
+ 682 03e1 8102     		.2byte	0x281
+ 683 03e3 EB040000 		.4byte	0x4eb
+ 684 03e7 24       		.byte	0x24
+ 685 03e8 13       		.uleb128 0x13
+ 686 03e9 5B030000 		.4byte	.LASF60
+ 687 03ed 06       		.byte	0x6
+ 688 03ee 8202     		.2byte	0x282
+ 689 03f0 07050000 		.4byte	0x507
+ 690 03f4 28       		.byte	0x28
+ 691 03f5 13       		.uleb128 0x13
+ 692 03f6 69030000 		.4byte	.LASF61
+ 693 03fa 06       		.byte	0x6
+ 694 03fb 8302     		.2byte	0x283
+ 695 03fd 07050000 		.4byte	0x507
+ 696 0401 2C       		.byte	0x2c
+ 697 0402 13       		.uleb128 0x13
+ 698 0403 A8000000 		.4byte	.LASF62
+ 699 0407 06       		.byte	0x6
+ 700 0408 8402     		.2byte	0x284
+ 701 040a 12050000 		.4byte	0x512
+ 702 040e 30       		.byte	0x30
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 17
+
+
+ 703 040f 13       		.uleb128 0x13
+ 704 0410 B4000000 		.4byte	.LASF63
+ 705 0414 06       		.byte	0x6
+ 706 0415 8502     		.2byte	0x285
+ 707 0417 12050000 		.4byte	0x512
+ 708 041b 34       		.byte	0x34
+ 709 041c 13       		.uleb128 0x13
+ 710 041d CD030000 		.4byte	.LASF64
+ 711 0421 06       		.byte	0x6
+ 712 0422 8602     		.2byte	0x286
+ 713 0424 07050000 		.4byte	0x507
+ 714 0428 38       		.byte	0x38
+ 715 0429 13       		.uleb128 0x13
+ 716 042a 84050000 		.4byte	.LASF65
+ 717 042e 06       		.byte	0x6
+ 718 042f 8702     		.2byte	0x287
+ 719 0431 07050000 		.4byte	0x507
+ 720 0435 3C       		.byte	0x3c
+ 721 0436 13       		.uleb128 0x13
+ 722 0437 D1040000 		.4byte	.LASF66
+ 723 043b 06       		.byte	0x6
+ 724 043c 8B02     		.2byte	0x28b
+ 725 043e 41030000 		.4byte	0x341
+ 726 0442 40       		.byte	0x40
+ 727 0443 13       		.uleb128 0x13
+ 728 0444 5F050000 		.4byte	.LASF67
+ 729 0448 06       		.byte	0x6
+ 730 0449 8C02     		.2byte	0x28c
+ 731 044b 41030000 		.4byte	0x341
+ 732 044f 44       		.byte	0x44
+ 733 0450 13       		.uleb128 0x13
+ 734 0451 61000000 		.4byte	.LASF68
+ 735 0455 06       		.byte	0x6
+ 736 0456 8D02     		.2byte	0x28d
+ 737 0458 2E050000 		.4byte	0x52e
+ 738 045c 48       		.byte	0x48
+ 739 045d 13       		.uleb128 0x13
+ 740 045e CC000000 		.4byte	.LASF69
+ 741 0462 06       		.byte	0x6
+ 742 0463 8E02     		.2byte	0x28e
+ 743 0465 2E050000 		.4byte	0x52e
+ 744 0469 4C       		.byte	0x4c
+ 745 046a 13       		.uleb128 0x13
+ 746 046b 7D020000 		.4byte	.LASF70
+ 747 046f 06       		.byte	0x6
+ 748 0470 8F02     		.2byte	0x28f
+ 749 0472 34050000 		.4byte	0x534
+ 750 0476 50       		.byte	0x50
+ 751 0477 13       		.uleb128 0x13
+ 752 0478 91050000 		.4byte	.LASF71
+ 753 047c 06       		.byte	0x6
+ 754 047d 9002     		.2byte	0x290
+ 755 047f 34050000 		.4byte	0x534
+ 756 0483 54       		.byte	0x54
+ 757 0484 13       		.uleb128 0x13
+ 758 0485 96010000 		.4byte	.LASF72
+ 759 0489 06       		.byte	0x6
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 18
+
+
+ 760 048a 9102     		.2byte	0x291
+ 761 048c 2E050000 		.4byte	0x52e
+ 762 0490 58       		.byte	0x58
+ 763 0491 13       		.uleb128 0x13
+ 764 0492 A3010000 		.4byte	.LASF73
+ 765 0496 06       		.byte	0x6
+ 766 0497 9202     		.2byte	0x292
+ 767 0499 2E050000 		.4byte	0x52e
+ 768 049d 5C       		.byte	0x5c
+ 769 049e 13       		.uleb128 0x13
+ 770 049f A0000000 		.4byte	.LASF74
+ 771 04a3 06       		.byte	0x6
+ 772 04a4 9602     		.2byte	0x296
+ 773 04a6 C4040000 		.4byte	0x4c4
+ 774 04aa 60       		.byte	0x60
+ 775 04ab 13       		.uleb128 0x13
+ 776 04ac 9D050000 		.4byte	.LASF75
+ 777 04b0 06       		.byte	0x6
+ 778 04b1 9A02     		.2byte	0x29a
+ 779 04b3 96000000 		.4byte	0x96
+ 780 04b7 64       		.byte	0x64
+ 781 04b8 00       		.byte	0
+ 782 04b9 0D       		.uleb128 0xd
+ 783 04ba C4040000 		.4byte	0x4c4
+ 784 04be 0B       		.uleb128 0xb
+ 785 04bf 2C000000 		.4byte	0x2c
+ 786 04c3 00       		.byte	0
+ 787 04c4 05       		.uleb128 0x5
+ 788 04c5 04       		.byte	0x4
+ 789 04c6 B9040000 		.4byte	0x4b9
+ 790 04ca 0D       		.uleb128 0xd
+ 791 04cb DA040000 		.4byte	0x4da
+ 792 04cf 0B       		.uleb128 0xb
+ 793 04d0 A6000000 		.4byte	0xa6
+ 794 04d4 0B       		.uleb128 0xb
+ 795 04d5 68000000 		.4byte	0x68
+ 796 04d9 00       		.byte	0
+ 797 04da 05       		.uleb128 0x5
+ 798 04db 04       		.byte	0x4
+ 799 04dc CA040000 		.4byte	0x4ca
+ 800 04e0 0C       		.uleb128 0xc
+ 801 04e1 2C000000 		.4byte	0x2c
+ 802 04e5 05       		.uleb128 0x5
+ 803 04e6 04       		.byte	0x4
+ 804 04e7 E0040000 		.4byte	0x4e0
+ 805 04eb 05       		.uleb128 0x5
+ 806 04ec 04       		.byte	0x4
+ 807 04ed 52030000 		.4byte	0x352
+ 808 04f1 0D       		.uleb128 0xd
+ 809 04f2 01050000 		.4byte	0x501
+ 810 04f6 0B       		.uleb128 0xb
+ 811 04f7 01050000 		.4byte	0x501
+ 812 04fb 0B       		.uleb128 0xb
+ 813 04fc 68000000 		.4byte	0x68
+ 814 0500 00       		.byte	0
+ 815 0501 05       		.uleb128 0x5
+ 816 0502 04       		.byte	0x4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 19
+
+
+ 817 0503 3A000000 		.4byte	0x3a
+ 818 0507 05       		.uleb128 0x5
+ 819 0508 04       		.byte	0x4
+ 820 0509 F1040000 		.4byte	0x4f1
+ 821 050d 0C       		.uleb128 0xc
+ 822 050e 3A000000 		.4byte	0x3a
+ 823 0512 05       		.uleb128 0x5
+ 824 0513 04       		.byte	0x4
+ 825 0514 0D050000 		.4byte	0x50d
+ 826 0518 0D       		.uleb128 0xd
+ 827 0519 28050000 		.4byte	0x528
+ 828 051d 0B       		.uleb128 0xb
+ 829 051e 28050000 		.4byte	0x528
+ 830 0522 0B       		.uleb128 0xb
+ 831 0523 68000000 		.4byte	0x68
+ 832 0527 00       		.byte	0
+ 833 0528 05       		.uleb128 0x5
+ 834 0529 04       		.byte	0x4
+ 835 052a 53000000 		.4byte	0x53
+ 836 052e 05       		.uleb128 0x5
+ 837 052f 04       		.byte	0x4
+ 838 0530 18050000 		.4byte	0x518
+ 839 0534 05       		.uleb128 0x5
+ 840 0535 04       		.byte	0x4
+ 841 0536 36010000 		.4byte	0x136
+ 842 053a 0F       		.uleb128 0xf
+ 843 053b 21050000 		.4byte	.LASF76
+ 844 053f 06       		.byte	0x6
+ 845 0540 9B02     		.2byte	0x29b
+ 846 0542 5D030000 		.4byte	0x35d
+ 847 0546 0D       		.uleb128 0xd
+ 848 0547 7E050000 		.4byte	0x57e
+ 849 054b 0B       		.uleb128 0xb
+ 850 054c 7E050000 		.4byte	0x57e
+ 851 0550 0B       		.uleb128 0xb
+ 852 0551 68000000 		.4byte	0x68
+ 853 0555 0B       		.uleb128 0xb
+ 854 0556 68000000 		.4byte	0x68
+ 855 055a 0B       		.uleb128 0xb
+ 856 055b 68000000 		.4byte	0x68
+ 857 055f 0B       		.uleb128 0xb
+ 858 0560 68000000 		.4byte	0x68
+ 859 0564 0B       		.uleb128 0xb
+ 860 0565 68000000 		.4byte	0x68
+ 861 0569 0B       		.uleb128 0xb
+ 862 056a 68000000 		.4byte	0x68
+ 863 056e 0B       		.uleb128 0xb
+ 864 056f 2B030000 		.4byte	0x32b
+ 865 0573 0B       		.uleb128 0xb
+ 866 0574 68000000 		.4byte	0x68
+ 867 0578 0B       		.uleb128 0xb
+ 868 0579 84050000 		.4byte	0x584
+ 869 057d 00       		.byte	0
+ 870 057e 05       		.uleb128 0x5
+ 871 057f 04       		.byte	0x4
+ 872 0580 0B020000 		.4byte	0x20b
+ 873 0584 05       		.uleb128 0x5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 20
+
+
+ 874 0585 04       		.byte	0x4
+ 875 0586 8A050000 		.4byte	0x58a
+ 876 058a 11       		.uleb128 0x11
+ 877 058b 53000000 		.4byte	0x53
+ 878 058f 05       		.uleb128 0x5
+ 879 0590 04       		.byte	0x4
+ 880 0591 46050000 		.4byte	0x546
+ 881 0595 0D       		.uleb128 0xd
+ 882 0596 AF050000 		.4byte	0x5af
+ 883 059a 0B       		.uleb128 0xb
+ 884 059b 7E050000 		.4byte	0x57e
+ 885 059f 0B       		.uleb128 0xb
+ 886 05a0 68000000 		.4byte	0x68
+ 887 05a4 0B       		.uleb128 0xb
+ 888 05a5 68000000 		.4byte	0x68
+ 889 05a9 0B       		.uleb128 0xb
+ 890 05aa 68000000 		.4byte	0x68
+ 891 05ae 00       		.byte	0
+ 892 05af 05       		.uleb128 0x5
+ 893 05b0 04       		.byte	0x4
+ 894 05b1 95050000 		.4byte	0x595
+ 895 05b5 0D       		.uleb128 0xd
+ 896 05b6 D4050000 		.4byte	0x5d4
+ 897 05ba 0B       		.uleb128 0xb
+ 898 05bb 7E050000 		.4byte	0x57e
+ 899 05bf 0B       		.uleb128 0xb
+ 900 05c0 68000000 		.4byte	0x68
+ 901 05c4 0B       		.uleb128 0xb
+ 902 05c5 68000000 		.4byte	0x68
+ 903 05c9 0B       		.uleb128 0xb
+ 904 05ca 68000000 		.4byte	0x68
+ 905 05ce 0B       		.uleb128 0xb
+ 906 05cf 68000000 		.4byte	0x68
+ 907 05d3 00       		.byte	0
+ 908 05d4 05       		.uleb128 0x5
+ 909 05d5 04       		.byte	0x4
+ 910 05d6 B5050000 		.4byte	0x5b5
+ 911 05da 0A       		.uleb128 0xa
+ 912 05db 53000000 		.4byte	0x53
+ 913 05df F3050000 		.4byte	0x5f3
+ 914 05e3 0B       		.uleb128 0xb
+ 915 05e4 7E050000 		.4byte	0x57e
+ 916 05e8 0B       		.uleb128 0xb
+ 917 05e9 68000000 		.4byte	0x68
+ 918 05ed 0B       		.uleb128 0xb
+ 919 05ee 68000000 		.4byte	0x68
+ 920 05f2 00       		.byte	0
+ 921 05f3 05       		.uleb128 0x5
+ 922 05f4 04       		.byte	0x4
+ 923 05f5 DA050000 		.4byte	0x5da
+ 924 05f9 0D       		.uleb128 0xd
+ 925 05fa 13060000 		.4byte	0x613
+ 926 05fe 0B       		.uleb128 0xb
+ 927 05ff 7E050000 		.4byte	0x57e
+ 928 0603 0B       		.uleb128 0xb
+ 929 0604 68000000 		.4byte	0x68
+ 930 0608 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 21
+
+
+ 931 0609 68000000 		.4byte	0x68
+ 932 060d 0B       		.uleb128 0xb
+ 933 060e 53000000 		.4byte	0x53
+ 934 0612 00       		.byte	0
+ 935 0613 05       		.uleb128 0x5
+ 936 0614 04       		.byte	0x4
+ 937 0615 F9050000 		.4byte	0x5f9
+ 938 0619 0D       		.uleb128 0xd
+ 939 061a 2E060000 		.4byte	0x62e
+ 940 061e 0B       		.uleb128 0xb
+ 941 061f 7E050000 		.4byte	0x57e
+ 942 0623 0B       		.uleb128 0xb
+ 943 0624 68000000 		.4byte	0x68
+ 944 0628 0B       		.uleb128 0xb
+ 945 0629 68000000 		.4byte	0x68
+ 946 062d 00       		.byte	0
+ 947 062e 05       		.uleb128 0x5
+ 948 062f 04       		.byte	0x4
+ 949 0630 19060000 		.4byte	0x619
+ 950 0634 0A       		.uleb128 0xa
+ 951 0635 96000000 		.4byte	0x96
+ 952 0639 48060000 		.4byte	0x648
+ 953 063d 0B       		.uleb128 0xb
+ 954 063e 48060000 		.4byte	0x648
+ 955 0642 0B       		.uleb128 0xb
+ 956 0643 68000000 		.4byte	0x68
+ 957 0647 00       		.byte	0
+ 958 0648 05       		.uleb128 0x5
+ 959 0649 04       		.byte	0x4
+ 960 064a 7E050000 		.4byte	0x57e
+ 961 064e 05       		.uleb128 0x5
+ 962 064f 04       		.byte	0x4
+ 963 0650 34060000 		.4byte	0x634
+ 964 0654 0A       		.uleb128 0xa
+ 965 0655 4C000000 		.4byte	0x4c
+ 966 0659 68060000 		.4byte	0x668
+ 967 065d 0B       		.uleb128 0xb
+ 968 065e 7E050000 		.4byte	0x57e
+ 969 0662 0B       		.uleb128 0xb
+ 970 0663 68000000 		.4byte	0x68
+ 971 0667 00       		.byte	0
+ 972 0668 05       		.uleb128 0x5
+ 973 0669 04       		.byte	0x4
+ 974 066a 54060000 		.4byte	0x654
+ 975 066e 0A       		.uleb128 0xa
+ 976 066f A4000000 		.4byte	0xa4
+ 977 0673 82060000 		.4byte	0x682
+ 978 0677 0B       		.uleb128 0xb
+ 979 0678 7E050000 		.4byte	0x57e
+ 980 067c 0B       		.uleb128 0xb
+ 981 067d 68000000 		.4byte	0x68
+ 982 0681 00       		.byte	0
+ 983 0682 05       		.uleb128 0x5
+ 984 0683 04       		.byte	0x4
+ 985 0684 6E060000 		.4byte	0x66e
+ 986 0688 0D       		.uleb128 0xd
+ 987 0689 98060000 		.4byte	0x698
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 22
+
+
+ 988 068d 0B       		.uleb128 0xb
+ 989 068e 7E050000 		.4byte	0x57e
+ 990 0692 0B       		.uleb128 0xb
+ 991 0693 05020000 		.4byte	0x205
+ 992 0697 00       		.byte	0
+ 993 0698 05       		.uleb128 0x5
+ 994 0699 04       		.byte	0x4
+ 995 069a 88060000 		.4byte	0x688
+ 996 069e 14       		.uleb128 0x14
+ 997 069f 04       		.byte	0x4
+ 998 06a0 05       		.byte	0x5
+ 999 06a1 B9       		.byte	0xb9
+ 1000 06a2 BD060000 		.4byte	0x6bd
+ 1001 06a6 15       		.uleb128 0x15
+ 1002 06a7 89020000 		.4byte	.LASF77
+ 1003 06ab 05       		.byte	0x5
+ 1004 06ac BA       		.byte	0xba
+ 1005 06ad 4C000000 		.4byte	0x4c
+ 1006 06b1 15       		.uleb128 0x15
+ 1007 06b2 EB040000 		.4byte	.LASF78
+ 1008 06b6 05       		.byte	0x5
+ 1009 06b7 BB       		.byte	0xbb
+ 1010 06b8 A4000000 		.4byte	0xa4
+ 1011 06bc 00       		.byte	0
+ 1012 06bd 05       		.uleb128 0x5
+ 1013 06be 04       		.byte	0x4
+ 1014 06bf C3060000 		.4byte	0x6c3
+ 1015 06c3 11       		.uleb128 0x11
+ 1016 06c4 76020000 		.4byte	0x276
+ 1017 06c8 08       		.uleb128 0x8
+ 1018 06c9 14       		.byte	0x14
+ 1019 06ca 07       		.byte	0x7
+ 1020 06cb 72       		.byte	0x72
+ 1021 06cc 0D070000 		.4byte	0x70d
+ 1022 06d0 0E       		.uleb128 0xe
+ 1023 06d1 67020000 		.4byte	.LASF79
+ 1024 06d5 07       		.byte	0x7
+ 1025 06d6 76       		.byte	0x76
+ 1026 06d7 68000000 		.4byte	0x68
+ 1027 06db 00       		.byte	0
+ 1028 06dc 0E       		.uleb128 0xe
+ 1029 06dd 3B060000 		.4byte	.LASF80
+ 1030 06e1 07       		.byte	0x7
+ 1031 06e2 77       		.byte	0x77
+ 1032 06e3 68000000 		.4byte	0x68
+ 1033 06e7 04       		.byte	0x4
+ 1034 06e8 0E       		.uleb128 0xe
+ 1035 06e9 9C040000 		.4byte	.LASF81
+ 1036 06ed 07       		.byte	0x7
+ 1037 06ee 78       		.byte	0x78
+ 1038 06ef 68000000 		.4byte	0x68
+ 1039 06f3 08       		.byte	0x8
+ 1040 06f4 0E       		.uleb128 0xe
+ 1041 06f5 EF000000 		.4byte	.LASF82
+ 1042 06f9 07       		.byte	0x7
+ 1043 06fa 79       		.byte	0x79
+ 1044 06fb 3A000000 		.4byte	0x3a
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 23
+
+
+ 1045 06ff 0C       		.byte	0xc
+ 1046 0700 0E       		.uleb128 0xe
+ 1047 0701 2F000000 		.4byte	.LASF83
+ 1048 0705 07       		.byte	0x7
+ 1049 0706 7A       		.byte	0x7a
+ 1050 0707 68000000 		.4byte	0x68
+ 1051 070b 10       		.byte	0x10
+ 1052 070c 00       		.byte	0
+ 1053 070d 03       		.uleb128 0x3
+ 1054 070e 44060000 		.4byte	.LASF84
+ 1055 0712 07       		.byte	0x7
+ 1056 0713 7B       		.byte	0x7b
+ 1057 0714 C8060000 		.4byte	0x6c8
+ 1058 0718 16       		.uleb128 0x16
+ 1059 0719 86010000 		.4byte	.LASF101
+ 1060 071d 01       		.byte	0x1
+ 1061 071e 72       		.byte	0x72
+ 1062 071f 00000000 		.4byte	.LFB63
+ 1063 0723 08000000 		.4byte	.LFE63-.LFB63
+ 1064 0727 01       		.uleb128 0x1
+ 1065 0728 9C       		.byte	0x9c
+ 1066 0729 37070000 		.4byte	0x737
+ 1067 072d 17       		.uleb128 0x17
+ 1068 072e 06000000 		.4byte	.LVL0
+ 1069 0732 A7080000 		.4byte	0x8a7
+ 1070 0736 00       		.byte	0
+ 1071 0737 18       		.uleb128 0x18
+ 1072 0738 1C000000 		.4byte	.LASF102
+ 1073 073c 01       		.byte	0x1
+ 1074 073d 88       		.byte	0x88
+ 1075 073e 00000000 		.4byte	.LFB64
+ 1076 0742 94000000 		.4byte	.LFE64-.LFB64
+ 1077 0746 01       		.uleb128 0x1
+ 1078 0747 9C       		.byte	0x9c
+ 1079 0748 27080000 		.4byte	0x827
+ 1080 074c 19       		.uleb128 0x19
+ 1081 074d 55060000 		.4byte	.LASF85
+ 1082 0751 01       		.byte	0x1
+ 1083 0752 89       		.byte	0x89
+ 1084 0753 7E050000 		.4byte	0x57e
+ 1085 0757 00000000 		.4byte	.LLST0
+ 1086 075b 1A       		.uleb128 0x1a
+ 1087 075c 76020000 		.4byte	.LASF86
+ 1088 0760 01       		.byte	0x1
+ 1089 0761 8A       		.byte	0x8a
+ 1090 0762 0D070000 		.4byte	0x70d
+ 1091 0766 02       		.uleb128 0x2
+ 1092 0767 91       		.byte	0x91
+ 1093 0768 5C       		.sleb128 -36
+ 1094 0769 1A       		.uleb128 0x1a
+ 1095 076a C8010000 		.4byte	.LASF87
+ 1096 076e 01       		.byte	0x1
+ 1097 076f 8B       		.byte	0x8b
+ 1098 0770 3A050000 		.4byte	0x53a
+ 1099 0774 03       		.uleb128 0x3
+ 1100 0775 91       		.byte	0x91
+ 1101 0776 F47E     		.sleb128 -140
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 24
+
+
+ 1102 0778 1B       		.uleb128 0x1b
+ 1103 0779 1A000000 		.4byte	.LVL1
+ 1104 077d AE080000 		.4byte	0x8ae
+ 1105 0781 99070000 		.4byte	0x799
+ 1106 0785 1C       		.uleb128 0x1c
+ 1107 0786 01       		.uleb128 0x1
+ 1108 0787 52       		.byte	0x52
+ 1109 0788 02       		.uleb128 0x2
+ 1110 0789 08       		.byte	0x8
+ 1111 078a 68       		.byte	0x68
+ 1112 078b 1C       		.uleb128 0x1c
+ 1113 078c 01       		.uleb128 0x1
+ 1114 078d 51       		.byte	0x51
+ 1115 078e 02       		.uleb128 0x2
+ 1116 078f 74       		.byte	0x74
+ 1117 0790 00       		.sleb128 0
+ 1118 0791 1C       		.uleb128 0x1c
+ 1119 0792 01       		.uleb128 0x1
+ 1120 0793 50       		.byte	0x50
+ 1121 0794 03       		.uleb128 0x3
+ 1122 0795 91       		.byte	0x91
+ 1123 0796 F47E     		.sleb128 -140
+ 1124 0798 00       		.byte	0
+ 1125 0799 1B       		.uleb128 0x1b
+ 1126 079a 26000000 		.4byte	.LVL2
+ 1127 079e CB080000 		.4byte	0x8cb
+ 1128 07a2 B3070000 		.4byte	0x7b3
+ 1129 07a6 1C       		.uleb128 0x1c
+ 1130 07a7 01       		.uleb128 0x1
+ 1131 07a8 53       		.byte	0x53
+ 1132 07a9 02       		.uleb128 0x2
+ 1133 07aa 74       		.byte	0x74
+ 1134 07ab 00       		.sleb128 0
+ 1135 07ac 1C       		.uleb128 0x1c
+ 1136 07ad 01       		.uleb128 0x1
+ 1137 07ae 52       		.byte	0x52
+ 1138 07af 02       		.uleb128 0x2
+ 1139 07b0 74       		.byte	0x74
+ 1140 07b1 00       		.sleb128 0
+ 1141 07b2 00       		.byte	0
+ 1142 07b3 1B       		.uleb128 0x1b
+ 1143 07b4 34000000 		.4byte	.LVL5
+ 1144 07b8 F0080000 		.4byte	0x8f0
+ 1145 07bc D4070000 		.4byte	0x7d4
+ 1146 07c0 1C       		.uleb128 0x1c
+ 1147 07c1 01       		.uleb128 0x1
+ 1148 07c2 52       		.byte	0x52
+ 1149 07c3 03       		.uleb128 0x3
+ 1150 07c4 0A       		.byte	0xa
+ 1151 07c5 4001     		.2byte	0x140
+ 1152 07c7 1C       		.uleb128 0x1c
+ 1153 07c8 01       		.uleb128 0x1
+ 1154 07c9 51       		.byte	0x51
+ 1155 07ca 02       		.uleb128 0x2
+ 1156 07cb 08       		.byte	0x8
+ 1157 07cc F0       		.byte	0xf0
+ 1158 07cd 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 25
+
+
+ 1159 07ce 01       		.uleb128 0x1
+ 1160 07cf 50       		.byte	0x50
+ 1161 07d0 02       		.uleb128 0x2
+ 1162 07d1 74       		.byte	0x74
+ 1163 07d2 00       		.sleb128 0
+ 1164 07d3 00       		.byte	0
+ 1165 07d4 1B       		.uleb128 0x1b
+ 1166 07d5 40000000 		.4byte	.LVL6
+ 1167 07d9 10090000 		.4byte	0x910
+ 1168 07dd F5070000 		.4byte	0x7f5
+ 1169 07e1 1C       		.uleb128 0x1c
+ 1170 07e2 01       		.uleb128 0x1
+ 1171 07e3 52       		.byte	0x52
+ 1172 07e4 03       		.uleb128 0x3
+ 1173 07e5 0A       		.byte	0xa
+ 1174 07e6 4001     		.2byte	0x140
+ 1175 07e8 1C       		.uleb128 0x1c
+ 1176 07e9 01       		.uleb128 0x1
+ 1177 07ea 51       		.byte	0x51
+ 1178 07eb 02       		.uleb128 0x2
+ 1179 07ec 08       		.byte	0x8
+ 1180 07ed F0       		.byte	0xf0
+ 1181 07ee 1C       		.uleb128 0x1c
+ 1182 07ef 01       		.uleb128 0x1
+ 1183 07f0 50       		.byte	0x50
+ 1184 07f1 02       		.uleb128 0x2
+ 1185 07f2 74       		.byte	0x74
+ 1186 07f3 00       		.sleb128 0
+ 1187 07f4 00       		.byte	0
+ 1188 07f5 1B       		.uleb128 0x1b
+ 1189 07f6 4C000000 		.4byte	.LVL7
+ 1190 07fa 30090000 		.4byte	0x930
+ 1191 07fe 0F080000 		.4byte	0x80f
+ 1192 0802 1C       		.uleb128 0x1c
+ 1193 0803 01       		.uleb128 0x1
+ 1194 0804 51       		.byte	0x51
+ 1195 0805 02       		.uleb128 0x2
+ 1196 0806 91       		.byte	0x91
+ 1197 0807 5C       		.sleb128 -36
+ 1198 0808 1C       		.uleb128 0x1c
+ 1199 0809 01       		.uleb128 0x1
+ 1200 080a 50       		.byte	0x50
+ 1201 080b 02       		.uleb128 0x2
+ 1202 080c 75       		.byte	0x75
+ 1203 080d 00       		.sleb128 0
+ 1204 080e 00       		.byte	0
+ 1205 080f 1D       		.uleb128 0x1d
+ 1206 0810 6C000000 		.4byte	.LVL8
+ 1207 0814 4C090000 		.4byte	0x94c
+ 1208 0818 1C       		.uleb128 0x1c
+ 1209 0819 01       		.uleb128 0x1
+ 1210 081a 51       		.byte	0x51
+ 1211 081b 03       		.uleb128 0x3
+ 1212 081c 91       		.byte	0x91
+ 1213 081d F47E     		.sleb128 -140
+ 1214 081f 1C       		.uleb128 0x1c
+ 1215 0820 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 26
+
+
+ 1216 0821 50       		.byte	0x50
+ 1217 0822 02       		.uleb128 0x2
+ 1218 0823 75       		.byte	0x75
+ 1219 0824 00       		.sleb128 0
+ 1220 0825 00       		.byte	0
+ 1221 0826 00       		.byte	0
+ 1222 0827 1E       		.uleb128 0x1e
+ 1223 0828 01030000 		.4byte	.LASF103
+ 1224 082c 01       		.byte	0x1
+ 1225 082d BC       		.byte	0xbc
+ 1226 082e 68000000 		.4byte	0x68
+ 1227 0832 00000000 		.4byte	.LFB65
+ 1228 0836 14000000 		.4byte	.LFE65-.LFB65
+ 1229 083a 01       		.uleb128 0x1
+ 1230 083b 9C       		.byte	0x9c
+ 1231 083c 80080000 		.4byte	0x880
+ 1232 0840 1F       		.uleb128 0x1f
+ 1233 0841 D0010000 		.4byte	.LASF35
+ 1234 0845 01       		.byte	0x1
+ 1235 0846 BC       		.byte	0xbc
+ 1236 0847 6F000000 		.4byte	0x6f
+ 1237 084b 1E000000 		.4byte	.LLST1
+ 1238 084f 20       		.uleb128 0x20
+ 1239 0850 436D6400 		.ascii	"Cmd\000"
+ 1240 0854 01       		.byte	0x1
+ 1241 0855 BC       		.byte	0xbc
+ 1242 0856 6F000000 		.4byte	0x6f
+ 1243 085a 58000000 		.4byte	.LLST2
+ 1244 085e 1F       		.uleb128 0x1f
+ 1245 085f 29000000 		.4byte	.LASF88
+ 1246 0863 01       		.byte	0x1
+ 1247 0864 BC       		.byte	0xbc
+ 1248 0865 A4000000 		.4byte	0xa4
+ 1249 0869 84000000 		.4byte	.LLST3
+ 1250 086d 21       		.uleb128 0x21
+ 1251 086e 7200     		.ascii	"r\000"
+ 1252 0870 01       		.byte	0x1
+ 1253 0871 BD       		.byte	0xbd
+ 1254 0872 68000000 		.4byte	0x68
+ 1255 0876 17       		.uleb128 0x17
+ 1256 0877 0A000000 		.4byte	.LVL11
+ 1257 087b 18070000 		.4byte	0x718
+ 1258 087f 00       		.byte	0
+ 1259 0880 22       		.uleb128 0x22
+ 1260 0881 2E060000 		.4byte	.LASF89
+ 1261 0885 08       		.byte	0x8
+ 1262 0886 9606     		.2byte	0x696
+ 1263 0888 8C080000 		.4byte	0x88c
+ 1264 088c 23       		.uleb128 0x23
+ 1265 088d 76000000 		.4byte	0x76
+ 1266 0891 24       		.uleb128 0x24
+ 1267 0892 37020000 		.4byte	.LASF90
+ 1268 0896 04       		.byte	0x4
+ 1269 0897 CB       		.byte	0xcb
+ 1270 0898 4D030000 		.4byte	0x34d
+ 1271 089c 24       		.uleb128 0x24
+ 1272 089d AA030000 		.4byte	.LASF91
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 27
+
+
+ 1273 08a1 07       		.byte	0x7
+ 1274 08a2 86       		.byte	0x86
+ 1275 08a3 C3060000 		.4byte	0x6c3
+ 1276 08a7 25       		.uleb128 0x25
+ 1277 08a8 25060000 		.4byte	.LASF104
+ 1278 08ac 09       		.byte	0x9
+ 1279 08ad 13       		.byte	0x13
+ 1280 08ae 26       		.uleb128 0x26
+ 1281 08af EF010000 		.4byte	.LASF95
+ 1282 08b3 A4000000 		.4byte	0xa4
+ 1283 08b7 CB080000 		.4byte	0x8cb
+ 1284 08bb 0B       		.uleb128 0xb
+ 1285 08bc A4000000 		.4byte	0xa4
+ 1286 08c0 0B       		.uleb128 0xb
+ 1287 08c1 68000000 		.4byte	0x68
+ 1288 08c5 0B       		.uleb128 0xb
+ 1289 08c6 9D000000 		.4byte	0x9d
+ 1290 08ca 00       		.byte	0
+ 1291 08cb 27       		.uleb128 0x27
+ 1292 08cc 4E020000 		.4byte	.LASF92
+ 1293 08d0 05       		.byte	0x5
+ 1294 08d1 2201     		.2byte	0x122
+ 1295 08d3 7E050000 		.4byte	0x57e
+ 1296 08d7 F0080000 		.4byte	0x8f0
+ 1297 08db 0B       		.uleb128 0xb
+ 1298 08dc BD060000 		.4byte	0x6bd
+ 1299 08e0 0B       		.uleb128 0xb
+ 1300 08e1 47030000 		.4byte	0x347
+ 1301 08e5 0B       		.uleb128 0xb
+ 1302 08e6 3A000000 		.4byte	0x3a
+ 1303 08ea 0B       		.uleb128 0xb
+ 1304 08eb 68000000 		.4byte	0x68
+ 1305 08ef 00       		.byte	0
+ 1306 08f0 27       		.uleb128 0x27
+ 1307 08f1 0E000000 		.4byte	.LASF93
+ 1308 08f5 04       		.byte	0x4
+ 1309 08f6 4902     		.2byte	0x249
+ 1310 08f8 68000000 		.4byte	0x68
+ 1311 08fc 10090000 		.4byte	0x910
+ 1312 0900 0B       		.uleb128 0xb
+ 1313 0901 68000000 		.4byte	0x68
+ 1314 0905 0B       		.uleb128 0xb
+ 1315 0906 68000000 		.4byte	0x68
+ 1316 090a 0B       		.uleb128 0xb
+ 1317 090b 68000000 		.4byte	0x68
+ 1318 090f 00       		.byte	0
+ 1319 0910 27       		.uleb128 0x27
+ 1320 0911 F7030000 		.4byte	.LASF94
+ 1321 0915 04       		.byte	0x4
+ 1322 0916 4C02     		.2byte	0x24c
+ 1323 0918 68000000 		.4byte	0x68
+ 1324 091c 30090000 		.4byte	0x930
+ 1325 0920 0B       		.uleb128 0xb
+ 1326 0921 68000000 		.4byte	0x68
+ 1327 0925 0B       		.uleb128 0xb
+ 1328 0926 68000000 		.4byte	0x68
+ 1329 092a 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 28
+
+
+ 1330 092b 68000000 		.4byte	0x68
+ 1331 092f 00       		.byte	0
+ 1332 0930 28       		.uleb128 0x28
+ 1333 0931 6C050000 		.4byte	.LASF96
+ 1334 0935 07       		.byte	0x7
+ 1335 0936 C6       		.byte	0xc6
+ 1336 0937 46090000 		.4byte	0x946
+ 1337 093b 0B       		.uleb128 0xb
+ 1338 093c 7E050000 		.4byte	0x57e
+ 1339 0940 0B       		.uleb128 0xb
+ 1340 0941 46090000 		.4byte	0x946
+ 1341 0945 00       		.byte	0
+ 1342 0946 05       		.uleb128 0x5
+ 1343 0947 04       		.byte	0x4
+ 1344 0948 0D070000 		.4byte	0x70d
+ 1345 094c 28       		.uleb128 0x28
+ 1346 094d 48000000 		.4byte	.LASF97
+ 1347 0951 07       		.byte	0x7
+ 1348 0952 C5       		.byte	0xc5
+ 1349 0953 6C090000 		.4byte	0x96c
+ 1350 0957 0B       		.uleb128 0xb
+ 1351 0958 7E050000 		.4byte	0x57e
+ 1352 095c 0B       		.uleb128 0xb
+ 1353 095d 6C090000 		.4byte	0x96c
+ 1354 0961 0B       		.uleb128 0xb
+ 1355 0962 72090000 		.4byte	0x972
+ 1356 0966 0B       		.uleb128 0xb
+ 1357 0967 72090000 		.4byte	0x972
+ 1358 096b 00       		.byte	0
+ 1359 096c 05       		.uleb128 0x5
+ 1360 096d 04       		.byte	0x4
+ 1361 096e 3A050000 		.4byte	0x53a
+ 1362 0972 05       		.uleb128 0x5
+ 1363 0973 04       		.byte	0x4
+ 1364 0974 78090000 		.4byte	0x978
+ 1365 0978 29       		.uleb128 0x29
+ 1366 0979 0B       		.uleb128 0xb
+ 1367 097a 7E050000 		.4byte	0x57e
+ 1368 097e 00       		.byte	0
+ 1369 097f 00       		.byte	0
+ 1370              		.section	.debug_abbrev,"",%progbits
+ 1371              	.Ldebug_abbrev0:
+ 1372 0000 01       		.uleb128 0x1
+ 1373 0001 11       		.uleb128 0x11
+ 1374 0002 01       		.byte	0x1
+ 1375 0003 25       		.uleb128 0x25
+ 1376 0004 0E       		.uleb128 0xe
+ 1377 0005 13       		.uleb128 0x13
+ 1378 0006 0B       		.uleb128 0xb
+ 1379 0007 03       		.uleb128 0x3
+ 1380 0008 0E       		.uleb128 0xe
+ 1381 0009 1B       		.uleb128 0x1b
+ 1382 000a 0E       		.uleb128 0xe
+ 1383 000b 55       		.uleb128 0x55
+ 1384 000c 17       		.uleb128 0x17
+ 1385 000d 11       		.uleb128 0x11
+ 1386 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 29
+
+
+ 1387 000f 10       		.uleb128 0x10
+ 1388 0010 17       		.uleb128 0x17
+ 1389 0011 00       		.byte	0
+ 1390 0012 00       		.byte	0
+ 1391 0013 02       		.uleb128 0x2
+ 1392 0014 24       		.uleb128 0x24
+ 1393 0015 00       		.byte	0
+ 1394 0016 0B       		.uleb128 0xb
+ 1395 0017 0B       		.uleb128 0xb
+ 1396 0018 3E       		.uleb128 0x3e
+ 1397 0019 0B       		.uleb128 0xb
+ 1398 001a 03       		.uleb128 0x3
+ 1399 001b 0E       		.uleb128 0xe
+ 1400 001c 00       		.byte	0
+ 1401 001d 00       		.byte	0
+ 1402 001e 03       		.uleb128 0x3
+ 1403 001f 16       		.uleb128 0x16
+ 1404 0020 00       		.byte	0
+ 1405 0021 03       		.uleb128 0x3
+ 1406 0022 0E       		.uleb128 0xe
+ 1407 0023 3A       		.uleb128 0x3a
+ 1408 0024 0B       		.uleb128 0xb
+ 1409 0025 3B       		.uleb128 0x3b
+ 1410 0026 0B       		.uleb128 0xb
+ 1411 0027 49       		.uleb128 0x49
+ 1412 0028 13       		.uleb128 0x13
+ 1413 0029 00       		.byte	0
+ 1414 002a 00       		.byte	0
+ 1415 002b 04       		.uleb128 0x4
+ 1416 002c 24       		.uleb128 0x24
+ 1417 002d 00       		.byte	0
+ 1418 002e 0B       		.uleb128 0xb
+ 1419 002f 0B       		.uleb128 0xb
+ 1420 0030 3E       		.uleb128 0x3e
+ 1421 0031 0B       		.uleb128 0xb
+ 1422 0032 03       		.uleb128 0x3
+ 1423 0033 08       		.uleb128 0x8
+ 1424 0034 00       		.byte	0
+ 1425 0035 00       		.byte	0
+ 1426 0036 05       		.uleb128 0x5
+ 1427 0037 0F       		.uleb128 0xf
+ 1428 0038 00       		.byte	0
+ 1429 0039 0B       		.uleb128 0xb
+ 1430 003a 0B       		.uleb128 0xb
+ 1431 003b 49       		.uleb128 0x49
+ 1432 003c 13       		.uleb128 0x13
+ 1433 003d 00       		.byte	0
+ 1434 003e 00       		.byte	0
+ 1435 003f 06       		.uleb128 0x6
+ 1436 0040 15       		.uleb128 0x15
+ 1437 0041 00       		.byte	0
+ 1438 0042 27       		.uleb128 0x27
+ 1439 0043 19       		.uleb128 0x19
+ 1440 0044 00       		.byte	0
+ 1441 0045 00       		.byte	0
+ 1442 0046 07       		.uleb128 0x7
+ 1443 0047 0F       		.uleb128 0xf
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 30
+
+
+ 1444 0048 00       		.byte	0
+ 1445 0049 0B       		.uleb128 0xb
+ 1446 004a 0B       		.uleb128 0xb
+ 1447 004b 00       		.byte	0
+ 1448 004c 00       		.byte	0
+ 1449 004d 08       		.uleb128 0x8
+ 1450 004e 13       		.uleb128 0x13
+ 1451 004f 01       		.byte	0x1
+ 1452 0050 0B       		.uleb128 0xb
+ 1453 0051 0B       		.uleb128 0xb
+ 1454 0052 3A       		.uleb128 0x3a
+ 1455 0053 0B       		.uleb128 0xb
+ 1456 0054 3B       		.uleb128 0x3b
+ 1457 0055 0B       		.uleb128 0xb
+ 1458 0056 01       		.uleb128 0x1
+ 1459 0057 13       		.uleb128 0x13
+ 1460 0058 00       		.byte	0
+ 1461 0059 00       		.byte	0
+ 1462 005a 09       		.uleb128 0x9
+ 1463 005b 0D       		.uleb128 0xd
+ 1464 005c 00       		.byte	0
+ 1465 005d 03       		.uleb128 0x3
+ 1466 005e 08       		.uleb128 0x8
+ 1467 005f 3A       		.uleb128 0x3a
+ 1468 0060 0B       		.uleb128 0xb
+ 1469 0061 3B       		.uleb128 0x3b
+ 1470 0062 0B       		.uleb128 0xb
+ 1471 0063 49       		.uleb128 0x49
+ 1472 0064 13       		.uleb128 0x13
+ 1473 0065 38       		.uleb128 0x38
+ 1474 0066 0B       		.uleb128 0xb
+ 1475 0067 00       		.byte	0
+ 1476 0068 00       		.byte	0
+ 1477 0069 0A       		.uleb128 0xa
+ 1478 006a 15       		.uleb128 0x15
+ 1479 006b 01       		.byte	0x1
+ 1480 006c 27       		.uleb128 0x27
+ 1481 006d 19       		.uleb128 0x19
+ 1482 006e 49       		.uleb128 0x49
+ 1483 006f 13       		.uleb128 0x13
+ 1484 0070 01       		.uleb128 0x1
+ 1485 0071 13       		.uleb128 0x13
+ 1486 0072 00       		.byte	0
+ 1487 0073 00       		.byte	0
+ 1488 0074 0B       		.uleb128 0xb
+ 1489 0075 05       		.uleb128 0x5
+ 1490 0076 00       		.byte	0
+ 1491 0077 49       		.uleb128 0x49
+ 1492 0078 13       		.uleb128 0x13
+ 1493 0079 00       		.byte	0
+ 1494 007a 00       		.byte	0
+ 1495 007b 0C       		.uleb128 0xc
+ 1496 007c 15       		.uleb128 0x15
+ 1497 007d 00       		.byte	0
+ 1498 007e 27       		.uleb128 0x27
+ 1499 007f 19       		.uleb128 0x19
+ 1500 0080 49       		.uleb128 0x49
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 31
+
+
+ 1501 0081 13       		.uleb128 0x13
+ 1502 0082 00       		.byte	0
+ 1503 0083 00       		.byte	0
+ 1504 0084 0D       		.uleb128 0xd
+ 1505 0085 15       		.uleb128 0x15
+ 1506 0086 01       		.byte	0x1
+ 1507 0087 27       		.uleb128 0x27
+ 1508 0088 19       		.uleb128 0x19
+ 1509 0089 01       		.uleb128 0x1
+ 1510 008a 13       		.uleb128 0x13
+ 1511 008b 00       		.byte	0
+ 1512 008c 00       		.byte	0
+ 1513 008d 0E       		.uleb128 0xe
+ 1514 008e 0D       		.uleb128 0xd
+ 1515 008f 00       		.byte	0
+ 1516 0090 03       		.uleb128 0x3
+ 1517 0091 0E       		.uleb128 0xe
+ 1518 0092 3A       		.uleb128 0x3a
+ 1519 0093 0B       		.uleb128 0xb
+ 1520 0094 3B       		.uleb128 0x3b
+ 1521 0095 0B       		.uleb128 0xb
+ 1522 0096 49       		.uleb128 0x49
+ 1523 0097 13       		.uleb128 0x13
+ 1524 0098 38       		.uleb128 0x38
+ 1525 0099 0B       		.uleb128 0xb
+ 1526 009a 00       		.byte	0
+ 1527 009b 00       		.byte	0
+ 1528 009c 0F       		.uleb128 0xf
+ 1529 009d 16       		.uleb128 0x16
+ 1530 009e 00       		.byte	0
+ 1531 009f 03       		.uleb128 0x3
+ 1532 00a0 0E       		.uleb128 0xe
+ 1533 00a1 3A       		.uleb128 0x3a
+ 1534 00a2 0B       		.uleb128 0xb
+ 1535 00a3 3B       		.uleb128 0x3b
+ 1536 00a4 05       		.uleb128 0x5
+ 1537 00a5 49       		.uleb128 0x49
+ 1538 00a6 13       		.uleb128 0x13
+ 1539 00a7 00       		.byte	0
+ 1540 00a8 00       		.byte	0
+ 1541 00a9 10       		.uleb128 0x10
+ 1542 00aa 13       		.uleb128 0x13
+ 1543 00ab 01       		.byte	0x1
+ 1544 00ac 03       		.uleb128 0x3
+ 1545 00ad 0E       		.uleb128 0xe
+ 1546 00ae 0B       		.uleb128 0xb
+ 1547 00af 0B       		.uleb128 0xb
+ 1548 00b0 3A       		.uleb128 0x3a
+ 1549 00b1 0B       		.uleb128 0xb
+ 1550 00b2 3B       		.uleb128 0x3b
+ 1551 00b3 0B       		.uleb128 0xb
+ 1552 00b4 01       		.uleb128 0x1
+ 1553 00b5 13       		.uleb128 0x13
+ 1554 00b6 00       		.byte	0
+ 1555 00b7 00       		.byte	0
+ 1556 00b8 11       		.uleb128 0x11
+ 1557 00b9 26       		.uleb128 0x26
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 32
+
+
+ 1558 00ba 00       		.byte	0
+ 1559 00bb 49       		.uleb128 0x49
+ 1560 00bc 13       		.uleb128 0x13
+ 1561 00bd 00       		.byte	0
+ 1562 00be 00       		.byte	0
+ 1563 00bf 12       		.uleb128 0x12
+ 1564 00c0 13       		.uleb128 0x13
+ 1565 00c1 01       		.byte	0x1
+ 1566 00c2 0B       		.uleb128 0xb
+ 1567 00c3 0B       		.uleb128 0xb
+ 1568 00c4 3A       		.uleb128 0x3a
+ 1569 00c5 0B       		.uleb128 0xb
+ 1570 00c6 3B       		.uleb128 0x3b
+ 1571 00c7 05       		.uleb128 0x5
+ 1572 00c8 01       		.uleb128 0x1
+ 1573 00c9 13       		.uleb128 0x13
+ 1574 00ca 00       		.byte	0
+ 1575 00cb 00       		.byte	0
+ 1576 00cc 13       		.uleb128 0x13
+ 1577 00cd 0D       		.uleb128 0xd
+ 1578 00ce 00       		.byte	0
+ 1579 00cf 03       		.uleb128 0x3
+ 1580 00d0 0E       		.uleb128 0xe
+ 1581 00d1 3A       		.uleb128 0x3a
+ 1582 00d2 0B       		.uleb128 0xb
+ 1583 00d3 3B       		.uleb128 0x3b
+ 1584 00d4 05       		.uleb128 0x5
+ 1585 00d5 49       		.uleb128 0x49
+ 1586 00d6 13       		.uleb128 0x13
+ 1587 00d7 38       		.uleb128 0x38
+ 1588 00d8 0B       		.uleb128 0xb
+ 1589 00d9 00       		.byte	0
+ 1590 00da 00       		.byte	0
+ 1591 00db 14       		.uleb128 0x14
+ 1592 00dc 17       		.uleb128 0x17
+ 1593 00dd 01       		.byte	0x1
+ 1594 00de 0B       		.uleb128 0xb
+ 1595 00df 0B       		.uleb128 0xb
+ 1596 00e0 3A       		.uleb128 0x3a
+ 1597 00e1 0B       		.uleb128 0xb
+ 1598 00e2 3B       		.uleb128 0x3b
+ 1599 00e3 0B       		.uleb128 0xb
+ 1600 00e4 01       		.uleb128 0x1
+ 1601 00e5 13       		.uleb128 0x13
+ 1602 00e6 00       		.byte	0
+ 1603 00e7 00       		.byte	0
+ 1604 00e8 15       		.uleb128 0x15
+ 1605 00e9 0D       		.uleb128 0xd
+ 1606 00ea 00       		.byte	0
+ 1607 00eb 03       		.uleb128 0x3
+ 1608 00ec 0E       		.uleb128 0xe
+ 1609 00ed 3A       		.uleb128 0x3a
+ 1610 00ee 0B       		.uleb128 0xb
+ 1611 00ef 3B       		.uleb128 0x3b
+ 1612 00f0 0B       		.uleb128 0xb
+ 1613 00f1 49       		.uleb128 0x49
+ 1614 00f2 13       		.uleb128 0x13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 33
+
+
+ 1615 00f3 00       		.byte	0
+ 1616 00f4 00       		.byte	0
+ 1617 00f5 16       		.uleb128 0x16
+ 1618 00f6 2E       		.uleb128 0x2e
+ 1619 00f7 01       		.byte	0x1
+ 1620 00f8 03       		.uleb128 0x3
+ 1621 00f9 0E       		.uleb128 0xe
+ 1622 00fa 3A       		.uleb128 0x3a
+ 1623 00fb 0B       		.uleb128 0xb
+ 1624 00fc 3B       		.uleb128 0x3b
+ 1625 00fd 0B       		.uleb128 0xb
+ 1626 00fe 27       		.uleb128 0x27
+ 1627 00ff 19       		.uleb128 0x19
+ 1628 0100 11       		.uleb128 0x11
+ 1629 0101 01       		.uleb128 0x1
+ 1630 0102 12       		.uleb128 0x12
+ 1631 0103 06       		.uleb128 0x6
+ 1632 0104 40       		.uleb128 0x40
+ 1633 0105 18       		.uleb128 0x18
+ 1634 0106 9742     		.uleb128 0x2117
+ 1635 0108 19       		.uleb128 0x19
+ 1636 0109 01       		.uleb128 0x1
+ 1637 010a 13       		.uleb128 0x13
+ 1638 010b 00       		.byte	0
+ 1639 010c 00       		.byte	0
+ 1640 010d 17       		.uleb128 0x17
+ 1641 010e 898201   		.uleb128 0x4109
+ 1642 0111 00       		.byte	0
+ 1643 0112 11       		.uleb128 0x11
+ 1644 0113 01       		.uleb128 0x1
+ 1645 0114 31       		.uleb128 0x31
+ 1646 0115 13       		.uleb128 0x13
+ 1647 0116 00       		.byte	0
+ 1648 0117 00       		.byte	0
+ 1649 0118 18       		.uleb128 0x18
+ 1650 0119 2E       		.uleb128 0x2e
+ 1651 011a 01       		.byte	0x1
+ 1652 011b 3F       		.uleb128 0x3f
+ 1653 011c 19       		.uleb128 0x19
+ 1654 011d 03       		.uleb128 0x3
+ 1655 011e 0E       		.uleb128 0xe
+ 1656 011f 3A       		.uleb128 0x3a
+ 1657 0120 0B       		.uleb128 0xb
+ 1658 0121 3B       		.uleb128 0x3b
+ 1659 0122 0B       		.uleb128 0xb
+ 1660 0123 27       		.uleb128 0x27
+ 1661 0124 19       		.uleb128 0x19
+ 1662 0125 11       		.uleb128 0x11
+ 1663 0126 01       		.uleb128 0x1
+ 1664 0127 12       		.uleb128 0x12
+ 1665 0128 06       		.uleb128 0x6
+ 1666 0129 40       		.uleb128 0x40
+ 1667 012a 18       		.uleb128 0x18
+ 1668 012b 9742     		.uleb128 0x2117
+ 1669 012d 19       		.uleb128 0x19
+ 1670 012e 01       		.uleb128 0x1
+ 1671 012f 13       		.uleb128 0x13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 34
+
+
+ 1672 0130 00       		.byte	0
+ 1673 0131 00       		.byte	0
+ 1674 0132 19       		.uleb128 0x19
+ 1675 0133 34       		.uleb128 0x34
+ 1676 0134 00       		.byte	0
+ 1677 0135 03       		.uleb128 0x3
+ 1678 0136 0E       		.uleb128 0xe
+ 1679 0137 3A       		.uleb128 0x3a
+ 1680 0138 0B       		.uleb128 0xb
+ 1681 0139 3B       		.uleb128 0x3b
+ 1682 013a 0B       		.uleb128 0xb
+ 1683 013b 49       		.uleb128 0x49
+ 1684 013c 13       		.uleb128 0x13
+ 1685 013d 02       		.uleb128 0x2
+ 1686 013e 17       		.uleb128 0x17
+ 1687 013f 00       		.byte	0
+ 1688 0140 00       		.byte	0
+ 1689 0141 1A       		.uleb128 0x1a
+ 1690 0142 34       		.uleb128 0x34
+ 1691 0143 00       		.byte	0
+ 1692 0144 03       		.uleb128 0x3
+ 1693 0145 0E       		.uleb128 0xe
+ 1694 0146 3A       		.uleb128 0x3a
+ 1695 0147 0B       		.uleb128 0xb
+ 1696 0148 3B       		.uleb128 0x3b
+ 1697 0149 0B       		.uleb128 0xb
+ 1698 014a 49       		.uleb128 0x49
+ 1699 014b 13       		.uleb128 0x13
+ 1700 014c 02       		.uleb128 0x2
+ 1701 014d 18       		.uleb128 0x18
+ 1702 014e 00       		.byte	0
+ 1703 014f 00       		.byte	0
+ 1704 0150 1B       		.uleb128 0x1b
+ 1705 0151 898201   		.uleb128 0x4109
+ 1706 0154 01       		.byte	0x1
+ 1707 0155 11       		.uleb128 0x11
+ 1708 0156 01       		.uleb128 0x1
+ 1709 0157 31       		.uleb128 0x31
+ 1710 0158 13       		.uleb128 0x13
+ 1711 0159 01       		.uleb128 0x1
+ 1712 015a 13       		.uleb128 0x13
+ 1713 015b 00       		.byte	0
+ 1714 015c 00       		.byte	0
+ 1715 015d 1C       		.uleb128 0x1c
+ 1716 015e 8A8201   		.uleb128 0x410a
+ 1717 0161 00       		.byte	0
+ 1718 0162 02       		.uleb128 0x2
+ 1719 0163 18       		.uleb128 0x18
+ 1720 0164 9142     		.uleb128 0x2111
+ 1721 0166 18       		.uleb128 0x18
+ 1722 0167 00       		.byte	0
+ 1723 0168 00       		.byte	0
+ 1724 0169 1D       		.uleb128 0x1d
+ 1725 016a 898201   		.uleb128 0x4109
+ 1726 016d 01       		.byte	0x1
+ 1727 016e 11       		.uleb128 0x11
+ 1728 016f 01       		.uleb128 0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 35
+
+
+ 1729 0170 31       		.uleb128 0x31
+ 1730 0171 13       		.uleb128 0x13
+ 1731 0172 00       		.byte	0
+ 1732 0173 00       		.byte	0
+ 1733 0174 1E       		.uleb128 0x1e
+ 1734 0175 2E       		.uleb128 0x2e
+ 1735 0176 01       		.byte	0x1
+ 1736 0177 3F       		.uleb128 0x3f
+ 1737 0178 19       		.uleb128 0x19
+ 1738 0179 03       		.uleb128 0x3
+ 1739 017a 0E       		.uleb128 0xe
+ 1740 017b 3A       		.uleb128 0x3a
+ 1741 017c 0B       		.uleb128 0xb
+ 1742 017d 3B       		.uleb128 0x3b
+ 1743 017e 0B       		.uleb128 0xb
+ 1744 017f 27       		.uleb128 0x27
+ 1745 0180 19       		.uleb128 0x19
+ 1746 0181 49       		.uleb128 0x49
+ 1747 0182 13       		.uleb128 0x13
+ 1748 0183 11       		.uleb128 0x11
+ 1749 0184 01       		.uleb128 0x1
+ 1750 0185 12       		.uleb128 0x12
+ 1751 0186 06       		.uleb128 0x6
+ 1752 0187 40       		.uleb128 0x40
+ 1753 0188 18       		.uleb128 0x18
+ 1754 0189 9742     		.uleb128 0x2117
+ 1755 018b 19       		.uleb128 0x19
+ 1756 018c 01       		.uleb128 0x1
+ 1757 018d 13       		.uleb128 0x13
+ 1758 018e 00       		.byte	0
+ 1759 018f 00       		.byte	0
+ 1760 0190 1F       		.uleb128 0x1f
+ 1761 0191 05       		.uleb128 0x5
+ 1762 0192 00       		.byte	0
+ 1763 0193 03       		.uleb128 0x3
+ 1764 0194 0E       		.uleb128 0xe
+ 1765 0195 3A       		.uleb128 0x3a
+ 1766 0196 0B       		.uleb128 0xb
+ 1767 0197 3B       		.uleb128 0x3b
+ 1768 0198 0B       		.uleb128 0xb
+ 1769 0199 49       		.uleb128 0x49
+ 1770 019a 13       		.uleb128 0x13
+ 1771 019b 02       		.uleb128 0x2
+ 1772 019c 17       		.uleb128 0x17
+ 1773 019d 00       		.byte	0
+ 1774 019e 00       		.byte	0
+ 1775 019f 20       		.uleb128 0x20
+ 1776 01a0 05       		.uleb128 0x5
+ 1777 01a1 00       		.byte	0
+ 1778 01a2 03       		.uleb128 0x3
+ 1779 01a3 08       		.uleb128 0x8
+ 1780 01a4 3A       		.uleb128 0x3a
+ 1781 01a5 0B       		.uleb128 0xb
+ 1782 01a6 3B       		.uleb128 0x3b
+ 1783 01a7 0B       		.uleb128 0xb
+ 1784 01a8 49       		.uleb128 0x49
+ 1785 01a9 13       		.uleb128 0x13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 36
+
+
+ 1786 01aa 02       		.uleb128 0x2
+ 1787 01ab 17       		.uleb128 0x17
+ 1788 01ac 00       		.byte	0
+ 1789 01ad 00       		.byte	0
+ 1790 01ae 21       		.uleb128 0x21
+ 1791 01af 34       		.uleb128 0x34
+ 1792 01b0 00       		.byte	0
+ 1793 01b1 03       		.uleb128 0x3
+ 1794 01b2 08       		.uleb128 0x8
+ 1795 01b3 3A       		.uleb128 0x3a
+ 1796 01b4 0B       		.uleb128 0xb
+ 1797 01b5 3B       		.uleb128 0x3b
+ 1798 01b6 0B       		.uleb128 0xb
+ 1799 01b7 49       		.uleb128 0x49
+ 1800 01b8 13       		.uleb128 0x13
+ 1801 01b9 00       		.byte	0
+ 1802 01ba 00       		.byte	0
+ 1803 01bb 22       		.uleb128 0x22
+ 1804 01bc 34       		.uleb128 0x34
+ 1805 01bd 00       		.byte	0
+ 1806 01be 03       		.uleb128 0x3
+ 1807 01bf 0E       		.uleb128 0xe
+ 1808 01c0 3A       		.uleb128 0x3a
+ 1809 01c1 0B       		.uleb128 0xb
+ 1810 01c2 3B       		.uleb128 0x3b
+ 1811 01c3 05       		.uleb128 0x5
+ 1812 01c4 49       		.uleb128 0x49
+ 1813 01c5 13       		.uleb128 0x13
+ 1814 01c6 3F       		.uleb128 0x3f
+ 1815 01c7 19       		.uleb128 0x19
+ 1816 01c8 3C       		.uleb128 0x3c
+ 1817 01c9 19       		.uleb128 0x19
+ 1818 01ca 00       		.byte	0
+ 1819 01cb 00       		.byte	0
+ 1820 01cc 23       		.uleb128 0x23
+ 1821 01cd 35       		.uleb128 0x35
+ 1822 01ce 00       		.byte	0
+ 1823 01cf 49       		.uleb128 0x49
+ 1824 01d0 13       		.uleb128 0x13
+ 1825 01d1 00       		.byte	0
+ 1826 01d2 00       		.byte	0
+ 1827 01d3 24       		.uleb128 0x24
+ 1828 01d4 34       		.uleb128 0x34
+ 1829 01d5 00       		.byte	0
+ 1830 01d6 03       		.uleb128 0x3
+ 1831 01d7 0E       		.uleb128 0xe
+ 1832 01d8 3A       		.uleb128 0x3a
+ 1833 01d9 0B       		.uleb128 0xb
+ 1834 01da 3B       		.uleb128 0x3b
+ 1835 01db 0B       		.uleb128 0xb
+ 1836 01dc 49       		.uleb128 0x49
+ 1837 01dd 13       		.uleb128 0x13
+ 1838 01de 3F       		.uleb128 0x3f
+ 1839 01df 19       		.uleb128 0x19
+ 1840 01e0 3C       		.uleb128 0x3c
+ 1841 01e1 19       		.uleb128 0x19
+ 1842 01e2 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 37
+
+
+ 1843 01e3 00       		.byte	0
+ 1844 01e4 25       		.uleb128 0x25
+ 1845 01e5 2E       		.uleb128 0x2e
+ 1846 01e6 00       		.byte	0
+ 1847 01e7 3F       		.uleb128 0x3f
+ 1848 01e8 19       		.uleb128 0x19
+ 1849 01e9 03       		.uleb128 0x3
+ 1850 01ea 0E       		.uleb128 0xe
+ 1851 01eb 3A       		.uleb128 0x3a
+ 1852 01ec 0B       		.uleb128 0xb
+ 1853 01ed 3B       		.uleb128 0x3b
+ 1854 01ee 0B       		.uleb128 0xb
+ 1855 01ef 27       		.uleb128 0x27
+ 1856 01f0 19       		.uleb128 0x19
+ 1857 01f1 3C       		.uleb128 0x3c
+ 1858 01f2 19       		.uleb128 0x19
+ 1859 01f3 00       		.byte	0
+ 1860 01f4 00       		.byte	0
+ 1861 01f5 26       		.uleb128 0x26
+ 1862 01f6 2E       		.uleb128 0x2e
+ 1863 01f7 01       		.byte	0x1
+ 1864 01f8 3F       		.uleb128 0x3f
+ 1865 01f9 19       		.uleb128 0x19
+ 1866 01fa 03       		.uleb128 0x3
+ 1867 01fb 0E       		.uleb128 0xe
+ 1868 01fc 27       		.uleb128 0x27
+ 1869 01fd 19       		.uleb128 0x19
+ 1870 01fe 49       		.uleb128 0x49
+ 1871 01ff 13       		.uleb128 0x13
+ 1872 0200 34       		.uleb128 0x34
+ 1873 0201 19       		.uleb128 0x19
+ 1874 0202 3C       		.uleb128 0x3c
+ 1875 0203 19       		.uleb128 0x19
+ 1876 0204 01       		.uleb128 0x1
+ 1877 0205 13       		.uleb128 0x13
+ 1878 0206 00       		.byte	0
+ 1879 0207 00       		.byte	0
+ 1880 0208 27       		.uleb128 0x27
+ 1881 0209 2E       		.uleb128 0x2e
+ 1882 020a 01       		.byte	0x1
+ 1883 020b 3F       		.uleb128 0x3f
+ 1884 020c 19       		.uleb128 0x19
+ 1885 020d 03       		.uleb128 0x3
+ 1886 020e 0E       		.uleb128 0xe
+ 1887 020f 3A       		.uleb128 0x3a
+ 1888 0210 0B       		.uleb128 0xb
+ 1889 0211 3B       		.uleb128 0x3b
+ 1890 0212 05       		.uleb128 0x5
+ 1891 0213 27       		.uleb128 0x27
+ 1892 0214 19       		.uleb128 0x19
+ 1893 0215 49       		.uleb128 0x49
+ 1894 0216 13       		.uleb128 0x13
+ 1895 0217 3C       		.uleb128 0x3c
+ 1896 0218 19       		.uleb128 0x19
+ 1897 0219 01       		.uleb128 0x1
+ 1898 021a 13       		.uleb128 0x13
+ 1899 021b 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 38
+
+
+ 1900 021c 00       		.byte	0
+ 1901 021d 28       		.uleb128 0x28
+ 1902 021e 2E       		.uleb128 0x2e
+ 1903 021f 01       		.byte	0x1
+ 1904 0220 3F       		.uleb128 0x3f
+ 1905 0221 19       		.uleb128 0x19
+ 1906 0222 03       		.uleb128 0x3
+ 1907 0223 0E       		.uleb128 0xe
+ 1908 0224 3A       		.uleb128 0x3a
+ 1909 0225 0B       		.uleb128 0xb
+ 1910 0226 3B       		.uleb128 0x3b
+ 1911 0227 0B       		.uleb128 0xb
+ 1912 0228 27       		.uleb128 0x27
+ 1913 0229 19       		.uleb128 0x19
+ 1914 022a 3C       		.uleb128 0x3c
+ 1915 022b 19       		.uleb128 0x19
+ 1916 022c 01       		.uleb128 0x1
+ 1917 022d 13       		.uleb128 0x13
+ 1918 022e 00       		.byte	0
+ 1919 022f 00       		.byte	0
+ 1920 0230 29       		.uleb128 0x29
+ 1921 0231 15       		.uleb128 0x15
+ 1922 0232 01       		.byte	0x1
+ 1923 0233 27       		.uleb128 0x27
+ 1924 0234 19       		.uleb128 0x19
+ 1925 0235 00       		.byte	0
+ 1926 0236 00       		.byte	0
+ 1927 0237 00       		.byte	0
+ 1928              		.section	.debug_loc,"",%progbits
+ 1929              	.Ldebug_loc0:
+ 1930              	.LLST0:
+ 1931 0000 28000000 		.4byte	.LVL3
+ 1932 0004 2A000000 		.4byte	.LVL4
+ 1933 0008 0100     		.2byte	0x1
+ 1934 000a 50       		.byte	0x50
+ 1935 000b 2A000000 		.4byte	.LVL4
+ 1936 000f 70000000 		.4byte	.LVL9
+ 1937 0013 0100     		.2byte	0x1
+ 1938 0015 55       		.byte	0x55
+ 1939 0016 00000000 		.4byte	0
+ 1940 001a 00000000 		.4byte	0
+ 1941              	.LLST1:
+ 1942 001e 00000000 		.4byte	.LVL10
+ 1943 0022 09000000 		.4byte	.LVL11-1
+ 1944 0026 0100     		.2byte	0x1
+ 1945 0028 50       		.byte	0x50
+ 1946 0029 09000000 		.4byte	.LVL11-1
+ 1947 002d 0E000000 		.4byte	.LVL12
+ 1948 0031 0400     		.2byte	0x4
+ 1949 0033 F3       		.byte	0xf3
+ 1950 0034 01       		.uleb128 0x1
+ 1951 0035 50       		.byte	0x50
+ 1952 0036 9F       		.byte	0x9f
+ 1953 0037 0E000000 		.4byte	.LVL12
+ 1954 003b 12000000 		.4byte	.LVL13
+ 1955 003f 0100     		.2byte	0x1
+ 1956 0041 50       		.byte	0x50
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 39
+
+
+ 1957 0042 12000000 		.4byte	.LVL13
+ 1958 0046 14000000 		.4byte	.LFE65
+ 1959 004a 0400     		.2byte	0x4
+ 1960 004c F3       		.byte	0xf3
+ 1961 004d 01       		.uleb128 0x1
+ 1962 004e 50       		.byte	0x50
+ 1963 004f 9F       		.byte	0x9f
+ 1964 0050 00000000 		.4byte	0
+ 1965 0054 00000000 		.4byte	0
+ 1966              	.LLST2:
+ 1967 0058 00000000 		.4byte	.LVL10
+ 1968 005c 09000000 		.4byte	.LVL11-1
+ 1969 0060 0100     		.2byte	0x1
+ 1970 0062 51       		.byte	0x51
+ 1971 0063 09000000 		.4byte	.LVL11-1
+ 1972 0067 0E000000 		.4byte	.LVL12
+ 1973 006b 0400     		.2byte	0x4
+ 1974 006d F3       		.byte	0xf3
+ 1975 006e 01       		.uleb128 0x1
+ 1976 006f 51       		.byte	0x51
+ 1977 0070 9F       		.byte	0x9f
+ 1978 0071 0E000000 		.4byte	.LVL12
+ 1979 0075 14000000 		.4byte	.LFE65
+ 1980 0079 0100     		.2byte	0x1
+ 1981 007b 51       		.byte	0x51
+ 1982 007c 00000000 		.4byte	0
+ 1983 0080 00000000 		.4byte	0
+ 1984              	.LLST3:
+ 1985 0084 00000000 		.4byte	.LVL10
+ 1986 0088 09000000 		.4byte	.LVL11-1
+ 1987 008c 0100     		.2byte	0x1
+ 1988 008e 52       		.byte	0x52
+ 1989 008f 09000000 		.4byte	.LVL11-1
+ 1990 0093 0E000000 		.4byte	.LVL12
+ 1991 0097 0400     		.2byte	0x4
+ 1992 0099 F3       		.byte	0xf3
+ 1993 009a 01       		.uleb128 0x1
+ 1994 009b 52       		.byte	0x52
+ 1995 009c 9F       		.byte	0x9f
+ 1996 009d 0E000000 		.4byte	.LVL12
+ 1997 00a1 14000000 		.4byte	.LFE65
+ 1998 00a5 0100     		.2byte	0x1
+ 1999 00a7 52       		.byte	0x52
+ 2000 00a8 00000000 		.4byte	0
+ 2001 00ac 00000000 		.4byte	0
+ 2002              		.section	.debug_aranges,"",%progbits
+ 2003 0000 2C000000 		.4byte	0x2c
+ 2004 0004 0200     		.2byte	0x2
+ 2005 0006 00000000 		.4byte	.Ldebug_info0
+ 2006 000a 04       		.byte	0x4
+ 2007 000b 00       		.byte	0
+ 2008 000c 0000     		.2byte	0
+ 2009 000e 0000     		.2byte	0
+ 2010 0010 00000000 		.4byte	.LFB63
+ 2011 0014 08000000 		.4byte	.LFE63-.LFB63
+ 2012 0018 00000000 		.4byte	.LFB64
+ 2013 001c 94000000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 40
+
+
+ 2014 0020 00000000 		.4byte	.LFB65
+ 2015 0024 14000000 		.4byte	.LFE65-.LFB65
+ 2016 0028 00000000 		.4byte	0
+ 2017 002c 00000000 		.4byte	0
+ 2018              		.section	.debug_ranges,"",%progbits
+ 2019              	.Ldebug_ranges0:
+ 2020 0000 00000000 		.4byte	.LFB63
+ 2021 0004 08000000 		.4byte	.LFE63
+ 2022 0008 00000000 		.4byte	.LFB64
+ 2023 000c 94000000 		.4byte	.LFE64
+ 2024 0010 00000000 		.4byte	.LFB65
+ 2025 0014 14000000 		.4byte	.LFE65
+ 2026 0018 00000000 		.4byte	0
+ 2027 001c 00000000 		.4byte	0
+ 2028              		.section	.debug_line,"",%progbits
+ 2029              	.Ldebug_line0:
+ 2030 0000 5E020000 		.section	.debug_str,"MS",%progbits,1
+ 2030      02001002 
+ 2030      00000201 
+ 2030      FB0E0D00 
+ 2030      01010101 
+ 2031              	.LASF33:
+ 2032 0000 70436F6C 		.ascii	"pColorConvAPI\000"
+ 2032      6F72436F 
+ 2032      6E764150 
+ 2032      4900
+ 2033              	.LASF93:
+ 2034 000e 4C43445F 		.ascii	"LCD_SetSizeEx\000"
+ 2034      53657453 
+ 2034      697A6545 
+ 2034      7800
+ 2035              	.LASF102:
+ 2036 001c 4C43445F 		.ascii	"LCD_X_Config\000"
+ 2036      585F436F 
+ 2036      6E666967 
+ 2036      00
+ 2037              	.LASF88:
+ 2038 0029 70446174 		.ascii	"pData\000"
+ 2038      6100
+ 2039              	.LASF83:
+ 2040 002f 4E756D44 		.ascii	"NumDummyReads\000"
+ 2040      756D6D79 
+ 2040      52656164 
+ 2040      7300
+ 2041              	.LASF41:
+ 2042 003d 70664669 		.ascii	"pfFillRect\000"
+ 2042      6C6C5265 
+ 2042      637400
+ 2043              	.LASF97:
+ 2044 0048 47554944 		.ascii	"GUIDRV_FlexColor_SetFunc\000"
+ 2044      52565F46 
+ 2044      6C657843 
+ 2044      6F6C6F72 
+ 2044      5F536574 
+ 2045              	.LASF68:
+ 2046 0061 70665772 		.ascii	"pfWriteM32_A0\000"
+ 2046      6974654D 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 41
+
+
+ 2046      33325F41 
+ 2046      3000
+ 2047              	.LASF37:
+ 2048 006f 44657669 		.ascii	"DeviceClassIndex\000"
+ 2048      6365436C 
+ 2048      61737349 
+ 2048      6E646578 
+ 2048      00
+ 2049              	.LASF2:
+ 2050 0080 73686F72 		.ascii	"short int\000"
+ 2050      7420696E 
+ 2050      7400
+ 2051              	.LASF14:
+ 2052 008a 73697A65 		.ascii	"sizetype\000"
+ 2052      74797065 
+ 2052      00
+ 2053              	.LASF48:
+ 2054 0093 70664765 		.ascii	"pfGetDevData\000"
+ 2054      74446576 
+ 2054      44617461 
+ 2054      00
+ 2055              	.LASF74:
+ 2056 00a0 70665365 		.ascii	"pfSetCS\000"
+ 2056      74435300 
+ 2057              	.LASF62:
+ 2058 00a8 70665265 		.ascii	"pfRead16_A0\000"
+ 2058      61643136 
+ 2058      5F413000 
+ 2059              	.LASF63:
+ 2060 00b4 70665265 		.ascii	"pfRead16_A1\000"
+ 2060      61643136 
+ 2060      5F413100 
+ 2061              	.LASF40:
+ 2062 00c0 70664472 		.ascii	"pfDrawVLine\000"
+ 2062      6177564C 
+ 2062      696E6500 
+ 2063              	.LASF69:
+ 2064 00cc 70665772 		.ascii	"pfWriteM32_A1\000"
+ 2064      6974654D 
+ 2064      33325F41 
+ 2064      3100
+ 2065              	.LASF49:
+ 2066 00da 70664765 		.ascii	"pfGetRect\000"
+ 2066      74526563 
+ 2066      7400
+ 2067              	.LASF32:
+ 2068 00e4 70446576 		.ascii	"pDeviceAPI\000"
+ 2068      69636541 
+ 2068      504900
+ 2069              	.LASF82:
+ 2070 00ef 52656745 		.ascii	"RegEntryMode\000"
+ 2070      6E747279 
+ 2070      4D6F6465 
+ 2070      00
+ 2071              	.LASF36:
+ 2072 00fc 4755495F 		.ascii	"GUI_DEVICE_API\000"
+ 2072      44455649 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 42
+
+
+ 2072      43455F41 
+ 2072      504900
+ 2073              	.LASF15:
+ 2074 010b 4C43445F 		.ascii	"LCD_COLOR\000"
+ 2074      434F4C4F 
+ 2074      5200
+ 2075              	.LASF53:
+ 2076 0115 70665772 		.ascii	"pfWriteM8_A1\000"
+ 2076      6974654D 
+ 2076      385F4131 
+ 2076      00
+ 2077              	.LASF24:
+ 2078 0122 70664765 		.ascii	"pfGetIndexMask\000"
+ 2078      74496E64 
+ 2078      65784D61 
+ 2078      736B00
+ 2079              	.LASF100:
+ 2080 0131 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\Projects\\BarBot\\B"
+ 2080      73657273 
+ 2080      5C6D6172 
+ 2080      6B365C47 
+ 2080      6F6F676C 
+ 2081 015e 6172426F 		.ascii	"arBot\\Bartender.cydsn\000"
+ 2081      745C4261 
+ 2081      7274656E 
+ 2081      6465722E 
+ 2081      63796473 
+ 2082              	.LASF26:
+ 2083 0174 7066436F 		.ascii	"pfColor2IndexBulk\000"
+ 2083      6C6F7232 
+ 2083      496E6465 
+ 2083      7842756C 
+ 2083      6B00
+ 2084              	.LASF101:
+ 2085 0186 5F496E69 		.ascii	"_InitController\000"
+ 2085      74436F6E 
+ 2085      74726F6C 
+ 2085      6C657200 
+ 2086              	.LASF72:
+ 2087 0196 70665265 		.ascii	"pfReadM32_A0\000"
+ 2087      61644D33 
+ 2087      325F4130 
+ 2087      00
+ 2088              	.LASF73:
+ 2089 01a3 70665265 		.ascii	"pfReadM32_A1\000"
+ 2089      61644D33 
+ 2089      325F4131 
+ 2089      00
+ 2090              	.LASF39:
+ 2091 01b0 70664472 		.ascii	"pfDrawHLine\000"
+ 2091      6177484C 
+ 2091      696E6500 
+ 2092              	.LASF34:
+ 2093 01bc 466C6167 		.ascii	"Flags\000"
+ 2093      7300
+ 2094              	.LASF11:
+ 2095 01c2 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 43
+
+
+ 2095      7400
+ 2096              	.LASF87:
+ 2097 01c8 506F7274 		.ascii	"PortAPI\000"
+ 2097      41504900 
+ 2098              	.LASF35:
+ 2099 01d0 4C617965 		.ascii	"LayerIndex\000"
+ 2099      72496E64 
+ 2099      657800
+ 2100              	.LASF6:
+ 2101 01db 6C6F6E67 		.ascii	"long long int\000"
+ 2101      206C6F6E 
+ 2101      6720696E 
+ 2101      7400
+ 2102              	.LASF30:
+ 2103 01e9 704E6578 		.ascii	"pNext\000"
+ 2103      7400
+ 2104              	.LASF95:
+ 2105 01ef 6D656D73 		.ascii	"memset\000"
+ 2105      657400
+ 2106              	.LASF19:
+ 2107 01f6 744C4344 		.ascii	"tLCDDEV_GetIndexMask\000"
+ 2107      4445565F 
+ 2107      47657449 
+ 2107      6E646578 
+ 2107      4D61736B 
+ 2108              	.LASF4:
+ 2109 020b 6C6F6E67 		.ascii	"long int\000"
+ 2109      20696E74 
+ 2109      00
+ 2110              	.LASF42:
+ 2111 0214 70664765 		.ascii	"pfGetPixelIndex\000"
+ 2111      74506978 
+ 2111      656C496E 
+ 2111      64657800 
+ 2112              	.LASF28:
+ 2113 0224 4C43445F 		.ascii	"LCD_API_COLOR_CONV\000"
+ 2113      4150495F 
+ 2113      434F4C4F 
+ 2113      525F434F 
+ 2113      4E5600
+ 2114              	.LASF90:
+ 2115 0237 4C43445F 		.ascii	"LCD_API_ColorConv_M565\000"
+ 2115      4150495F 
+ 2115      436F6C6F 
+ 2115      72436F6E 
+ 2115      765F4D35 
+ 2116              	.LASF92:
+ 2117 024e 4755495F 		.ascii	"GUI_DEVICE_CreateAndLink\000"
+ 2117      44455649 
+ 2117      43455F43 
+ 2117      72656174 
+ 2117      65416E64 
+ 2118              	.LASF79:
+ 2119 0267 46697273 		.ascii	"FirstSEG\000"
+ 2119      74534547 
+ 2119      00
+ 2120              	.LASF31:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 44
+
+
+ 2121 0270 70507265 		.ascii	"pPrev\000"
+ 2121      7600
+ 2122              	.LASF86:
+ 2123 0276 436F6E66 		.ascii	"Config\000"
+ 2123      696700
+ 2124              	.LASF70:
+ 2125 027d 70665265 		.ascii	"pfRead32_A0\000"
+ 2125      61643332 
+ 2125      5F413000 
+ 2126              	.LASF77:
+ 2127 0289 68436F6E 		.ascii	"hContext\000"
+ 2127      74657874 
+ 2127      00
+ 2128              	.LASF99:
+ 2129 0292 2E2E5C2E 		.ascii	"..\\..\\..\\..\\College-MIT\\S6Spring2020\\6.115\\F"
+ 2129      2E5C2E2E 
+ 2129      5C2E2E5C 
+ 2129      436F6C6C 
+ 2129      6567652D 
+ 2130 02be 696E616C 		.ascii	"inalProject\\BunkerKnowledge\\PSoC_5_Files\\Process"
+ 2130      50726F6A 
+ 2130      6563745C 
+ 2130      42756E6B 
+ 2130      65724B6E 
+ 2131 02ee 6F722E63 		.ascii	"or.cydsn\\LCDConf.c\000"
+ 2131      7964736E 
+ 2131      5C4C4344 
+ 2131      436F6E66 
+ 2131      2E6300
+ 2132              	.LASF103:
+ 2133 0301 4C43445F 		.ascii	"LCD_X_DisplayDriver\000"
+ 2133      585F4469 
+ 2133      73706C61 
+ 2133      79447269 
+ 2133      76657200 
+ 2134              	.LASF57:
+ 2135 0315 70665265 		.ascii	"pfReadM8_A1\000"
+ 2135      61644D38 
+ 2135      5F413100 
+ 2136              	.LASF16:
+ 2137 0321 4C43445F 		.ascii	"LCD_RECT\000"
+ 2137      52454354 
+ 2137      00
+ 2138              	.LASF1:
+ 2139 032a 756E7369 		.ascii	"unsigned char\000"
+ 2139      676E6564 
+ 2139      20636861 
+ 2139      7200
+ 2140              	.LASF0:
+ 2141 0338 7369676E 		.ascii	"signed char\000"
+ 2141      65642063 
+ 2141      68617200 
+ 2142              	.LASF7:
+ 2143 0344 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2143      206C6F6E 
+ 2143      6720756E 
+ 2143      7369676E 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 45
+
+
+ 2143      65642069 
+ 2144              	.LASF60:
+ 2145 035b 70665772 		.ascii	"pfWriteM16_A0\000"
+ 2145      6974654D 
+ 2145      31365F41 
+ 2145      3000
+ 2146              	.LASF61:
+ 2147 0369 70665772 		.ascii	"pfWriteM16_A1\000"
+ 2147      6974654D 
+ 2147      31365F41 
+ 2147      3100
+ 2148              	.LASF25:
+ 2149 0377 4E6F416C 		.ascii	"NoAlpha\000"
+ 2149      70686100 
+ 2150              	.LASF23:
+ 2151 037f 7066496E 		.ascii	"pfIndex2Color\000"
+ 2151      64657832 
+ 2151      436F6C6F 
+ 2151      7200
+ 2152              	.LASF8:
+ 2153 038d 756E7369 		.ascii	"unsigned int\000"
+ 2153      676E6564 
+ 2153      20696E74 
+ 2153      00
+ 2154              	.LASF43:
+ 2155 039a 70665365 		.ascii	"pfSetPixelIndex\000"
+ 2155      74506978 
+ 2155      656C496E 
+ 2155      64657800 
+ 2156              	.LASF91:
+ 2157 03aa 47554944 		.ascii	"GUIDRV_FlexColor_API\000"
+ 2157      52565F46 
+ 2157      6C657843 
+ 2157      6F6C6F72 
+ 2157      5F415049 
+ 2158              	.LASF22:
+ 2159 03bf 7066436F 		.ascii	"pfColor2Index\000"
+ 2159      6C6F7232 
+ 2159      496E6465 
+ 2159      7800
+ 2160              	.LASF64:
+ 2161 03cd 70665265 		.ascii	"pfReadM16_A0\000"
+ 2161      61644D31 
+ 2161      365F4130 
+ 2161      00
+ 2162              	.LASF21:
+ 2163 03da 744C4344 		.ascii	"tLCDDEV_Color2IndexBulk\000"
+ 2163      4445565F 
+ 2163      436F6C6F 
+ 2163      7232496E 
+ 2163      64657842 
+ 2164              	.LASF13:
+ 2165 03f2 63686172 		.ascii	"char\000"
+ 2165      00
+ 2166              	.LASF94:
+ 2167 03f7 4C43445F 		.ascii	"LCD_SetVSizeEx\000"
+ 2167      53657456 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 46
+
+
+ 2167      53697A65 
+ 2167      457800
+ 2168              	.LASF98:
+ 2169 0406 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2169      4320342E 
+ 2169      392E3320 
+ 2169      32303135 
+ 2169      30333033 
+ 2170 0439 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2170      20726576 
+ 2170      6973696F 
+ 2170      6E203232 
+ 2170      31323230 
+ 2171 046c 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2171      66756E63 
+ 2171      74696F6E 
+ 2171      2D736563 
+ 2171      74696F6E 
+ 2172              	.LASF10:
+ 2173 0494 696E7433 		.ascii	"int32_t\000"
+ 2173      325F7400 
+ 2174              	.LASF81:
+ 2175 049c 4F726965 		.ascii	"Orientation\000"
+ 2175      6E746174 
+ 2175      696F6E00 
+ 2176              	.LASF29:
+ 2177 04a8 4755495F 		.ascii	"GUI_DEVICE\000"
+ 2177      44455649 
+ 2177      434500
+ 2178              	.LASF27:
+ 2179 04b3 7066496E 		.ascii	"pfIndex2ColorBulk\000"
+ 2179      64657832 
+ 2179      436F6C6F 
+ 2179      7242756C 
+ 2179      6B00
+ 2180              	.LASF56:
+ 2181 04c5 70665265 		.ascii	"pfReadM8_A0\000"
+ 2181      61644D38 
+ 2181      5F413000 
+ 2182              	.LASF66:
+ 2183 04d1 70665772 		.ascii	"pfWrite32_A0\000"
+ 2183      69746533 
+ 2183      325F4130 
+ 2183      00
+ 2184              	.LASF52:
+ 2185 04de 70665772 		.ascii	"pfWriteM8_A0\000"
+ 2185      6974654D 
+ 2185      385F4130 
+ 2185      00
+ 2186              	.LASF78:
+ 2187 04eb 70436F6E 		.ascii	"pContext\000"
+ 2187      74657874 
+ 2187      00
+ 2188              	.LASF38:
+ 2189 04f4 70664472 		.ascii	"pfDrawBitmap\000"
+ 2189      61774269 
+ 2189      746D6170 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 47
+
+
+ 2189      00
+ 2190              	.LASF3:
+ 2191 0501 73686F72 		.ascii	"short unsigned int\000"
+ 2191      7420756E 
+ 2191      7369676E 
+ 2191      65642069 
+ 2191      6E7400
+ 2192              	.LASF46:
+ 2193 0514 70664765 		.ascii	"pfGetDevFunc\000"
+ 2193      74446576 
+ 2193      46756E63 
+ 2193      00
+ 2194              	.LASF76:
+ 2195 0521 4755495F 		.ascii	"GUI_PORT_API\000"
+ 2195      504F5254 
+ 2195      5F415049 
+ 2195      00
+ 2196              	.LASF5:
+ 2197 052e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2197      20756E73 
+ 2197      69676E65 
+ 2197      6420696E 
+ 2197      7400
+ 2198              	.LASF12:
+ 2199 0540 646F7562 		.ascii	"double\000"
+ 2199      6C6500
+ 2200              	.LASF50:
+ 2201 0547 70665772 		.ascii	"pfWrite8_A0\000"
+ 2201      69746538 
+ 2201      5F413000 
+ 2202              	.LASF51:
+ 2203 0553 70665772 		.ascii	"pfWrite8_A1\000"
+ 2203      69746538 
+ 2203      5F413100 
+ 2204              	.LASF67:
+ 2205 055f 70665772 		.ascii	"pfWrite32_A1\000"
+ 2205      69746533 
+ 2205      325F4131 
+ 2205      00
+ 2206              	.LASF96:
+ 2207 056c 47554944 		.ascii	"GUIDRV_FlexColor_Config\000"
+ 2207      52565F46 
+ 2207      6C657843 
+ 2207      6F6C6F72 
+ 2207      5F436F6E 
+ 2208              	.LASF65:
+ 2209 0584 70665265 		.ascii	"pfReadM16_A1\000"
+ 2209      61644D31 
+ 2209      365F4131 
+ 2209      00
+ 2210              	.LASF71:
+ 2211 0591 70665265 		.ascii	"pfRead32_A1\000"
+ 2211      61643332 
+ 2211      5F413100 
+ 2212              	.LASF75:
+ 2213 059d 7066466C 		.ascii	"pfFlushBuffer\000"
+ 2213      75736842 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 48
+
+
+ 2213      75666665 
+ 2213      7200
+ 2214              	.LASF9:
+ 2215 05ab 5F5F696E 		.ascii	"__int32_t\000"
+ 2215      7433325F 
+ 2215      7400
+ 2216              	.LASF54:
+ 2217 05b5 70665265 		.ascii	"pfRead8_A0\000"
+ 2217      6164385F 
+ 2217      413000
+ 2218              	.LASF55:
+ 2219 05c0 70665265 		.ascii	"pfRead8_A1\000"
+ 2219      6164385F 
+ 2219      413100
+ 2220              	.LASF44:
+ 2221 05cb 7066586F 		.ascii	"pfXorPixel\000"
+ 2221      72506978 
+ 2221      656C00
+ 2222              	.LASF45:
+ 2223 05d6 70665365 		.ascii	"pfSetOrg\000"
+ 2223      744F7267 
+ 2223      00
+ 2224              	.LASF58:
+ 2225 05df 70665772 		.ascii	"pfWrite16_A0\000"
+ 2225      69746531 
+ 2225      365F4130 
+ 2225      00
+ 2226              	.LASF59:
+ 2227 05ec 70665772 		.ascii	"pfWrite16_A1\000"
+ 2227      69746531 
+ 2227      365F4131 
+ 2227      00
+ 2228              	.LASF20:
+ 2229 05f9 744C4344 		.ascii	"tLCDDEV_Index2ColorBulk\000"
+ 2229      4445565F 
+ 2229      496E6465 
+ 2229      7832436F 
+ 2229      6C6F7242 
+ 2230              	.LASF17:
+ 2231 0611 744C4344 		.ascii	"tLCDDEV_Index2Color\000"
+ 2231      4445565F 
+ 2231      496E6465 
+ 2231      7832436F 
+ 2231      6C6F7200 
+ 2232              	.LASF104:
+ 2233 0625 74667453 		.ascii	"tftStart\000"
+ 2233      74617274 
+ 2233      00
+ 2234              	.LASF89:
+ 2235 062e 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2235      52784275 
+ 2235      66666572 
+ 2235      00
+ 2236              	.LASF80:
+ 2237 063b 46697273 		.ascii	"FirstCOM\000"
+ 2237      74434F4D 
+ 2237      00
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccLDt6KI.s 			page 49
+
+
+ 2238              	.LASF84:
+ 2239 0644 434F4E46 		.ascii	"CONFIG_FLEXCOLOR\000"
+ 2239      49475F46 
+ 2239      4C455843 
+ 2239      4F4C4F52 
+ 2239      00
+ 2240              	.LASF85:
+ 2241 0655 70446576 		.ascii	"pDevice\000"
+ 2241      69636500 
+ 2242              	.LASF47:
+ 2243 065d 70664765 		.ascii	"pfGetDevProp\000"
+ 2243      74446576 
+ 2243      50726F70 
+ 2243      00
+ 2244              	.LASF18:
+ 2245 066a 744C4344 		.ascii	"tLCDDEV_Color2Index\000"
+ 2245      4445565F 
+ 2245      436F6C6F 
+ 2245      7232496E 
+ 2245      64657800 
+ 2246              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

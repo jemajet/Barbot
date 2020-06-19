@@ -1,0 +1,6 @@
+C:\Users\mark6\Google Drive\Projects\BarBot\BarBot\Bartender.cydsn\Bartender.cyprj|9d73c5a8-0244-4f75-bd47-452dbdfbb692
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c0c63a80-978f-4a76-8d5e-ebf44a095d98
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|08620ed5-0724-430c-93bf-d84df96b4888
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|4a9a51b6-bd14-4ea7-b481-3b872129e8b5
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|174f783d-60f6-407d-a8f7-b449d2369066
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\dev\psoc3\AnalogDevice\PSoC35AnalogDevice.cylib\PSoC35AnalogDevice.cyprj|e7d59ac1-9ecc-4f39-b67b-d3e9731df53f

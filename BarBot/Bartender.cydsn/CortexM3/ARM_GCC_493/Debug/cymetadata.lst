@@ -1,0 +1,3582 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"cymetadata.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.global	cy_metadata
+  19              		.global	cy_meta_flashprotect
+  20              		.global	cy_eeprom
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 840
+  28              	cy_meta_configecc:
+  29 0000 04       		.byte	4
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 01       		.byte	1
+  34 0005 65       		.byte	101
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 14       		.byte	20
+  38 0009 02       		.byte	2
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 12       		.byte	18
+  42 000d 03       		.byte	3
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 03       		.byte	3
+  46 0011 05       		.byte	5
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 01       		.byte	1
+  50 0015 07       		.byte	7
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 4F       		.byte	79
+  54 0019 14       		.byte	20
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 42       		.byte	66
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 2
+
+
+  58 001d 15       		.byte	21
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 49       		.byte	73
+  62 0021 16       		.byte	22
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 2A       		.byte	42
+  66 0025 17       		.byte	23
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 03       		.byte	3
+  70 0029 40       		.byte	64
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 07       		.byte	7
+  74 002d 41       		.byte	65
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 07       		.byte	7
+  78 0031 42       		.byte	66
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 01       		.byte	1
+  82 0035 43       		.byte	67
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 03       		.byte	3
+  86 0039 48       		.byte	72
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 1A       		.byte	26
+  90 003d 49       		.byte	73
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 04       		.byte	4
+  94 0041 50       		.byte	80
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 01       		.byte	1
+  98 0045 51       		.byte	81
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 04       		.byte	4
+ 102 0049 C0       		.byte	-64
+ 103 004a 18       		.byte	24
+ 104 004b 62       		.byte	98
+ 105 004c 19       		.byte	25
+ 106 004d 24       		.byte	36
+ 107 004e 1C       		.byte	28
+ 108 004f 81       		.byte	-127
+ 109 0050 86       		.byte	-122
+ 110 0051 0F       		.byte	15
+ 111 0052 04       		.byte	4
+ 112 0053 01       		.byte	1
+ 113 0054 06       		.byte	6
+ 114 0055 02       		.byte	2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 3
+
+
+ 115 0056 0A       		.byte	10
+ 116 0057 08       		.byte	8
+ 117 0058 0E       		.byte	14
+ 118 0059 01       		.byte	1
+ 119 005a 13       		.byte	19
+ 120 005b 01       		.byte	1
+ 121 005c 16       		.byte	22
+ 122 005d 04       		.byte	4
+ 123 005e 1C       		.byte	28
+ 124 005f 08       		.byte	8
+ 125 0060 2F       		.byte	47
+ 126 0061 02       		.byte	2
+ 127 0062 30       		.byte	48
+ 128 0063 02       		.byte	2
+ 129 0064 32       		.byte	50
+ 130 0065 04       		.byte	4
+ 131 0066 34       		.byte	52
+ 132 0067 01       		.byte	1
+ 133 0068 35       		.byte	53
+ 134 0069 01       		.byte	1
+ 135 006a 36       		.byte	54
+ 136 006b 08       		.byte	8
+ 137 006c 37       		.byte	55
+ 138 006d 02       		.byte	2
+ 139 006e 39       		.byte	57
+ 140 006f 02       		.byte	2
+ 141 0070 3F       		.byte	63
+ 142 0071 01       		.byte	1
+ 143 0072 58       		.byte	88
+ 144 0073 04       		.byte	4
+ 145 0074 59       		.byte	89
+ 146 0075 04       		.byte	4
+ 147 0076 5C       		.byte	92
+ 148 0077 11       		.byte	17
+ 149 0078 5F       		.byte	95
+ 150 0079 01       		.byte	1
+ 151 007a 04       		.byte	4
+ 152 007b 40       		.byte	64
+ 153 007c 05       		.byte	5
+ 154 007d 04       		.byte	4
+ 155 007e 07       		.byte	7
+ 156 007f 08       		.byte	8
+ 157 0080 0D       		.byte	13
+ 158 0081 80       		.byte	-128
+ 159 0082 0F       		.byte	15
+ 160 0083 10       		.byte	16
+ 161 0084 1C       		.byte	28
+ 162 0085 40       		.byte	64
+ 163 0086 1D       		.byte	29
+ 164 0087 04       		.byte	4
+ 165 0088 1F       		.byte	31
+ 166 0089 60       		.byte	96
+ 167 008a 24       		.byte	36
+ 168 008b 80       		.byte	-128
+ 169 008c 25       		.byte	37
+ 170 008d 80       		.byte	-128
+ 171 008e 27       		.byte	39
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 4
+
+
+ 172 008f 0A       		.byte	10
+ 173 0090 2F       		.byte	47
+ 174 0091 01       		.byte	1
+ 175 0092 37       		.byte	55
+ 176 0093 02       		.byte	2
+ 177 0094 87       		.byte	-121
+ 178 0095 40       		.byte	64
+ 179 0096 C0       		.byte	-64
+ 180 0097 E0       		.byte	-32
+ 181 0098 C2       		.byte	-62
+ 182 0099 A0       		.byte	-96
+ 183 009a CA       		.byte	-54
+ 184 009b 10       		.byte	16
+ 185 009c CC       		.byte	-52
+ 186 009d 80       		.byte	-128
+ 187 009e 90       		.byte	-112
+ 188 009f 80       		.byte	-128
+ 189 00a0 AB       		.byte	-85
+ 190 00a1 01       		.byte	1
+ 191 00a2 AF       		.byte	-81
+ 192 00a3 30       		.byte	48
+ 193 00a4 90       		.byte	-112
+ 194 00a5 80       		.byte	-128
+ 195 00a6 04       		.byte	4
+ 196 00a7 03       		.byte	3
+ 197 00a8 06       		.byte	6
+ 198 00a9 04       		.byte	4
+ 199 00aa 07       		.byte	7
+ 200 00ab 02       		.byte	2
+ 201 00ac 0C       		.byte	12
+ 202 00ad 0E       		.byte	14
+ 203 00ae 10       		.byte	16
+ 204 00af 04       		.byte	4
+ 205 00b0 12       		.byte	18
+ 206 00b1 09       		.byte	9
+ 207 00b2 17       		.byte	23
+ 208 00b3 03       		.byte	3
+ 209 00b4 19       		.byte	25
+ 210 00b5 01       		.byte	1
+ 211 00b6 1F       		.byte	31
+ 212 00b7 03       		.byte	3
+ 213 00b8 24       		.byte	36
+ 214 00b9 05       		.byte	5
+ 215 00ba 26       		.byte	38
+ 216 00bb 0A       		.byte	10
+ 217 00bc 35       		.byte	53
+ 218 00bd 03       		.byte	3
+ 219 00be 36       		.byte	54
+ 220 00bf 0F       		.byte	15
+ 221 00c0 38       		.byte	56
+ 222 00c1 80       		.byte	-128
+ 223 00c2 54       		.byte	84
+ 224 00c3 40       		.byte	64
+ 225 00c4 58       		.byte	88
+ 226 00c5 04       		.byte	4
+ 227 00c6 59       		.byte	89
+ 228 00c7 04       		.byte	4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 5
+
+
+ 229 00c8 5B       		.byte	91
+ 230 00c9 04       		.byte	4
+ 231 00ca 5F       		.byte	95
+ 232 00cb 01       		.byte	1
+ 233 00cc 80       		.byte	-128
+ 234 00cd 04       		.byte	4
+ 235 00ce 83       		.byte	-125
+ 236 00cf 01       		.byte	1
+ 237 00d0 85       		.byte	-123
+ 238 00d1 08       		.byte	8
+ 239 00d2 88       		.byte	-120
+ 240 00d3 10       		.byte	16
+ 241 00d4 8A       		.byte	-118
+ 242 00d5 68       		.byte	104
+ 243 00d6 8B       		.byte	-117
+ 244 00d7 04       		.byte	4
+ 245 00d8 95       		.byte	-107
+ 246 00d9 01       		.byte	1
+ 247 00da 97       		.byte	-105
+ 248 00db 02       		.byte	2
+ 249 00dc 98       		.byte	-104
+ 250 00dd 99       		.byte	-103
+ 251 00de 9A       		.byte	-102
+ 252 00df 62       		.byte	98
+ 253 00e0 9B       		.byte	-101
+ 254 00e1 08       		.byte	8
+ 255 00e2 9C       		.byte	-100
+ 256 00e3 CC       		.byte	-52
+ 257 00e4 9E       		.byte	-98
+ 258 00e5 30       		.byte	48
+ 259 00e6 A3       		.byte	-93
+ 260 00e7 08       		.byte	8
+ 261 00e8 A8       		.byte	-88
+ 262 00e9 AE       		.byte	-82
+ 263 00ea AA       		.byte	-86
+ 264 00eb 51       		.byte	81
+ 265 00ec B0       		.byte	-80
+ 266 00ed 80       		.byte	-128
+ 267 00ee B1       		.byte	-79
+ 268 00ef 02       		.byte	2
+ 269 00f0 B3       		.byte	-77
+ 270 00f1 01       		.byte	1
+ 271 00f2 B4       		.byte	-76
+ 272 00f3 78       		.byte	120
+ 273 00f4 B5       		.byte	-75
+ 274 00f5 04       		.byte	4
+ 275 00f6 B6       		.byte	-74
+ 276 00f7 07       		.byte	7
+ 277 00f8 B7       		.byte	-73
+ 278 00f9 08       		.byte	8
+ 279 00fa BA       		.byte	-70
+ 280 00fb A0       		.byte	-96
+ 281 00fc BE       		.byte	-66
+ 282 00fd 01       		.byte	1
+ 283 00fe BF       		.byte	-65
+ 284 00ff 40       		.byte	64
+ 285 0100 C0       		.byte	-64
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 6
+
+
+ 286 0101 61       		.byte	97
+ 287 0102 C1       		.byte	-63
+ 288 0103 03       		.byte	3
+ 289 0104 C2       		.byte	-62
+ 290 0105 20       		.byte	32
+ 291 0106 C4       		.byte	-60
+ 292 0107 05       		.byte	5
+ 293 0108 C5       		.byte	-59
+ 294 0109 0E       		.byte	14
+ 295 010a C6       		.byte	-58
+ 296 010b BC       		.byte	-68
+ 297 010c C7       		.byte	-57
+ 298 010d DF       		.byte	-33
+ 299 010e C8       		.byte	-56
+ 300 010f 3D       		.byte	61
+ 301 0110 C9       		.byte	-55
+ 302 0111 FF       		.byte	-1
+ 303 0112 CA       		.byte	-54
+ 304 0113 FF       		.byte	-1
+ 305 0114 CB       		.byte	-53
+ 306 0115 FF       		.byte	-1
+ 307 0116 CC       		.byte	-52
+ 308 0117 22       		.byte	34
+ 309 0118 CE       		.byte	-50
+ 310 0119 F0       		.byte	-16
+ 311 011a CF       		.byte	-49
+ 312 011b 08       		.byte	8
+ 313 011c D0       		.byte	-48
+ 314 011d 04       		.byte	4
+ 315 011e D4       		.byte	-44
+ 316 011f 09       		.byte	9
+ 317 0120 D8       		.byte	-40
+ 318 0121 04       		.byte	4
+ 319 0122 D9       		.byte	-39
+ 320 0123 04       		.byte	4
+ 321 0124 DA       		.byte	-38
+ 322 0125 04       		.byte	4
+ 323 0126 DB       		.byte	-37
+ 324 0127 04       		.byte	4
+ 325 0128 DC       		.byte	-36
+ 326 0129 10       		.byte	16
+ 327 012a DF       		.byte	-33
+ 328 012b 01       		.byte	1
+ 329 012c E2       		.byte	-30
+ 330 012d C0       		.byte	-64
+ 331 012e E4       		.byte	-28
+ 332 012f 40       		.byte	64
+ 333 0130 E5       		.byte	-27
+ 334 0131 01       		.byte	1
+ 335 0132 E6       		.byte	-26
+ 336 0133 10       		.byte	16
+ 337 0134 E7       		.byte	-25
+ 338 0135 11       		.byte	17
+ 339 0136 E8       		.byte	-24
+ 340 0137 C0       		.byte	-64
+ 341 0138 E9       		.byte	-23
+ 342 0139 01       		.byte	1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 7
+
+
+ 343 013a EB       		.byte	-21
+ 344 013b 11       		.byte	17
+ 345 013c EC       		.byte	-20
+ 346 013d 40       		.byte	64
+ 347 013e ED       		.byte	-19
+ 348 013f 01       		.byte	1
+ 349 0140 EE       		.byte	-18
+ 350 0141 40       		.byte	64
+ 351 0142 EF       		.byte	-17
+ 352 0143 01       		.byte	1
+ 353 0144 01       		.byte	1
+ 354 0145 80       		.byte	-128
+ 355 0146 02       		.byte	2
+ 356 0147 20       		.byte	32
+ 357 0148 05       		.byte	5
+ 358 0149 10       		.byte	16
+ 359 014a 06       		.byte	6
+ 360 014b 80       		.byte	-128
+ 361 014c 07       		.byte	7
+ 362 014d 40       		.byte	64
+ 363 014e 0B       		.byte	11
+ 364 014f 80       		.byte	-128
+ 365 0150 0C       		.byte	12
+ 366 0151 10       		.byte	16
+ 367 0152 0D       		.byte	13
+ 368 0153 80       		.byte	-128
+ 369 0154 11       		.byte	17
+ 370 0155 08       		.byte	8
+ 371 0156 15       		.byte	21
+ 372 0157 10       		.byte	16
+ 373 0158 19       		.byte	25
+ 374 0159 80       		.byte	-128
+ 375 015a 1D       		.byte	29
+ 376 015b 90       		.byte	-112
+ 377 015c 1F       		.byte	31
+ 378 015d 51       		.byte	81
+ 379 015e 20       		.byte	32
+ 380 015f 04       		.byte	4
+ 381 0160 25       		.byte	37
+ 382 0161 01       		.byte	1
+ 383 0162 26       		.byte	38
+ 384 0163 40       		.byte	64
+ 385 0164 27       		.byte	39
+ 386 0165 24       		.byte	36
+ 387 0166 2F       		.byte	47
+ 388 0167 40       		.byte	64
+ 389 0168 31       		.byte	49
+ 390 0169 80       		.byte	-128
+ 391 016a 32       		.byte	50
+ 392 016b 28       		.byte	40
+ 393 016c 34       		.byte	52
+ 394 016d 10       		.byte	16
+ 395 016e 36       		.byte	54
+ 396 016f 20       		.byte	32
+ 397 0170 37       		.byte	55
+ 398 0171 04       		.byte	4
+ 399 0172 38       		.byte	56
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 8
+
+
+ 400 0173 04       		.byte	4
+ 401 0174 3D       		.byte	61
+ 402 0175 0A       		.byte	10
+ 403 0176 3F       		.byte	63
+ 404 0177 20       		.byte	32
+ 405 0178 44       		.byte	68
+ 406 0179 10       		.byte	16
+ 407 017a 45       		.byte	69
+ 408 017b A0       		.byte	-96
+ 409 017c 4D       		.byte	77
+ 410 017d 14       		.byte	20
+ 411 017e 4E       		.byte	78
+ 412 017f 08       		.byte	8
+ 413 0180 4F       		.byte	79
+ 414 0181 80       		.byte	-128
+ 415 0182 56       		.byte	86
+ 416 0183 90       		.byte	-112
+ 417 0184 57       		.byte	87
+ 418 0185 05       		.byte	5
+ 419 0186 5C       		.byte	92
+ 420 0187 10       		.byte	16
+ 421 0188 5D       		.byte	93
+ 422 0189 05       		.byte	5
+ 423 018a 5E       		.byte	94
+ 424 018b 80       		.byte	-128
+ 425 018c 61       		.byte	97
+ 426 018d 08       		.byte	8
+ 427 018e 63       		.byte	99
+ 428 018f 0A       		.byte	10
+ 429 0190 67       		.byte	103
+ 430 0191 02       		.byte	2
+ 431 0192 83       		.byte	-125
+ 432 0193 50       		.byte	80
+ 433 0194 85       		.byte	-123
+ 434 0195 80       		.byte	-128
+ 435 0196 87       		.byte	-121
+ 436 0197 20       		.byte	32
+ 437 0198 89       		.byte	-119
+ 438 0199 21       		.byte	33
+ 439 019a 8C       		.byte	-116
+ 440 019b 14       		.byte	20
+ 441 019c 8F       		.byte	-113
+ 442 019d 40       		.byte	64
+ 443 019e 97       		.byte	-105
+ 444 019f A0       		.byte	-96
+ 445 01a0 9E       		.byte	-98
+ 446 01a1 10       		.byte	16
+ 447 01a2 9F       		.byte	-97
+ 448 01a3 40       		.byte	64
+ 449 01a4 A1       		.byte	-95
+ 450 01a5 2C       		.byte	44
+ 451 01a6 A2       		.byte	-94
+ 452 01a7 28       		.byte	40
+ 453 01a8 A5       		.byte	-91
+ 454 01a9 80       		.byte	-128
+ 455 01aa A7       		.byte	-89
+ 456 01ab 01       		.byte	1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 9
+
+
+ 457 01ac A9       		.byte	-87
+ 458 01ad 01       		.byte	1
+ 459 01ae AA       		.byte	-86
+ 460 01af 08       		.byte	8
+ 461 01b0 AE       		.byte	-82
+ 462 01b1 40       		.byte	64
+ 463 01b2 C0       		.byte	-64
+ 464 01b3 55       		.byte	85
+ 465 01b4 C2       		.byte	-62
+ 466 01b5 C8       		.byte	-56
+ 467 01b6 C4       		.byte	-60
+ 468 01b7 44       		.byte	68
+ 469 01b8 CA       		.byte	-54
+ 470 01b9 80       		.byte	-128
+ 471 01ba CC       		.byte	-52
+ 472 01bb 6E       		.byte	110
+ 473 01bc CE       		.byte	-50
+ 474 01bd E2       		.byte	-30
+ 475 01be D0       		.byte	-48
+ 476 01bf 70       		.byte	112
+ 477 01c0 D2       		.byte	-46
+ 478 01c1 30       		.byte	48
+ 479 01c2 D6       		.byte	-42
+ 480 01c3 F0       		.byte	-16
+ 481 01c4 D8       		.byte	-40
+ 482 01c5 1E       		.byte	30
+ 483 01c6 E6       		.byte	-26
+ 484 01c7 40       		.byte	64
+ 485 01c8 00       		.byte	0
+ 486 01c9 04       		.byte	4
+ 487 01ca 01       		.byte	1
+ 488 01cb 9A       		.byte	-102
+ 489 01cc 04       		.byte	4
+ 490 01cd 60       		.byte	96
+ 491 01ce 05       		.byte	5
+ 492 01cf 21       		.byte	33
+ 493 01d0 07       		.byte	7
+ 494 01d1 D8       		.byte	-40
+ 495 01d2 08       		.byte	8
+ 496 01d3 84       		.byte	-124
+ 497 01d4 09       		.byte	9
+ 498 01d5 13       		.byte	19
+ 499 01d6 0B       		.byte	11
+ 500 01d7 64       		.byte	100
+ 501 01d8 0C       		.byte	12
+ 502 01d9 84       		.byte	-124
+ 503 01da 0D       		.byte	13
+ 504 01db 38       		.byte	56
+ 505 01dc 0F       		.byte	15
+ 506 01dd C0       		.byte	-64
+ 507 01de 10       		.byte	16
+ 508 01df 01       		.byte	1
+ 509 01e0 11       		.byte	17
+ 510 01e1 98       		.byte	-104
+ 511 01e2 13       		.byte	19
+ 512 01e3 02       		.byte	2
+ 513 01e4 14       		.byte	20
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 10
+
+
+ 514 01e5 07       		.byte	7
+ 515 01e6 15       		.byte	21
+ 516 01e7 02       		.byte	2
+ 517 01e8 16       		.byte	22
+ 518 01e9 38       		.byte	56
+ 519 01ea 17       		.byte	23
+ 520 01eb 98       		.byte	-104
+ 521 01ec 18       		.byte	24
+ 522 01ed 0A       		.byte	10
+ 523 01ee 19       		.byte	25
+ 524 01ef 98       		.byte	-104
+ 525 01f0 1A       		.byte	26
+ 526 01f1 10       		.byte	16
+ 527 01f2 1B       		.byte	27
+ 528 01f3 02       		.byte	2
+ 529 01f4 1C       		.byte	28
+ 530 01f5 56       		.byte	86
+ 531 01f6 1D       		.byte	29
+ 532 01f7 02       		.byte	2
+ 533 01f8 1E       		.byte	30
+ 534 01f9 09       		.byte	9
+ 535 01fa 20       		.byte	32
+ 536 01fb 04       		.byte	4
+ 537 01fc 21       		.byte	33
+ 538 01fd FC       		.byte	-4
+ 539 01fe 22       		.byte	34
+ 540 01ff 80       		.byte	-128
+ 541 0200 23       		.byte	35
+ 542 0201 03       		.byte	3
+ 543 0202 24       		.byte	36
+ 544 0203 80       		.byte	-128
+ 545 0204 25       		.byte	37
+ 546 0205 9A       		.byte	-102
+ 547 0206 26       		.byte	38
+ 548 0207 04       		.byte	4
+ 549 0208 28       		.byte	40
+ 550 0209 84       		.byte	-124
+ 551 020a 30       		.byte	48
+ 552 020b 7F       		.byte	127
+ 553 020c 33       		.byte	51
+ 554 020d 0F       		.byte	15
+ 555 020e 34       		.byte	52
+ 556 020f 80       		.byte	-128
+ 557 0210 35       		.byte	53
+ 558 0211 13       		.byte	19
+ 559 0212 37       		.byte	55
+ 560 0213 E0       		.byte	-32
+ 561 0214 38       		.byte	56
+ 562 0215 02       		.byte	2
+ 563 0216 3B       		.byte	59
+ 564 0217 88       		.byte	-120
+ 565 0218 3E       		.byte	62
+ 566 0219 10       		.byte	16
+ 567 021a 56       		.byte	86
+ 568 021b 02       		.byte	2
+ 569 021c 57       		.byte	87
+ 570 021d 28       		.byte	40
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 11
+
+
+ 571 021e 58       		.byte	88
+ 572 021f 04       		.byte	4
+ 573 0220 59       		.byte	89
+ 574 0221 04       		.byte	4
+ 575 0222 5B       		.byte	91
+ 576 0223 04       		.byte	4
+ 577 0224 5F       		.byte	95
+ 578 0225 01       		.byte	1
+ 579 0226 84       		.byte	-124
+ 580 0227 0D       		.byte	13
+ 581 0228 8C       		.byte	-116
+ 582 0229 0D       		.byte	13
+ 583 022a 8D       		.byte	-115
+ 584 022b 01       		.byte	1
+ 585 022c 90       		.byte	-112
+ 586 022d 02       		.byte	2
+ 587 022e 92       		.byte	-110
+ 588 022f 08       		.byte	8
+ 589 0230 93       		.byte	-109
+ 590 0231 01       		.byte	1
+ 591 0232 94       		.byte	-108
+ 592 0233 02       		.byte	2
+ 593 0234 95       		.byte	-107
+ 594 0235 01       		.byte	1
+ 595 0236 96       		.byte	-106
+ 596 0237 04       		.byte	4
+ 597 0238 98       		.byte	-104
+ 598 0239 02       		.byte	2
+ 599 023a 99       		.byte	-103
+ 600 023b 01       		.byte	1
+ 601 023c 9A       		.byte	-102
+ 602 023d 0D       		.byte	13
+ 603 023e A0       		.byte	-96
+ 604 023f 0D       		.byte	13
+ 605 0240 A1       		.byte	-95
+ 606 0241 01       		.byte	1
+ 607 0242 A4       		.byte	-92
+ 608 0243 01       		.byte	1
+ 609 0244 A6       		.byte	-90
+ 610 0245 02       		.byte	2
+ 611 0246 A8       		.byte	-88
+ 612 0247 0D       		.byte	13
+ 613 0248 AC       		.byte	-84
+ 614 0249 0D       		.byte	13
+ 615 024a AF       		.byte	-81
+ 616 024b 01       		.byte	1
+ 617 024c B3       		.byte	-77
+ 618 024d 01       		.byte	1
+ 619 024e B4       		.byte	-76
+ 620 024f 0F       		.byte	15
+ 621 0250 BA       		.byte	-70
+ 622 0251 20       		.byte	32
+ 623 0252 BF       		.byte	-65
+ 624 0253 04       		.byte	4
+ 625 0254 D8       		.byte	-40
+ 626 0255 04       		.byte	4
+ 627 0256 D9       		.byte	-39
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 12
+
+
+ 628 0257 04       		.byte	4
+ 629 0258 DF       		.byte	-33
+ 630 0259 01       		.byte	1
+ 631 025a 03       		.byte	3
+ 632 025b 11       		.byte	17
+ 633 025c 04       		.byte	4
+ 634 025d 02       		.byte	2
+ 635 025e 06       		.byte	6
+ 636 025f 1A       		.byte	26
+ 637 0260 09       		.byte	9
+ 638 0261 04       		.byte	4
+ 639 0262 0A       		.byte	10
+ 640 0263 04       		.byte	4
+ 641 0264 0B       		.byte	11
+ 642 0265 80       		.byte	-128
+ 643 0266 0D       		.byte	13
+ 644 0267 80       		.byte	-128
+ 645 0268 0E       		.byte	14
+ 646 0269 A8       		.byte	-88
+ 647 026a 10       		.byte	16
+ 648 026b 08       		.byte	8
+ 649 026c 11       		.byte	17
+ 650 026d 02       		.byte	2
+ 651 026e 12       		.byte	18
+ 652 026f 21       		.byte	33
+ 653 0270 17       		.byte	23
+ 654 0271 15       		.byte	21
+ 655 0272 1A       		.byte	26
+ 656 0273 04       		.byte	4
+ 657 0274 1D       		.byte	29
+ 658 0275 20       		.byte	32
+ 659 0276 1E       		.byte	30
+ 660 0277 80       		.byte	-128
+ 661 0278 21       		.byte	33
+ 662 0279 08       		.byte	8
+ 663 027a 24       		.byte	36
+ 664 027b 02       		.byte	2
+ 665 027c 25       		.byte	37
+ 666 027d 54       		.byte	84
+ 667 027e 26       		.byte	38
+ 668 027f 3C       		.byte	60
+ 669 0280 2A       		.byte	42
+ 670 0281 02       		.byte	2
+ 671 0282 2B       		.byte	43
+ 672 0283 01       		.byte	1
+ 673 0284 2E       		.byte	46
+ 674 0285 08       		.byte	8
+ 675 0286 2F       		.byte	47
+ 676 0287 40       		.byte	64
+ 677 0288 33       		.byte	51
+ 678 0289 15       		.byte	21
+ 679 028a 37       		.byte	55
+ 680 028b 55       		.byte	85
+ 681 028c 38       		.byte	56
+ 682 028d 80       		.byte	-128
+ 683 028e 3D       		.byte	61
+ 684 028f A8       		.byte	-88
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 13
+
+
+ 685 0290 3E       		.byte	62
+ 686 0291 02       		.byte	2
+ 687 0292 67       		.byte	103
+ 688 0293 20       		.byte	32
+ 689 0294 6C       		.byte	108
+ 690 0295 48       		.byte	72
+ 691 0296 6D       		.byte	109
+ 692 0297 02       		.byte	2
+ 693 0298 6F       		.byte	111
+ 694 0299 15       		.byte	21
+ 695 029a 76       		.byte	118
+ 696 029b 03       		.byte	3
+ 697 029c B4       		.byte	-76
+ 698 029d 40       		.byte	64
+ 699 029e C0       		.byte	-64
+ 700 029f F5       		.byte	-11
+ 701 02a0 C2       		.byte	-62
+ 702 02a1 FE       		.byte	-2
+ 703 02a2 C4       		.byte	-60
+ 704 02a3 7F       		.byte	127
+ 705 02a4 CA       		.byte	-54
+ 706 02a5 C9       		.byte	-55
+ 707 02a6 CC       		.byte	-52
+ 708 02a7 F7       		.byte	-9
+ 709 02a8 CE       		.byte	-50
+ 710 02a9 F8       		.byte	-8
+ 711 02aa D8       		.byte	-40
+ 712 02ab 40       		.byte	64
+ 713 02ac EE       		.byte	-18
+ 714 02ad 10       		.byte	16
+ 715 02ae 33       		.byte	51
+ 716 02af 82       		.byte	-126
+ 717 02b0 37       		.byte	55
+ 718 02b1 80       		.byte	-128
+ 719 02b2 CC       		.byte	-52
+ 720 02b3 70       		.byte	112
+ 721 02b4 0A       		.byte	10
+ 722 02b5 01       		.byte	1
+ 723 02b6 0F       		.byte	15
+ 724 02b7 08       		.byte	8
+ 725 02b8 87       		.byte	-121
+ 726 02b9 02       		.byte	2
+ 727 02ba 9F       		.byte	-97
+ 728 02bb 80       		.byte	-128
+ 729 02bc A7       		.byte	-89
+ 730 02bd 82       		.byte	-126
+ 731 02be C2       		.byte	-62
+ 732 02bf C0       		.byte	-64
+ 733 02c0 E2       		.byte	-30
+ 734 02c1 10       		.byte	16
+ 735 02c2 9F       		.byte	-97
+ 736 02c3 80       		.byte	-128
+ 737 02c4 AB       		.byte	-85
+ 738 02c5 04       		.byte	4
+ 739 02c6 AE       		.byte	-82
+ 740 02c7 01       		.byte	1
+ 741 02c8 AF       		.byte	-81
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 14
+
+
+ 742 02c9 80       		.byte	-128
+ 743 02ca E8       		.byte	-24
+ 744 02cb 10       		.byte	16
+ 745 02cc EC       		.byte	-20
+ 746 02cd 20       		.byte	32
+ 747 02ce EE       		.byte	-18
+ 748 02cf 10       		.byte	16
+ 749 02d0 9F       		.byte	-97
+ 750 02d1 80       		.byte	-128
+ 751 02d2 90       		.byte	-112
+ 752 02d3 01       		.byte	1
+ 753 02d4 9F       		.byte	-97
+ 754 02d5 80       		.byte	-128
+ 755 02d6 B4       		.byte	-76
+ 756 02d7 01       		.byte	1
+ 757 02d8 03       		.byte	3
+ 758 02d9 40       		.byte	64
+ 759 02da 0D       		.byte	13
+ 760 02db 20       		.byte	32
+ 761 02dc 53       		.byte	83
+ 762 02dd 01       		.byte	1
+ 763 02de 56       		.byte	86
+ 764 02df 40       		.byte	64
+ 765 02e0 58       		.byte	88
+ 766 02e1 02       		.byte	2
+ 767 02e2 5C       		.byte	92
+ 768 02e3 01       		.byte	1
+ 769 02e4 66       		.byte	102
+ 770 02e5 01       		.byte	1
+ 771 02e6 67       		.byte	103
+ 772 02e7 02       		.byte	2
+ 773 02e8 81       		.byte	-127
+ 774 02e9 20       		.byte	32
+ 775 02ea 83       		.byte	-125
+ 776 02eb 40       		.byte	64
+ 777 02ec 86       		.byte	-122
+ 778 02ed 40       		.byte	64
+ 779 02ee 87       		.byte	-121
+ 780 02ef 80       		.byte	-128
+ 781 02f0 8E       		.byte	-114
+ 782 02f1 01       		.byte	1
+ 783 02f2 90       		.byte	-112
+ 784 02f3 01       		.byte	1
+ 785 02f4 98       		.byte	-104
+ 786 02f5 02       		.byte	2
+ 787 02f6 9F       		.byte	-97
+ 788 02f7 80       		.byte	-128
+ 789 02f8 AC       		.byte	-84
+ 790 02f9 02       		.byte	2
+ 791 02fa C0       		.byte	-64
+ 792 02fb 10       		.byte	16
+ 793 02fc C2       		.byte	-62
+ 794 02fd 80       		.byte	-128
+ 795 02fe D4       		.byte	-44
+ 796 02ff C0       		.byte	-64
+ 797 0300 D6       		.byte	-42
+ 798 0301 C0       		.byte	-64
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 15
+
+
+ 799 0302 D8       		.byte	-40
+ 800 0303 80       		.byte	-128
+ 801 0304 E0       		.byte	-32
+ 802 0305 20       		.byte	32
+ 803 0306 E2       		.byte	-30
+ 804 0307 50       		.byte	80
+ 805 0308 E4       		.byte	-28
+ 806 0309 80       		.byte	-128
+ 807 030a EE       		.byte	-18
+ 808 030b 40       		.byte	64
+ 809 030c 00       		.byte	0
+ 810 030d 02       		.byte	2
+ 811 030e 08       		.byte	8
+ 812 030f 02       		.byte	2
+ 813 0310 10       		.byte	16
+ 814 0311 03       		.byte	3
+ 815 0312 1A       		.byte	26
+ 816 0313 03       		.byte	3
+ 817 0314 00       		.byte	0
+ 818 0315 3F       		.byte	63
+ 819 0316 00       		.byte	0
+ 820 0317 00       		.byte	0
+ 821 0318 C0       		.byte	-64
+ 822 0319 00       		.byte	0
+ 823 031a 00       		.byte	0
+ 824 031b C0       		.byte	-64
+ 825 031c 00       		.byte	0
+ 826 031d 00       		.byte	0
+ 827 031e 00       		.byte	0
+ 828 031f 00       		.byte	0
+ 829 0320 00       		.byte	0
+ 830 0321 00       		.byte	0
+ 831 0322 00       		.byte	0
+ 832 0323 00       		.byte	0
+ 833 0324 04       		.byte	4
+ 834 0325 00       		.byte	0
+ 835 0326 00       		.byte	0
+ 836 0327 04       		.byte	4
+ 837 0328 04       		.byte	4
+ 838 0329 00       		.byte	0
+ 839 032a 00       		.byte	0
+ 840 032b 00       		.byte	0
+ 841 032c 00       		.byte	0
+ 842 032d 00       		.byte	0
+ 843 032e 00       		.byte	0
+ 844 032f 00       		.byte	0
+ 845 0330 F4       		.byte	-12
+ 846 0331 00       		.byte	0
+ 847 0332 00       		.byte	0
+ 848 0333 F4       		.byte	-12
+ 849 0334 F4       		.byte	-12
+ 850 0335 00       		.byte	0
+ 851 0336 00       		.byte	0
+ 852 0337 00       		.byte	0
+ 853 0338 00       		.byte	0
+ 854 0339 00       		.byte	0
+ 855 033a 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 16
+
+
+ 856 033b 00       		.byte	0
+ 857 033c 01       		.byte	1
+ 858 033d 00       		.byte	0
+ 859 033e 80       		.byte	-128
+ 860 033f 7F       		.byte	127
+ 861 0340 7E       		.byte	126
+ 862 0341 00       		.byte	0
+ 863 0342 76       		.byte	118
+ 864 0343 00       		.byte	0
+ 865 0344 00       		.byte	0
+ 866 0345 00       		.byte	0
+ 867 0346 00       		.byte	0
+ 868 0347 00       		.byte	0
+ 869              		.section	.cywolatch,"a",%progbits
+ 870              		.align	2
+ 871              		.type	cy_meta_wonvl, %object
+ 872              		.size	cy_meta_wonvl, 4
+ 873              	cy_meta_wonvl:
+ 874 0000 BC       		.byte	-68
+ 875 0001 90       		.byte	-112
+ 876 0002 AC       		.byte	-84
+ 877 0003 AF       		.byte	-81
+ 878              		.section	.cyeeprom,"a",%progbits
+ 879              		.align	2
+ 880              		.type	cy_eeprom, %object
+ 881              		.size	cy_eeprom, 2048
+ 882              	cy_eeprom:
+ 883 0000 FF       		.byte	-1
+ 884 0001 FF       		.byte	-1
+ 885 0002 FF       		.byte	-1
+ 886 0003 FF       		.byte	-1
+ 887 0004 FF       		.byte	-1
+ 888 0005 FF       		.byte	-1
+ 889 0006 FF       		.byte	-1
+ 890 0007 FF       		.byte	-1
+ 891 0008 FF       		.byte	-1
+ 892 0009 FF       		.byte	-1
+ 893 000a FF       		.byte	-1
+ 894 000b FF       		.byte	-1
+ 895 000c FF       		.byte	-1
+ 896 000d FF       		.byte	-1
+ 897 000e FF       		.byte	-1
+ 898 000f FF       		.byte	-1
+ 899 0010 FF       		.byte	-1
+ 900 0011 FF       		.byte	-1
+ 901 0012 FF       		.byte	-1
+ 902 0013 FF       		.byte	-1
+ 903 0014 FF       		.byte	-1
+ 904 0015 FF       		.byte	-1
+ 905 0016 FF       		.byte	-1
+ 906 0017 FF       		.byte	-1
+ 907 0018 FF       		.byte	-1
+ 908 0019 FF       		.byte	-1
+ 909 001a FF       		.byte	-1
+ 910 001b FF       		.byte	-1
+ 911 001c FF       		.byte	-1
+ 912 001d FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 17
+
+
+ 913 001e FF       		.byte	-1
+ 914 001f FF       		.byte	-1
+ 915 0020 FF       		.byte	-1
+ 916 0021 FF       		.byte	-1
+ 917 0022 FF       		.byte	-1
+ 918 0023 FF       		.byte	-1
+ 919 0024 FF       		.byte	-1
+ 920 0025 FF       		.byte	-1
+ 921 0026 FF       		.byte	-1
+ 922 0027 FF       		.byte	-1
+ 923 0028 FF       		.byte	-1
+ 924 0029 FF       		.byte	-1
+ 925 002a FF       		.byte	-1
+ 926 002b FF       		.byte	-1
+ 927 002c FF       		.byte	-1
+ 928 002d FF       		.byte	-1
+ 929 002e FF       		.byte	-1
+ 930 002f FF       		.byte	-1
+ 931 0030 FF       		.byte	-1
+ 932 0031 FF       		.byte	-1
+ 933 0032 FF       		.byte	-1
+ 934 0033 FF       		.byte	-1
+ 935 0034 FF       		.byte	-1
+ 936 0035 FF       		.byte	-1
+ 937 0036 FF       		.byte	-1
+ 938 0037 FF       		.byte	-1
+ 939 0038 FF       		.byte	-1
+ 940 0039 FF       		.byte	-1
+ 941 003a FF       		.byte	-1
+ 942 003b FF       		.byte	-1
+ 943 003c FF       		.byte	-1
+ 944 003d FF       		.byte	-1
+ 945 003e FF       		.byte	-1
+ 946 003f FF       		.byte	-1
+ 947 0040 FF       		.byte	-1
+ 948 0041 FF       		.byte	-1
+ 949 0042 FF       		.byte	-1
+ 950 0043 FF       		.byte	-1
+ 951 0044 FF       		.byte	-1
+ 952 0045 FF       		.byte	-1
+ 953 0046 FF       		.byte	-1
+ 954 0047 FF       		.byte	-1
+ 955 0048 FF       		.byte	-1
+ 956 0049 FF       		.byte	-1
+ 957 004a FF       		.byte	-1
+ 958 004b FF       		.byte	-1
+ 959 004c FF       		.byte	-1
+ 960 004d FF       		.byte	-1
+ 961 004e FF       		.byte	-1
+ 962 004f FF       		.byte	-1
+ 963 0050 FF       		.byte	-1
+ 964 0051 FF       		.byte	-1
+ 965 0052 FF       		.byte	-1
+ 966 0053 FF       		.byte	-1
+ 967 0054 FF       		.byte	-1
+ 968 0055 FF       		.byte	-1
+ 969 0056 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 18
+
+
+ 970 0057 FF       		.byte	-1
+ 971 0058 FF       		.byte	-1
+ 972 0059 FF       		.byte	-1
+ 973 005a FF       		.byte	-1
+ 974 005b FF       		.byte	-1
+ 975 005c FF       		.byte	-1
+ 976 005d FF       		.byte	-1
+ 977 005e FF       		.byte	-1
+ 978 005f FF       		.byte	-1
+ 979 0060 FF       		.byte	-1
+ 980 0061 FF       		.byte	-1
+ 981 0062 FF       		.byte	-1
+ 982 0063 FF       		.byte	-1
+ 983 0064 FF       		.byte	-1
+ 984 0065 FF       		.byte	-1
+ 985 0066 FF       		.byte	-1
+ 986 0067 FF       		.byte	-1
+ 987 0068 FF       		.byte	-1
+ 988 0069 FF       		.byte	-1
+ 989 006a FF       		.byte	-1
+ 990 006b FF       		.byte	-1
+ 991 006c FF       		.byte	-1
+ 992 006d FF       		.byte	-1
+ 993 006e FF       		.byte	-1
+ 994 006f FF       		.byte	-1
+ 995 0070 FF       		.byte	-1
+ 996 0071 FF       		.byte	-1
+ 997 0072 FF       		.byte	-1
+ 998 0073 FF       		.byte	-1
+ 999 0074 FF       		.byte	-1
+ 1000 0075 FF       		.byte	-1
+ 1001 0076 FF       		.byte	-1
+ 1002 0077 FF       		.byte	-1
+ 1003 0078 FF       		.byte	-1
+ 1004 0079 FF       		.byte	-1
+ 1005 007a FF       		.byte	-1
+ 1006 007b FF       		.byte	-1
+ 1007 007c FF       		.byte	-1
+ 1008 007d FF       		.byte	-1
+ 1009 007e FF       		.byte	-1
+ 1010 007f FF       		.byte	-1
+ 1011 0080 FF       		.byte	-1
+ 1012 0081 FF       		.byte	-1
+ 1013 0082 FF       		.byte	-1
+ 1014 0083 FF       		.byte	-1
+ 1015 0084 FF       		.byte	-1
+ 1016 0085 FF       		.byte	-1
+ 1017 0086 FF       		.byte	-1
+ 1018 0087 FF       		.byte	-1
+ 1019 0088 FF       		.byte	-1
+ 1020 0089 FF       		.byte	-1
+ 1021 008a FF       		.byte	-1
+ 1022 008b FF       		.byte	-1
+ 1023 008c FF       		.byte	-1
+ 1024 008d FF       		.byte	-1
+ 1025 008e FF       		.byte	-1
+ 1026 008f FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 19
+
+
+ 1027 0090 FF       		.byte	-1
+ 1028 0091 FF       		.byte	-1
+ 1029 0092 FF       		.byte	-1
+ 1030 0093 FF       		.byte	-1
+ 1031 0094 FF       		.byte	-1
+ 1032 0095 FF       		.byte	-1
+ 1033 0096 FF       		.byte	-1
+ 1034 0097 FF       		.byte	-1
+ 1035 0098 FF       		.byte	-1
+ 1036 0099 FF       		.byte	-1
+ 1037 009a FF       		.byte	-1
+ 1038 009b FF       		.byte	-1
+ 1039 009c FF       		.byte	-1
+ 1040 009d FF       		.byte	-1
+ 1041 009e FF       		.byte	-1
+ 1042 009f FF       		.byte	-1
+ 1043 00a0 FF       		.byte	-1
+ 1044 00a1 FF       		.byte	-1
+ 1045 00a2 FF       		.byte	-1
+ 1046 00a3 FF       		.byte	-1
+ 1047 00a4 FF       		.byte	-1
+ 1048 00a5 FF       		.byte	-1
+ 1049 00a6 FF       		.byte	-1
+ 1050 00a7 FF       		.byte	-1
+ 1051 00a8 FF       		.byte	-1
+ 1052 00a9 FF       		.byte	-1
+ 1053 00aa FF       		.byte	-1
+ 1054 00ab FF       		.byte	-1
+ 1055 00ac FF       		.byte	-1
+ 1056 00ad FF       		.byte	-1
+ 1057 00ae FF       		.byte	-1
+ 1058 00af FF       		.byte	-1
+ 1059 00b0 FF       		.byte	-1
+ 1060 00b1 FF       		.byte	-1
+ 1061 00b2 FF       		.byte	-1
+ 1062 00b3 FF       		.byte	-1
+ 1063 00b4 FF       		.byte	-1
+ 1064 00b5 FF       		.byte	-1
+ 1065 00b6 FF       		.byte	-1
+ 1066 00b7 FF       		.byte	-1
+ 1067 00b8 FF       		.byte	-1
+ 1068 00b9 FF       		.byte	-1
+ 1069 00ba FF       		.byte	-1
+ 1070 00bb FF       		.byte	-1
+ 1071 00bc FF       		.byte	-1
+ 1072 00bd FF       		.byte	-1
+ 1073 00be FF       		.byte	-1
+ 1074 00bf FF       		.byte	-1
+ 1075 00c0 FF       		.byte	-1
+ 1076 00c1 FF       		.byte	-1
+ 1077 00c2 FF       		.byte	-1
+ 1078 00c3 FF       		.byte	-1
+ 1079 00c4 FF       		.byte	-1
+ 1080 00c5 FF       		.byte	-1
+ 1081 00c6 FF       		.byte	-1
+ 1082 00c7 FF       		.byte	-1
+ 1083 00c8 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 20
+
+
+ 1084 00c9 FF       		.byte	-1
+ 1085 00ca FF       		.byte	-1
+ 1086 00cb FF       		.byte	-1
+ 1087 00cc FF       		.byte	-1
+ 1088 00cd FF       		.byte	-1
+ 1089 00ce FF       		.byte	-1
+ 1090 00cf FF       		.byte	-1
+ 1091 00d0 FF       		.byte	-1
+ 1092 00d1 FF       		.byte	-1
+ 1093 00d2 FF       		.byte	-1
+ 1094 00d3 FF       		.byte	-1
+ 1095 00d4 FF       		.byte	-1
+ 1096 00d5 FF       		.byte	-1
+ 1097 00d6 FF       		.byte	-1
+ 1098 00d7 FF       		.byte	-1
+ 1099 00d8 FF       		.byte	-1
+ 1100 00d9 FF       		.byte	-1
+ 1101 00da FF       		.byte	-1
+ 1102 00db FF       		.byte	-1
+ 1103 00dc FF       		.byte	-1
+ 1104 00dd FF       		.byte	-1
+ 1105 00de FF       		.byte	-1
+ 1106 00df FF       		.byte	-1
+ 1107 00e0 FF       		.byte	-1
+ 1108 00e1 FF       		.byte	-1
+ 1109 00e2 FF       		.byte	-1
+ 1110 00e3 FF       		.byte	-1
+ 1111 00e4 FF       		.byte	-1
+ 1112 00e5 FF       		.byte	-1
+ 1113 00e6 FF       		.byte	-1
+ 1114 00e7 FF       		.byte	-1
+ 1115 00e8 FF       		.byte	-1
+ 1116 00e9 FF       		.byte	-1
+ 1117 00ea FF       		.byte	-1
+ 1118 00eb FF       		.byte	-1
+ 1119 00ec FF       		.byte	-1
+ 1120 00ed FF       		.byte	-1
+ 1121 00ee FF       		.byte	-1
+ 1122 00ef FF       		.byte	-1
+ 1123 00f0 FF       		.byte	-1
+ 1124 00f1 FF       		.byte	-1
+ 1125 00f2 FF       		.byte	-1
+ 1126 00f3 FF       		.byte	-1
+ 1127 00f4 FF       		.byte	-1
+ 1128 00f5 FF       		.byte	-1
+ 1129 00f6 FF       		.byte	-1
+ 1130 00f7 FF       		.byte	-1
+ 1131 00f8 FF       		.byte	-1
+ 1132 00f9 FF       		.byte	-1
+ 1133 00fa FF       		.byte	-1
+ 1134 00fb FF       		.byte	-1
+ 1135 00fc FF       		.byte	-1
+ 1136 00fd FF       		.byte	-1
+ 1137 00fe FF       		.byte	-1
+ 1138 00ff FF       		.byte	-1
+ 1139 0100 FF       		.byte	-1
+ 1140 0101 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 21
+
+
+ 1141 0102 FF       		.byte	-1
+ 1142 0103 FF       		.byte	-1
+ 1143 0104 FF       		.byte	-1
+ 1144 0105 FF       		.byte	-1
+ 1145 0106 FF       		.byte	-1
+ 1146 0107 FF       		.byte	-1
+ 1147 0108 FF       		.byte	-1
+ 1148 0109 FF       		.byte	-1
+ 1149 010a FF       		.byte	-1
+ 1150 010b FF       		.byte	-1
+ 1151 010c FF       		.byte	-1
+ 1152 010d FF       		.byte	-1
+ 1153 010e FF       		.byte	-1
+ 1154 010f FF       		.byte	-1
+ 1155 0110 FF       		.byte	-1
+ 1156 0111 FF       		.byte	-1
+ 1157 0112 FF       		.byte	-1
+ 1158 0113 FF       		.byte	-1
+ 1159 0114 FF       		.byte	-1
+ 1160 0115 FF       		.byte	-1
+ 1161 0116 FF       		.byte	-1
+ 1162 0117 FF       		.byte	-1
+ 1163 0118 FF       		.byte	-1
+ 1164 0119 FF       		.byte	-1
+ 1165 011a FF       		.byte	-1
+ 1166 011b FF       		.byte	-1
+ 1167 011c FF       		.byte	-1
+ 1168 011d FF       		.byte	-1
+ 1169 011e FF       		.byte	-1
+ 1170 011f FF       		.byte	-1
+ 1171 0120 FF       		.byte	-1
+ 1172 0121 FF       		.byte	-1
+ 1173 0122 FF       		.byte	-1
+ 1174 0123 FF       		.byte	-1
+ 1175 0124 FF       		.byte	-1
+ 1176 0125 FF       		.byte	-1
+ 1177 0126 FF       		.byte	-1
+ 1178 0127 FF       		.byte	-1
+ 1179 0128 FF       		.byte	-1
+ 1180 0129 FF       		.byte	-1
+ 1181 012a FF       		.byte	-1
+ 1182 012b FF       		.byte	-1
+ 1183 012c FF       		.byte	-1
+ 1184 012d FF       		.byte	-1
+ 1185 012e FF       		.byte	-1
+ 1186 012f FF       		.byte	-1
+ 1187 0130 FF       		.byte	-1
+ 1188 0131 FF       		.byte	-1
+ 1189 0132 FF       		.byte	-1
+ 1190 0133 FF       		.byte	-1
+ 1191 0134 FF       		.byte	-1
+ 1192 0135 FF       		.byte	-1
+ 1193 0136 FF       		.byte	-1
+ 1194 0137 FF       		.byte	-1
+ 1195 0138 FF       		.byte	-1
+ 1196 0139 FF       		.byte	-1
+ 1197 013a FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 22
+
+
+ 1198 013b FF       		.byte	-1
+ 1199 013c FF       		.byte	-1
+ 1200 013d FF       		.byte	-1
+ 1201 013e FF       		.byte	-1
+ 1202 013f FF       		.byte	-1
+ 1203 0140 FF       		.byte	-1
+ 1204 0141 FF       		.byte	-1
+ 1205 0142 FF       		.byte	-1
+ 1206 0143 FF       		.byte	-1
+ 1207 0144 FF       		.byte	-1
+ 1208 0145 FF       		.byte	-1
+ 1209 0146 FF       		.byte	-1
+ 1210 0147 FF       		.byte	-1
+ 1211 0148 FF       		.byte	-1
+ 1212 0149 FF       		.byte	-1
+ 1213 014a FF       		.byte	-1
+ 1214 014b FF       		.byte	-1
+ 1215 014c FF       		.byte	-1
+ 1216 014d FF       		.byte	-1
+ 1217 014e FF       		.byte	-1
+ 1218 014f FF       		.byte	-1
+ 1219 0150 FF       		.byte	-1
+ 1220 0151 FF       		.byte	-1
+ 1221 0152 FF       		.byte	-1
+ 1222 0153 FF       		.byte	-1
+ 1223 0154 FF       		.byte	-1
+ 1224 0155 FF       		.byte	-1
+ 1225 0156 FF       		.byte	-1
+ 1226 0157 FF       		.byte	-1
+ 1227 0158 FF       		.byte	-1
+ 1228 0159 FF       		.byte	-1
+ 1229 015a FF       		.byte	-1
+ 1230 015b FF       		.byte	-1
+ 1231 015c FF       		.byte	-1
+ 1232 015d FF       		.byte	-1
+ 1233 015e FF       		.byte	-1
+ 1234 015f FF       		.byte	-1
+ 1235 0160 FF       		.byte	-1
+ 1236 0161 FF       		.byte	-1
+ 1237 0162 FF       		.byte	-1
+ 1238 0163 FF       		.byte	-1
+ 1239 0164 FF       		.byte	-1
+ 1240 0165 FF       		.byte	-1
+ 1241 0166 FF       		.byte	-1
+ 1242 0167 FF       		.byte	-1
+ 1243 0168 FF       		.byte	-1
+ 1244 0169 FF       		.byte	-1
+ 1245 016a FF       		.byte	-1
+ 1246 016b FF       		.byte	-1
+ 1247 016c FF       		.byte	-1
+ 1248 016d FF       		.byte	-1
+ 1249 016e FF       		.byte	-1
+ 1250 016f FF       		.byte	-1
+ 1251 0170 FF       		.byte	-1
+ 1252 0171 FF       		.byte	-1
+ 1253 0172 FF       		.byte	-1
+ 1254 0173 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 23
+
+
+ 1255 0174 FF       		.byte	-1
+ 1256 0175 FF       		.byte	-1
+ 1257 0176 FF       		.byte	-1
+ 1258 0177 FF       		.byte	-1
+ 1259 0178 FF       		.byte	-1
+ 1260 0179 FF       		.byte	-1
+ 1261 017a FF       		.byte	-1
+ 1262 017b FF       		.byte	-1
+ 1263 017c FF       		.byte	-1
+ 1264 017d FF       		.byte	-1
+ 1265 017e FF       		.byte	-1
+ 1266 017f FF       		.byte	-1
+ 1267 0180 FF       		.byte	-1
+ 1268 0181 FF       		.byte	-1
+ 1269 0182 FF       		.byte	-1
+ 1270 0183 FF       		.byte	-1
+ 1271 0184 FF       		.byte	-1
+ 1272 0185 FF       		.byte	-1
+ 1273 0186 FF       		.byte	-1
+ 1274 0187 FF       		.byte	-1
+ 1275 0188 FF       		.byte	-1
+ 1276 0189 FF       		.byte	-1
+ 1277 018a FF       		.byte	-1
+ 1278 018b FF       		.byte	-1
+ 1279 018c FF       		.byte	-1
+ 1280 018d FF       		.byte	-1
+ 1281 018e FF       		.byte	-1
+ 1282 018f FF       		.byte	-1
+ 1283 0190 FF       		.byte	-1
+ 1284 0191 FF       		.byte	-1
+ 1285 0192 FF       		.byte	-1
+ 1286 0193 FF       		.byte	-1
+ 1287 0194 FF       		.byte	-1
+ 1288 0195 FF       		.byte	-1
+ 1289 0196 FF       		.byte	-1
+ 1290 0197 FF       		.byte	-1
+ 1291 0198 FF       		.byte	-1
+ 1292 0199 FF       		.byte	-1
+ 1293 019a FF       		.byte	-1
+ 1294 019b FF       		.byte	-1
+ 1295 019c FF       		.byte	-1
+ 1296 019d FF       		.byte	-1
+ 1297 019e FF       		.byte	-1
+ 1298 019f FF       		.byte	-1
+ 1299 01a0 FF       		.byte	-1
+ 1300 01a1 FF       		.byte	-1
+ 1301 01a2 FF       		.byte	-1
+ 1302 01a3 FF       		.byte	-1
+ 1303 01a4 FF       		.byte	-1
+ 1304 01a5 FF       		.byte	-1
+ 1305 01a6 FF       		.byte	-1
+ 1306 01a7 FF       		.byte	-1
+ 1307 01a8 FF       		.byte	-1
+ 1308 01a9 FF       		.byte	-1
+ 1309 01aa FF       		.byte	-1
+ 1310 01ab FF       		.byte	-1
+ 1311 01ac FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 24
+
+
+ 1312 01ad FF       		.byte	-1
+ 1313 01ae FF       		.byte	-1
+ 1314 01af FF       		.byte	-1
+ 1315 01b0 FF       		.byte	-1
+ 1316 01b1 FF       		.byte	-1
+ 1317 01b2 FF       		.byte	-1
+ 1318 01b3 FF       		.byte	-1
+ 1319 01b4 FF       		.byte	-1
+ 1320 01b5 FF       		.byte	-1
+ 1321 01b6 FF       		.byte	-1
+ 1322 01b7 FF       		.byte	-1
+ 1323 01b8 FF       		.byte	-1
+ 1324 01b9 FF       		.byte	-1
+ 1325 01ba FF       		.byte	-1
+ 1326 01bb FF       		.byte	-1
+ 1327 01bc FF       		.byte	-1
+ 1328 01bd FF       		.byte	-1
+ 1329 01be FF       		.byte	-1
+ 1330 01bf FF       		.byte	-1
+ 1331 01c0 FF       		.byte	-1
+ 1332 01c1 FF       		.byte	-1
+ 1333 01c2 FF       		.byte	-1
+ 1334 01c3 FF       		.byte	-1
+ 1335 01c4 FF       		.byte	-1
+ 1336 01c5 FF       		.byte	-1
+ 1337 01c6 FF       		.byte	-1
+ 1338 01c7 FF       		.byte	-1
+ 1339 01c8 FF       		.byte	-1
+ 1340 01c9 FF       		.byte	-1
+ 1341 01ca FF       		.byte	-1
+ 1342 01cb FF       		.byte	-1
+ 1343 01cc FF       		.byte	-1
+ 1344 01cd FF       		.byte	-1
+ 1345 01ce FF       		.byte	-1
+ 1346 01cf FF       		.byte	-1
+ 1347 01d0 FF       		.byte	-1
+ 1348 01d1 FF       		.byte	-1
+ 1349 01d2 FF       		.byte	-1
+ 1350 01d3 FF       		.byte	-1
+ 1351 01d4 FF       		.byte	-1
+ 1352 01d5 FF       		.byte	-1
+ 1353 01d6 FF       		.byte	-1
+ 1354 01d7 FF       		.byte	-1
+ 1355 01d8 FF       		.byte	-1
+ 1356 01d9 FF       		.byte	-1
+ 1357 01da FF       		.byte	-1
+ 1358 01db FF       		.byte	-1
+ 1359 01dc FF       		.byte	-1
+ 1360 01dd FF       		.byte	-1
+ 1361 01de FF       		.byte	-1
+ 1362 01df FF       		.byte	-1
+ 1363 01e0 FF       		.byte	-1
+ 1364 01e1 FF       		.byte	-1
+ 1365 01e2 FF       		.byte	-1
+ 1366 01e3 FF       		.byte	-1
+ 1367 01e4 FF       		.byte	-1
+ 1368 01e5 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 25
+
+
+ 1369 01e6 FF       		.byte	-1
+ 1370 01e7 FF       		.byte	-1
+ 1371 01e8 FF       		.byte	-1
+ 1372 01e9 FF       		.byte	-1
+ 1373 01ea FF       		.byte	-1
+ 1374 01eb FF       		.byte	-1
+ 1375 01ec FF       		.byte	-1
+ 1376 01ed FF       		.byte	-1
+ 1377 01ee FF       		.byte	-1
+ 1378 01ef FF       		.byte	-1
+ 1379 01f0 FF       		.byte	-1
+ 1380 01f1 FF       		.byte	-1
+ 1381 01f2 FF       		.byte	-1
+ 1382 01f3 FF       		.byte	-1
+ 1383 01f4 FF       		.byte	-1
+ 1384 01f5 FF       		.byte	-1
+ 1385 01f6 FF       		.byte	-1
+ 1386 01f7 FF       		.byte	-1
+ 1387 01f8 FF       		.byte	-1
+ 1388 01f9 FF       		.byte	-1
+ 1389 01fa FF       		.byte	-1
+ 1390 01fb FF       		.byte	-1
+ 1391 01fc FF       		.byte	-1
+ 1392 01fd FF       		.byte	-1
+ 1393 01fe FF       		.byte	-1
+ 1394 01ff FF       		.byte	-1
+ 1395 0200 FF       		.byte	-1
+ 1396 0201 FF       		.byte	-1
+ 1397 0202 FF       		.byte	-1
+ 1398 0203 FF       		.byte	-1
+ 1399 0204 FF       		.byte	-1
+ 1400 0205 FF       		.byte	-1
+ 1401 0206 FF       		.byte	-1
+ 1402 0207 FF       		.byte	-1
+ 1403 0208 FF       		.byte	-1
+ 1404 0209 FF       		.byte	-1
+ 1405 020a FF       		.byte	-1
+ 1406 020b FF       		.byte	-1
+ 1407 020c FF       		.byte	-1
+ 1408 020d FF       		.byte	-1
+ 1409 020e FF       		.byte	-1
+ 1410 020f FF       		.byte	-1
+ 1411 0210 FF       		.byte	-1
+ 1412 0211 FF       		.byte	-1
+ 1413 0212 FF       		.byte	-1
+ 1414 0213 FF       		.byte	-1
+ 1415 0214 FF       		.byte	-1
+ 1416 0215 FF       		.byte	-1
+ 1417 0216 FF       		.byte	-1
+ 1418 0217 FF       		.byte	-1
+ 1419 0218 FF       		.byte	-1
+ 1420 0219 FF       		.byte	-1
+ 1421 021a FF       		.byte	-1
+ 1422 021b FF       		.byte	-1
+ 1423 021c FF       		.byte	-1
+ 1424 021d FF       		.byte	-1
+ 1425 021e FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 26
+
+
+ 1426 021f FF       		.byte	-1
+ 1427 0220 FF       		.byte	-1
+ 1428 0221 FF       		.byte	-1
+ 1429 0222 FF       		.byte	-1
+ 1430 0223 FF       		.byte	-1
+ 1431 0224 FF       		.byte	-1
+ 1432 0225 FF       		.byte	-1
+ 1433 0226 FF       		.byte	-1
+ 1434 0227 FF       		.byte	-1
+ 1435 0228 FF       		.byte	-1
+ 1436 0229 FF       		.byte	-1
+ 1437 022a FF       		.byte	-1
+ 1438 022b FF       		.byte	-1
+ 1439 022c FF       		.byte	-1
+ 1440 022d FF       		.byte	-1
+ 1441 022e FF       		.byte	-1
+ 1442 022f FF       		.byte	-1
+ 1443 0230 FF       		.byte	-1
+ 1444 0231 FF       		.byte	-1
+ 1445 0232 FF       		.byte	-1
+ 1446 0233 FF       		.byte	-1
+ 1447 0234 FF       		.byte	-1
+ 1448 0235 FF       		.byte	-1
+ 1449 0236 FF       		.byte	-1
+ 1450 0237 FF       		.byte	-1
+ 1451 0238 FF       		.byte	-1
+ 1452 0239 FF       		.byte	-1
+ 1453 023a FF       		.byte	-1
+ 1454 023b FF       		.byte	-1
+ 1455 023c FF       		.byte	-1
+ 1456 023d FF       		.byte	-1
+ 1457 023e FF       		.byte	-1
+ 1458 023f FF       		.byte	-1
+ 1459 0240 FF       		.byte	-1
+ 1460 0241 FF       		.byte	-1
+ 1461 0242 FF       		.byte	-1
+ 1462 0243 FF       		.byte	-1
+ 1463 0244 FF       		.byte	-1
+ 1464 0245 FF       		.byte	-1
+ 1465 0246 FF       		.byte	-1
+ 1466 0247 FF       		.byte	-1
+ 1467 0248 FF       		.byte	-1
+ 1468 0249 FF       		.byte	-1
+ 1469 024a FF       		.byte	-1
+ 1470 024b FF       		.byte	-1
+ 1471 024c FF       		.byte	-1
+ 1472 024d FF       		.byte	-1
+ 1473 024e FF       		.byte	-1
+ 1474 024f FF       		.byte	-1
+ 1475 0250 FF       		.byte	-1
+ 1476 0251 FF       		.byte	-1
+ 1477 0252 FF       		.byte	-1
+ 1478 0253 FF       		.byte	-1
+ 1479 0254 FF       		.byte	-1
+ 1480 0255 FF       		.byte	-1
+ 1481 0256 FF       		.byte	-1
+ 1482 0257 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 27
+
+
+ 1483 0258 FF       		.byte	-1
+ 1484 0259 FF       		.byte	-1
+ 1485 025a FF       		.byte	-1
+ 1486 025b FF       		.byte	-1
+ 1487 025c FF       		.byte	-1
+ 1488 025d FF       		.byte	-1
+ 1489 025e FF       		.byte	-1
+ 1490 025f FF       		.byte	-1
+ 1491 0260 FF       		.byte	-1
+ 1492 0261 FF       		.byte	-1
+ 1493 0262 FF       		.byte	-1
+ 1494 0263 FF       		.byte	-1
+ 1495 0264 FF       		.byte	-1
+ 1496 0265 FF       		.byte	-1
+ 1497 0266 FF       		.byte	-1
+ 1498 0267 FF       		.byte	-1
+ 1499 0268 FF       		.byte	-1
+ 1500 0269 FF       		.byte	-1
+ 1501 026a FF       		.byte	-1
+ 1502 026b FF       		.byte	-1
+ 1503 026c FF       		.byte	-1
+ 1504 026d FF       		.byte	-1
+ 1505 026e FF       		.byte	-1
+ 1506 026f FF       		.byte	-1
+ 1507 0270 FF       		.byte	-1
+ 1508 0271 FF       		.byte	-1
+ 1509 0272 FF       		.byte	-1
+ 1510 0273 FF       		.byte	-1
+ 1511 0274 FF       		.byte	-1
+ 1512 0275 FF       		.byte	-1
+ 1513 0276 FF       		.byte	-1
+ 1514 0277 FF       		.byte	-1
+ 1515 0278 FF       		.byte	-1
+ 1516 0279 FF       		.byte	-1
+ 1517 027a FF       		.byte	-1
+ 1518 027b FF       		.byte	-1
+ 1519 027c FF       		.byte	-1
+ 1520 027d FF       		.byte	-1
+ 1521 027e FF       		.byte	-1
+ 1522 027f FF       		.byte	-1
+ 1523 0280 FF       		.byte	-1
+ 1524 0281 FF       		.byte	-1
+ 1525 0282 FF       		.byte	-1
+ 1526 0283 FF       		.byte	-1
+ 1527 0284 FF       		.byte	-1
+ 1528 0285 FF       		.byte	-1
+ 1529 0286 FF       		.byte	-1
+ 1530 0287 FF       		.byte	-1
+ 1531 0288 FF       		.byte	-1
+ 1532 0289 FF       		.byte	-1
+ 1533 028a FF       		.byte	-1
+ 1534 028b FF       		.byte	-1
+ 1535 028c FF       		.byte	-1
+ 1536 028d FF       		.byte	-1
+ 1537 028e FF       		.byte	-1
+ 1538 028f FF       		.byte	-1
+ 1539 0290 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 28
+
+
+ 1540 0291 FF       		.byte	-1
+ 1541 0292 FF       		.byte	-1
+ 1542 0293 FF       		.byte	-1
+ 1543 0294 FF       		.byte	-1
+ 1544 0295 FF       		.byte	-1
+ 1545 0296 FF       		.byte	-1
+ 1546 0297 FF       		.byte	-1
+ 1547 0298 FF       		.byte	-1
+ 1548 0299 FF       		.byte	-1
+ 1549 029a FF       		.byte	-1
+ 1550 029b FF       		.byte	-1
+ 1551 029c FF       		.byte	-1
+ 1552 029d FF       		.byte	-1
+ 1553 029e FF       		.byte	-1
+ 1554 029f FF       		.byte	-1
+ 1555 02a0 FF       		.byte	-1
+ 1556 02a1 FF       		.byte	-1
+ 1557 02a2 FF       		.byte	-1
+ 1558 02a3 FF       		.byte	-1
+ 1559 02a4 FF       		.byte	-1
+ 1560 02a5 FF       		.byte	-1
+ 1561 02a6 FF       		.byte	-1
+ 1562 02a7 FF       		.byte	-1
+ 1563 02a8 FF       		.byte	-1
+ 1564 02a9 FF       		.byte	-1
+ 1565 02aa FF       		.byte	-1
+ 1566 02ab FF       		.byte	-1
+ 1567 02ac FF       		.byte	-1
+ 1568 02ad FF       		.byte	-1
+ 1569 02ae FF       		.byte	-1
+ 1570 02af FF       		.byte	-1
+ 1571 02b0 FF       		.byte	-1
+ 1572 02b1 FF       		.byte	-1
+ 1573 02b2 FF       		.byte	-1
+ 1574 02b3 FF       		.byte	-1
+ 1575 02b4 FF       		.byte	-1
+ 1576 02b5 FF       		.byte	-1
+ 1577 02b6 FF       		.byte	-1
+ 1578 02b7 FF       		.byte	-1
+ 1579 02b8 FF       		.byte	-1
+ 1580 02b9 FF       		.byte	-1
+ 1581 02ba FF       		.byte	-1
+ 1582 02bb FF       		.byte	-1
+ 1583 02bc FF       		.byte	-1
+ 1584 02bd FF       		.byte	-1
+ 1585 02be FF       		.byte	-1
+ 1586 02bf FF       		.byte	-1
+ 1587 02c0 FF       		.byte	-1
+ 1588 02c1 FF       		.byte	-1
+ 1589 02c2 FF       		.byte	-1
+ 1590 02c3 FF       		.byte	-1
+ 1591 02c4 FF       		.byte	-1
+ 1592 02c5 FF       		.byte	-1
+ 1593 02c6 FF       		.byte	-1
+ 1594 02c7 FF       		.byte	-1
+ 1595 02c8 FF       		.byte	-1
+ 1596 02c9 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 29
+
+
+ 1597 02ca FF       		.byte	-1
+ 1598 02cb FF       		.byte	-1
+ 1599 02cc FF       		.byte	-1
+ 1600 02cd FF       		.byte	-1
+ 1601 02ce FF       		.byte	-1
+ 1602 02cf FF       		.byte	-1
+ 1603 02d0 FF       		.byte	-1
+ 1604 02d1 FF       		.byte	-1
+ 1605 02d2 FF       		.byte	-1
+ 1606 02d3 FF       		.byte	-1
+ 1607 02d4 FF       		.byte	-1
+ 1608 02d5 FF       		.byte	-1
+ 1609 02d6 FF       		.byte	-1
+ 1610 02d7 FF       		.byte	-1
+ 1611 02d8 FF       		.byte	-1
+ 1612 02d9 FF       		.byte	-1
+ 1613 02da FF       		.byte	-1
+ 1614 02db FF       		.byte	-1
+ 1615 02dc FF       		.byte	-1
+ 1616 02dd FF       		.byte	-1
+ 1617 02de FF       		.byte	-1
+ 1618 02df FF       		.byte	-1
+ 1619 02e0 FF       		.byte	-1
+ 1620 02e1 FF       		.byte	-1
+ 1621 02e2 FF       		.byte	-1
+ 1622 02e3 FF       		.byte	-1
+ 1623 02e4 FF       		.byte	-1
+ 1624 02e5 FF       		.byte	-1
+ 1625 02e6 FF       		.byte	-1
+ 1626 02e7 FF       		.byte	-1
+ 1627 02e8 FF       		.byte	-1
+ 1628 02e9 FF       		.byte	-1
+ 1629 02ea FF       		.byte	-1
+ 1630 02eb FF       		.byte	-1
+ 1631 02ec FF       		.byte	-1
+ 1632 02ed FF       		.byte	-1
+ 1633 02ee FF       		.byte	-1
+ 1634 02ef FF       		.byte	-1
+ 1635 02f0 FF       		.byte	-1
+ 1636 02f1 FF       		.byte	-1
+ 1637 02f2 FF       		.byte	-1
+ 1638 02f3 FF       		.byte	-1
+ 1639 02f4 FF       		.byte	-1
+ 1640 02f5 FF       		.byte	-1
+ 1641 02f6 FF       		.byte	-1
+ 1642 02f7 FF       		.byte	-1
+ 1643 02f8 FF       		.byte	-1
+ 1644 02f9 FF       		.byte	-1
+ 1645 02fa FF       		.byte	-1
+ 1646 02fb FF       		.byte	-1
+ 1647 02fc FF       		.byte	-1
+ 1648 02fd FF       		.byte	-1
+ 1649 02fe FF       		.byte	-1
+ 1650 02ff FF       		.byte	-1
+ 1651 0300 FF       		.byte	-1
+ 1652 0301 FF       		.byte	-1
+ 1653 0302 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 30
+
+
+ 1654 0303 FF       		.byte	-1
+ 1655 0304 FF       		.byte	-1
+ 1656 0305 FF       		.byte	-1
+ 1657 0306 FF       		.byte	-1
+ 1658 0307 FF       		.byte	-1
+ 1659 0308 FF       		.byte	-1
+ 1660 0309 FF       		.byte	-1
+ 1661 030a FF       		.byte	-1
+ 1662 030b FF       		.byte	-1
+ 1663 030c FF       		.byte	-1
+ 1664 030d FF       		.byte	-1
+ 1665 030e FF       		.byte	-1
+ 1666 030f FF       		.byte	-1
+ 1667 0310 FF       		.byte	-1
+ 1668 0311 FF       		.byte	-1
+ 1669 0312 FF       		.byte	-1
+ 1670 0313 FF       		.byte	-1
+ 1671 0314 FF       		.byte	-1
+ 1672 0315 FF       		.byte	-1
+ 1673 0316 FF       		.byte	-1
+ 1674 0317 FF       		.byte	-1
+ 1675 0318 FF       		.byte	-1
+ 1676 0319 FF       		.byte	-1
+ 1677 031a FF       		.byte	-1
+ 1678 031b FF       		.byte	-1
+ 1679 031c FF       		.byte	-1
+ 1680 031d FF       		.byte	-1
+ 1681 031e FF       		.byte	-1
+ 1682 031f FF       		.byte	-1
+ 1683 0320 FF       		.byte	-1
+ 1684 0321 FF       		.byte	-1
+ 1685 0322 FF       		.byte	-1
+ 1686 0323 FF       		.byte	-1
+ 1687 0324 FF       		.byte	-1
+ 1688 0325 FF       		.byte	-1
+ 1689 0326 FF       		.byte	-1
+ 1690 0327 FF       		.byte	-1
+ 1691 0328 FF       		.byte	-1
+ 1692 0329 FF       		.byte	-1
+ 1693 032a FF       		.byte	-1
+ 1694 032b FF       		.byte	-1
+ 1695 032c FF       		.byte	-1
+ 1696 032d FF       		.byte	-1
+ 1697 032e FF       		.byte	-1
+ 1698 032f FF       		.byte	-1
+ 1699 0330 FF       		.byte	-1
+ 1700 0331 FF       		.byte	-1
+ 1701 0332 FF       		.byte	-1
+ 1702 0333 FF       		.byte	-1
+ 1703 0334 FF       		.byte	-1
+ 1704 0335 FF       		.byte	-1
+ 1705 0336 FF       		.byte	-1
+ 1706 0337 FF       		.byte	-1
+ 1707 0338 FF       		.byte	-1
+ 1708 0339 FF       		.byte	-1
+ 1709 033a FF       		.byte	-1
+ 1710 033b FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 31
+
+
+ 1711 033c FF       		.byte	-1
+ 1712 033d FF       		.byte	-1
+ 1713 033e FF       		.byte	-1
+ 1714 033f FF       		.byte	-1
+ 1715 0340 FF       		.byte	-1
+ 1716 0341 FF       		.byte	-1
+ 1717 0342 FF       		.byte	-1
+ 1718 0343 FF       		.byte	-1
+ 1719 0344 FF       		.byte	-1
+ 1720 0345 FF       		.byte	-1
+ 1721 0346 FF       		.byte	-1
+ 1722 0347 FF       		.byte	-1
+ 1723 0348 FF       		.byte	-1
+ 1724 0349 FF       		.byte	-1
+ 1725 034a FF       		.byte	-1
+ 1726 034b FF       		.byte	-1
+ 1727 034c FF       		.byte	-1
+ 1728 034d FF       		.byte	-1
+ 1729 034e FF       		.byte	-1
+ 1730 034f FF       		.byte	-1
+ 1731 0350 FF       		.byte	-1
+ 1732 0351 FF       		.byte	-1
+ 1733 0352 FF       		.byte	-1
+ 1734 0353 FF       		.byte	-1
+ 1735 0354 FF       		.byte	-1
+ 1736 0355 FF       		.byte	-1
+ 1737 0356 FF       		.byte	-1
+ 1738 0357 FF       		.byte	-1
+ 1739 0358 FF       		.byte	-1
+ 1740 0359 FF       		.byte	-1
+ 1741 035a FF       		.byte	-1
+ 1742 035b FF       		.byte	-1
+ 1743 035c FF       		.byte	-1
+ 1744 035d FF       		.byte	-1
+ 1745 035e FF       		.byte	-1
+ 1746 035f FF       		.byte	-1
+ 1747 0360 FF       		.byte	-1
+ 1748 0361 FF       		.byte	-1
+ 1749 0362 FF       		.byte	-1
+ 1750 0363 FF       		.byte	-1
+ 1751 0364 FF       		.byte	-1
+ 1752 0365 FF       		.byte	-1
+ 1753 0366 FF       		.byte	-1
+ 1754 0367 FF       		.byte	-1
+ 1755 0368 FF       		.byte	-1
+ 1756 0369 FF       		.byte	-1
+ 1757 036a FF       		.byte	-1
+ 1758 036b FF       		.byte	-1
+ 1759 036c FF       		.byte	-1
+ 1760 036d FF       		.byte	-1
+ 1761 036e FF       		.byte	-1
+ 1762 036f FF       		.byte	-1
+ 1763 0370 FF       		.byte	-1
+ 1764 0371 FF       		.byte	-1
+ 1765 0372 FF       		.byte	-1
+ 1766 0373 FF       		.byte	-1
+ 1767 0374 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 32
+
+
+ 1768 0375 FF       		.byte	-1
+ 1769 0376 FF       		.byte	-1
+ 1770 0377 FF       		.byte	-1
+ 1771 0378 FF       		.byte	-1
+ 1772 0379 FF       		.byte	-1
+ 1773 037a FF       		.byte	-1
+ 1774 037b FF       		.byte	-1
+ 1775 037c FF       		.byte	-1
+ 1776 037d FF       		.byte	-1
+ 1777 037e FF       		.byte	-1
+ 1778 037f FF       		.byte	-1
+ 1779 0380 FF       		.byte	-1
+ 1780 0381 FF       		.byte	-1
+ 1781 0382 FF       		.byte	-1
+ 1782 0383 FF       		.byte	-1
+ 1783 0384 FF       		.byte	-1
+ 1784 0385 FF       		.byte	-1
+ 1785 0386 FF       		.byte	-1
+ 1786 0387 FF       		.byte	-1
+ 1787 0388 FF       		.byte	-1
+ 1788 0389 FF       		.byte	-1
+ 1789 038a FF       		.byte	-1
+ 1790 038b FF       		.byte	-1
+ 1791 038c FF       		.byte	-1
+ 1792 038d FF       		.byte	-1
+ 1793 038e FF       		.byte	-1
+ 1794 038f FF       		.byte	-1
+ 1795 0390 FF       		.byte	-1
+ 1796 0391 FF       		.byte	-1
+ 1797 0392 FF       		.byte	-1
+ 1798 0393 FF       		.byte	-1
+ 1799 0394 FF       		.byte	-1
+ 1800 0395 FF       		.byte	-1
+ 1801 0396 FF       		.byte	-1
+ 1802 0397 FF       		.byte	-1
+ 1803 0398 FF       		.byte	-1
+ 1804 0399 FF       		.byte	-1
+ 1805 039a FF       		.byte	-1
+ 1806 039b FF       		.byte	-1
+ 1807 039c FF       		.byte	-1
+ 1808 039d FF       		.byte	-1
+ 1809 039e FF       		.byte	-1
+ 1810 039f FF       		.byte	-1
+ 1811 03a0 FF       		.byte	-1
+ 1812 03a1 FF       		.byte	-1
+ 1813 03a2 FF       		.byte	-1
+ 1814 03a3 FF       		.byte	-1
+ 1815 03a4 FF       		.byte	-1
+ 1816 03a5 FF       		.byte	-1
+ 1817 03a6 FF       		.byte	-1
+ 1818 03a7 FF       		.byte	-1
+ 1819 03a8 FF       		.byte	-1
+ 1820 03a9 FF       		.byte	-1
+ 1821 03aa FF       		.byte	-1
+ 1822 03ab FF       		.byte	-1
+ 1823 03ac FF       		.byte	-1
+ 1824 03ad FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 33
+
+
+ 1825 03ae FF       		.byte	-1
+ 1826 03af FF       		.byte	-1
+ 1827 03b0 FF       		.byte	-1
+ 1828 03b1 FF       		.byte	-1
+ 1829 03b2 FF       		.byte	-1
+ 1830 03b3 FF       		.byte	-1
+ 1831 03b4 FF       		.byte	-1
+ 1832 03b5 FF       		.byte	-1
+ 1833 03b6 FF       		.byte	-1
+ 1834 03b7 FF       		.byte	-1
+ 1835 03b8 FF       		.byte	-1
+ 1836 03b9 FF       		.byte	-1
+ 1837 03ba FF       		.byte	-1
+ 1838 03bb FF       		.byte	-1
+ 1839 03bc FF       		.byte	-1
+ 1840 03bd FF       		.byte	-1
+ 1841 03be FF       		.byte	-1
+ 1842 03bf FF       		.byte	-1
+ 1843 03c0 FF       		.byte	-1
+ 1844 03c1 FF       		.byte	-1
+ 1845 03c2 FF       		.byte	-1
+ 1846 03c3 FF       		.byte	-1
+ 1847 03c4 FF       		.byte	-1
+ 1848 03c5 FF       		.byte	-1
+ 1849 03c6 FF       		.byte	-1
+ 1850 03c7 FF       		.byte	-1
+ 1851 03c8 FF       		.byte	-1
+ 1852 03c9 FF       		.byte	-1
+ 1853 03ca FF       		.byte	-1
+ 1854 03cb FF       		.byte	-1
+ 1855 03cc FF       		.byte	-1
+ 1856 03cd FF       		.byte	-1
+ 1857 03ce FF       		.byte	-1
+ 1858 03cf FF       		.byte	-1
+ 1859 03d0 FF       		.byte	-1
+ 1860 03d1 FF       		.byte	-1
+ 1861 03d2 FF       		.byte	-1
+ 1862 03d3 FF       		.byte	-1
+ 1863 03d4 FF       		.byte	-1
+ 1864 03d5 FF       		.byte	-1
+ 1865 03d6 FF       		.byte	-1
+ 1866 03d7 FF       		.byte	-1
+ 1867 03d8 FF       		.byte	-1
+ 1868 03d9 FF       		.byte	-1
+ 1869 03da FF       		.byte	-1
+ 1870 03db FF       		.byte	-1
+ 1871 03dc FF       		.byte	-1
+ 1872 03dd FF       		.byte	-1
+ 1873 03de FF       		.byte	-1
+ 1874 03df FF       		.byte	-1
+ 1875 03e0 FF       		.byte	-1
+ 1876 03e1 FF       		.byte	-1
+ 1877 03e2 FF       		.byte	-1
+ 1878 03e3 FF       		.byte	-1
+ 1879 03e4 FF       		.byte	-1
+ 1880 03e5 FF       		.byte	-1
+ 1881 03e6 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 34
+
+
+ 1882 03e7 FF       		.byte	-1
+ 1883 03e8 FF       		.byte	-1
+ 1884 03e9 FF       		.byte	-1
+ 1885 03ea FF       		.byte	-1
+ 1886 03eb FF       		.byte	-1
+ 1887 03ec FF       		.byte	-1
+ 1888 03ed FF       		.byte	-1
+ 1889 03ee FF       		.byte	-1
+ 1890 03ef FF       		.byte	-1
+ 1891 03f0 FF       		.byte	-1
+ 1892 03f1 FF       		.byte	-1
+ 1893 03f2 FF       		.byte	-1
+ 1894 03f3 FF       		.byte	-1
+ 1895 03f4 FF       		.byte	-1
+ 1896 03f5 FF       		.byte	-1
+ 1897 03f6 FF       		.byte	-1
+ 1898 03f7 FF       		.byte	-1
+ 1899 03f8 FF       		.byte	-1
+ 1900 03f9 FF       		.byte	-1
+ 1901 03fa FF       		.byte	-1
+ 1902 03fb FF       		.byte	-1
+ 1903 03fc FF       		.byte	-1
+ 1904 03fd FF       		.byte	-1
+ 1905 03fe FF       		.byte	-1
+ 1906 03ff FF       		.byte	-1
+ 1907 0400 FF       		.byte	-1
+ 1908 0401 FF       		.byte	-1
+ 1909 0402 FF       		.byte	-1
+ 1910 0403 FF       		.byte	-1
+ 1911 0404 FF       		.byte	-1
+ 1912 0405 FF       		.byte	-1
+ 1913 0406 FF       		.byte	-1
+ 1914 0407 FF       		.byte	-1
+ 1915 0408 FF       		.byte	-1
+ 1916 0409 FF       		.byte	-1
+ 1917 040a FF       		.byte	-1
+ 1918 040b FF       		.byte	-1
+ 1919 040c FF       		.byte	-1
+ 1920 040d FF       		.byte	-1
+ 1921 040e FF       		.byte	-1
+ 1922 040f FF       		.byte	-1
+ 1923 0410 FF       		.byte	-1
+ 1924 0411 FF       		.byte	-1
+ 1925 0412 FF       		.byte	-1
+ 1926 0413 FF       		.byte	-1
+ 1927 0414 FF       		.byte	-1
+ 1928 0415 FF       		.byte	-1
+ 1929 0416 FF       		.byte	-1
+ 1930 0417 FF       		.byte	-1
+ 1931 0418 FF       		.byte	-1
+ 1932 0419 FF       		.byte	-1
+ 1933 041a FF       		.byte	-1
+ 1934 041b FF       		.byte	-1
+ 1935 041c FF       		.byte	-1
+ 1936 041d FF       		.byte	-1
+ 1937 041e FF       		.byte	-1
+ 1938 041f FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 35
+
+
+ 1939 0420 FF       		.byte	-1
+ 1940 0421 FF       		.byte	-1
+ 1941 0422 FF       		.byte	-1
+ 1942 0423 FF       		.byte	-1
+ 1943 0424 FF       		.byte	-1
+ 1944 0425 FF       		.byte	-1
+ 1945 0426 FF       		.byte	-1
+ 1946 0427 FF       		.byte	-1
+ 1947 0428 FF       		.byte	-1
+ 1948 0429 FF       		.byte	-1
+ 1949 042a FF       		.byte	-1
+ 1950 042b FF       		.byte	-1
+ 1951 042c FF       		.byte	-1
+ 1952 042d FF       		.byte	-1
+ 1953 042e FF       		.byte	-1
+ 1954 042f FF       		.byte	-1
+ 1955 0430 FF       		.byte	-1
+ 1956 0431 FF       		.byte	-1
+ 1957 0432 FF       		.byte	-1
+ 1958 0433 FF       		.byte	-1
+ 1959 0434 FF       		.byte	-1
+ 1960 0435 FF       		.byte	-1
+ 1961 0436 FF       		.byte	-1
+ 1962 0437 FF       		.byte	-1
+ 1963 0438 FF       		.byte	-1
+ 1964 0439 FF       		.byte	-1
+ 1965 043a FF       		.byte	-1
+ 1966 043b FF       		.byte	-1
+ 1967 043c FF       		.byte	-1
+ 1968 043d FF       		.byte	-1
+ 1969 043e FF       		.byte	-1
+ 1970 043f FF       		.byte	-1
+ 1971 0440 FF       		.byte	-1
+ 1972 0441 FF       		.byte	-1
+ 1973 0442 FF       		.byte	-1
+ 1974 0443 FF       		.byte	-1
+ 1975 0444 FF       		.byte	-1
+ 1976 0445 FF       		.byte	-1
+ 1977 0446 FF       		.byte	-1
+ 1978 0447 FF       		.byte	-1
+ 1979 0448 FF       		.byte	-1
+ 1980 0449 FF       		.byte	-1
+ 1981 044a FF       		.byte	-1
+ 1982 044b FF       		.byte	-1
+ 1983 044c FF       		.byte	-1
+ 1984 044d FF       		.byte	-1
+ 1985 044e FF       		.byte	-1
+ 1986 044f FF       		.byte	-1
+ 1987 0450 FF       		.byte	-1
+ 1988 0451 FF       		.byte	-1
+ 1989 0452 FF       		.byte	-1
+ 1990 0453 FF       		.byte	-1
+ 1991 0454 FF       		.byte	-1
+ 1992 0455 FF       		.byte	-1
+ 1993 0456 FF       		.byte	-1
+ 1994 0457 FF       		.byte	-1
+ 1995 0458 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 36
+
+
+ 1996 0459 FF       		.byte	-1
+ 1997 045a FF       		.byte	-1
+ 1998 045b FF       		.byte	-1
+ 1999 045c FF       		.byte	-1
+ 2000 045d FF       		.byte	-1
+ 2001 045e FF       		.byte	-1
+ 2002 045f FF       		.byte	-1
+ 2003 0460 FF       		.byte	-1
+ 2004 0461 FF       		.byte	-1
+ 2005 0462 FF       		.byte	-1
+ 2006 0463 FF       		.byte	-1
+ 2007 0464 FF       		.byte	-1
+ 2008 0465 FF       		.byte	-1
+ 2009 0466 FF       		.byte	-1
+ 2010 0467 FF       		.byte	-1
+ 2011 0468 FF       		.byte	-1
+ 2012 0469 FF       		.byte	-1
+ 2013 046a FF       		.byte	-1
+ 2014 046b FF       		.byte	-1
+ 2015 046c FF       		.byte	-1
+ 2016 046d FF       		.byte	-1
+ 2017 046e FF       		.byte	-1
+ 2018 046f FF       		.byte	-1
+ 2019 0470 FF       		.byte	-1
+ 2020 0471 FF       		.byte	-1
+ 2021 0472 FF       		.byte	-1
+ 2022 0473 FF       		.byte	-1
+ 2023 0474 FF       		.byte	-1
+ 2024 0475 FF       		.byte	-1
+ 2025 0476 FF       		.byte	-1
+ 2026 0477 FF       		.byte	-1
+ 2027 0478 FF       		.byte	-1
+ 2028 0479 FF       		.byte	-1
+ 2029 047a FF       		.byte	-1
+ 2030 047b FF       		.byte	-1
+ 2031 047c FF       		.byte	-1
+ 2032 047d FF       		.byte	-1
+ 2033 047e FF       		.byte	-1
+ 2034 047f FF       		.byte	-1
+ 2035 0480 FF       		.byte	-1
+ 2036 0481 FF       		.byte	-1
+ 2037 0482 FF       		.byte	-1
+ 2038 0483 FF       		.byte	-1
+ 2039 0484 FF       		.byte	-1
+ 2040 0485 FF       		.byte	-1
+ 2041 0486 FF       		.byte	-1
+ 2042 0487 FF       		.byte	-1
+ 2043 0488 FF       		.byte	-1
+ 2044 0489 FF       		.byte	-1
+ 2045 048a FF       		.byte	-1
+ 2046 048b FF       		.byte	-1
+ 2047 048c FF       		.byte	-1
+ 2048 048d FF       		.byte	-1
+ 2049 048e FF       		.byte	-1
+ 2050 048f FF       		.byte	-1
+ 2051 0490 FF       		.byte	-1
+ 2052 0491 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 37
+
+
+ 2053 0492 FF       		.byte	-1
+ 2054 0493 FF       		.byte	-1
+ 2055 0494 FF       		.byte	-1
+ 2056 0495 FF       		.byte	-1
+ 2057 0496 FF       		.byte	-1
+ 2058 0497 FF       		.byte	-1
+ 2059 0498 FF       		.byte	-1
+ 2060 0499 FF       		.byte	-1
+ 2061 049a FF       		.byte	-1
+ 2062 049b FF       		.byte	-1
+ 2063 049c FF       		.byte	-1
+ 2064 049d FF       		.byte	-1
+ 2065 049e FF       		.byte	-1
+ 2066 049f FF       		.byte	-1
+ 2067 04a0 FF       		.byte	-1
+ 2068 04a1 FF       		.byte	-1
+ 2069 04a2 FF       		.byte	-1
+ 2070 04a3 FF       		.byte	-1
+ 2071 04a4 FF       		.byte	-1
+ 2072 04a5 FF       		.byte	-1
+ 2073 04a6 FF       		.byte	-1
+ 2074 04a7 FF       		.byte	-1
+ 2075 04a8 FF       		.byte	-1
+ 2076 04a9 FF       		.byte	-1
+ 2077 04aa FF       		.byte	-1
+ 2078 04ab FF       		.byte	-1
+ 2079 04ac FF       		.byte	-1
+ 2080 04ad FF       		.byte	-1
+ 2081 04ae FF       		.byte	-1
+ 2082 04af FF       		.byte	-1
+ 2083 04b0 FF       		.byte	-1
+ 2084 04b1 FF       		.byte	-1
+ 2085 04b2 FF       		.byte	-1
+ 2086 04b3 FF       		.byte	-1
+ 2087 04b4 FF       		.byte	-1
+ 2088 04b5 FF       		.byte	-1
+ 2089 04b6 FF       		.byte	-1
+ 2090 04b7 FF       		.byte	-1
+ 2091 04b8 FF       		.byte	-1
+ 2092 04b9 FF       		.byte	-1
+ 2093 04ba FF       		.byte	-1
+ 2094 04bb FF       		.byte	-1
+ 2095 04bc FF       		.byte	-1
+ 2096 04bd FF       		.byte	-1
+ 2097 04be FF       		.byte	-1
+ 2098 04bf FF       		.byte	-1
+ 2099 04c0 FF       		.byte	-1
+ 2100 04c1 FF       		.byte	-1
+ 2101 04c2 FF       		.byte	-1
+ 2102 04c3 FF       		.byte	-1
+ 2103 04c4 FF       		.byte	-1
+ 2104 04c5 FF       		.byte	-1
+ 2105 04c6 FF       		.byte	-1
+ 2106 04c7 FF       		.byte	-1
+ 2107 04c8 FF       		.byte	-1
+ 2108 04c9 FF       		.byte	-1
+ 2109 04ca FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 38
+
+
+ 2110 04cb FF       		.byte	-1
+ 2111 04cc FF       		.byte	-1
+ 2112 04cd FF       		.byte	-1
+ 2113 04ce FF       		.byte	-1
+ 2114 04cf FF       		.byte	-1
+ 2115 04d0 FF       		.byte	-1
+ 2116 04d1 FF       		.byte	-1
+ 2117 04d2 FF       		.byte	-1
+ 2118 04d3 FF       		.byte	-1
+ 2119 04d4 FF       		.byte	-1
+ 2120 04d5 FF       		.byte	-1
+ 2121 04d6 FF       		.byte	-1
+ 2122 04d7 FF       		.byte	-1
+ 2123 04d8 FF       		.byte	-1
+ 2124 04d9 FF       		.byte	-1
+ 2125 04da FF       		.byte	-1
+ 2126 04db FF       		.byte	-1
+ 2127 04dc FF       		.byte	-1
+ 2128 04dd FF       		.byte	-1
+ 2129 04de FF       		.byte	-1
+ 2130 04df FF       		.byte	-1
+ 2131 04e0 FF       		.byte	-1
+ 2132 04e1 FF       		.byte	-1
+ 2133 04e2 FF       		.byte	-1
+ 2134 04e3 FF       		.byte	-1
+ 2135 04e4 FF       		.byte	-1
+ 2136 04e5 FF       		.byte	-1
+ 2137 04e6 FF       		.byte	-1
+ 2138 04e7 FF       		.byte	-1
+ 2139 04e8 FF       		.byte	-1
+ 2140 04e9 FF       		.byte	-1
+ 2141 04ea FF       		.byte	-1
+ 2142 04eb FF       		.byte	-1
+ 2143 04ec FF       		.byte	-1
+ 2144 04ed FF       		.byte	-1
+ 2145 04ee FF       		.byte	-1
+ 2146 04ef FF       		.byte	-1
+ 2147 04f0 FF       		.byte	-1
+ 2148 04f1 FF       		.byte	-1
+ 2149 04f2 FF       		.byte	-1
+ 2150 04f3 FF       		.byte	-1
+ 2151 04f4 FF       		.byte	-1
+ 2152 04f5 FF       		.byte	-1
+ 2153 04f6 FF       		.byte	-1
+ 2154 04f7 FF       		.byte	-1
+ 2155 04f8 FF       		.byte	-1
+ 2156 04f9 FF       		.byte	-1
+ 2157 04fa FF       		.byte	-1
+ 2158 04fb FF       		.byte	-1
+ 2159 04fc FF       		.byte	-1
+ 2160 04fd FF       		.byte	-1
+ 2161 04fe FF       		.byte	-1
+ 2162 04ff FF       		.byte	-1
+ 2163 0500 FF       		.byte	-1
+ 2164 0501 FF       		.byte	-1
+ 2165 0502 FF       		.byte	-1
+ 2166 0503 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 39
+
+
+ 2167 0504 FF       		.byte	-1
+ 2168 0505 FF       		.byte	-1
+ 2169 0506 FF       		.byte	-1
+ 2170 0507 FF       		.byte	-1
+ 2171 0508 FF       		.byte	-1
+ 2172 0509 FF       		.byte	-1
+ 2173 050a FF       		.byte	-1
+ 2174 050b FF       		.byte	-1
+ 2175 050c FF       		.byte	-1
+ 2176 050d FF       		.byte	-1
+ 2177 050e FF       		.byte	-1
+ 2178 050f FF       		.byte	-1
+ 2179 0510 FF       		.byte	-1
+ 2180 0511 FF       		.byte	-1
+ 2181 0512 FF       		.byte	-1
+ 2182 0513 FF       		.byte	-1
+ 2183 0514 FF       		.byte	-1
+ 2184 0515 FF       		.byte	-1
+ 2185 0516 FF       		.byte	-1
+ 2186 0517 FF       		.byte	-1
+ 2187 0518 FF       		.byte	-1
+ 2188 0519 FF       		.byte	-1
+ 2189 051a FF       		.byte	-1
+ 2190 051b FF       		.byte	-1
+ 2191 051c FF       		.byte	-1
+ 2192 051d FF       		.byte	-1
+ 2193 051e FF       		.byte	-1
+ 2194 051f FF       		.byte	-1
+ 2195 0520 FF       		.byte	-1
+ 2196 0521 FF       		.byte	-1
+ 2197 0522 FF       		.byte	-1
+ 2198 0523 FF       		.byte	-1
+ 2199 0524 FF       		.byte	-1
+ 2200 0525 FF       		.byte	-1
+ 2201 0526 FF       		.byte	-1
+ 2202 0527 FF       		.byte	-1
+ 2203 0528 FF       		.byte	-1
+ 2204 0529 FF       		.byte	-1
+ 2205 052a FF       		.byte	-1
+ 2206 052b FF       		.byte	-1
+ 2207 052c FF       		.byte	-1
+ 2208 052d FF       		.byte	-1
+ 2209 052e FF       		.byte	-1
+ 2210 052f FF       		.byte	-1
+ 2211 0530 FF       		.byte	-1
+ 2212 0531 FF       		.byte	-1
+ 2213 0532 FF       		.byte	-1
+ 2214 0533 FF       		.byte	-1
+ 2215 0534 FF       		.byte	-1
+ 2216 0535 FF       		.byte	-1
+ 2217 0536 FF       		.byte	-1
+ 2218 0537 FF       		.byte	-1
+ 2219 0538 FF       		.byte	-1
+ 2220 0539 FF       		.byte	-1
+ 2221 053a FF       		.byte	-1
+ 2222 053b FF       		.byte	-1
+ 2223 053c FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 40
+
+
+ 2224 053d FF       		.byte	-1
+ 2225 053e FF       		.byte	-1
+ 2226 053f FF       		.byte	-1
+ 2227 0540 FF       		.byte	-1
+ 2228 0541 FF       		.byte	-1
+ 2229 0542 FF       		.byte	-1
+ 2230 0543 FF       		.byte	-1
+ 2231 0544 FF       		.byte	-1
+ 2232 0545 FF       		.byte	-1
+ 2233 0546 FF       		.byte	-1
+ 2234 0547 FF       		.byte	-1
+ 2235 0548 FF       		.byte	-1
+ 2236 0549 FF       		.byte	-1
+ 2237 054a FF       		.byte	-1
+ 2238 054b FF       		.byte	-1
+ 2239 054c FF       		.byte	-1
+ 2240 054d FF       		.byte	-1
+ 2241 054e FF       		.byte	-1
+ 2242 054f FF       		.byte	-1
+ 2243 0550 FF       		.byte	-1
+ 2244 0551 FF       		.byte	-1
+ 2245 0552 FF       		.byte	-1
+ 2246 0553 FF       		.byte	-1
+ 2247 0554 FF       		.byte	-1
+ 2248 0555 FF       		.byte	-1
+ 2249 0556 FF       		.byte	-1
+ 2250 0557 FF       		.byte	-1
+ 2251 0558 FF       		.byte	-1
+ 2252 0559 FF       		.byte	-1
+ 2253 055a FF       		.byte	-1
+ 2254 055b FF       		.byte	-1
+ 2255 055c FF       		.byte	-1
+ 2256 055d FF       		.byte	-1
+ 2257 055e FF       		.byte	-1
+ 2258 055f FF       		.byte	-1
+ 2259 0560 FF       		.byte	-1
+ 2260 0561 FF       		.byte	-1
+ 2261 0562 FF       		.byte	-1
+ 2262 0563 FF       		.byte	-1
+ 2263 0564 FF       		.byte	-1
+ 2264 0565 FF       		.byte	-1
+ 2265 0566 FF       		.byte	-1
+ 2266 0567 FF       		.byte	-1
+ 2267 0568 FF       		.byte	-1
+ 2268 0569 FF       		.byte	-1
+ 2269 056a FF       		.byte	-1
+ 2270 056b FF       		.byte	-1
+ 2271 056c FF       		.byte	-1
+ 2272 056d FF       		.byte	-1
+ 2273 056e FF       		.byte	-1
+ 2274 056f FF       		.byte	-1
+ 2275 0570 FF       		.byte	-1
+ 2276 0571 FF       		.byte	-1
+ 2277 0572 FF       		.byte	-1
+ 2278 0573 FF       		.byte	-1
+ 2279 0574 FF       		.byte	-1
+ 2280 0575 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 41
+
+
+ 2281 0576 FF       		.byte	-1
+ 2282 0577 FF       		.byte	-1
+ 2283 0578 FF       		.byte	-1
+ 2284 0579 FF       		.byte	-1
+ 2285 057a FF       		.byte	-1
+ 2286 057b FF       		.byte	-1
+ 2287 057c FF       		.byte	-1
+ 2288 057d FF       		.byte	-1
+ 2289 057e FF       		.byte	-1
+ 2290 057f FF       		.byte	-1
+ 2291 0580 FF       		.byte	-1
+ 2292 0581 FF       		.byte	-1
+ 2293 0582 FF       		.byte	-1
+ 2294 0583 FF       		.byte	-1
+ 2295 0584 FF       		.byte	-1
+ 2296 0585 FF       		.byte	-1
+ 2297 0586 FF       		.byte	-1
+ 2298 0587 FF       		.byte	-1
+ 2299 0588 FF       		.byte	-1
+ 2300 0589 FF       		.byte	-1
+ 2301 058a FF       		.byte	-1
+ 2302 058b FF       		.byte	-1
+ 2303 058c FF       		.byte	-1
+ 2304 058d FF       		.byte	-1
+ 2305 058e FF       		.byte	-1
+ 2306 058f FF       		.byte	-1
+ 2307 0590 FF       		.byte	-1
+ 2308 0591 FF       		.byte	-1
+ 2309 0592 FF       		.byte	-1
+ 2310 0593 FF       		.byte	-1
+ 2311 0594 FF       		.byte	-1
+ 2312 0595 FF       		.byte	-1
+ 2313 0596 FF       		.byte	-1
+ 2314 0597 FF       		.byte	-1
+ 2315 0598 FF       		.byte	-1
+ 2316 0599 FF       		.byte	-1
+ 2317 059a FF       		.byte	-1
+ 2318 059b FF       		.byte	-1
+ 2319 059c FF       		.byte	-1
+ 2320 059d FF       		.byte	-1
+ 2321 059e FF       		.byte	-1
+ 2322 059f FF       		.byte	-1
+ 2323 05a0 FF       		.byte	-1
+ 2324 05a1 FF       		.byte	-1
+ 2325 05a2 FF       		.byte	-1
+ 2326 05a3 FF       		.byte	-1
+ 2327 05a4 FF       		.byte	-1
+ 2328 05a5 FF       		.byte	-1
+ 2329 05a6 FF       		.byte	-1
+ 2330 05a7 FF       		.byte	-1
+ 2331 05a8 FF       		.byte	-1
+ 2332 05a9 FF       		.byte	-1
+ 2333 05aa FF       		.byte	-1
+ 2334 05ab FF       		.byte	-1
+ 2335 05ac FF       		.byte	-1
+ 2336 05ad FF       		.byte	-1
+ 2337 05ae FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 42
+
+
+ 2338 05af FF       		.byte	-1
+ 2339 05b0 FF       		.byte	-1
+ 2340 05b1 FF       		.byte	-1
+ 2341 05b2 FF       		.byte	-1
+ 2342 05b3 FF       		.byte	-1
+ 2343 05b4 FF       		.byte	-1
+ 2344 05b5 FF       		.byte	-1
+ 2345 05b6 FF       		.byte	-1
+ 2346 05b7 FF       		.byte	-1
+ 2347 05b8 FF       		.byte	-1
+ 2348 05b9 FF       		.byte	-1
+ 2349 05ba FF       		.byte	-1
+ 2350 05bb FF       		.byte	-1
+ 2351 05bc FF       		.byte	-1
+ 2352 05bd FF       		.byte	-1
+ 2353 05be FF       		.byte	-1
+ 2354 05bf FF       		.byte	-1
+ 2355 05c0 FF       		.byte	-1
+ 2356 05c1 FF       		.byte	-1
+ 2357 05c2 FF       		.byte	-1
+ 2358 05c3 FF       		.byte	-1
+ 2359 05c4 FF       		.byte	-1
+ 2360 05c5 FF       		.byte	-1
+ 2361 05c6 FF       		.byte	-1
+ 2362 05c7 FF       		.byte	-1
+ 2363 05c8 FF       		.byte	-1
+ 2364 05c9 FF       		.byte	-1
+ 2365 05ca FF       		.byte	-1
+ 2366 05cb FF       		.byte	-1
+ 2367 05cc FF       		.byte	-1
+ 2368 05cd FF       		.byte	-1
+ 2369 05ce FF       		.byte	-1
+ 2370 05cf FF       		.byte	-1
+ 2371 05d0 FF       		.byte	-1
+ 2372 05d1 FF       		.byte	-1
+ 2373 05d2 FF       		.byte	-1
+ 2374 05d3 FF       		.byte	-1
+ 2375 05d4 FF       		.byte	-1
+ 2376 05d5 FF       		.byte	-1
+ 2377 05d6 FF       		.byte	-1
+ 2378 05d7 FF       		.byte	-1
+ 2379 05d8 FF       		.byte	-1
+ 2380 05d9 FF       		.byte	-1
+ 2381 05da FF       		.byte	-1
+ 2382 05db FF       		.byte	-1
+ 2383 05dc FF       		.byte	-1
+ 2384 05dd FF       		.byte	-1
+ 2385 05de FF       		.byte	-1
+ 2386 05df FF       		.byte	-1
+ 2387 05e0 FF       		.byte	-1
+ 2388 05e1 FF       		.byte	-1
+ 2389 05e2 FF       		.byte	-1
+ 2390 05e3 FF       		.byte	-1
+ 2391 05e4 FF       		.byte	-1
+ 2392 05e5 FF       		.byte	-1
+ 2393 05e6 FF       		.byte	-1
+ 2394 05e7 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 43
+
+
+ 2395 05e8 FF       		.byte	-1
+ 2396 05e9 FF       		.byte	-1
+ 2397 05ea FF       		.byte	-1
+ 2398 05eb FF       		.byte	-1
+ 2399 05ec FF       		.byte	-1
+ 2400 05ed FF       		.byte	-1
+ 2401 05ee FF       		.byte	-1
+ 2402 05ef FF       		.byte	-1
+ 2403 05f0 FF       		.byte	-1
+ 2404 05f1 FF       		.byte	-1
+ 2405 05f2 FF       		.byte	-1
+ 2406 05f3 FF       		.byte	-1
+ 2407 05f4 FF       		.byte	-1
+ 2408 05f5 FF       		.byte	-1
+ 2409 05f6 FF       		.byte	-1
+ 2410 05f7 FF       		.byte	-1
+ 2411 05f8 FF       		.byte	-1
+ 2412 05f9 FF       		.byte	-1
+ 2413 05fa FF       		.byte	-1
+ 2414 05fb FF       		.byte	-1
+ 2415 05fc FF       		.byte	-1
+ 2416 05fd FF       		.byte	-1
+ 2417 05fe FF       		.byte	-1
+ 2418 05ff FF       		.byte	-1
+ 2419 0600 FF       		.byte	-1
+ 2420 0601 FF       		.byte	-1
+ 2421 0602 FF       		.byte	-1
+ 2422 0603 FF       		.byte	-1
+ 2423 0604 FF       		.byte	-1
+ 2424 0605 FF       		.byte	-1
+ 2425 0606 FF       		.byte	-1
+ 2426 0607 FF       		.byte	-1
+ 2427 0608 FF       		.byte	-1
+ 2428 0609 FF       		.byte	-1
+ 2429 060a FF       		.byte	-1
+ 2430 060b FF       		.byte	-1
+ 2431 060c FF       		.byte	-1
+ 2432 060d FF       		.byte	-1
+ 2433 060e FF       		.byte	-1
+ 2434 060f FF       		.byte	-1
+ 2435 0610 FF       		.byte	-1
+ 2436 0611 FF       		.byte	-1
+ 2437 0612 FF       		.byte	-1
+ 2438 0613 FF       		.byte	-1
+ 2439 0614 FF       		.byte	-1
+ 2440 0615 FF       		.byte	-1
+ 2441 0616 FF       		.byte	-1
+ 2442 0617 FF       		.byte	-1
+ 2443 0618 FF       		.byte	-1
+ 2444 0619 FF       		.byte	-1
+ 2445 061a FF       		.byte	-1
+ 2446 061b FF       		.byte	-1
+ 2447 061c FF       		.byte	-1
+ 2448 061d FF       		.byte	-1
+ 2449 061e FF       		.byte	-1
+ 2450 061f FF       		.byte	-1
+ 2451 0620 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 44
+
+
+ 2452 0621 FF       		.byte	-1
+ 2453 0622 FF       		.byte	-1
+ 2454 0623 FF       		.byte	-1
+ 2455 0624 FF       		.byte	-1
+ 2456 0625 FF       		.byte	-1
+ 2457 0626 FF       		.byte	-1
+ 2458 0627 FF       		.byte	-1
+ 2459 0628 FF       		.byte	-1
+ 2460 0629 FF       		.byte	-1
+ 2461 062a FF       		.byte	-1
+ 2462 062b FF       		.byte	-1
+ 2463 062c FF       		.byte	-1
+ 2464 062d FF       		.byte	-1
+ 2465 062e FF       		.byte	-1
+ 2466 062f FF       		.byte	-1
+ 2467 0630 FF       		.byte	-1
+ 2468 0631 FF       		.byte	-1
+ 2469 0632 FF       		.byte	-1
+ 2470 0633 FF       		.byte	-1
+ 2471 0634 FF       		.byte	-1
+ 2472 0635 FF       		.byte	-1
+ 2473 0636 FF       		.byte	-1
+ 2474 0637 FF       		.byte	-1
+ 2475 0638 FF       		.byte	-1
+ 2476 0639 FF       		.byte	-1
+ 2477 063a FF       		.byte	-1
+ 2478 063b FF       		.byte	-1
+ 2479 063c FF       		.byte	-1
+ 2480 063d FF       		.byte	-1
+ 2481 063e FF       		.byte	-1
+ 2482 063f FF       		.byte	-1
+ 2483 0640 FF       		.byte	-1
+ 2484 0641 FF       		.byte	-1
+ 2485 0642 FF       		.byte	-1
+ 2486 0643 FF       		.byte	-1
+ 2487 0644 FF       		.byte	-1
+ 2488 0645 FF       		.byte	-1
+ 2489 0646 FF       		.byte	-1
+ 2490 0647 FF       		.byte	-1
+ 2491 0648 FF       		.byte	-1
+ 2492 0649 FF       		.byte	-1
+ 2493 064a FF       		.byte	-1
+ 2494 064b FF       		.byte	-1
+ 2495 064c FF       		.byte	-1
+ 2496 064d FF       		.byte	-1
+ 2497 064e FF       		.byte	-1
+ 2498 064f FF       		.byte	-1
+ 2499 0650 FF       		.byte	-1
+ 2500 0651 FF       		.byte	-1
+ 2501 0652 FF       		.byte	-1
+ 2502 0653 FF       		.byte	-1
+ 2503 0654 FF       		.byte	-1
+ 2504 0655 FF       		.byte	-1
+ 2505 0656 FF       		.byte	-1
+ 2506 0657 FF       		.byte	-1
+ 2507 0658 FF       		.byte	-1
+ 2508 0659 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 45
+
+
+ 2509 065a FF       		.byte	-1
+ 2510 065b FF       		.byte	-1
+ 2511 065c FF       		.byte	-1
+ 2512 065d FF       		.byte	-1
+ 2513 065e FF       		.byte	-1
+ 2514 065f FF       		.byte	-1
+ 2515 0660 FF       		.byte	-1
+ 2516 0661 FF       		.byte	-1
+ 2517 0662 FF       		.byte	-1
+ 2518 0663 FF       		.byte	-1
+ 2519 0664 FF       		.byte	-1
+ 2520 0665 FF       		.byte	-1
+ 2521 0666 FF       		.byte	-1
+ 2522 0667 FF       		.byte	-1
+ 2523 0668 FF       		.byte	-1
+ 2524 0669 FF       		.byte	-1
+ 2525 066a FF       		.byte	-1
+ 2526 066b FF       		.byte	-1
+ 2527 066c FF       		.byte	-1
+ 2528 066d FF       		.byte	-1
+ 2529 066e FF       		.byte	-1
+ 2530 066f FF       		.byte	-1
+ 2531 0670 FF       		.byte	-1
+ 2532 0671 FF       		.byte	-1
+ 2533 0672 FF       		.byte	-1
+ 2534 0673 FF       		.byte	-1
+ 2535 0674 FF       		.byte	-1
+ 2536 0675 FF       		.byte	-1
+ 2537 0676 FF       		.byte	-1
+ 2538 0677 FF       		.byte	-1
+ 2539 0678 FF       		.byte	-1
+ 2540 0679 FF       		.byte	-1
+ 2541 067a FF       		.byte	-1
+ 2542 067b FF       		.byte	-1
+ 2543 067c FF       		.byte	-1
+ 2544 067d FF       		.byte	-1
+ 2545 067e FF       		.byte	-1
+ 2546 067f FF       		.byte	-1
+ 2547 0680 FF       		.byte	-1
+ 2548 0681 FF       		.byte	-1
+ 2549 0682 FF       		.byte	-1
+ 2550 0683 FF       		.byte	-1
+ 2551 0684 FF       		.byte	-1
+ 2552 0685 FF       		.byte	-1
+ 2553 0686 FF       		.byte	-1
+ 2554 0687 FF       		.byte	-1
+ 2555 0688 FF       		.byte	-1
+ 2556 0689 FF       		.byte	-1
+ 2557 068a FF       		.byte	-1
+ 2558 068b FF       		.byte	-1
+ 2559 068c FF       		.byte	-1
+ 2560 068d FF       		.byte	-1
+ 2561 068e FF       		.byte	-1
+ 2562 068f FF       		.byte	-1
+ 2563 0690 FF       		.byte	-1
+ 2564 0691 FF       		.byte	-1
+ 2565 0692 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 46
+
+
+ 2566 0693 FF       		.byte	-1
+ 2567 0694 FF       		.byte	-1
+ 2568 0695 FF       		.byte	-1
+ 2569 0696 FF       		.byte	-1
+ 2570 0697 FF       		.byte	-1
+ 2571 0698 FF       		.byte	-1
+ 2572 0699 FF       		.byte	-1
+ 2573 069a FF       		.byte	-1
+ 2574 069b FF       		.byte	-1
+ 2575 069c FF       		.byte	-1
+ 2576 069d FF       		.byte	-1
+ 2577 069e FF       		.byte	-1
+ 2578 069f FF       		.byte	-1
+ 2579 06a0 FF       		.byte	-1
+ 2580 06a1 FF       		.byte	-1
+ 2581 06a2 FF       		.byte	-1
+ 2582 06a3 FF       		.byte	-1
+ 2583 06a4 FF       		.byte	-1
+ 2584 06a5 FF       		.byte	-1
+ 2585 06a6 FF       		.byte	-1
+ 2586 06a7 FF       		.byte	-1
+ 2587 06a8 FF       		.byte	-1
+ 2588 06a9 FF       		.byte	-1
+ 2589 06aa FF       		.byte	-1
+ 2590 06ab FF       		.byte	-1
+ 2591 06ac FF       		.byte	-1
+ 2592 06ad FF       		.byte	-1
+ 2593 06ae FF       		.byte	-1
+ 2594 06af FF       		.byte	-1
+ 2595 06b0 FF       		.byte	-1
+ 2596 06b1 FF       		.byte	-1
+ 2597 06b2 FF       		.byte	-1
+ 2598 06b3 FF       		.byte	-1
+ 2599 06b4 FF       		.byte	-1
+ 2600 06b5 FF       		.byte	-1
+ 2601 06b6 FF       		.byte	-1
+ 2602 06b7 FF       		.byte	-1
+ 2603 06b8 FF       		.byte	-1
+ 2604 06b9 FF       		.byte	-1
+ 2605 06ba FF       		.byte	-1
+ 2606 06bb FF       		.byte	-1
+ 2607 06bc FF       		.byte	-1
+ 2608 06bd FF       		.byte	-1
+ 2609 06be FF       		.byte	-1
+ 2610 06bf FF       		.byte	-1
+ 2611 06c0 FF       		.byte	-1
+ 2612 06c1 FF       		.byte	-1
+ 2613 06c2 FF       		.byte	-1
+ 2614 06c3 FF       		.byte	-1
+ 2615 06c4 FF       		.byte	-1
+ 2616 06c5 FF       		.byte	-1
+ 2617 06c6 FF       		.byte	-1
+ 2618 06c7 FF       		.byte	-1
+ 2619 06c8 FF       		.byte	-1
+ 2620 06c9 FF       		.byte	-1
+ 2621 06ca FF       		.byte	-1
+ 2622 06cb FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 47
+
+
+ 2623 06cc FF       		.byte	-1
+ 2624 06cd FF       		.byte	-1
+ 2625 06ce FF       		.byte	-1
+ 2626 06cf FF       		.byte	-1
+ 2627 06d0 FF       		.byte	-1
+ 2628 06d1 FF       		.byte	-1
+ 2629 06d2 FF       		.byte	-1
+ 2630 06d3 FF       		.byte	-1
+ 2631 06d4 FF       		.byte	-1
+ 2632 06d5 FF       		.byte	-1
+ 2633 06d6 FF       		.byte	-1
+ 2634 06d7 FF       		.byte	-1
+ 2635 06d8 FF       		.byte	-1
+ 2636 06d9 FF       		.byte	-1
+ 2637 06da FF       		.byte	-1
+ 2638 06db FF       		.byte	-1
+ 2639 06dc FF       		.byte	-1
+ 2640 06dd FF       		.byte	-1
+ 2641 06de FF       		.byte	-1
+ 2642 06df FF       		.byte	-1
+ 2643 06e0 FF       		.byte	-1
+ 2644 06e1 FF       		.byte	-1
+ 2645 06e2 FF       		.byte	-1
+ 2646 06e3 FF       		.byte	-1
+ 2647 06e4 FF       		.byte	-1
+ 2648 06e5 FF       		.byte	-1
+ 2649 06e6 FF       		.byte	-1
+ 2650 06e7 FF       		.byte	-1
+ 2651 06e8 FF       		.byte	-1
+ 2652 06e9 FF       		.byte	-1
+ 2653 06ea FF       		.byte	-1
+ 2654 06eb FF       		.byte	-1
+ 2655 06ec FF       		.byte	-1
+ 2656 06ed FF       		.byte	-1
+ 2657 06ee FF       		.byte	-1
+ 2658 06ef FF       		.byte	-1
+ 2659 06f0 FF       		.byte	-1
+ 2660 06f1 FF       		.byte	-1
+ 2661 06f2 FF       		.byte	-1
+ 2662 06f3 FF       		.byte	-1
+ 2663 06f4 FF       		.byte	-1
+ 2664 06f5 FF       		.byte	-1
+ 2665 06f6 FF       		.byte	-1
+ 2666 06f7 FF       		.byte	-1
+ 2667 06f8 FF       		.byte	-1
+ 2668 06f9 FF       		.byte	-1
+ 2669 06fa FF       		.byte	-1
+ 2670 06fb FF       		.byte	-1
+ 2671 06fc FF       		.byte	-1
+ 2672 06fd FF       		.byte	-1
+ 2673 06fe FF       		.byte	-1
+ 2674 06ff FF       		.byte	-1
+ 2675 0700 FF       		.byte	-1
+ 2676 0701 FF       		.byte	-1
+ 2677 0702 FF       		.byte	-1
+ 2678 0703 FF       		.byte	-1
+ 2679 0704 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 48
+
+
+ 2680 0705 FF       		.byte	-1
+ 2681 0706 FF       		.byte	-1
+ 2682 0707 FF       		.byte	-1
+ 2683 0708 FF       		.byte	-1
+ 2684 0709 FF       		.byte	-1
+ 2685 070a FF       		.byte	-1
+ 2686 070b FF       		.byte	-1
+ 2687 070c FF       		.byte	-1
+ 2688 070d FF       		.byte	-1
+ 2689 070e FF       		.byte	-1
+ 2690 070f FF       		.byte	-1
+ 2691 0710 FF       		.byte	-1
+ 2692 0711 FF       		.byte	-1
+ 2693 0712 FF       		.byte	-1
+ 2694 0713 FF       		.byte	-1
+ 2695 0714 FF       		.byte	-1
+ 2696 0715 FF       		.byte	-1
+ 2697 0716 FF       		.byte	-1
+ 2698 0717 FF       		.byte	-1
+ 2699 0718 FF       		.byte	-1
+ 2700 0719 FF       		.byte	-1
+ 2701 071a FF       		.byte	-1
+ 2702 071b FF       		.byte	-1
+ 2703 071c FF       		.byte	-1
+ 2704 071d FF       		.byte	-1
+ 2705 071e FF       		.byte	-1
+ 2706 071f FF       		.byte	-1
+ 2707 0720 FF       		.byte	-1
+ 2708 0721 FF       		.byte	-1
+ 2709 0722 FF       		.byte	-1
+ 2710 0723 FF       		.byte	-1
+ 2711 0724 FF       		.byte	-1
+ 2712 0725 FF       		.byte	-1
+ 2713 0726 FF       		.byte	-1
+ 2714 0727 FF       		.byte	-1
+ 2715 0728 FF       		.byte	-1
+ 2716 0729 FF       		.byte	-1
+ 2717 072a FF       		.byte	-1
+ 2718 072b FF       		.byte	-1
+ 2719 072c FF       		.byte	-1
+ 2720 072d FF       		.byte	-1
+ 2721 072e FF       		.byte	-1
+ 2722 072f FF       		.byte	-1
+ 2723 0730 FF       		.byte	-1
+ 2724 0731 FF       		.byte	-1
+ 2725 0732 FF       		.byte	-1
+ 2726 0733 FF       		.byte	-1
+ 2727 0734 FF       		.byte	-1
+ 2728 0735 FF       		.byte	-1
+ 2729 0736 FF       		.byte	-1
+ 2730 0737 FF       		.byte	-1
+ 2731 0738 FF       		.byte	-1
+ 2732 0739 FF       		.byte	-1
+ 2733 073a FF       		.byte	-1
+ 2734 073b FF       		.byte	-1
+ 2735 073c FF       		.byte	-1
+ 2736 073d FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 49
+
+
+ 2737 073e FF       		.byte	-1
+ 2738 073f FF       		.byte	-1
+ 2739 0740 FF       		.byte	-1
+ 2740 0741 FF       		.byte	-1
+ 2741 0742 FF       		.byte	-1
+ 2742 0743 FF       		.byte	-1
+ 2743 0744 FF       		.byte	-1
+ 2744 0745 FF       		.byte	-1
+ 2745 0746 FF       		.byte	-1
+ 2746 0747 FF       		.byte	-1
+ 2747 0748 FF       		.byte	-1
+ 2748 0749 FF       		.byte	-1
+ 2749 074a FF       		.byte	-1
+ 2750 074b FF       		.byte	-1
+ 2751 074c FF       		.byte	-1
+ 2752 074d FF       		.byte	-1
+ 2753 074e FF       		.byte	-1
+ 2754 074f FF       		.byte	-1
+ 2755 0750 FF       		.byte	-1
+ 2756 0751 FF       		.byte	-1
+ 2757 0752 FF       		.byte	-1
+ 2758 0753 FF       		.byte	-1
+ 2759 0754 FF       		.byte	-1
+ 2760 0755 FF       		.byte	-1
+ 2761 0756 FF       		.byte	-1
+ 2762 0757 FF       		.byte	-1
+ 2763 0758 FF       		.byte	-1
+ 2764 0759 FF       		.byte	-1
+ 2765 075a FF       		.byte	-1
+ 2766 075b FF       		.byte	-1
+ 2767 075c FF       		.byte	-1
+ 2768 075d FF       		.byte	-1
+ 2769 075e FF       		.byte	-1
+ 2770 075f FF       		.byte	-1
+ 2771 0760 FF       		.byte	-1
+ 2772 0761 FF       		.byte	-1
+ 2773 0762 FF       		.byte	-1
+ 2774 0763 FF       		.byte	-1
+ 2775 0764 FF       		.byte	-1
+ 2776 0765 FF       		.byte	-1
+ 2777 0766 FF       		.byte	-1
+ 2778 0767 FF       		.byte	-1
+ 2779 0768 FF       		.byte	-1
+ 2780 0769 FF       		.byte	-1
+ 2781 076a FF       		.byte	-1
+ 2782 076b FF       		.byte	-1
+ 2783 076c FF       		.byte	-1
+ 2784 076d FF       		.byte	-1
+ 2785 076e FF       		.byte	-1
+ 2786 076f FF       		.byte	-1
+ 2787 0770 FF       		.byte	-1
+ 2788 0771 FF       		.byte	-1
+ 2789 0772 FF       		.byte	-1
+ 2790 0773 FF       		.byte	-1
+ 2791 0774 FF       		.byte	-1
+ 2792 0775 FF       		.byte	-1
+ 2793 0776 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 50
+
+
+ 2794 0777 FF       		.byte	-1
+ 2795 0778 FF       		.byte	-1
+ 2796 0779 FF       		.byte	-1
+ 2797 077a FF       		.byte	-1
+ 2798 077b FF       		.byte	-1
+ 2799 077c FF       		.byte	-1
+ 2800 077d FF       		.byte	-1
+ 2801 077e FF       		.byte	-1
+ 2802 077f FF       		.byte	-1
+ 2803 0780 FF       		.byte	-1
+ 2804 0781 FF       		.byte	-1
+ 2805 0782 FF       		.byte	-1
+ 2806 0783 FF       		.byte	-1
+ 2807 0784 FF       		.byte	-1
+ 2808 0785 FF       		.byte	-1
+ 2809 0786 FF       		.byte	-1
+ 2810 0787 FF       		.byte	-1
+ 2811 0788 FF       		.byte	-1
+ 2812 0789 FF       		.byte	-1
+ 2813 078a FF       		.byte	-1
+ 2814 078b FF       		.byte	-1
+ 2815 078c FF       		.byte	-1
+ 2816 078d FF       		.byte	-1
+ 2817 078e FF       		.byte	-1
+ 2818 078f FF       		.byte	-1
+ 2819 0790 FF       		.byte	-1
+ 2820 0791 FF       		.byte	-1
+ 2821 0792 FF       		.byte	-1
+ 2822 0793 FF       		.byte	-1
+ 2823 0794 FF       		.byte	-1
+ 2824 0795 FF       		.byte	-1
+ 2825 0796 FF       		.byte	-1
+ 2826 0797 FF       		.byte	-1
+ 2827 0798 FF       		.byte	-1
+ 2828 0799 FF       		.byte	-1
+ 2829 079a FF       		.byte	-1
+ 2830 079b FF       		.byte	-1
+ 2831 079c FF       		.byte	-1
+ 2832 079d FF       		.byte	-1
+ 2833 079e FF       		.byte	-1
+ 2834 079f FF       		.byte	-1
+ 2835 07a0 FF       		.byte	-1
+ 2836 07a1 FF       		.byte	-1
+ 2837 07a2 FF       		.byte	-1
+ 2838 07a3 FF       		.byte	-1
+ 2839 07a4 FF       		.byte	-1
+ 2840 07a5 FF       		.byte	-1
+ 2841 07a6 FF       		.byte	-1
+ 2842 07a7 FF       		.byte	-1
+ 2843 07a8 FF       		.byte	-1
+ 2844 07a9 FF       		.byte	-1
+ 2845 07aa FF       		.byte	-1
+ 2846 07ab FF       		.byte	-1
+ 2847 07ac FF       		.byte	-1
+ 2848 07ad FF       		.byte	-1
+ 2849 07ae FF       		.byte	-1
+ 2850 07af FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 51
+
+
+ 2851 07b0 FF       		.byte	-1
+ 2852 07b1 FF       		.byte	-1
+ 2853 07b2 FF       		.byte	-1
+ 2854 07b3 FF       		.byte	-1
+ 2855 07b4 FF       		.byte	-1
+ 2856 07b5 FF       		.byte	-1
+ 2857 07b6 FF       		.byte	-1
+ 2858 07b7 FF       		.byte	-1
+ 2859 07b8 FF       		.byte	-1
+ 2860 07b9 FF       		.byte	-1
+ 2861 07ba FF       		.byte	-1
+ 2862 07bb FF       		.byte	-1
+ 2863 07bc FF       		.byte	-1
+ 2864 07bd FF       		.byte	-1
+ 2865 07be FF       		.byte	-1
+ 2866 07bf FF       		.byte	-1
+ 2867 07c0 FF       		.byte	-1
+ 2868 07c1 FF       		.byte	-1
+ 2869 07c2 FF       		.byte	-1
+ 2870 07c3 FF       		.byte	-1
+ 2871 07c4 FF       		.byte	-1
+ 2872 07c5 FF       		.byte	-1
+ 2873 07c6 FF       		.byte	-1
+ 2874 07c7 FF       		.byte	-1
+ 2875 07c8 FF       		.byte	-1
+ 2876 07c9 FF       		.byte	-1
+ 2877 07ca FF       		.byte	-1
+ 2878 07cb FF       		.byte	-1
+ 2879 07cc FF       		.byte	-1
+ 2880 07cd FF       		.byte	-1
+ 2881 07ce FF       		.byte	-1
+ 2882 07cf FF       		.byte	-1
+ 2883 07d0 FF       		.byte	-1
+ 2884 07d1 FF       		.byte	-1
+ 2885 07d2 FF       		.byte	-1
+ 2886 07d3 FF       		.byte	-1
+ 2887 07d4 FF       		.byte	-1
+ 2888 07d5 FF       		.byte	-1
+ 2889 07d6 FF       		.byte	-1
+ 2890 07d7 FF       		.byte	-1
+ 2891 07d8 FF       		.byte	-1
+ 2892 07d9 FF       		.byte	-1
+ 2893 07da FF       		.byte	-1
+ 2894 07db FF       		.byte	-1
+ 2895 07dc FF       		.byte	-1
+ 2896 07dd FF       		.byte	-1
+ 2897 07de FF       		.byte	-1
+ 2898 07df FF       		.byte	-1
+ 2899 07e0 FF       		.byte	-1
+ 2900 07e1 FF       		.byte	-1
+ 2901 07e2 FF       		.byte	-1
+ 2902 07e3 FF       		.byte	-1
+ 2903 07e4 FF       		.byte	-1
+ 2904 07e5 FF       		.byte	-1
+ 2905 07e6 FF       		.byte	-1
+ 2906 07e7 FF       		.byte	-1
+ 2907 07e8 FF       		.byte	-1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 52
+
+
+ 2908 07e9 FF       		.byte	-1
+ 2909 07ea FF       		.byte	-1
+ 2910 07eb FF       		.byte	-1
+ 2911 07ec FF       		.byte	-1
+ 2912 07ed FF       		.byte	-1
+ 2913 07ee FF       		.byte	-1
+ 2914 07ef FF       		.byte	-1
+ 2915 07f0 FF       		.byte	-1
+ 2916 07f1 FF       		.byte	-1
+ 2917 07f2 FF       		.byte	-1
+ 2918 07f3 FF       		.byte	-1
+ 2919 07f4 FF       		.byte	-1
+ 2920 07f5 FF       		.byte	-1
+ 2921 07f6 FF       		.byte	-1
+ 2922 07f7 FF       		.byte	-1
+ 2923 07f8 FF       		.byte	-1
+ 2924 07f9 FF       		.byte	-1
+ 2925 07fa FF       		.byte	-1
+ 2926 07fb FF       		.byte	-1
+ 2927 07fc FF       		.byte	-1
+ 2928 07fd FF       		.byte	-1
+ 2929 07fe FF       		.byte	-1
+ 2930 07ff FF       		.byte	-1
+ 2931              		.section	.cycustnvl,"a",%progbits
+ 2932              		.align	2
+ 2933              		.type	cy_meta_custnvl, %object
+ 2934              		.size	cy_meta_custnvl, 4
+ 2935              	cy_meta_custnvl:
+ 2936 0000 00       		.byte	0
+ 2937 0001 00       		.byte	0
+ 2938 0002 40       		.byte	64
+ 2939 0003 05       		.byte	5
+ 2940              		.section	.cymeta,"a",%progbits
+ 2941              		.align	2
+ 2942              		.type	cy_metadata, %object
+ 2943              		.size	cy_metadata, 12
+ 2944              	cy_metadata:
+ 2945 0000 00       		.byte	0
+ 2946 0001 01       		.byte	1
+ 2947 0002 2E       		.byte	46
+ 2948 0003 16       		.byte	22
+ 2949 0004 10       		.byte	16
+ 2950 0005 69       		.byte	105
+ 2951 0006 00       		.byte	0
+ 2952 0007 01       		.byte	1
+ 2953 0008 00       		.byte	0
+ 2954 0009 00       		.byte	0
+ 2955 000a 00       		.byte	0
+ 2956 000b 00       		.byte	0
+ 2957              		.section	.cyflashprotect,"a",%progbits
+ 2958              		.align	2
+ 2959              		.type	cy_meta_flashprotect, %object
+ 2960              		.size	cy_meta_flashprotect, 256
+ 2961              	cy_meta_flashprotect:
+ 2962 0000 00000000 		.space	256
+ 2962      00000000 
+ 2962      00000000 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 53
+
+
+ 2962      00000000 
+ 2962      00000000 
+ 2963              		.text
+ 2964              	.Letext0:
+ 2965              		.file 1 ".\\Generated_Source\\PSoC5\\cymetadata.c"
+ 2966              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 2967              		.section	.debug_info,"",%progbits
+ 2968              	.Ldebug_info0:
+ 2969 0000 60010000 		.4byte	0x160
+ 2970 0004 0400     		.2byte	0x4
+ 2971 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 2972 000a 04       		.byte	0x4
+ 2973 000b 01       		.uleb128 0x1
+ 2974 000c 94000000 		.4byte	.LASF19
+ 2975 0010 01       		.byte	0x1
+ 2976 0011 00000000 		.4byte	.LASF20
+ 2977 0015 85010000 		.4byte	.LASF21
+ 2978 0019 00000000 		.4byte	.Ldebug_line0
+ 2979 001d 02       		.uleb128 0x2
+ 2980 001e 01       		.byte	0x1
+ 2981 001f 06       		.byte	0x6
+ 2982 0020 EB010000 		.4byte	.LASF0
+ 2983 0024 02       		.uleb128 0x2
+ 2984 0025 01       		.byte	0x1
+ 2985 0026 08       		.byte	0x8
+ 2986 0027 38000000 		.4byte	.LASF1
+ 2987 002b 02       		.uleb128 0x2
+ 2988 002c 02       		.byte	0x2
+ 2989 002d 05       		.byte	0x5
+ 2990 002e C8010000 		.4byte	.LASF2
+ 2991 0032 02       		.uleb128 0x2
+ 2992 0033 02       		.byte	0x2
+ 2993 0034 07       		.byte	0x7
+ 2994 0035 58000000 		.4byte	.LASF3
+ 2995 0039 02       		.uleb128 0x2
+ 2996 003a 04       		.byte	0x4
+ 2997 003b 05       		.byte	0x5
+ 2998 003c D8010000 		.4byte	.LASF4
+ 2999 0040 02       		.uleb128 0x2
+ 3000 0041 04       		.byte	0x4
+ 3001 0042 07       		.byte	0x7
+ 3002 0043 46000000 		.4byte	.LASF5
+ 3003 0047 02       		.uleb128 0x2
+ 3004 0048 08       		.byte	0x8
+ 3005 0049 05       		.byte	0x5
+ 3006 004a 72010000 		.4byte	.LASF6
+ 3007 004e 02       		.uleb128 0x2
+ 3008 004f 08       		.byte	0x8
+ 3009 0050 07       		.byte	0x7
+ 3010 0051 2F010000 		.4byte	.LASF7
+ 3011 0055 03       		.uleb128 0x3
+ 3012 0056 04       		.byte	0x4
+ 3013 0057 05       		.byte	0x5
+ 3014 0058 696E7400 		.ascii	"int\000"
+ 3015 005c 02       		.uleb128 0x2
+ 3016 005d 04       		.byte	0x4
+ 3017 005e 07       		.byte	0x7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 54
+
+
+ 3018 005f 22010000 		.4byte	.LASF8
+ 3019 0063 04       		.uleb128 0x4
+ 3020 0064 D2010000 		.4byte	.LASF22
+ 3021 0068 02       		.byte	0x2
+ 3022 0069 9201     		.2byte	0x192
+ 3023 006b 24000000 		.4byte	0x24
+ 3024 006f 02       		.uleb128 0x2
+ 3025 0070 04       		.byte	0x4
+ 3026 0071 04       		.byte	0x4
+ 3027 0072 32000000 		.4byte	.LASF9
+ 3028 0076 02       		.uleb128 0x2
+ 3029 0077 08       		.byte	0x8
+ 3030 0078 04       		.byte	0x4
+ 3031 0079 6B000000 		.4byte	.LASF10
+ 3032 007d 02       		.uleb128 0x2
+ 3033 007e 01       		.byte	0x1
+ 3034 007f 08       		.byte	0x8
+ 3035 0080 80010000 		.4byte	.LASF11
+ 3036 0084 05       		.uleb128 0x5
+ 3037 0085 63000000 		.4byte	0x63
+ 3038 0089 95000000 		.4byte	0x95
+ 3039 008d 06       		.uleb128 0x6
+ 3040 008e 95000000 		.4byte	0x95
+ 3041 0092 4703     		.2byte	0x347
+ 3042 0094 00       		.byte	0
+ 3043 0095 02       		.uleb128 0x2
+ 3044 0096 04       		.byte	0x4
+ 3045 0097 07       		.byte	0x7
+ 3046 0098 69010000 		.4byte	.LASF12
+ 3047 009c 07       		.uleb128 0x7
+ 3048 009d 82000000 		.4byte	.LASF13
+ 3049 00a1 01       		.byte	0x1
+ 3050 00a2 1F       		.byte	0x1f
+ 3051 00a3 AD000000 		.4byte	0xad
+ 3052 00a7 05       		.uleb128 0x5
+ 3053 00a8 03       		.byte	0x3
+ 3054 00a9 00000000 		.4byte	cy_meta_configecc
+ 3055 00ad 08       		.uleb128 0x8
+ 3056 00ae 84000000 		.4byte	0x84
+ 3057 00b2 05       		.uleb128 0x5
+ 3058 00b3 63000000 		.4byte	0x63
+ 3059 00b7 C2000000 		.4byte	0xc2
+ 3060 00bb 09       		.uleb128 0x9
+ 3061 00bc 95000000 		.4byte	0x95
+ 3062 00c0 03       		.byte	0x3
+ 3063 00c1 00       		.byte	0
+ 3064 00c2 07       		.uleb128 0x7
+ 3065 00c3 72000000 		.4byte	.LASF14
+ 3066 00c7 01       		.byte	0x1
+ 3067 00c8 95       		.byte	0x95
+ 3068 00c9 D3000000 		.4byte	0xd3
+ 3069 00cd 05       		.uleb128 0x5
+ 3070 00ce 03       		.byte	0x3
+ 3071 00cf 00000000 		.4byte	cy_meta_custnvl
+ 3072 00d3 08       		.uleb128 0x8
+ 3073 00d4 B2000000 		.4byte	0xb2
+ 3074 00d8 07       		.uleb128 0x7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 55
+
+
+ 3075 00d9 5B010000 		.4byte	.LASF15
+ 3076 00dd 01       		.byte	0x1
+ 3077 00de A3       		.byte	0xa3
+ 3078 00df E9000000 		.4byte	0xe9
+ 3079 00e3 05       		.uleb128 0x5
+ 3080 00e4 03       		.byte	0x3
+ 3081 00e5 00000000 		.4byte	cy_meta_wonvl
+ 3082 00e9 08       		.uleb128 0x8
+ 3083 00ea B2000000 		.4byte	0xb2
+ 3084 00ee 05       		.uleb128 0x5
+ 3085 00ef 63000000 		.4byte	0x63
+ 3086 00f3 FF000000 		.4byte	0xff
+ 3087 00f7 06       		.uleb128 0x6
+ 3088 00f8 95000000 		.4byte	0x95
+ 3089 00fc FF07     		.2byte	0x7ff
+ 3090 00fe 00       		.byte	0
+ 3091 00ff 07       		.uleb128 0x7
+ 3092 0100 E1010000 		.4byte	.LASF16
+ 3093 0104 01       		.byte	0x1
+ 3094 0105 B1       		.byte	0xb1
+ 3095 0106 10010000 		.4byte	0x110
+ 3096 010a 05       		.uleb128 0x5
+ 3097 010b 03       		.byte	0x3
+ 3098 010c 00000000 		.4byte	cy_eeprom
+ 3099 0110 08       		.uleb128 0x8
+ 3100 0111 EE000000 		.4byte	0xee
+ 3101 0115 05       		.uleb128 0x5
+ 3102 0116 63000000 		.4byte	0x63
+ 3103 011a 25010000 		.4byte	0x125
+ 3104 011e 09       		.uleb128 0x9
+ 3105 011f 95000000 		.4byte	0x95
+ 3106 0123 FF       		.byte	0xff
+ 3107 0124 00       		.byte	0
+ 3108 0125 0A       		.uleb128 0xa
+ 3109 0126 46010000 		.4byte	.LASF17
+ 3110 012a 01       		.byte	0x1
+ 3111 012b BE01     		.2byte	0x1be
+ 3112 012d 37010000 		.4byte	0x137
+ 3113 0131 05       		.uleb128 0x5
+ 3114 0132 03       		.byte	0x3
+ 3115 0133 00000000 		.4byte	cy_meta_flashprotect
+ 3116 0137 08       		.uleb128 0x8
+ 3117 0138 15010000 		.4byte	0x115
+ 3118 013c 05       		.uleb128 0x5
+ 3119 013d 63000000 		.4byte	0x63
+ 3120 0141 4C010000 		.4byte	0x14c
+ 3121 0145 09       		.uleb128 0x9
+ 3122 0146 95000000 		.4byte	0x95
+ 3123 014a 0B       		.byte	0xb
+ 3124 014b 00       		.byte	0
+ 3125 014c 0A       		.uleb128 0xa
+ 3126 014d 26000000 		.4byte	.LASF18
+ 3127 0151 01       		.byte	0x1
+ 3128 0152 EB01     		.2byte	0x1eb
+ 3129 0154 5E010000 		.4byte	0x15e
+ 3130 0158 05       		.uleb128 0x5
+ 3131 0159 03       		.byte	0x3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 56
+
+
+ 3132 015a 00000000 		.4byte	cy_metadata
+ 3133 015e 08       		.uleb128 0x8
+ 3134 015f 3C010000 		.4byte	0x13c
+ 3135 0163 00       		.byte	0
+ 3136              		.section	.debug_abbrev,"",%progbits
+ 3137              	.Ldebug_abbrev0:
+ 3138 0000 01       		.uleb128 0x1
+ 3139 0001 11       		.uleb128 0x11
+ 3140 0002 01       		.byte	0x1
+ 3141 0003 25       		.uleb128 0x25
+ 3142 0004 0E       		.uleb128 0xe
+ 3143 0005 13       		.uleb128 0x13
+ 3144 0006 0B       		.uleb128 0xb
+ 3145 0007 03       		.uleb128 0x3
+ 3146 0008 0E       		.uleb128 0xe
+ 3147 0009 1B       		.uleb128 0x1b
+ 3148 000a 0E       		.uleb128 0xe
+ 3149 000b 10       		.uleb128 0x10
+ 3150 000c 17       		.uleb128 0x17
+ 3151 000d 00       		.byte	0
+ 3152 000e 00       		.byte	0
+ 3153 000f 02       		.uleb128 0x2
+ 3154 0010 24       		.uleb128 0x24
+ 3155 0011 00       		.byte	0
+ 3156 0012 0B       		.uleb128 0xb
+ 3157 0013 0B       		.uleb128 0xb
+ 3158 0014 3E       		.uleb128 0x3e
+ 3159 0015 0B       		.uleb128 0xb
+ 3160 0016 03       		.uleb128 0x3
+ 3161 0017 0E       		.uleb128 0xe
+ 3162 0018 00       		.byte	0
+ 3163 0019 00       		.byte	0
+ 3164 001a 03       		.uleb128 0x3
+ 3165 001b 24       		.uleb128 0x24
+ 3166 001c 00       		.byte	0
+ 3167 001d 0B       		.uleb128 0xb
+ 3168 001e 0B       		.uleb128 0xb
+ 3169 001f 3E       		.uleb128 0x3e
+ 3170 0020 0B       		.uleb128 0xb
+ 3171 0021 03       		.uleb128 0x3
+ 3172 0022 08       		.uleb128 0x8
+ 3173 0023 00       		.byte	0
+ 3174 0024 00       		.byte	0
+ 3175 0025 04       		.uleb128 0x4
+ 3176 0026 16       		.uleb128 0x16
+ 3177 0027 00       		.byte	0
+ 3178 0028 03       		.uleb128 0x3
+ 3179 0029 0E       		.uleb128 0xe
+ 3180 002a 3A       		.uleb128 0x3a
+ 3181 002b 0B       		.uleb128 0xb
+ 3182 002c 3B       		.uleb128 0x3b
+ 3183 002d 05       		.uleb128 0x5
+ 3184 002e 49       		.uleb128 0x49
+ 3185 002f 13       		.uleb128 0x13
+ 3186 0030 00       		.byte	0
+ 3187 0031 00       		.byte	0
+ 3188 0032 05       		.uleb128 0x5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 57
+
+
+ 3189 0033 01       		.uleb128 0x1
+ 3190 0034 01       		.byte	0x1
+ 3191 0035 49       		.uleb128 0x49
+ 3192 0036 13       		.uleb128 0x13
+ 3193 0037 01       		.uleb128 0x1
+ 3194 0038 13       		.uleb128 0x13
+ 3195 0039 00       		.byte	0
+ 3196 003a 00       		.byte	0
+ 3197 003b 06       		.uleb128 0x6
+ 3198 003c 21       		.uleb128 0x21
+ 3199 003d 00       		.byte	0
+ 3200 003e 49       		.uleb128 0x49
+ 3201 003f 13       		.uleb128 0x13
+ 3202 0040 2F       		.uleb128 0x2f
+ 3203 0041 05       		.uleb128 0x5
+ 3204 0042 00       		.byte	0
+ 3205 0043 00       		.byte	0
+ 3206 0044 07       		.uleb128 0x7
+ 3207 0045 34       		.uleb128 0x34
+ 3208 0046 00       		.byte	0
+ 3209 0047 03       		.uleb128 0x3
+ 3210 0048 0E       		.uleb128 0xe
+ 3211 0049 3A       		.uleb128 0x3a
+ 3212 004a 0B       		.uleb128 0xb
+ 3213 004b 3B       		.uleb128 0x3b
+ 3214 004c 0B       		.uleb128 0xb
+ 3215 004d 49       		.uleb128 0x49
+ 3216 004e 13       		.uleb128 0x13
+ 3217 004f 3F       		.uleb128 0x3f
+ 3218 0050 19       		.uleb128 0x19
+ 3219 0051 02       		.uleb128 0x2
+ 3220 0052 18       		.uleb128 0x18
+ 3221 0053 00       		.byte	0
+ 3222 0054 00       		.byte	0
+ 3223 0055 08       		.uleb128 0x8
+ 3224 0056 26       		.uleb128 0x26
+ 3225 0057 00       		.byte	0
+ 3226 0058 49       		.uleb128 0x49
+ 3227 0059 13       		.uleb128 0x13
+ 3228 005a 00       		.byte	0
+ 3229 005b 00       		.byte	0
+ 3230 005c 09       		.uleb128 0x9
+ 3231 005d 21       		.uleb128 0x21
+ 3232 005e 00       		.byte	0
+ 3233 005f 49       		.uleb128 0x49
+ 3234 0060 13       		.uleb128 0x13
+ 3235 0061 2F       		.uleb128 0x2f
+ 3236 0062 0B       		.uleb128 0xb
+ 3237 0063 00       		.byte	0
+ 3238 0064 00       		.byte	0
+ 3239 0065 0A       		.uleb128 0xa
+ 3240 0066 34       		.uleb128 0x34
+ 3241 0067 00       		.byte	0
+ 3242 0068 03       		.uleb128 0x3
+ 3243 0069 0E       		.uleb128 0xe
+ 3244 006a 3A       		.uleb128 0x3a
+ 3245 006b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 58
+
+
+ 3246 006c 3B       		.uleb128 0x3b
+ 3247 006d 05       		.uleb128 0x5
+ 3248 006e 49       		.uleb128 0x49
+ 3249 006f 13       		.uleb128 0x13
+ 3250 0070 3F       		.uleb128 0x3f
+ 3251 0071 19       		.uleb128 0x19
+ 3252 0072 02       		.uleb128 0x2
+ 3253 0073 18       		.uleb128 0x18
+ 3254 0074 00       		.byte	0
+ 3255 0075 00       		.byte	0
+ 3256 0076 00       		.byte	0
+ 3257              		.section	.debug_aranges,"",%progbits
+ 3258 0000 14000000 		.4byte	0x14
+ 3259 0004 0200     		.2byte	0x2
+ 3260 0006 00000000 		.4byte	.Ldebug_info0
+ 3261 000a 04       		.byte	0x4
+ 3262 000b 00       		.byte	0
+ 3263 000c 0000     		.2byte	0
+ 3264 000e 0000     		.2byte	0
+ 3265 0010 00000000 		.4byte	0
+ 3266 0014 00000000 		.4byte	0
+ 3267              		.section	.debug_line,"",%progbits
+ 3268              	.Ldebug_line0:
+ 3269 0000 4F000000 		.section	.debug_str,"MS",%progbits,1
+ 3269      02004900 
+ 3269      00000201 
+ 3269      FB0E0D00 
+ 3269      01010101 
+ 3270              	.LASF20:
+ 3271 0000 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\cymetadata.c\000"
+ 3271      6E657261 
+ 3271      7465645F 
+ 3271      536F7572 
+ 3271      63655C50 
+ 3272              	.LASF18:
+ 3273 0026 63795F6D 		.ascii	"cy_metadata\000"
+ 3273      65746164 
+ 3273      61746100 
+ 3274              	.LASF9:
+ 3275 0032 666C6F61 		.ascii	"float\000"
+ 3275      7400
+ 3276              	.LASF1:
+ 3277 0038 756E7369 		.ascii	"unsigned char\000"
+ 3277      676E6564 
+ 3277      20636861 
+ 3277      7200
+ 3278              	.LASF5:
+ 3279 0046 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3279      20756E73 
+ 3279      69676E65 
+ 3279      6420696E 
+ 3279      7400
+ 3280              	.LASF3:
+ 3281 0058 73686F72 		.ascii	"short unsigned int\000"
+ 3281      7420756E 
+ 3281      7369676E 
+ 3281      65642069 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 59
+
+
+ 3281      6E7400
+ 3282              	.LASF10:
+ 3283 006b 646F7562 		.ascii	"double\000"
+ 3283      6C6500
+ 3284              	.LASF14:
+ 3285 0072 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 3285      6574615F 
+ 3285      63757374 
+ 3285      6E766C00 
+ 3286              	.LASF13:
+ 3287 0082 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 3287      6574615F 
+ 3287      636F6E66 
+ 3287      69676563 
+ 3287      6300
+ 3288              	.LASF19:
+ 3289 0094 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 3289      4320342E 
+ 3289      392E3320 
+ 3289      32303135 
+ 3289      30333033 
+ 3290 00c7 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 3290      20726576 
+ 3290      6973696F 
+ 3290      6E203232 
+ 3290      31323230 
+ 3291 00fa 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3291      66756E63 
+ 3291      74696F6E 
+ 3291      2D736563 
+ 3291      74696F6E 
+ 3292              	.LASF8:
+ 3293 0122 756E7369 		.ascii	"unsigned int\000"
+ 3293      676E6564 
+ 3293      20696E74 
+ 3293      00
+ 3294              	.LASF7:
+ 3295 012f 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3295      206C6F6E 
+ 3295      6720756E 
+ 3295      7369676E 
+ 3295      65642069 
+ 3296              	.LASF17:
+ 3297 0146 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 3297      6574615F 
+ 3297      666C6173 
+ 3297      6870726F 
+ 3297      74656374 
+ 3298              	.LASF15:
+ 3299 015b 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 3299      6574615F 
+ 3299      776F6E76 
+ 3299      6C00
+ 3300              	.LASF12:
+ 3301 0169 73697A65 		.ascii	"sizetype\000"
+ 3301      74797065 
+ 3301      00
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccA3STqk.s 			page 60
+
+
+ 3302              	.LASF6:
+ 3303 0172 6C6F6E67 		.ascii	"long long int\000"
+ 3303      206C6F6E 
+ 3303      6720696E 
+ 3303      7400
+ 3304              	.LASF11:
+ 3305 0180 63686172 		.ascii	"char\000"
+ 3305      00
+ 3306              	.LASF21:
+ 3307 0185 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\Projects\\BarBot\\B"
+ 3307      73657273 
+ 3307      5C6D6172 
+ 3307      6B365C47 
+ 3307      6F6F676C 
+ 3308 01b2 6172426F 		.ascii	"arBot\\Bartender.cydsn\000"
+ 3308      745C4261 
+ 3308      7274656E 
+ 3308      6465722E 
+ 3308      63796473 
+ 3309              	.LASF2:
+ 3310 01c8 73686F72 		.ascii	"short int\000"
+ 3310      7420696E 
+ 3310      7400
+ 3311              	.LASF22:
+ 3312 01d2 75696E74 		.ascii	"uint8\000"
+ 3312      3800
+ 3313              	.LASF4:
+ 3314 01d8 6C6F6E67 		.ascii	"long int\000"
+ 3314      20696E74 
+ 3314      00
+ 3315              	.LASF16:
+ 3316 01e1 63795F65 		.ascii	"cy_eeprom\000"
+ 3316      6570726F 
+ 3316      6D00
+ 3317              	.LASF0:
+ 3318 01eb 7369676E 		.ascii	"signed char\000"
+ 3318      65642063 
+ 3318      68617200 
+ 3319              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -1,0 +1,3484 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"RTC_INT.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.RTC_ISR,"ax",%progbits
+  19              		.align	2
+  20              		.global	RTC_ISR
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	RTC_ISR, %function
+  24              	RTC_ISR:
+  25              	.LFB7:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\RTC_INT.c"
+   1:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/RTC_INT.c **** * File Name: RTC_INT.c
+   3:.\Generated_Source\PSoC5/RTC_INT.c **** * Version 2.0
+   4:.\Generated_Source\PSoC5/RTC_INT.c **** *
+   5:.\Generated_Source\PSoC5/RTC_INT.c **** * Description:
+   6:.\Generated_Source\PSoC5/RTC_INT.c **** *  This file contains the Interrupt Service Routine (ISR) for the RTC component.
+   7:.\Generated_Source\PSoC5/RTC_INT.c **** *  This interrupt routine has entry pointes to overflow on time or date.
+   8:.\Generated_Source\PSoC5/RTC_INT.c **** *
+   9:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+  10:.\Generated_Source\PSoC5/RTC_INT.c **** * Copyright 2008-2013, Cypress Semiconductor Corporation.  All rights reserved.
+  11:.\Generated_Source\PSoC5/RTC_INT.c **** * You may use this file only in accordance with the license, terms, conditions,
+  12:.\Generated_Source\PSoC5/RTC_INT.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  13:.\Generated_Source\PSoC5/RTC_INT.c **** * the software package with which this file was provided.
+  14:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+  15:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  16:.\Generated_Source\PSoC5/RTC_INT.c **** #include "RTC.h"
+  17:.\Generated_Source\PSoC5/RTC_INT.c **** #include "CyLib.h"
+  18:.\Generated_Source\PSoC5/RTC_INT.c **** #include "cyapicallbacks.h"
+  19:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  20:.\Generated_Source\PSoC5/RTC_INT.c **** /* Function Prototypes */
+  21:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EverySecondHandler(void);
+  22:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryMinuteHandler(void);
+  23:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryHourHandler(void);
+  24:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryDayHandler(void);
+  25:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryWeekHandler(void);
+  26:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryMonthHandler(void);
+  27:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryYearHandler(void);
+  28:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  29:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  30:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+  31:.\Generated_Source\PSoC5/RTC_INT.c **** *  Place your includes, defines and code here
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+  33:.\Generated_Source\PSoC5/RTC_INT.c **** /* `#START RTC_ISR_DEFINITION` */
+  34:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  35:.\Generated_Source\PSoC5/RTC_INT.c **** /* `#END` */
+  36:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  37:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  38:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+  39:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name:   RTC_EverySecondHandler
+  40:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+  41:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  42:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+  43:.\Generated_Source\PSoC5/RTC_INT.c **** *  This function is called every second.
+  44:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  45:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+  46:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+  47:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  48:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+  49:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+  50:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  51:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+  52:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EverySecondHandler(void)
+  53:.\Generated_Source\PSoC5/RTC_INT.c **** {
+  54:.\Generated_Source\PSoC5/RTC_INT.c ****     /*  Place your every second handler code here. */
+  55:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#START EVERY_SECOND_HANDLER_CODE` */
+  56:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  57:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#END` */
+  58:.\Generated_Source\PSoC5/RTC_INT.c ****     
+  59:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_EVERY_SECOND_HANDLER_CALLBACK
+  60:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_EverySecondHandler_Callback();
+  61:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_EVERY_SECOND_HANDLER_CALLBACK */
+  62:.\Generated_Source\PSoC5/RTC_INT.c **** }
+  63:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  64:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  65:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+  66:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name:   RTC_EveryMinuteHandler
+  67:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+  68:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  69:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+  70:.\Generated_Source\PSoC5/RTC_INT.c **** *  This function is called every minute.
+  71:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  72:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+  73:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+  74:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  75:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+  76:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+  77:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  78:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+  79:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryMinuteHandler(void)
+  80:.\Generated_Source\PSoC5/RTC_INT.c **** {
+  81:.\Generated_Source\PSoC5/RTC_INT.c ****     /*  Place your every minute handler code here. */
+  82:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#START EVERY_MINUTE_HANDLER_CODE` */
+  83:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  84:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#END` */
+  85:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  86:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_EVERY_MINUTE_HANDLER_CALLBACK
+  87:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_EveryMinuteHandler_Callback();
+  88:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_EVERY_MINUTE_HANDLER_CALLBACK */    
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 3
+
+
+  89:.\Generated_Source\PSoC5/RTC_INT.c **** }
+  90:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  91:.\Generated_Source\PSoC5/RTC_INT.c **** 
+  92:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+  93:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name:   RTC_EveryHourHandler
+  94:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+  95:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  96:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+  97:.\Generated_Source\PSoC5/RTC_INT.c **** *  This function is called every hour.
+  98:.\Generated_Source\PSoC5/RTC_INT.c **** *
+  99:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+ 100:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 101:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 102:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+ 103:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 104:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 105:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+ 106:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryHourHandler(void)
+ 107:.\Generated_Source\PSoC5/RTC_INT.c **** {
+ 108:.\Generated_Source\PSoC5/RTC_INT.c ****     /*  Place your every hour handler code here. */
+ 109:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#START EVERY_HOUR_HANDLER_CODE` */
+ 110:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 111:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#END` */
+ 112:.\Generated_Source\PSoC5/RTC_INT.c ****     
+ 113:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_EVERY_HOUR_HANDLER_CALLBACK
+ 114:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_EveryHourHandler_Callback();
+ 115:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_EVERY_HOUR_HANDLER_CALLBACK */
+ 116:.\Generated_Source\PSoC5/RTC_INT.c **** }
+ 117:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 118:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 119:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+ 120:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name:   RTC_EveryDayHandler
+ 121:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+ 122:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 123:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+ 124:.\Generated_Source\PSoC5/RTC_INT.c **** *  This function is called every day.
+ 125:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 126:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+ 127:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 128:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 129:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+ 130:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 131:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 132:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+ 133:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryDayHandler(void)
+ 134:.\Generated_Source\PSoC5/RTC_INT.c **** {
+ 135:.\Generated_Source\PSoC5/RTC_INT.c ****     /*  Place your everyday handler code here. */
+ 136:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#START EVERY_DAY_HANDLER_CODE` */
+ 137:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 138:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#END` */
+ 139:.\Generated_Source\PSoC5/RTC_INT.c ****     
+ 140:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_EVERY_DAY_HANDLER_CALLBACK
+ 141:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_EveryDayHandler_Callback();
+ 142:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_EVERY_DAY_HANDLER_CALLBACK */
+ 143:.\Generated_Source\PSoC5/RTC_INT.c **** }
+ 144:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 145:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 4
+
+
+ 146:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+ 147:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name:   RTC_EveryWeekHandler
+ 148:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+ 149:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 150:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+ 151:.\Generated_Source\PSoC5/RTC_INT.c **** *  This function is called every week.
+ 152:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 153:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+ 154:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 155:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 156:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+ 157:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 158:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 159:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+ 160:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryWeekHandler(void)
+ 161:.\Generated_Source\PSoC5/RTC_INT.c **** {
+ 162:.\Generated_Source\PSoC5/RTC_INT.c ****     /*  Place your every week handler code here. */
+ 163:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#START EVERY_WEEK_HANDLER_CODE` */
+ 164:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 165:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#END` */
+ 166:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 167:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_EVERY_WEEK_HANDLER_CALLBACK
+ 168:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_EveryWeekHandler_Callback();
+ 169:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_EVERY_WEEK_HANDLER_CALLBACK */
+ 170:.\Generated_Source\PSoC5/RTC_INT.c **** }
+ 171:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 172:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 173:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+ 174:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name:   RTC_EveryMonthHandler
+ 175:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+ 176:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 177:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+ 178:.\Generated_Source\PSoC5/RTC_INT.c **** *  This function is called every month.
+ 179:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 180:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+ 181:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 182:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 183:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+ 184:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 185:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 186:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+ 187:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryMonthHandler(void)
+ 188:.\Generated_Source\PSoC5/RTC_INT.c **** {
+ 189:.\Generated_Source\PSoC5/RTC_INT.c ****     /*  Place your every month handler code here. */
+ 190:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#START EVERY_MONTH_HANDLER_CODE` */
+ 191:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 192:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#END` */
+ 193:.\Generated_Source\PSoC5/RTC_INT.c ****     
+ 194:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_EVERY_MONTH_HANDLER_CALLBACK
+ 195:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_EveryMonthHandler_Callback();
+ 196:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_EVERY_MONTH_HANDLER_CALLBACK */
+ 197:.\Generated_Source\PSoC5/RTC_INT.c **** }
+ 198:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 199:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 200:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+ 201:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name:   RTC_EveryYearHandler
+ 202:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 5
+
+
+ 203:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 204:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+ 205:.\Generated_Source\PSoC5/RTC_INT.c **** *  This function is called every year.
+ 206:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 207:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+ 208:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 209:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 210:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+ 211:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 212:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 213:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+ 214:.\Generated_Source\PSoC5/RTC_INT.c **** static void RTC_EveryYearHandler(void)
+ 215:.\Generated_Source\PSoC5/RTC_INT.c **** {
+ 216:.\Generated_Source\PSoC5/RTC_INT.c ****     /*  Place your every year handler code here. */
+ 217:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#START EVERY_YEAR_HANDLER_CODE` */
+ 218:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 219:.\Generated_Source\PSoC5/RTC_INT.c ****     /* `#END` */
+ 220:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 221:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_EVERY_YEAR_HANDLER_CALLBACK
+ 222:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_EveryYearHandler_Callback();
+ 223:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_EVERY_YEAR_HANDLER_CALLBACK */    
+ 224:.\Generated_Source\PSoC5/RTC_INT.c **** }
+ 225:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 226:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 227:.\Generated_Source\PSoC5/RTC_INT.c **** /*******************************************************************************
+ 228:.\Generated_Source\PSoC5/RTC_INT.c **** * Function Name: RTC_ISR
+ 229:.\Generated_Source\PSoC5/RTC_INT.c **** ********************************************************************************
+ 230:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 231:.\Generated_Source\PSoC5/RTC_INT.c **** * Summary:
+ 232:.\Generated_Source\PSoC5/RTC_INT.c **** *  This ISR is executed on 1PPS (one pulse per second) event.
+ 233:.\Generated_Source\PSoC5/RTC_INT.c **** *  Global interrupt must be enabled to invoke this ISR.
+ 234:.\Generated_Source\PSoC5/RTC_INT.c **** *  This interrupt trigs every second.
+ 235:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 236:.\Generated_Source\PSoC5/RTC_INT.c **** * Parameters:
+ 237:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 238:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 239:.\Generated_Source\PSoC5/RTC_INT.c **** * Return:
+ 240:.\Generated_Source\PSoC5/RTC_INT.c **** *  None.
+ 241:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 242:.\Generated_Source\PSoC5/RTC_INT.c **** * Global variables:
+ 243:.\Generated_Source\PSoC5/RTC_INT.c **** * RTC_currentTimeDate, RTC_dstTimeDateStart,
+ 244:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_dstTimeDateStop, RTC_dstTimeDateStart,
+ 245:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_alarmCfgTimeDate, RTC_statusDateTime,
+ 246:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_dstStartStatus, RTC_dstStartStatus,
+ 247:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_dstStopStatus, RTC_alarmCurStatus: global
+ 248:.\Generated_Source\PSoC5/RTC_INT.c **** *  variables are used for the time/date, DST and alarm update procedure.
+ 249:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 250:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_dstTimeDateStart and RTC_currentTimeDate:
+ 251:.\Generated_Source\PSoC5/RTC_INT.c **** *  are modified with the updated values.
+ 252:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 253:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_statusDateTime, RTC_dstStartStatus,
+ 254:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_dstStartStatus, RTC_dstStopStatus,
+ 255:.\Generated_Source\PSoC5/RTC_INT.c **** *  RTC_alarmCurStatus: global variables could be modified while
+ 256:.\Generated_Source\PSoC5/RTC_INT.c **** *  current time/date is updated.
+ 257:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 258:.\Generated_Source\PSoC5/RTC_INT.c **** * Side Effects:
+ 259:.\Generated_Source\PSoC5/RTC_INT.c **** *  Clears all interrupt status bits (react_int, limact_int, onepps_int, ctw_int,
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 6
+
+
+ 260:.\Generated_Source\PSoC5/RTC_INT.c **** *  and  ftw_int) in Power Manager Interrupt Status Register. If an interrupt
+ 261:.\Generated_Source\PSoC5/RTC_INT.c **** *  gets generated at the same time as a clear, the bit will remain set (which
+ 262:.\Generated_Source\PSoC5/RTC_INT.c **** *  causes another interrupt).
+ 263:.\Generated_Source\PSoC5/RTC_INT.c **** *
+ 264:.\Generated_Source\PSoC5/RTC_INT.c **** *******************************************************************************/
+ 265:.\Generated_Source\PSoC5/RTC_INT.c **** CY_ISR(RTC_ISR)
+ 266:.\Generated_Source\PSoC5/RTC_INT.c **** {
+  27              		.loc 1 266 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+ 267:.\Generated_Source\PSoC5/RTC_INT.c ****     uint8 RTC_tmp;
+ 268:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 269:.\Generated_Source\PSoC5/RTC_INT.c ****     #ifdef RTC_ISR_ENTRY_CALLBACK
+ 270:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_ISR_EntryCallback();
+ 271:.\Generated_Source\PSoC5/RTC_INT.c ****     #endif /* RTC_ISR_ENTRY_CALLBACK */
+ 272:.\Generated_Source\PSoC5/RTC_INT.c ****     
+ 273:.\Generated_Source\PSoC5/RTC_INT.c ****     /* Clear OPPS interrupt status flag */
+ 274:.\Generated_Source\PSoC5/RTC_INT.c ****     (void) CyPmReadStatus(CY_PM_ONEPPS_INT);
+  35              		.loc 1 274 0
+  36 0002 0420     		movs	r0, #4
+  37 0004 FFF7FEFF 		bl	CyPmReadStatus
+  38              	.LVL0:
+ 275:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 276:.\Generated_Source\PSoC5/RTC_INT.c ****     /* Increment seconds counter */
+ 277:.\Generated_Source\PSoC5/RTC_INT.c ****     RTC_currentTimeDate.Sec++;
+  39              		.loc 1 277 0
+  40 0008 9A4A     		ldr	r2, .L92
+  41 000a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  42 000c 0133     		adds	r3, r3, #1
+  43 000e DBB2     		uxtb	r3, r3
+  44 0010 1370     		strb	r3, [r2]
+ 278:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 279:.\Generated_Source\PSoC5/RTC_INT.c ****     /* Check if minute elapsed */
+ 280:.\Generated_Source\PSoC5/RTC_INT.c ****     if(RTC_currentTimeDate.Sec > RTC_MINUTE_ELAPSED)
+  45              		.loc 1 280 0
+  46 0012 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  47 0014 DBB2     		uxtb	r3, r3
+  48 0016 3B2B     		cmp	r3, #59
+  49 0018 40F2D184 		bls	.L2
+ 281:.\Generated_Source\PSoC5/RTC_INT.c ****     {
+ 282:.\Generated_Source\PSoC5/RTC_INT.c ****         /* Inc Min */
+ 283:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_currentTimeDate.Min++;
+  50              		.loc 1 283 0
+  51 001c 5378     		ldrb	r3, [r2, #1]	@ zero_extendqisi2
+  52 001e 0133     		adds	r3, r3, #1
+  53 0020 DBB2     		uxtb	r3, r3
+  54 0022 5370     		strb	r3, [r2, #1]
+ 284:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 285:.\Generated_Source\PSoC5/RTC_INT.c ****         /* Clear Sec */
+ 286:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_currentTimeDate.Sec = 0u;
+  55              		.loc 1 286 0
+  56 0024 0023     		movs	r3, #0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 7
+
+
+  57 0026 1370     		strb	r3, [r2]
+ 287:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 288:.\Generated_Source\PSoC5/RTC_INT.c ****         if(RTC_currentTimeDate.Min > RTC_HOUR_ELAPSED)
+  58              		.loc 1 288 0
+  59 0028 5378     		ldrb	r3, [r2, #1]	@ zero_extendqisi2
+  60 002a DBB2     		uxtb	r3, r3
+  61 002c 3B2B     		cmp	r3, #59
+  62 002e 40F29B84 		bls	.L3
+ 289:.\Generated_Source\PSoC5/RTC_INT.c ****         {
+ 290:.\Generated_Source\PSoC5/RTC_INT.c ****             /* Inc HOUR */
+ 291:.\Generated_Source\PSoC5/RTC_INT.c ****             RTC_currentTimeDate.Hour++;
+  63              		.loc 1 291 0
+  64 0032 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+  65 0034 0133     		adds	r3, r3, #1
+  66 0036 DBB2     		uxtb	r3, r3
+  67 0038 9370     		strb	r3, [r2, #2]
+ 292:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 293:.\Generated_Source\PSoC5/RTC_INT.c ****             /* Clear Min */
+ 294:.\Generated_Source\PSoC5/RTC_INT.c ****             RTC_currentTimeDate.Min = 0u;
+  68              		.loc 1 294 0
+  69 003a 0023     		movs	r3, #0
+  70 003c 5370     		strb	r3, [r2, #1]
+ 295:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 296:.\Generated_Source\PSoC5/RTC_INT.c ****             /* Day roll over */
+ 297:.\Generated_Source\PSoC5/RTC_INT.c ****             if(RTC_currentTimeDate.Hour > RTC_DAY_ELAPSED)
+  71              		.loc 1 297 0
+  72 003e 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+  73 0040 DBB2     		uxtb	r3, r3
+  74 0042 172B     		cmp	r3, #23
+  75 0044 40F2A181 		bls	.L4
+ 298:.\Generated_Source\PSoC5/RTC_INT.c ****             {
+ 299:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Inc DayOfMonth */
+ 300:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_currentTimeDate.DayOfMonth++;
+  76              		.loc 1 300 0
+  77 0048 1346     		mov	r3, r2
+  78 004a 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+  79 004c 0132     		adds	r2, r2, #1
+  80 004e D2B2     		uxtb	r2, r2
+  81 0050 1A71     		strb	r2, [r3, #4]
+ 301:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 302:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Clear Hour */
+ 303:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_currentTimeDate.Hour = 0u;
+  82              		.loc 1 303 0
+  83 0052 0022     		movs	r2, #0
+  84 0054 9A70     		strb	r2, [r3, #2]
+ 304:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 305:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Inc DayOfYear */
+ 306:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_currentTimeDate.DayOfYear++;
+  85              		.loc 1 306 0
+  86 0056 DA88     		ldrh	r2, [r3, #6]
+  87 0058 0132     		adds	r2, r2, #1
+  88 005a 92B2     		uxth	r2, r2
+  89 005c DA80     		strh	r2, [r3, #6]	@ movhi
+ 307:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 308:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Inc DayOfWeek */
+ 309:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_currentTimeDate.DayOfWeek++;
+  90              		.loc 1 309 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 8
+
+
+  91 005e DA78     		ldrb	r2, [r3, #3]	@ zero_extendqisi2
+  92 0060 0132     		adds	r2, r2, #1
+  93 0062 D2B2     		uxtb	r2, r2
+  94 0064 DA70     		strb	r2, [r3, #3]
+ 310:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 311:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Check DayOfWeek */
+ 312:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(RTC_currentTimeDate.DayOfWeek > RTC_WEEK_ELAPSED)
+  95              		.loc 1 312 0
+  96 0066 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+  97 0068 DBB2     		uxtb	r3, r3
+  98 006a 072B     		cmp	r3, #7
+  99 006c 02D9     		bls	.L5
+ 313:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 314:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* start new week */
+ 315:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_currentTimeDate.DayOfWeek = 1u;
+ 100              		.loc 1 315 0
+ 101 006e 0122     		movs	r2, #1
+ 102 0070 804B     		ldr	r3, .L92
+ 103 0072 DA70     		strb	r2, [r3, #3]
+ 104              	.L5:
+ 316:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 317:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 318:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Day of month roll over.
+ 319:.\Generated_Source\PSoC5/RTC_INT.c ****                 * Check if day of month greater than 29 in February of leap year or
+ 320:.\Generated_Source\PSoC5/RTC_INT.c ****                 * if day of month greater than 28 NOT in February of NON leap year or
+ 321:.\Generated_Source\PSoC5/RTC_INT.c ****                 * if day of month greater than it should be in every month in non leap year
+ 322:.\Generated_Source\PSoC5/RTC_INT.c ****                 */
+ 323:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(((0u != (RTC_statusDateTime & RTC_STATUS_LY)) &&
+ 105              		.loc 1 323 0
+ 106 0074 804B     		ldr	r3, .L92+4
+ 107 0076 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 108 0078 13F0020F 		tst	r3, #2
+ 109 007c 0ED0     		beq	.L6
+ 324:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.Month == RTC_FEBRUARY)  &&
+ 110              		.loc 1 324 0 discriminator 1
+ 111 007e 7D4B     		ldr	r3, .L92
+ 112 0080 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 113 0082 DBB2     		uxtb	r3, r3
+ 323:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.Month == RTC_FEBRUARY)  &&
+ 114              		.loc 1 323 0 discriminator 1
+ 115 0084 022B     		cmp	r3, #2
+ 116 0086 09D1     		bne	.L6
+ 325:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.DayOfMonth >
+ 117              		.loc 1 325 0
+ 118 0088 7A4B     		ldr	r3, .L92
+ 119 008a 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+ 120 008c D2B2     		uxtb	r2, r2
+ 326:.\Generated_Source\PSoC5/RTC_INT.c ****                              (RTC_daysInMonths[RTC_currentTimeDate.Month - 1u] + 1u))) ||
+ 121              		.loc 1 326 0
+ 122 008e 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 123 0090 013B     		subs	r3, r3, #1
+ 124 0092 7A49     		ldr	r1, .L92+8
+ 125 0094 CB5C     		ldrb	r3, [r1, r3]	@ zero_extendqisi2
+ 126 0096 0133     		adds	r3, r3, #1
+ 324:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.DayOfMonth >
+ 127              		.loc 1 324 0
+ 128 0098 9A42     		cmp	r2, r3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 9
+
+
+ 129 009a 22D8     		bhi	.L7
+ 130              	.L6:
+ 327:.\Generated_Source\PSoC5/RTC_INT.c ****                    ((0u != (RTC_statusDateTime & RTC_STATUS_LY))  &&
+ 131              		.loc 1 327 0
+ 132 009c 764B     		ldr	r3, .L92+4
+ 133 009e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 326:.\Generated_Source\PSoC5/RTC_INT.c ****                              (RTC_daysInMonths[RTC_currentTimeDate.Month - 1u] + 1u))) ||
+ 134              		.loc 1 326 0
+ 135 00a0 13F0020F 		tst	r3, #2
+ 136 00a4 0DD0     		beq	.L8
+ 328:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.Month != RTC_FEBRUARY) &&
+ 137              		.loc 1 328 0
+ 138 00a6 734B     		ldr	r3, .L92
+ 139 00a8 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 140 00aa DBB2     		uxtb	r3, r3
+ 327:.\Generated_Source\PSoC5/RTC_INT.c ****                    ((0u != (RTC_statusDateTime & RTC_STATUS_LY))  &&
+ 141              		.loc 1 327 0
+ 142 00ac 022B     		cmp	r3, #2
+ 143 00ae 08D0     		beq	.L8
+ 329:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.DayOfMonth >
+ 144              		.loc 1 329 0
+ 145 00b0 704A     		ldr	r2, .L92
+ 146 00b2 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+ 147 00b4 DBB2     		uxtb	r3, r3
+ 330:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_daysInMonths[RTC_currentTimeDate.Month - 1u])) ||
+ 148              		.loc 1 330 0
+ 149 00b6 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 150 00b8 013A     		subs	r2, r2, #1
+ 151 00ba 7049     		ldr	r1, .L92+8
+ 152 00bc 8A5C     		ldrb	r2, [r1, r2]	@ zero_extendqisi2
+ 328:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.Month != RTC_FEBRUARY) &&
+ 153              		.loc 1 328 0
+ 154 00be 9342     		cmp	r3, r2
+ 155 00c0 0FD8     		bhi	.L7
+ 156              	.L8:
+ 331:.\Generated_Source\PSoC5/RTC_INT.c ****                    ((0u == (RTC_statusDateTime & RTC_STATUS_LY))  &&
+ 157              		.loc 1 331 0
+ 158 00c2 6D4B     		ldr	r3, .L92+4
+ 159 00c4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 330:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_daysInMonths[RTC_currentTimeDate.Month - 1u])) ||
+ 160              		.loc 1 330 0
+ 161 00c6 13F0020F 		tst	r3, #2
+ 162 00ca 40F0C080 		bne	.L9
+ 332:.\Generated_Source\PSoC5/RTC_INT.c ****                     (RTC_currentTimeDate.DayOfMonth >
+ 163              		.loc 1 332 0
+ 164 00ce 694A     		ldr	r2, .L92
+ 165 00d0 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+ 166 00d2 DBB2     		uxtb	r3, r3
+ 333:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_daysInMonths[RTC_currentTimeDate.Month - 1u])))
+ 167              		.loc 1 333 0
+ 168 00d4 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 169 00d6 013A     		subs	r2, r2, #1
+ 170 00d8 6849     		ldr	r1, .L92+8
+ 171 00da 8A5C     		ldrb	r2, [r1, r2]	@ zero_extendqisi2
+ 331:.\Generated_Source\PSoC5/RTC_INT.c ****                    ((0u == (RTC_statusDateTime & RTC_STATUS_LY))  &&
+ 172              		.loc 1 331 0
+ 173 00dc 9342     		cmp	r3, r2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 10
+
+
+ 174 00de 40F2B680 		bls	.L9
+ 175              	.L7:
+ 334:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 335:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Inc Month */
+ 336:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_currentTimeDate.Month++;
+ 176              		.loc 1 336 0
+ 177 00e2 644A     		ldr	r2, .L92
+ 178 00e4 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 179 00e6 0133     		adds	r3, r3, #1
+ 180 00e8 DBB2     		uxtb	r3, r3
+ 181 00ea 1372     		strb	r3, [r2, #8]
+ 337:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 338:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Set first day of month */
+ 339:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_currentTimeDate.DayOfMonth = 1u;
+ 182              		.loc 1 339 0
+ 183 00ec 0123     		movs	r3, #1
+ 184 00ee 1371     		strb	r3, [r2, #4]
+ 340:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 341:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Year roll over */
+ 342:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(RTC_currentTimeDate.Month > RTC_YEAR_ELAPSED)
+ 185              		.loc 1 342 0
+ 186 00f0 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 187 00f2 DBB2     		uxtb	r3, r3
+ 188 00f4 0C2B     		cmp	r3, #12
+ 189 00f6 5BD9     		bls	.L10
+ 343:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 344:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Inc Year */
+ 345:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_currentTimeDate.Year++;
+ 190              		.loc 1 345 0
+ 191 00f8 1346     		mov	r3, r2
+ 192 00fa 5289     		ldrh	r2, [r2, #10]
+ 193 00fc 0132     		adds	r2, r2, #1
+ 194 00fe 92B2     		uxth	r2, r2
+ 195 0100 5A81     		strh	r2, [r3, #10]	@ movhi
+ 346:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 347:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Set first month of year */
+ 348:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_currentTimeDate.Month = 1u;
+ 196              		.loc 1 348 0
+ 197 0102 0122     		movs	r2, #1
+ 198 0104 1A72     		strb	r2, [r3, #8]
+ 349:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 350:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Set first day of year */
+ 351:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_currentTimeDate.DayOfYear = 1u;
+ 199              		.loc 1 351 0
+ 200 0106 DA80     		strh	r2, [r3, #6]	@ movhi
+ 352:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 353:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Is this year leap */
+ 354:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(1u == RTC_LEAP_YEAR(RTC_currentTimeDate.Year))
+ 201              		.loc 1 354 0
+ 202 0108 5B89     		ldrh	r3, [r3, #10]
+ 203 010a 9BB2     		uxth	r3, r3
+ 204 010c 5C4A     		ldr	r2, .L92+12
+ 205 010e A2FB0312 		umull	r1, r2, r2, r3
+ 206 0112 D209     		lsrs	r2, r2, #7
+ 207 0114 4FF4C871 		mov	r1, #400
+ 208 0118 01FB1233 		mls	r3, r1, r2, r3
+ 209 011c 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 11
+
+
+ 210 011e 83B1     		cbz	r3, .L11
+ 211              		.loc 1 354 0 is_stmt 0 discriminator 1
+ 212 0120 544B     		ldr	r3, .L92
+ 213 0122 5B89     		ldrh	r3, [r3, #10]
+ 214 0124 13F0030F 		tst	r3, #3
+ 215 0128 11D1     		bne	.L12
+ 216              		.loc 1 354 0 discriminator 2
+ 217 012a 524B     		ldr	r3, .L92
+ 218 012c 5B89     		ldrh	r3, [r3, #10]
+ 219 012e 9BB2     		uxth	r3, r3
+ 220 0130 534A     		ldr	r2, .L92+12
+ 221 0132 A2FB0312 		umull	r1, r2, r2, r3
+ 222 0136 5209     		lsrs	r2, r2, #5
+ 223 0138 6421     		movs	r1, #100
+ 224 013a 01FB1233 		mls	r3, r1, r2, r3
+ 225 013e 9BB2     		uxth	r3, r3
+ 226 0140 2BB1     		cbz	r3, .L12
+ 227              	.L11:
+ 355:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 356:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Set leap year flag */
+ 357:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_statusDateTime |= RTC_STATUS_LY;
+ 228              		.loc 1 357 0 is_stmt 1
+ 229 0142 4D4A     		ldr	r2, .L92+4
+ 230 0144 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 231 0146 43F00203 		orr	r3, r3, #2
+ 232 014a 1370     		strb	r3, [r2]
+ 233 014c 04E0     		b	.L13
+ 234              	.L12:
+ 358:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 359:.\Generated_Source\PSoC5/RTC_INT.c ****                         else    /* not leap year */
+ 360:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 361:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Clear leap year */
+ 362:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_statusDateTime &= (uint8)(~RTC_STATUS_LY);
+ 235              		.loc 1 362 0
+ 236 014e 4A4A     		ldr	r2, .L92+4
+ 237 0150 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 238 0152 03F0FD03 		and	r3, r3, #253
+ 239 0156 1370     		strb	r3, [r2]
+ 240              	.L13:
+ 363:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 364:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 365:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Alarm YEAR */
+ 366:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 241              		.loc 1 366 0
+ 242 0158 4A4B     		ldr	r3, .L92+16
+ 243 015a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 244 015c 13F0800F 		tst	r3, #128
+ 245 0160 12D0     		beq	.L14
+ 367:.\Generated_Source\PSoC5/RTC_INT.c ****                                                              RTC_ALARM_YEAR_MASK))
+ 368:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 369:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Years match */
+ 370:.\Generated_Source\PSoC5/RTC_INT.c ****                             if(RTC_alarmCfgTimeDate.Year == RTC_currentTimeDate.Year)
+ 246              		.loc 1 370 0
+ 247 0162 494B     		ldr	r3, .L92+20
+ 248 0164 5A89     		ldrh	r2, [r3, #10]
+ 249 0166 92B2     		uxth	r2, r2
+ 250 0168 424B     		ldr	r3, .L92
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 12
+
+
+ 251 016a 5B89     		ldrh	r3, [r3, #10]
+ 252 016c 9BB2     		uxth	r3, r3
+ 253 016e 9A42     		cmp	r2, r3
+ 254 0170 05D1     		bne	.L15
+ 371:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 372:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Rise year alarm */
+ 373:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_alarmCurStatus |= RTC_ALARM_YEAR_MASK;
+ 255              		.loc 1 373 0
+ 256 0172 464A     		ldr	r2, .L92+24
+ 257 0174 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 258 0176 43F08003 		orr	r3, r3, #128
+ 259 017a 1370     		strb	r3, [r2]
+ 260 017c 04E0     		b	.L14
+ 261              	.L15:
+ 374:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 375:.\Generated_Source\PSoC5/RTC_INT.c ****                             else    /* Years do not match */
+ 376:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 377:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Clear year alarm */
+ 378:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_YEAR_MASK);
+ 262              		.loc 1 378 0
+ 263 017e 434A     		ldr	r2, .L92+24
+ 264 0180 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 265 0182 03F07F03 		and	r3, r3, #127
+ 266 0186 1370     		strb	r3, [r2]
+ 267              	.L14:
+ 379:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 380:.\Generated_Source\PSoC5/RTC_INT.c ****                         } /* do not alarm year */
+ 381:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 382:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Set Alarm flag event */
+ 383:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_tmp = RTC_alarmCfgMask;
+ 268              		.loc 1 383 0
+ 269 0188 3E4B     		ldr	r3, .L92+16
+ 270 018a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 271              	.LVL1:
+ 384:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_SET_ALARM(RTC_tmp,
+ 272              		.loc 1 384 0
+ 273 018c 03F0FF02 		and	r2, r3, #255
+ 274 0190 63B1     		cbz	r3, .L16
+ 275              		.loc 1 384 0 is_stmt 0 discriminator 1
+ 276 0192 3E4B     		ldr	r3, .L92+24
+ 277              	.LVL2:
+ 278 0194 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 279 0196 1340     		ands	r3, r3, r2
+ 280 0198 9342     		cmp	r3, r2
+ 281 019a 07D1     		bne	.L16
+ 282              		.loc 1 384 0 discriminator 2
+ 283 019c 364A     		ldr	r2, .L92+4
+ 284 019e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 285 01a0 43F00803 		orr	r3, r3, #8
+ 286 01a4 1370     		strb	r3, [r2]
+ 287 01a6 0022     		movs	r2, #0
+ 288 01a8 384B     		ldr	r3, .L92+24
+ 289 01aa 1A70     		strb	r2, [r3]
+ 290              	.L16:
+ 385:.\Generated_Source\PSoC5/RTC_INT.c ****                                                    RTC_alarmCurStatus,
+ 386:.\Generated_Source\PSoC5/RTC_INT.c ****                                                    RTC_statusDateTime);
+ 387:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 13
+
+
+ 388:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Every Year */
+ 389:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(0u != RTC_IS_BIT_SET(RTC_intervalCfgMask,
+ 291              		.loc 1 389 0 is_stmt 1
+ 292 01ac 384B     		ldr	r3, .L92+28
+ 293 01ae 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 294              	.L10:
+ 390:.\Generated_Source\PSoC5/RTC_INT.c ****                                                              RTC_INTERVAL_YEAR_MASK))
+ 391:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 392:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_EveryYearHandler();
+ 393:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 394:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 395:.\Generated_Source\PSoC5/RTC_INT.c ****                     } /* Month > 12 */
+ 396:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 397:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Alarm MONTH */
+ 398:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 295              		.loc 1 398 0
+ 296 01b0 344B     		ldr	r3, .L92+16
+ 297 01b2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 298 01b4 13F0400F 		tst	r3, #64
+ 299 01b8 11D0     		beq	.L17
+ 399:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_ALARM_MONTH_MASK))
+ 400:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 401:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_alarmCfgTimeDate.Month == RTC_currentTimeDate.Month)
+ 300              		.loc 1 401 0
+ 301 01ba 334B     		ldr	r3, .L92+20
+ 302 01bc 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 303 01be 2D4A     		ldr	r2, .L92
+ 304 01c0 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 305 01c2 DBB2     		uxtb	r3, r3
+ 306 01c4 9342     		cmp	r3, r2
+ 307 01c6 05D1     		bne	.L18
+ 402:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 403:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Set month alarm */
+ 404:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus |= RTC_ALARM_MONTH_MASK;
+ 308              		.loc 1 404 0
+ 309 01c8 304A     		ldr	r2, .L92+24
+ 310 01ca 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 311 01cc 43F04003 		orr	r3, r3, #64
+ 312 01d0 1370     		strb	r3, [r2]
+ 313 01d2 04E0     		b	.L17
+ 314              	.L18:
+ 405:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 406:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 407:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 408:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Clear month alarm */
+ 409:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_MONTH_MASK);
+ 315              		.loc 1 409 0
+ 316 01d4 2D4A     		ldr	r2, .L92+24
+ 317 01d6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 318 01d8 03F0BF03 		and	r3, r3, #191
+ 319 01dc 1370     		strb	r3, [r2]
+ 320              	.L17:
+ 410:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 411:.\Generated_Source\PSoC5/RTC_INT.c ****                     }   /* Month alarm is masked */
+ 412:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 413:.\Generated_Source\PSoC5/RTC_INT.c ****                     #if (1u == RTC_DST_FUNC_ENABLE)
+ 414:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_dstTimeDateStop.Month == RTC_currentTimeDate.Month)
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 14
+
+
+ 321              		.loc 1 414 0
+ 322 01de 2D4B     		ldr	r3, .L92+32
+ 323 01e0 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 324 01e2 244A     		ldr	r2, .L92
+ 325 01e4 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 326 01e6 DBB2     		uxtb	r3, r3
+ 327 01e8 9342     		cmp	r3, r2
+ 328 01ea 05D1     		bne	.L19
+ 415:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 416:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_dstStopStatus |= RTC_DST_MONTH;
+ 329              		.loc 1 416 0
+ 330 01ec 2A4A     		ldr	r2, .L92+36
+ 331 01ee 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 332 01f0 43F00403 		orr	r3, r3, #4
+ 333 01f4 1370     		strb	r3, [r2]
+ 334 01f6 04E0     		b	.L20
+ 335              	.L19:
+ 417:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 418:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 419:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 420:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_dstStopStatus &= (uint8)(~RTC_DST_MONTH);
+ 336              		.loc 1 420 0
+ 337 01f8 274A     		ldr	r2, .L92+36
+ 338 01fa 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 339 01fc 03F0FB03 		and	r3, r3, #251
+ 340 0200 1370     		strb	r3, [r2]
+ 341              	.L20:
+ 421:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 422:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 423:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_dstTimeDateStart.Month == RTC_currentTimeDate.Month)
+ 342              		.loc 1 423 0
+ 343 0202 264B     		ldr	r3, .L92+40
+ 344 0204 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 345 0206 1B4A     		ldr	r2, .L92
+ 346 0208 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 347 020a DBB2     		uxtb	r3, r3
+ 348 020c 9342     		cmp	r3, r2
+ 349 020e 05D1     		bne	.L21
+ 424:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 425:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_dstStartStatus |= RTC_DST_MONTH;
+ 350              		.loc 1 425 0
+ 351 0210 234A     		ldr	r2, .L92+44
+ 352 0212 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 353 0214 43F00403 		orr	r3, r3, #4
+ 354 0218 1370     		strb	r3, [r2]
+ 355 021a 04E0     		b	.L22
+ 356              	.L21:
+ 426:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 427:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 428:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 429:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_dstStartStatus &= (uint8)(~RTC_DST_MONTH);
+ 357              		.loc 1 429 0
+ 358 021c 204A     		ldr	r2, .L92+44
+ 359 021e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 360 0220 03F0FB03 		and	r3, r3, #251
+ 361 0224 1370     		strb	r3, [r2]
+ 362              	.L22:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 15
+
+
+ 430:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 431:.\Generated_Source\PSoC5/RTC_INT.c ****                     #endif /* 1u == RTC_DST_FUNC_ENABLE */
+ 432:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 433:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Set Alarm flag event */
+ 434:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_tmp = RTC_alarmCfgMask;
+ 363              		.loc 1 434 0
+ 364 0226 174B     		ldr	r3, .L92+16
+ 365 0228 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 366              	.LVL3:
+ 435:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_SET_ALARM(RTC_tmp,
+ 367              		.loc 1 435 0
+ 368 022a 03F0FF02 		and	r2, r3, #255
+ 369 022e 63B1     		cbz	r3, .L23
+ 370              		.loc 1 435 0 is_stmt 0 discriminator 1
+ 371 0230 164B     		ldr	r3, .L92+24
+ 372              	.LVL4:
+ 373 0232 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 374 0234 1340     		ands	r3, r3, r2
+ 375 0236 9342     		cmp	r3, r2
+ 376 0238 07D1     		bne	.L23
+ 377              		.loc 1 435 0 discriminator 2
+ 378 023a 0F4A     		ldr	r2, .L92+4
+ 379 023c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 380 023e 43F00803 		orr	r3, r3, #8
+ 381 0242 1370     		strb	r3, [r2]
+ 382 0244 0022     		movs	r2, #0
+ 383 0246 114B     		ldr	r3, .L92+24
+ 384 0248 1A70     		strb	r2, [r3]
+ 385              	.L23:
+ 436:.\Generated_Source\PSoC5/RTC_INT.c ****                                                RTC_alarmCurStatus,
+ 437:.\Generated_Source\PSoC5/RTC_INT.c ****                                                RTC_statusDateTime);
+ 438:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 439:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Every Month */
+ 440:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_intervalCfgMask,
+ 386              		.loc 1 440 0 is_stmt 1
+ 387 024a 114B     		ldr	r3, .L92+28
+ 388 024c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 389              	.L9:
+ 441:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_INTERVAL_MONTH_MASK))
+ 442:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 443:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_EveryMonthHandler();
+ 444:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 445:.\Generated_Source\PSoC5/RTC_INT.c ****                 }   /* Day roll over */
+ 446:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 447:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Alarm DAYOFWEEK */
+ 448:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 390              		.loc 1 448 0
+ 391 024e 0D4B     		ldr	r3, .L92+16
+ 392 0250 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 393 0252 13F0080F 		tst	r3, #8
+ 394 0256 2AD0     		beq	.L24
+ 449:.\Generated_Source\PSoC5/RTC_INT.c ****                                                      RTC_ALARM_DAYOFWEEK_MASK))
+ 450:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 451:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(RTC_alarmCfgTimeDate.DayOfWeek == RTC_currentTimeDate.DayOfWeek)
+ 395              		.loc 1 451 0
+ 396 0258 0B4B     		ldr	r3, .L92+20
+ 397 025a DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 16
+
+
+ 398 025c 054A     		ldr	r2, .L92
+ 399 025e D278     		ldrb	r2, [r2, #3]	@ zero_extendqisi2
+ 400 0260 DBB2     		uxtb	r3, r3
+ 401 0262 9342     		cmp	r3, r2
+ 402 0264 1ED1     		bne	.L25
+ 452:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 453:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Set day of week alarm */
+ 454:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_alarmCurStatus |= RTC_ALARM_DAYOFWEEK_MASK;
+ 403              		.loc 1 454 0
+ 404 0266 094A     		ldr	r2, .L92+24
+ 405 0268 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 406 026a 43F00803 		orr	r3, r3, #8
+ 407 026e 1370     		strb	r3, [r2]
+ 408 0270 1DE0     		b	.L24
+ 409              	.L93:
+ 410 0272 00BF     		.align	2
+ 411              	.L92:
+ 412 0274 00000000 		.word	RTC_currentTimeDate
+ 413 0278 00000000 		.word	RTC_statusDateTime
+ 414 027c 00000000 		.word	RTC_daysInMonths
+ 415 0280 1F85EB51 		.word	1374389535
+ 416 0284 00000000 		.word	RTC_alarmCfgMask
+ 417 0288 00000000 		.word	RTC_alarmCfgTimeDate
+ 418 028c 00000000 		.word	RTC_alarmCurStatus
+ 419 0290 00000000 		.word	RTC_intervalCfgMask
+ 420 0294 00000000 		.word	RTC_dstTimeDateStop
+ 421 0298 00000000 		.word	RTC_dstStopStatus
+ 422 029c 00000000 		.word	RTC_dstTimeDateStart
+ 423 02a0 00000000 		.word	RTC_dstStartStatus
+ 424              	.L25:
+ 455:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 456:.\Generated_Source\PSoC5/RTC_INT.c ****                     else
+ 457:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 458:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Clear day of week alarm */
+ 459:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_DAYOFWEEK_MASK);
+ 425              		.loc 1 459 0
+ 426 02a4 7A4A     		ldr	r2, .L94
+ 427 02a6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 428 02a8 03F0F703 		and	r3, r3, #247
+ 429 02ac 1370     		strb	r3, [r2]
+ 430              	.L24:
+ 460:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 461:.\Generated_Source\PSoC5/RTC_INT.c ****                 }   /* Day of week alarm is masked */
+ 462:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 463:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Alarm DAYOFYEAR */
+ 464:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 431              		.loc 1 464 0
+ 432 02ae 794B     		ldr	r3, .L94+4
+ 433 02b0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 434 02b2 13F0200F 		tst	r3, #32
+ 435 02b6 12D0     		beq	.L26
+ 465:.\Generated_Source\PSoC5/RTC_INT.c ****                                                      RTC_ALARM_DAYOFYEAR_MASK))
+ 466:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 467:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(RTC_alarmCfgTimeDate.DayOfYear == RTC_currentTimeDate.DayOfYear)
+ 436              		.loc 1 467 0
+ 437 02b8 774B     		ldr	r3, .L94+8
+ 438 02ba DA88     		ldrh	r2, [r3, #6]
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 17
+
+
+ 439 02bc 92B2     		uxth	r2, r2
+ 440 02be 774B     		ldr	r3, .L94+12
+ 441 02c0 DB88     		ldrh	r3, [r3, #6]
+ 442 02c2 9BB2     		uxth	r3, r3
+ 443 02c4 9A42     		cmp	r2, r3
+ 444 02c6 05D1     		bne	.L27
+ 468:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 469:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Set day of year alarm */
+ 470:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_alarmCurStatus |= RTC_ALARM_DAYOFYEAR_MASK;
+ 445              		.loc 1 470 0
+ 446 02c8 714A     		ldr	r2, .L94
+ 447 02ca 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 448 02cc 43F02003 		orr	r3, r3, #32
+ 449 02d0 1370     		strb	r3, [r2]
+ 450 02d2 04E0     		b	.L26
+ 451              	.L27:
+ 471:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 472:.\Generated_Source\PSoC5/RTC_INT.c ****                     else
+ 473:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 474:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Clear day of year alarm */
+ 475:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_DAYOFYEAR_MASK);
+ 452              		.loc 1 475 0
+ 453 02d4 6E4A     		ldr	r2, .L94
+ 454 02d6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 455 02d8 03F0DF03 		and	r3, r3, #223
+ 456 02dc 1370     		strb	r3, [r2]
+ 457              	.L26:
+ 476:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 477:.\Generated_Source\PSoC5/RTC_INT.c ****                 }   /* Day of year alarm is masked */
+ 478:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 479:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Alarm DAYOFMONTH */
+ 480:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 458              		.loc 1 480 0
+ 459 02de 6D4B     		ldr	r3, .L94+4
+ 460 02e0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 461 02e2 13F0100F 		tst	r3, #16
+ 462 02e6 11D0     		beq	.L28
+ 481:.\Generated_Source\PSoC5/RTC_INT.c ****                          RTC_ALARM_DAYOFMONTH_MASK))
+ 482:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 483:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(RTC_alarmCfgTimeDate.DayOfMonth == RTC_currentTimeDate.DayOfMonth)
+ 463              		.loc 1 483 0
+ 464 02e8 6B4B     		ldr	r3, .L94+8
+ 465 02ea 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 466 02ec 6B4A     		ldr	r2, .L94+12
+ 467 02ee 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+ 468 02f0 DBB2     		uxtb	r3, r3
+ 469 02f2 9342     		cmp	r3, r2
+ 470 02f4 05D1     		bne	.L29
+ 484:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 485:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Set day of month alarm */
+ 486:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_alarmCurStatus |= RTC_ALARM_DAYOFMONTH_MASK;
+ 471              		.loc 1 486 0
+ 472 02f6 664A     		ldr	r2, .L94
+ 473 02f8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 474 02fa 43F01003 		orr	r3, r3, #16
+ 475 02fe 1370     		strb	r3, [r2]
+ 476 0300 04E0     		b	.L28
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 18
+
+
+ 477              	.L29:
+ 487:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 488:.\Generated_Source\PSoC5/RTC_INT.c ****                     else
+ 489:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 490:.\Generated_Source\PSoC5/RTC_INT.c ****                         /* Clear day of month alarm */
+ 491:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_DAYOFMONTH_MASK);
+ 478              		.loc 1 491 0
+ 479 0302 634A     		ldr	r2, .L94
+ 480 0304 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 481 0306 03F0EF03 		and	r3, r3, #239
+ 482 030a 1370     		strb	r3, [r2]
+ 483              	.L28:
+ 492:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 493:.\Generated_Source\PSoC5/RTC_INT.c ****                 }   /* Day of month alarm is masked */
+ 494:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 495:.\Generated_Source\PSoC5/RTC_INT.c ****                 #if (1u == RTC_DST_FUNC_ENABLE)
+ 496:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(RTC_dstTimeDateStop.DayOfMonth == RTC_currentTimeDate.DayOfMonth)
+ 484              		.loc 1 496 0
+ 485 030c 644B     		ldr	r3, .L94+16
+ 486 030e DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 487 0310 624A     		ldr	r2, .L94+12
+ 488 0312 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+ 489 0314 DBB2     		uxtb	r3, r3
+ 490 0316 9342     		cmp	r3, r2
+ 491 0318 05D1     		bne	.L30
+ 497:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 498:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_dstStopStatus |= RTC_DST_DAYOFMONTH;
+ 492              		.loc 1 498 0
+ 493 031a 624A     		ldr	r2, .L94+20
+ 494 031c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 495 031e 43F00203 		orr	r3, r3, #2
+ 496 0322 1370     		strb	r3, [r2]
+ 497 0324 04E0     		b	.L31
+ 498              	.L30:
+ 499:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 500:.\Generated_Source\PSoC5/RTC_INT.c ****                     else
+ 501:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 502:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_dstStopStatus &= (uint8)(~RTC_DST_DAYOFMONTH);
+ 499              		.loc 1 502 0
+ 500 0326 5F4A     		ldr	r2, .L94+20
+ 501 0328 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 502 032a 03F0FD03 		and	r3, r3, #253
+ 503 032e 1370     		strb	r3, [r2]
+ 504              	.L31:
+ 503:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 504:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 505:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(RTC_dstTimeDateStart.DayOfMonth == RTC_currentTimeDate.DayOfMonth)
+ 505              		.loc 1 505 0
+ 506 0330 5D4B     		ldr	r3, .L94+24
+ 507 0332 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 508 0334 594A     		ldr	r2, .L94+12
+ 509 0336 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+ 510 0338 DBB2     		uxtb	r3, r3
+ 511 033a 9342     		cmp	r3, r2
+ 512 033c 05D1     		bne	.L32
+ 506:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 507:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_dstStartStatus |= RTC_DST_DAYOFMONTH;
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 19
+
+
+ 513              		.loc 1 507 0
+ 514 033e 5B4A     		ldr	r2, .L94+28
+ 515 0340 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 516 0342 43F00203 		orr	r3, r3, #2
+ 517 0346 1370     		strb	r3, [r2]
+ 518 0348 04E0     		b	.L33
+ 519              	.L32:
+ 508:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 509:.\Generated_Source\PSoC5/RTC_INT.c ****                     else
+ 510:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 511:.\Generated_Source\PSoC5/RTC_INT.c ****                         RTC_dstStartStatus &= (uint8)(~RTC_DST_DAYOFMONTH);
+ 520              		.loc 1 511 0
+ 521 034a 584A     		ldr	r2, .L94+28
+ 522 034c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 523 034e 03F0FD03 		and	r3, r3, #253
+ 524 0352 1370     		strb	r3, [r2]
+ 525              	.L33:
+ 512:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 513:.\Generated_Source\PSoC5/RTC_INT.c ****                 #endif /* 1u == RTC_DST_FUNC_ENABLE */
+ 514:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 515:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Set Alarm flag event */
+ 516:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_tmp = RTC_alarmCfgMask;
+ 526              		.loc 1 516 0
+ 527 0354 4F4B     		ldr	r3, .L94+4
+ 528 0356 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 529              	.LVL5:
+ 517:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_SET_ALARM(RTC_tmp,
+ 530              		.loc 1 517 0
+ 531 0358 03F0FF02 		and	r2, r3, #255
+ 532 035c 63B1     		cbz	r3, .L34
+ 533              		.loc 1 517 0 is_stmt 0 discriminator 1
+ 534 035e 4C4B     		ldr	r3, .L94
+ 535              	.LVL6:
+ 536 0360 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 537 0362 1340     		ands	r3, r3, r2
+ 538 0364 9342     		cmp	r3, r2
+ 539 0366 07D1     		bne	.L34
+ 540              		.loc 1 517 0 discriminator 2
+ 541 0368 514A     		ldr	r2, .L94+32
+ 542 036a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 543 036c 43F00803 		orr	r3, r3, #8
+ 544 0370 1370     		strb	r3, [r2]
+ 545 0372 0022     		movs	r2, #0
+ 546 0374 464B     		ldr	r3, .L94
+ 547 0376 1A70     		strb	r2, [r3]
+ 548              	.L34:
+ 518:.\Generated_Source\PSoC5/RTC_INT.c ****                                            RTC_alarmCurStatus,
+ 519:.\Generated_Source\PSoC5/RTC_INT.c ****                                            RTC_statusDateTime);
+ 520:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 521:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* Every Day */
+ 522:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(0u != RTC_IS_BIT_SET(RTC_intervalCfgMask,
+ 549              		.loc 1 522 0 is_stmt 1
+ 550 0378 4E4B     		ldr	r3, .L94+36
+ 551 037a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 523:.\Generated_Source\PSoC5/RTC_INT.c ****                          RTC_INTERVAL_DAY_MASK))
+ 524:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 525:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_EveryDayHandler();
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 20
+
+
+ 526:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 527:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 528:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(1u == RTC_currentTimeDate.DayOfWeek)
+ 552              		.loc 1 528 0
+ 553 037c 474B     		ldr	r3, .L94+12
+ 554 037e DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 555 0380 DBB2     		uxtb	r3, r3
+ 556 0382 012B     		cmp	r3, #1
+ 557 0384 01D1     		bne	.L4
+ 529:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 530:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Every Week */
+ 531:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_intervalCfgMask,
+ 558              		.loc 1 531 0
+ 559 0386 4B4B     		ldr	r3, .L94+36
+ 560 0388 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 561              	.L4:
+ 532:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_INTERVAL_WEEK_MASK))
+ 533:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 534:.\Generated_Source\PSoC5/RTC_INT.c ****                        RTC_EveryWeekHandler();
+ 535:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 536:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 537:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 538:.\Generated_Source\PSoC5/RTC_INT.c ****             } /* End of day roll over */
+ 539:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 540:.\Generated_Source\PSoC5/RTC_INT.c ****             /* Status set PM/AM flag */
+ 541:.\Generated_Source\PSoC5/RTC_INT.c ****             if(RTC_currentTimeDate.Hour < RTC_HALF_OF_DAY_ELAPSED)
+ 562              		.loc 1 541 0
+ 563 038a 444B     		ldr	r3, .L94+12
+ 564 038c 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 565 038e DBB2     		uxtb	r3, r3
+ 566 0390 0B2B     		cmp	r3, #11
+ 567 0392 05D8     		bhi	.L35
+ 542:.\Generated_Source\PSoC5/RTC_INT.c ****             {
+ 543:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* AM Hour 00:00-11:59, flag zero */
+ 544:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_statusDateTime &= (uint8)(~RTC_STATUS_AM_PM);
+ 568              		.loc 1 544 0
+ 569 0394 464A     		ldr	r2, .L94+32
+ 570 0396 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 571 0398 03F0FB03 		and	r3, r3, #251
+ 572 039c 1370     		strb	r3, [r2]
+ 573 039e 04E0     		b	.L36
+ 574              	.L35:
+ 545:.\Generated_Source\PSoC5/RTC_INT.c ****             }
+ 546:.\Generated_Source\PSoC5/RTC_INT.c ****             else
+ 547:.\Generated_Source\PSoC5/RTC_INT.c ****             {
+ 548:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* PM Hour 12:00-23:59, flag set */
+ 549:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_statusDateTime |= RTC_STATUS_AM_PM;
+ 575              		.loc 1 549 0
+ 576 03a0 434A     		ldr	r2, .L94+32
+ 577 03a2 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 578 03a4 43F00403 		orr	r3, r3, #4
+ 579 03a8 1370     		strb	r3, [r2]
+ 580              	.L36:
+ 550:.\Generated_Source\PSoC5/RTC_INT.c ****             }
+ 551:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 552:.\Generated_Source\PSoC5/RTC_INT.c ****             #if (1u == RTC_DST_FUNC_ENABLE)
+ 553:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(RTC_dstTimeDateStop.Hour == RTC_currentTimeDate.Hour)
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 21
+
+
+ 581              		.loc 1 553 0
+ 582 03aa 3D4B     		ldr	r3, .L94+16
+ 583 03ac 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 584 03ae 3B4A     		ldr	r2, .L94+12
+ 585 03b0 9278     		ldrb	r2, [r2, #2]	@ zero_extendqisi2
+ 586 03b2 DBB2     		uxtb	r3, r3
+ 587 03b4 9342     		cmp	r3, r2
+ 588 03b6 05D1     		bne	.L37
+ 554:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 555:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_dstStopStatus |= RTC_DST_HOUR;
+ 589              		.loc 1 555 0
+ 590 03b8 3A4A     		ldr	r2, .L94+20
+ 591 03ba 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 592 03bc 43F00103 		orr	r3, r3, #1
+ 593 03c0 1370     		strb	r3, [r2]
+ 594 03c2 04E0     		b	.L38
+ 595              	.L37:
+ 556:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 557:.\Generated_Source\PSoC5/RTC_INT.c ****                 else
+ 558:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 559:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_dstStopStatus &= (uint8)(~RTC_DST_HOUR);
+ 596              		.loc 1 559 0
+ 597 03c4 374A     		ldr	r2, .L94+20
+ 598 03c6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 599 03c8 03F0FE03 		and	r3, r3, #254
+ 600 03cc 1370     		strb	r3, [r2]
+ 601              	.L38:
+ 560:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 561:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 562:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(RTC_dstTimeDateStart.Hour == RTC_currentTimeDate.Hour)
+ 602              		.loc 1 562 0
+ 603 03ce 364B     		ldr	r3, .L94+24
+ 604 03d0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 605 03d2 324A     		ldr	r2, .L94+12
+ 606 03d4 9278     		ldrb	r2, [r2, #2]	@ zero_extendqisi2
+ 607 03d6 DBB2     		uxtb	r3, r3
+ 608 03d8 9342     		cmp	r3, r2
+ 609 03da 05D1     		bne	.L39
+ 563:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 564:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_dstStartStatus |= RTC_DST_HOUR;
+ 610              		.loc 1 564 0
+ 611 03dc 334A     		ldr	r2, .L94+28
+ 612 03de 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 613 03e0 43F00103 		orr	r3, r3, #1
+ 614 03e4 1370     		strb	r3, [r2]
+ 615 03e6 04E0     		b	.L40
+ 616              	.L39:
+ 565:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 566:.\Generated_Source\PSoC5/RTC_INT.c ****                 else
+ 567:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 568:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_dstStartStatus &= (uint8)(~RTC_DST_HOUR);
+ 617              		.loc 1 568 0
+ 618 03e8 304A     		ldr	r2, .L94+28
+ 619 03ea 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 620 03ec 03F0FE03 		and	r3, r3, #254
+ 621 03f0 1370     		strb	r3, [r2]
+ 622              	.L40:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 22
+
+
+ 569:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 570:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 571:.\Generated_Source\PSoC5/RTC_INT.c ****                 /* DST Enable ? */
+ 572:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(0u != RTC_IS_BIT_SET(RTC_dstModeType, RTC_DST_ENABLE))
+ 623              		.loc 1 572 0
+ 624 03f2 314B     		ldr	r3, .L94+40
+ 625 03f4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 626 03f6 13F0010F 		tst	r3, #1
+ 627 03fa 00F08A82 		beq	.L41
+ 573:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 574:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_statusDateTime, RTC_STATUS_DST))
+ 628              		.loc 1 574 0
+ 629 03fe 2C4B     		ldr	r3, .L94+32
+ 630 0400 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 631 0402 13F0010F 		tst	r3, #1
+ 632 0406 00F0E180 		beq	.L42
+ 575:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 576:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(0u != RTC_IS_BIT_SET(RTC_dstStopStatus, RTC_DST_HOUR |
+ 633              		.loc 1 576 0
+ 634 040a 264B     		ldr	r3, .L94+20
+ 635 040c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 636 040e 03F00703 		and	r3, r3, #7
+ 637 0412 072B     		cmp	r3, #7
+ 638 0414 40F0E281 		bne	.L43
+ 577:.\Generated_Source\PSoC5/RTC_INT.c ****                                                        RTC_DST_DAYOFMONTH | RTC_DST_MONTH))
+ 578:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 579:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Substruct from current value of minutes, number of minutes
+ 580:.\Generated_Source\PSoC5/RTC_INT.c ****                             * in DST offset which is out of complete hour
+ 581:.\Generated_Source\PSoC5/RTC_INT.c ****                             */
+ 582:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_currentTimeDate.Min -=
+ 583:.\Generated_Source\PSoC5/RTC_INT.c ****                                                 RTC_dstOffsetMin % (RTC_HOUR_ELAPSED + 1u);
+ 639              		.loc 1 583 0
+ 640 0418 284B     		ldr	r3, .L94+44
+ 641 041a 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 642 041c D2B2     		uxtb	r2, r2
+ 643 041e 284B     		ldr	r3, .L94+48
+ 644 0420 A3FB0213 		umull	r1, r3, r3, r2
+ 645 0424 5B09     		lsrs	r3, r3, #5
+ 646 0426 C3EB0313 		rsb	r3, r3, r3, lsl #4
+ 647 042a 9B00     		lsls	r3, r3, #2
+ 648 042c D31A     		subs	r3, r2, r3
+ 582:.\Generated_Source\PSoC5/RTC_INT.c ****                                                 RTC_dstOffsetMin % (RTC_HOUR_ELAPSED + 1u);
+ 649              		.loc 1 582 0
+ 650 042e 1B49     		ldr	r1, .L94+12
+ 651 0430 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 652 0432 D31A     		subs	r3, r2, r3
+ 653 0434 03F0FF03 		and	r3, r3, #255
+ 654 0438 4B70     		strb	r3, [r1, #1]
+ 584:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 585:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Is minute value negative? */
+ 586:.\Generated_Source\PSoC5/RTC_INT.c ****                             if(RTC_currentTimeDate.Min > RTC_HOUR_ELAPSED)
+ 655              		.loc 1 586 0
+ 656 043a 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 657 043c DBB2     		uxtb	r3, r3
+ 658 043e 3B2B     		cmp	r3, #59
+ 659 0440 07D9     		bls	.L44
+ 587:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 23
+
+
+ 588:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Convert to the positive.
+ 589:.\Generated_Source\PSoC5/RTC_INT.c ****                                 * HOUR_ELAPSED -     (~currentTimeDate.Min    ) ==
+ 590:.\Generated_Source\PSoC5/RTC_INT.c ****                                 * HOUR_ELAPSED + 1 - (~currentTimeDate.Min + 1)
+ 591:.\Generated_Source\PSoC5/RTC_INT.c ****                                 */
+ 592:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.Min = RTC_HOUR_ELAPSED -
+ 593:.\Generated_Source\PSoC5/RTC_INT.c ****                                                              ((uint8)(~RTC_currentTimeDate.Min));
+ 660              		.loc 1 593 0
+ 661 0442 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 592:.\Generated_Source\PSoC5/RTC_INT.c ****                                                              ((uint8)(~RTC_currentTimeDate.Min));
+ 662              		.loc 1 592 0
+ 663 0444 3C33     		adds	r3, r3, #60
+ 664 0446 DBB2     		uxtb	r3, r3
+ 665 0448 4B70     		strb	r3, [r1, #1]
+ 594:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 595:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.Hour--;
+ 666              		.loc 1 595 0
+ 667 044a 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 668 044c 013B     		subs	r3, r3, #1
+ 669 044e DBB2     		uxtb	r3, r3
+ 670 0450 8B70     		strb	r3, [r1, #2]
+ 671              	.L44:
+ 596:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 597:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 598:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_currentTimeDate.Hour -= RTC_dstOffsetMin /
+ 672              		.loc 1 598 0
+ 673 0452 1A4B     		ldr	r3, .L94+44
+ 674 0454 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 675 0456 DBB2     		uxtb	r3, r3
+ 676 0458 194A     		ldr	r2, .L94+48
+ 677 045a A2FB0332 		umull	r3, r2, r2, r3
+ 678 045e 0F49     		ldr	r1, .L94+12
+ 679 0460 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 680 0462 A3EB5213 		sub	r3, r3, r2, lsr #5
+ 681 0466 DBB2     		uxtb	r3, r3
+ 682 0468 8B70     		strb	r3, [r1, #2]
+ 599:.\Generated_Source\PSoC5/RTC_INT.c ****                                                                      (RTC_HOUR_ELAPSED + 1u);
+ 600:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 601:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Day roll over
+ 602:.\Generated_Source\PSoC5/RTC_INT.c ****                             * Is hour value negative? */
+ 603:.\Generated_Source\PSoC5/RTC_INT.c ****                             if(RTC_currentTimeDate.Hour > RTC_DAY_ELAPSED)
+ 683              		.loc 1 603 0
+ 684 046a 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 685 046c DBB2     		uxtb	r3, r3
+ 686 046e 172B     		cmp	r3, #23
+ 687 0470 40F2A380 		bls	.L45
+ 604:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 605:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Convert to the positive.
+ 606:.\Generated_Source\PSoC5/RTC_INT.c ****                                 * DAY_ELAPSED - (~currentTimeDate.Hour) ==
+ 607:.\Generated_Source\PSoC5/RTC_INT.c ****                                 * DAY_ELAPSED + 1 - (~currentTimeDate.Hour + 1)
+ 608:.\Generated_Source\PSoC5/RTC_INT.c ****                                 */
+ 609:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.Hour = RTC_DAY_ELAPSED -
+ 610:.\Generated_Source\PSoC5/RTC_INT.c ****                                                               ((uint8)(~RTC_currentTimeDate.Hour));
+ 688              		.loc 1 610 0
+ 689 0474 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 609:.\Generated_Source\PSoC5/RTC_INT.c ****                                                               ((uint8)(~RTC_currentTimeDate.Hour));
+ 690              		.loc 1 609 0
+ 691 0476 1833     		adds	r3, r3, #24
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 24
+
+
+ 692 0478 DBB2     		uxtb	r3, r3
+ 693 047a 8B70     		strb	r3, [r1, #2]
+ 611:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 612:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Status set PM/AM flag */
+ 613:.\Generated_Source\PSoC5/RTC_INT.c ****                                 if(RTC_currentTimeDate.Hour < RTC_HALF_OF_DAY_ELAPSED)
+ 694              		.loc 1 613 0
+ 695 047c 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 696 047e DBB2     		uxtb	r3, r3
+ 697 0480 0B2B     		cmp	r3, #11
+ 698 0482 1FD8     		bhi	.L46
+ 614:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 615:.\Generated_Source\PSoC5/RTC_INT.c ****                                     /* AM Hour 00:00-11:59, flag zero */
+ 616:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_statusDateTime &= (uint8)(~RTC_STATUS_AM_PM);
+ 699              		.loc 1 616 0
+ 700 0484 0A4A     		ldr	r2, .L94+32
+ 701 0486 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 702 0488 03F0FB03 		and	r3, r3, #251
+ 703 048c 1370     		strb	r3, [r2]
+ 704 048e 1EE0     		b	.L47
+ 705              	.L95:
+ 706              		.align	2
+ 707              	.L94:
+ 708 0490 00000000 		.word	RTC_alarmCurStatus
+ 709 0494 00000000 		.word	RTC_alarmCfgMask
+ 710 0498 00000000 		.word	RTC_alarmCfgTimeDate
+ 711 049c 00000000 		.word	RTC_currentTimeDate
+ 712 04a0 00000000 		.word	RTC_dstTimeDateStop
+ 713 04a4 00000000 		.word	RTC_dstStopStatus
+ 714 04a8 00000000 		.word	RTC_dstTimeDateStart
+ 715 04ac 00000000 		.word	RTC_dstStartStatus
+ 716 04b0 00000000 		.word	RTC_statusDateTime
+ 717 04b4 00000000 		.word	RTC_intervalCfgMask
+ 718 04b8 00000000 		.word	RTC_dstModeType
+ 719 04bc 00000000 		.word	RTC_dstOffsetMin
+ 720 04c0 89888888 		.word	-2004318071
+ 721              	.L46:
+ 617:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 618:.\Generated_Source\PSoC5/RTC_INT.c ****                                 else
+ 619:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 620:.\Generated_Source\PSoC5/RTC_INT.c ****                                     /* PM Hour 12:00-23:59, flag set */
+ 621:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_statusDateTime |= RTC_STATUS_AM_PM;
+ 722              		.loc 1 621 0
+ 723 04c4 634A     		ldr	r2, .L96
+ 724 04c6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 725 04c8 43F00403 		orr	r3, r3, #4
+ 726 04cc 1370     		strb	r3, [r2]
+ 727              	.L47:
+ 622:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 623:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 624:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.DayOfMonth--;
+ 728              		.loc 1 624 0
+ 729 04ce 624B     		ldr	r3, .L96+4
+ 730 04d0 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+ 731 04d2 013A     		subs	r2, r2, #1
+ 732 04d4 D2B2     		uxtb	r2, r2
+ 733 04d6 1A71     		strb	r2, [r3, #4]
+ 625:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.DayOfYear--;
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 25
+
+
+ 734              		.loc 1 625 0
+ 735 04d8 DA88     		ldrh	r2, [r3, #6]
+ 736 04da 013A     		subs	r2, r2, #1
+ 737 04dc 92B2     		uxth	r2, r2
+ 738 04de DA80     		strh	r2, [r3, #6]	@ movhi
+ 626:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.DayOfWeek--;
+ 739              		.loc 1 626 0
+ 740 04e0 DA78     		ldrb	r2, [r3, #3]	@ zero_extendqisi2
+ 741 04e2 013A     		subs	r2, r2, #1
+ 742 04e4 D2B2     		uxtb	r2, r2
+ 743 04e6 DA70     		strb	r2, [r3, #3]
+ 627:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 628:.\Generated_Source\PSoC5/RTC_INT.c ****                                 if(0u == RTC_currentTimeDate.DayOfWeek)
+ 744              		.loc 1 628 0
+ 745 04e8 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 746 04ea 13F0FF0F 		tst	r3, #255
+ 747 04ee 02D1     		bne	.L48
+ 629:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 630:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_currentTimeDate.DayOfWeek = RTC_DAYS_IN_WEEK;
+ 748              		.loc 1 630 0
+ 749 04f0 0722     		movs	r2, #7
+ 750 04f2 594B     		ldr	r3, .L96+4
+ 751 04f4 DA70     		strb	r2, [r3, #3]
+ 752              	.L48:
+ 631:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 632:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 633:.\Generated_Source\PSoC5/RTC_INT.c ****                                 if(0u == RTC_currentTimeDate.DayOfMonth)
+ 753              		.loc 1 633 0
+ 754 04f6 584B     		ldr	r3, .L96+4
+ 755 04f8 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 756 04fa 13F0FF0F 		tst	r3, #255
+ 757 04fe 5CD1     		bne	.L45
+ 634:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 635:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_currentTimeDate.Month--;
+ 758              		.loc 1 635 0
+ 759 0500 554A     		ldr	r2, .L96+4
+ 760 0502 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 761 0504 013B     		subs	r3, r3, #1
+ 762 0506 DBB2     		uxtb	r3, r3
+ 763 0508 1372     		strb	r3, [r2, #8]
+ 636:.\Generated_Source\PSoC5/RTC_INT.c ****                                     if(0u == RTC_currentTimeDate.Month)
+ 764              		.loc 1 636 0
+ 765 050a 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 766 050c 13F0FF0F 		tst	r3, #255
+ 767 0510 3AD1     		bne	.L50
+ 637:.\Generated_Source\PSoC5/RTC_INT.c ****                                     {
+ 638:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_currentTimeDate.Month = RTC_DECEMBER;
+ 768              		.loc 1 638 0
+ 769 0512 1346     		mov	r3, r2
+ 770 0514 0C22     		movs	r2, #12
+ 771 0516 1A72     		strb	r2, [r3, #8]
+ 639:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 640:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_currentTimeDate.DayOfMonth =
+ 641:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_daysInMonths[RTC_currentTimeDate.Month - 1u];
+ 772              		.loc 1 641 0
+ 773 0518 1A7A     		ldrb	r2, [r3, #8]	@ zero_extendqisi2
+ 774 051a 013A     		subs	r2, r2, #1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 26
+
+
+ 775 051c 4F49     		ldr	r1, .L96+8
+ 776 051e 8A5C     		ldrb	r2, [r1, r2]	@ zero_extendqisi2
+ 640:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_daysInMonths[RTC_currentTimeDate.Month - 1u];
+ 777              		.loc 1 640 0
+ 778 0520 1A71     		strb	r2, [r3, #4]
+ 642:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 643:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_currentTimeDate.Year--;
+ 779              		.loc 1 643 0
+ 780 0522 5A89     		ldrh	r2, [r3, #10]
+ 781 0524 013A     		subs	r2, r2, #1
+ 782 0526 92B2     		uxth	r2, r2
+ 783 0528 5A81     		strh	r2, [r3, #10]	@ movhi
+ 644:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 645:.\Generated_Source\PSoC5/RTC_INT.c ****                                         if(1u == RTC_LEAP_YEAR(RTC_currentTimeDate.Year))
+ 784              		.loc 1 645 0
+ 785 052a 5B89     		ldrh	r3, [r3, #10]
+ 786 052c 9BB2     		uxth	r3, r3
+ 787 052e 4C4A     		ldr	r2, .L96+12
+ 788 0530 A2FB0312 		umull	r1, r2, r2, r3
+ 789 0534 D209     		lsrs	r2, r2, #7
+ 790 0536 4FF4C871 		mov	r1, #400
+ 791 053a 01FB1233 		mls	r3, r1, r2, r3
+ 792 053e 9BB2     		uxth	r3, r3
+ 793 0540 73B1     		cbz	r3, .L51
+ 794              		.loc 1 645 0 is_stmt 0 discriminator 1
+ 795 0542 454B     		ldr	r3, .L96+4
+ 796 0544 5B89     		ldrh	r3, [r3, #10]
+ 797 0546 13F0030F 		tst	r3, #3
+ 798 054a 13D1     		bne	.L52
+ 799              		.loc 1 645 0 discriminator 2
+ 800 054c 424B     		ldr	r3, .L96+4
+ 801 054e 5B89     		ldrh	r3, [r3, #10]
+ 802 0550 9BB2     		uxth	r3, r3
+ 803 0552 6421     		movs	r1, #100
+ 804 0554 B3FBF1F2 		udiv	r2, r3, r1
+ 805 0558 01FB1233 		mls	r3, r1, r2, r3
+ 806 055c 9BB2     		uxth	r3, r3
+ 807 055e 4BB1     		cbz	r3, .L52
+ 808              	.L51:
+ 646:.\Generated_Source\PSoC5/RTC_INT.c ****                                         {
+ 647:.\Generated_Source\PSoC5/RTC_INT.c ****                                             /* LP - true, else - false */
+ 648:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_statusDateTime |= RTC_STATUS_LY;
+ 809              		.loc 1 648 0 is_stmt 1
+ 810 0560 3C4A     		ldr	r2, .L96
+ 811 0562 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 812 0564 43F00203 		orr	r3, r3, #2
+ 813 0568 1370     		strb	r3, [r2]
+ 649:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_currentTimeDate.DayOfYear =
+ 814              		.loc 1 649 0
+ 815 056a 4FF4B772 		mov	r2, #366
+ 816 056e 3A4B     		ldr	r3, .L96+4
+ 817 0570 DA80     		strh	r2, [r3, #6]	@ movhi
+ 818 0572 22E0     		b	.L45
+ 819              	.L52:
+ 650:.\Generated_Source\PSoC5/RTC_INT.c ****                                                                                     RTC_DAYS_IN_LEA
+ 651:.\Generated_Source\PSoC5/RTC_INT.c ****                                         }
+ 652:.\Generated_Source\PSoC5/RTC_INT.c ****                                         else
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 27
+
+
+ 653:.\Generated_Source\PSoC5/RTC_INT.c ****                                         {
+ 654:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_statusDateTime &= (uint8)(~RTC_STATUS_LY);
+ 820              		.loc 1 654 0
+ 821 0574 374A     		ldr	r2, .L96
+ 822 0576 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 823 0578 03F0FD03 		and	r3, r3, #253
+ 824 057c 1370     		strb	r3, [r2]
+ 655:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_currentTimeDate.DayOfYear = RTC_DAYS_IN_YEAR;
+ 825              		.loc 1 655 0
+ 826 057e 40F26D12 		movw	r2, #365
+ 827 0582 354B     		ldr	r3, .L96+4
+ 828 0584 DA80     		strh	r2, [r3, #6]	@ movhi
+ 829 0586 18E0     		b	.L45
+ 830              	.L50:
+ 656:.\Generated_Source\PSoC5/RTC_INT.c ****                                         }
+ 657:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_EveryYearHandler();
+ 658:.\Generated_Source\PSoC5/RTC_INT.c ****                                     }
+ 659:.\Generated_Source\PSoC5/RTC_INT.c ****                                     else
+ 660:.\Generated_Source\PSoC5/RTC_INT.c ****                                     {
+ 661:.\Generated_Source\PSoC5/RTC_INT.c ****                                         /* Day of month roll over.
+ 662:.\Generated_Source\PSoC5/RTC_INT.c ****                                         * Check if day of month February 29 of leap year
+ 663:.\Generated_Source\PSoC5/RTC_INT.c ****                                         */
+ 664:.\Generated_Source\PSoC5/RTC_INT.c ****                                         if((0u != (RTC_statusDateTime & RTC_STATUS_LY)) &&
+ 831              		.loc 1 664 0
+ 832 0588 324B     		ldr	r3, .L96
+ 833 058a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 834 058c 13F0020F 		tst	r3, #2
+ 835 0590 0DD0     		beq	.L55
+ 665:.\Generated_Source\PSoC5/RTC_INT.c ****                                             (RTC_currentTimeDate.Month == RTC_FEBRUARY))
+ 836              		.loc 1 665 0 discriminator 1
+ 837 0592 314B     		ldr	r3, .L96+4
+ 838 0594 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 839 0596 DBB2     		uxtb	r3, r3
+ 664:.\Generated_Source\PSoC5/RTC_INT.c ****                                             (RTC_currentTimeDate.Month == RTC_FEBRUARY))
+ 840              		.loc 1 664 0 discriminator 1
+ 841 0598 022B     		cmp	r3, #2
+ 842 059a 08D1     		bne	.L55
+ 666:.\Generated_Source\PSoC5/RTC_INT.c ****                                         {
+ 667:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_currentTimeDate.DayOfMonth =
+ 668:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_daysInMonths[RTC_currentTimeDate.Month - 1u]
+ 843              		.loc 1 668 0
+ 844 059c 2E4A     		ldr	r2, .L96+4
+ 845 059e 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 846 05a0 013B     		subs	r3, r3, #1
+ 847 05a2 2E49     		ldr	r1, .L96+8
+ 848 05a4 CB5C     		ldrb	r3, [r1, r3]	@ zero_extendqisi2
+ 667:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_daysInMonths[RTC_currentTimeDate.Month - 1u]
+ 849              		.loc 1 667 0
+ 850 05a6 0133     		adds	r3, r3, #1
+ 851 05a8 DBB2     		uxtb	r3, r3
+ 852 05aa 1371     		strb	r3, [r2, #4]
+ 853 05ac 05E0     		b	.L45
+ 854              	.L55:
+ 669:.\Generated_Source\PSoC5/RTC_INT.c ****                                             + 1u;
+ 670:.\Generated_Source\PSoC5/RTC_INT.c ****                                         }
+ 671:.\Generated_Source\PSoC5/RTC_INT.c ****                                         else
+ 672:.\Generated_Source\PSoC5/RTC_INT.c ****                                         {
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 28
+
+
+ 673:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_currentTimeDate.DayOfMonth =
+ 674:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_daysInMonths[RTC_currentTimeDate.Month - 1u];
+ 855              		.loc 1 674 0
+ 856 05ae 2A4A     		ldr	r2, .L96+4
+ 857 05b0 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 858 05b2 013B     		subs	r3, r3, #1
+ 859 05b4 2949     		ldr	r1, .L96+8
+ 860 05b6 CB5C     		ldrb	r3, [r1, r3]	@ zero_extendqisi2
+ 673:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_daysInMonths[RTC_currentTimeDate.Month - 1u];
+ 861              		.loc 1 673 0
+ 862 05b8 1371     		strb	r3, [r2, #4]
+ 863              	.L45:
+ 675:.\Generated_Source\PSoC5/RTC_INT.c ****                                         }
+ 676:.\Generated_Source\PSoC5/RTC_INT.c ****                                     }
+ 677:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_EveryMonthHandler();
+ 678:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 679:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_EveryDayHandler();
+ 680:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 681:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_statusDateTime &= (uint8)(~RTC_STATUS_DST);
+ 864              		.loc 1 681 0
+ 865 05ba 264A     		ldr	r2, .L96
+ 866 05bc 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 867 05be 03F0FE03 		and	r3, r3, #254
+ 868 05c2 1370     		strb	r3, [r2]
+ 682:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_dstStopStatus = 0u;
+ 869              		.loc 1 682 0
+ 870 05c4 0022     		movs	r2, #0
+ 871 05c6 274B     		ldr	r3, .L96+16
+ 872 05c8 1A70     		strb	r2, [r3]
+ 873 05ca 07E1     		b	.L43
+ 874              	.L42:
+ 683:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 684:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 685:.\Generated_Source\PSoC5/RTC_INT.c ****                     else
+ 686:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 687:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(0u != RTC_IS_BIT_SET(RTC_dstStartStatus,
+ 875              		.loc 1 687 0
+ 876 05cc 264B     		ldr	r3, .L96+20
+ 877 05ce 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 878 05d0 03F00703 		and	r3, r3, #7
+ 879 05d4 072B     		cmp	r3, #7
+ 880 05d6 40F00181 		bne	.L43
+ 688:.\Generated_Source\PSoC5/RTC_INT.c ****                                                       (RTC_DST_HOUR | RTC_DST_DAYOFMONTH |
+ 689:.\Generated_Source\PSoC5/RTC_INT.c ****                                                        RTC_DST_MONTH)))
+ 690:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 691:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Add Hour and Min */
+ 692:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_currentTimeDate.Min +=
+ 693:.\Generated_Source\PSoC5/RTC_INT.c ****                                                 RTC_dstOffsetMin % (RTC_HOUR_ELAPSED + 1u);
+ 881              		.loc 1 693 0
+ 882 05da 244B     		ldr	r3, .L96+24
+ 883 05dc 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 884 05de D2B2     		uxtb	r2, r2
+ 885 05e0 234B     		ldr	r3, .L96+28
+ 886 05e2 A3FB0213 		umull	r1, r3, r3, r2
+ 887 05e6 5B09     		lsrs	r3, r3, #5
+ 888 05e8 C3EB0313 		rsb	r3, r3, r3, lsl #4
+ 889 05ec 9B00     		lsls	r3, r3, #2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 29
+
+
+ 890 05ee D31A     		subs	r3, r2, r3
+ 692:.\Generated_Source\PSoC5/RTC_INT.c ****                                                 RTC_dstOffsetMin % (RTC_HOUR_ELAPSED + 1u);
+ 891              		.loc 1 692 0
+ 892 05f0 1949     		ldr	r1, .L96+4
+ 893 05f2 4A78     		ldrb	r2, [r1, #1]	@ zero_extendqisi2
+ 894 05f4 1344     		add	r3, r3, r2
+ 895 05f6 03F0FF03 		and	r3, r3, #255
+ 896 05fa 4B70     		strb	r3, [r1, #1]
+ 694:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 695:.\Generated_Source\PSoC5/RTC_INT.c ****                             if(RTC_currentTimeDate.Min > RTC_HOUR_ELAPSED)
+ 897              		.loc 1 695 0
+ 898 05fc 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 899 05fe DBB2     		uxtb	r3, r3
+ 900 0600 3B2B     		cmp	r3, #59
+ 901 0602 07D9     		bls	.L56
+ 696:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 697:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Adjust Min */
+ 698:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.Min -= (RTC_HOUR_ELAPSED + 1u);
+ 902              		.loc 1 698 0
+ 903 0604 4B78     		ldrb	r3, [r1, #1]	@ zero_extendqisi2
+ 904 0606 3C3B     		subs	r3, r3, #60
+ 905 0608 DBB2     		uxtb	r3, r3
+ 906 060a 4B70     		strb	r3, [r1, #1]
+ 699:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.Hour++;
+ 907              		.loc 1 699 0
+ 908 060c 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 909 060e 0133     		adds	r3, r3, #1
+ 910 0610 DBB2     		uxtb	r3, r3
+ 911 0612 8B70     		strb	r3, [r1, #2]
+ 912              	.L56:
+ 700:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 701:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 702:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_currentTimeDate.Hour += RTC_dstOffsetMin /
+ 913              		.loc 1 702 0
+ 914 0614 154B     		ldr	r3, .L96+24
+ 915 0616 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 916 0618 DBB2     		uxtb	r3, r3
+ 917 061a 154A     		ldr	r2, .L96+28
+ 918 061c A2FB0332 		umull	r3, r2, r2, r3
+ 919 0620 0D49     		ldr	r1, .L96+4
+ 920 0622 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 921 0624 03EB5213 		add	r3, r3, r2, lsr #5
+ 922 0628 DBB2     		uxtb	r3, r3
+ 923 062a 8B70     		strb	r3, [r1, #2]
+ 703:.\Generated_Source\PSoC5/RTC_INT.c ****                                                                      (RTC_HOUR_ELAPSED + 1u);
+ 704:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 705:.\Generated_Source\PSoC5/RTC_INT.c ****                             if(RTC_currentTimeDate.Hour > RTC_DAY_ELAPSED)
+ 924              		.loc 1 705 0
+ 925 062c 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 926 062e DBB2     		uxtb	r3, r3
+ 927 0630 172B     		cmp	r3, #23
+ 928 0632 40F2A780 		bls	.L57
+ 706:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 707:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Adjust hour, add day */
+ 708:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.Hour -= (RTC_DAY_ELAPSED + 1u);
+ 929              		.loc 1 708 0
+ 930 0636 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 30
+
+
+ 931 0638 183B     		subs	r3, r3, #24
+ 932 063a DBB2     		uxtb	r3, r3
+ 933 063c 8B70     		strb	r3, [r1, #2]
+ 709:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 710:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Status set PM/AM flag */
+ 711:.\Generated_Source\PSoC5/RTC_INT.c ****                                 if(RTC_currentTimeDate.Hour < RTC_HALF_OF_DAY_ELAPSED)
+ 934              		.loc 1 711 0
+ 935 063e 8B78     		ldrb	r3, [r1, #2]	@ zero_extendqisi2
+ 936 0640 DBB2     		uxtb	r3, r3
+ 937 0642 0B2B     		cmp	r3, #11
+ 938 0644 16D8     		bhi	.L58
+ 712:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 713:.\Generated_Source\PSoC5/RTC_INT.c ****                                     /* AM Hour 00:00-11:59, flag zero */
+ 714:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_statusDateTime &= (uint8)(~RTC_STATUS_AM_PM);
+ 939              		.loc 1 714 0
+ 940 0646 034A     		ldr	r2, .L96
+ 941 0648 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 942 064a 03F0FB03 		and	r3, r3, #251
+ 943 064e 1370     		strb	r3, [r2]
+ 944 0650 15E0     		b	.L59
+ 945              	.L97:
+ 946 0652 00BF     		.align	2
+ 947              	.L96:
+ 948 0654 00000000 		.word	RTC_statusDateTime
+ 949 0658 00000000 		.word	RTC_currentTimeDate
+ 950 065c 00000000 		.word	RTC_daysInMonths
+ 951 0660 1F85EB51 		.word	1374389535
+ 952 0664 00000000 		.word	RTC_dstStopStatus
+ 953 0668 00000000 		.word	RTC_dstStartStatus
+ 954 066c 00000000 		.word	RTC_dstOffsetMin
+ 955 0670 89888888 		.word	-2004318071
+ 956              	.L58:
+ 715:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 716:.\Generated_Source\PSoC5/RTC_INT.c ****                                 else
+ 717:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 718:.\Generated_Source\PSoC5/RTC_INT.c ****                                     /* PM Hour 12:00-23:59, flag set */
+ 719:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_statusDateTime |= RTC_STATUS_AM_PM;
+ 957              		.loc 1 719 0
+ 958 0674 914A     		ldr	r2, .L98
+ 959 0676 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 960 0678 43F00403 		orr	r3, r3, #4
+ 961 067c 1370     		strb	r3, [r2]
+ 962              	.L59:
+ 720:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 721:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 722:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.DayOfMonth++;
+ 963              		.loc 1 722 0
+ 964 067e 904B     		ldr	r3, .L98+4
+ 965 0680 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+ 966 0682 0132     		adds	r2, r2, #1
+ 967 0684 D2B2     		uxtb	r2, r2
+ 968 0686 1A71     		strb	r2, [r3, #4]
+ 723:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.DayOfYear++;
+ 969              		.loc 1 723 0
+ 970 0688 DA88     		ldrh	r2, [r3, #6]
+ 971 068a 0132     		adds	r2, r2, #1
+ 972 068c 92B2     		uxth	r2, r2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 31
+
+
+ 973 068e DA80     		strh	r2, [r3, #6]	@ movhi
+ 724:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_currentTimeDate.DayOfWeek++;
+ 974              		.loc 1 724 0
+ 975 0690 DA78     		ldrb	r2, [r3, #3]	@ zero_extendqisi2
+ 976 0692 0132     		adds	r2, r2, #1
+ 977 0694 D2B2     		uxtb	r2, r2
+ 978 0696 DA70     		strb	r2, [r3, #3]
+ 725:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 726:.\Generated_Source\PSoC5/RTC_INT.c ****                                 if(RTC_currentTimeDate.DayOfWeek > RTC_WEEK_ELAPSED)
+ 979              		.loc 1 726 0
+ 980 0698 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 981 069a DBB2     		uxtb	r3, r3
+ 982 069c 072B     		cmp	r3, #7
+ 983 069e 02D9     		bls	.L60
+ 727:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 728:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_currentTimeDate.DayOfWeek = 1u;
+ 984              		.loc 1 728 0
+ 985 06a0 0122     		movs	r2, #1
+ 986 06a2 874B     		ldr	r3, .L98+4
+ 987 06a4 DA70     		strb	r2, [r3, #3]
+ 988              	.L60:
+ 729:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 730:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 731:.\Generated_Source\PSoC5/RTC_INT.c ****                                 /* Day of month roll over.
+ 732:.\Generated_Source\PSoC5/RTC_INT.c ****                                 * Check if day of month greater than 29 in February of leap year or
+ 733:.\Generated_Source\PSoC5/RTC_INT.c ****                                 * if day of month greater than 28 NOT in February of NON leap year 
+ 734:.\Generated_Source\PSoC5/RTC_INT.c ****                                 * if day of month greater than it should be in every month in non l
+ 735:.\Generated_Source\PSoC5/RTC_INT.c ****                                 */
+ 736:.\Generated_Source\PSoC5/RTC_INT.c ****                                 if(((0u != (RTC_statusDateTime & RTC_STATUS_LY)) &&
+ 989              		.loc 1 736 0
+ 990 06a6 854B     		ldr	r3, .L98
+ 991 06a8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 992 06aa 13F0020F 		tst	r3, #2
+ 993 06ae 0ED0     		beq	.L61
+ 737:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.Month == RTC_FEBRUARY)  &&
+ 994              		.loc 1 737 0 discriminator 1
+ 995 06b0 834B     		ldr	r3, .L98+4
+ 996 06b2 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 997 06b4 DBB2     		uxtb	r3, r3
+ 736:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.Month == RTC_FEBRUARY)  &&
+ 998              		.loc 1 736 0 discriminator 1
+ 999 06b6 022B     		cmp	r3, #2
+ 1000 06b8 09D1     		bne	.L61
+ 738:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.DayOfMonth >
+ 1001              		.loc 1 738 0
+ 1002 06ba 814B     		ldr	r3, .L98+4
+ 1003 06bc 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+ 1004 06be D2B2     		uxtb	r2, r2
+ 739:.\Generated_Source\PSoC5/RTC_INT.c ****                                   (RTC_daysInMonths[RTC_currentTimeDate.Month - 1u] + 1u))) ||
+ 1005              		.loc 1 739 0
+ 1006 06c0 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 1007 06c2 013B     		subs	r3, r3, #1
+ 1008 06c4 7F49     		ldr	r1, .L98+8
+ 1009 06c6 CB5C     		ldrb	r3, [r1, r3]	@ zero_extendqisi2
+ 1010 06c8 0133     		adds	r3, r3, #1
+ 737:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.DayOfMonth >
+ 1011              		.loc 1 737 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 32
+
+
+ 1012 06ca 9A42     		cmp	r2, r3
+ 1013 06cc 20D8     		bhi	.L62
+ 1014              	.L61:
+ 740:.\Generated_Source\PSoC5/RTC_INT.c ****                                    ((0u != (RTC_statusDateTime & RTC_STATUS_LY)) &&
+ 1015              		.loc 1 740 0
+ 1016 06ce 7B4B     		ldr	r3, .L98
+ 1017 06d0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 739:.\Generated_Source\PSoC5/RTC_INT.c ****                                   (RTC_daysInMonths[RTC_currentTimeDate.Month - 1u] + 1u))) ||
+ 1018              		.loc 1 739 0
+ 1019 06d2 13F0020F 		tst	r3, #2
+ 1020 06d6 0DD0     		beq	.L63
+ 741:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.Month != RTC_FEBRUARY)  &&
+ 1021              		.loc 1 741 0
+ 1022 06d8 794B     		ldr	r3, .L98+4
+ 1023 06da 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 1024 06dc DBB2     		uxtb	r3, r3
+ 740:.\Generated_Source\PSoC5/RTC_INT.c ****                                    ((0u != (RTC_statusDateTime & RTC_STATUS_LY)) &&
+ 1025              		.loc 1 740 0
+ 1026 06de 022B     		cmp	r3, #2
+ 1027 06e0 08D0     		beq	.L63
+ 742:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.DayOfMonth >
+ 1028              		.loc 1 742 0
+ 1029 06e2 774A     		ldr	r2, .L98+4
+ 1030 06e4 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+ 1031 06e6 DBB2     		uxtb	r3, r3
+ 743:.\Generated_Source\PSoC5/RTC_INT.c ****                                      RTC_daysInMonths[RTC_currentTimeDate.Month - 1u])) ||
+ 1032              		.loc 1 743 0
+ 1033 06e8 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 1034 06ea 013A     		subs	r2, r2, #1
+ 1035 06ec 7549     		ldr	r1, .L98+8
+ 1036 06ee 8A5C     		ldrb	r2, [r1, r2]	@ zero_extendqisi2
+ 741:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.Month != RTC_FEBRUARY)  &&
+ 1037              		.loc 1 741 0
+ 1038 06f0 9342     		cmp	r3, r2
+ 1039 06f2 0DD8     		bhi	.L62
+ 1040              	.L63:
+ 744:.\Generated_Source\PSoC5/RTC_INT.c ****                                    ((0u == (RTC_statusDateTime & RTC_STATUS_LY)) &&
+ 1041              		.loc 1 744 0
+ 1042 06f4 714B     		ldr	r3, .L98
+ 1043 06f6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 743:.\Generated_Source\PSoC5/RTC_INT.c ****                                      RTC_daysInMonths[RTC_currentTimeDate.Month - 1u])) ||
+ 1044              		.loc 1 743 0
+ 1045 06f8 13F0020F 		tst	r3, #2
+ 1046 06fc 42D1     		bne	.L57
+ 745:.\Generated_Source\PSoC5/RTC_INT.c ****                                     (RTC_currentTimeDate.DayOfMonth >
+ 1047              		.loc 1 745 0
+ 1048 06fe 704A     		ldr	r2, .L98+4
+ 1049 0700 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+ 1050 0702 DBB2     		uxtb	r3, r3
+ 746:.\Generated_Source\PSoC5/RTC_INT.c ****                                      RTC_daysInMonths[RTC_currentTimeDate.Month - 1u])))
+ 1051              		.loc 1 746 0
+ 1052 0704 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 1053 0706 013A     		subs	r2, r2, #1
+ 1054 0708 6E49     		ldr	r1, .L98+8
+ 1055 070a 8A5C     		ldrb	r2, [r1, r2]	@ zero_extendqisi2
+ 744:.\Generated_Source\PSoC5/RTC_INT.c ****                                    ((0u == (RTC_statusDateTime & RTC_STATUS_LY)) &&
+ 1056              		.loc 1 744 0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 33
+
+
+ 1057 070c 9342     		cmp	r3, r2
+ 1058 070e 39D9     		bls	.L57
+ 1059              	.L62:
+ 747:.\Generated_Source\PSoC5/RTC_INT.c ****                                 {
+ 748:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_currentTimeDate.Month++;
+ 1060              		.loc 1 748 0
+ 1061 0710 6B4A     		ldr	r2, .L98+4
+ 1062 0712 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 1063 0714 0133     		adds	r3, r3, #1
+ 1064 0716 DBB2     		uxtb	r3, r3
+ 1065 0718 1372     		strb	r3, [r2, #8]
+ 749:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_currentTimeDate.DayOfMonth = 1u;
+ 1066              		.loc 1 749 0
+ 1067 071a 0123     		movs	r3, #1
+ 1068 071c 1371     		strb	r3, [r2, #4]
+ 750:.\Generated_Source\PSoC5/RTC_INT.c ****                                     if(RTC_currentTimeDate.Month > RTC_YEAR_ELAPSED)
+ 1069              		.loc 1 750 0
+ 1070 071e 137A     		ldrb	r3, [r2, #8]	@ zero_extendqisi2
+ 1071 0720 DBB2     		uxtb	r3, r3
+ 1072 0722 0C2B     		cmp	r3, #12
+ 1073 0724 2ED9     		bls	.L57
+ 751:.\Generated_Source\PSoC5/RTC_INT.c ****                                     {
+ 752:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_currentTimeDate.Month = RTC_JANUARY;
+ 1074              		.loc 1 752 0
+ 1075 0726 0123     		movs	r3, #1
+ 1076 0728 1372     		strb	r3, [r2, #8]
+ 753:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_currentTimeDate.Year++;
+ 1077              		.loc 1 753 0
+ 1078 072a 5389     		ldrh	r3, [r2, #10]
+ 1079 072c 0133     		adds	r3, r3, #1
+ 1080 072e 9BB2     		uxth	r3, r3
+ 1081 0730 5381     		strh	r3, [r2, #10]	@ movhi
+ 754:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 755:.\Generated_Source\PSoC5/RTC_INT.c ****                                         if(1u == RTC_LEAP_YEAR(RTC_currentTimeDate.Year))
+ 1082              		.loc 1 755 0
+ 1083 0732 5389     		ldrh	r3, [r2, #10]
+ 1084 0734 9BB2     		uxth	r3, r3
+ 1085 0736 644A     		ldr	r2, .L98+12
+ 1086 0738 A2FB0312 		umull	r1, r2, r2, r3
+ 1087 073c D209     		lsrs	r2, r2, #7
+ 1088 073e 4FF4C871 		mov	r1, #400
+ 1089 0742 01FB1233 		mls	r3, r1, r2, r3
+ 1090 0746 9BB2     		uxth	r3, r3
+ 1091 0748 73B1     		cbz	r3, .L66
+ 1092              		.loc 1 755 0 is_stmt 0 discriminator 1
+ 1093 074a 5D4B     		ldr	r3, .L98+4
+ 1094 074c 5B89     		ldrh	r3, [r3, #10]
+ 1095 074e 13F0030F 		tst	r3, #3
+ 1096 0752 0FD1     		bne	.L67
+ 1097              		.loc 1 755 0 discriminator 2
+ 1098 0754 5A4B     		ldr	r3, .L98+4
+ 1099 0756 5B89     		ldrh	r3, [r3, #10]
+ 1100 0758 9BB2     		uxth	r3, r3
+ 1101 075a 6421     		movs	r1, #100
+ 1102 075c B3FBF1F2 		udiv	r2, r3, r1
+ 1103 0760 01FB1233 		mls	r3, r1, r2, r3
+ 1104 0764 9BB2     		uxth	r3, r3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 34
+
+
+ 1105 0766 2BB1     		cbz	r3, .L67
+ 1106              	.L66:
+ 756:.\Generated_Source\PSoC5/RTC_INT.c ****                                         {
+ 757:.\Generated_Source\PSoC5/RTC_INT.c ****                                             /* LP - true, else - false */
+ 758:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_statusDateTime |= RTC_STATUS_LY;
+ 1107              		.loc 1 758 0 is_stmt 1
+ 1108 0768 544A     		ldr	r2, .L98
+ 1109 076a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1110 076c 43F00203 		orr	r3, r3, #2
+ 1111 0770 1370     		strb	r3, [r2]
+ 1112 0772 04E0     		b	.L68
+ 1113              	.L67:
+ 759:.\Generated_Source\PSoC5/RTC_INT.c ****                                         }
+ 760:.\Generated_Source\PSoC5/RTC_INT.c ****                                         else
+ 761:.\Generated_Source\PSoC5/RTC_INT.c ****                                         {
+ 762:.\Generated_Source\PSoC5/RTC_INT.c ****                                             RTC_statusDateTime &= (uint8)(~RTC_STATUS_LY);
+ 1114              		.loc 1 762 0
+ 1115 0774 514A     		ldr	r2, .L98
+ 1116 0776 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1117 0778 03F0FD03 		and	r3, r3, #253
+ 1118 077c 1370     		strb	r3, [r2]
+ 1119              	.L68:
+ 763:.\Generated_Source\PSoC5/RTC_INT.c ****                                         }
+ 764:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_currentTimeDate.DayOfYear = 1u;
+ 1120              		.loc 1 764 0
+ 1121 077e 0122     		movs	r2, #1
+ 1122 0780 4F4B     		ldr	r3, .L98+4
+ 1123 0782 DA80     		strh	r2, [r3, #6]	@ movhi
+ 1124              	.L57:
+ 765:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 766:.\Generated_Source\PSoC5/RTC_INT.c ****                                         RTC_EveryYearHandler();
+ 767:.\Generated_Source\PSoC5/RTC_INT.c ****                                     }
+ 768:.\Generated_Source\PSoC5/RTC_INT.c ****                                     RTC_EveryMonthHandler();
+ 769:.\Generated_Source\PSoC5/RTC_INT.c ****                                 }
+ 770:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_EveryDayHandler();
+ 771:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 772:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_statusDateTime |= RTC_STATUS_DST;
+ 1125              		.loc 1 772 0
+ 1126 0784 4D4A     		ldr	r2, .L98
+ 1127 0786 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1128 0788 43F00103 		orr	r3, r3, #1
+ 1129 078c 1370     		strb	r3, [r2]
+ 773:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_dstStartStatus = 0u;
+ 1130              		.loc 1 773 0
+ 1131 078e 0022     		movs	r2, #0
+ 1132 0790 4E4B     		ldr	r3, .L98+16
+ 1133 0792 1A70     		strb	r2, [r3]
+ 774:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 775:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* Month */
+ 776:.\Generated_Source\PSoC5/RTC_INT.c ****                             if(RTC_dstTimeDateStop.Month == RTC_currentTimeDate.Month)
+ 1134              		.loc 1 776 0
+ 1135 0794 4E4B     		ldr	r3, .L98+20
+ 1136 0796 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 1137 0798 494A     		ldr	r2, .L98+4
+ 1138 079a 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 1139 079c DBB2     		uxtb	r3, r3
+ 1140 079e 9342     		cmp	r3, r2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 35
+
+
+ 1141 07a0 05D1     		bne	.L69
+ 777:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 778:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_dstStopStatus |= RTC_DST_MONTH;
+ 1142              		.loc 1 778 0
+ 1143 07a2 4C4A     		ldr	r2, .L98+24
+ 1144 07a4 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1145 07a6 43F00403 		orr	r3, r3, #4
+ 1146 07aa 1370     		strb	r3, [r2]
+ 1147 07ac 04E0     		b	.L70
+ 1148              	.L69:
+ 779:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 780:.\Generated_Source\PSoC5/RTC_INT.c ****                             else
+ 781:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 782:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_dstStopStatus &= (uint8)(~RTC_DST_MONTH);
+ 1149              		.loc 1 782 0
+ 1150 07ae 494A     		ldr	r2, .L98+24
+ 1151 07b0 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1152 07b2 03F0FB03 		and	r3, r3, #251
+ 1153 07b6 1370     		strb	r3, [r2]
+ 1154              	.L70:
+ 783:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 784:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 785:.\Generated_Source\PSoC5/RTC_INT.c ****                             /* DayOfMonth */
+ 786:.\Generated_Source\PSoC5/RTC_INT.c ****                             if(RTC_dstTimeDateStop.DayOfMonth ==
+ 1155              		.loc 1 786 0
+ 1156 07b8 454B     		ldr	r3, .L98+20
+ 1157 07ba DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 787:.\Generated_Source\PSoC5/RTC_INT.c ****                                                                             RTC_currentTimeDate.Day
+ 1158              		.loc 1 787 0
+ 1159 07bc 404A     		ldr	r2, .L98+4
+ 1160 07be 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+ 1161 07c0 DBB2     		uxtb	r3, r3
+ 786:.\Generated_Source\PSoC5/RTC_INT.c ****                                                                             RTC_currentTimeDate.Day
+ 1162              		.loc 1 786 0
+ 1163 07c2 9342     		cmp	r3, r2
+ 1164 07c4 05D1     		bne	.L71
+ 788:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 789:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_dstStopStatus |= RTC_DST_DAYOFMONTH;
+ 1165              		.loc 1 789 0
+ 1166 07c6 434A     		ldr	r2, .L98+24
+ 1167 07c8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1168 07ca 43F00203 		orr	r3, r3, #2
+ 1169 07ce 1370     		strb	r3, [r2]
+ 1170 07d0 04E0     		b	.L43
+ 1171              	.L71:
+ 790:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 791:.\Generated_Source\PSoC5/RTC_INT.c ****                             else
+ 792:.\Generated_Source\PSoC5/RTC_INT.c ****                             {
+ 793:.\Generated_Source\PSoC5/RTC_INT.c ****                                 RTC_dstStopStatus &= (uint8)(~RTC_DST_DAYOFMONTH);
+ 1172              		.loc 1 793 0
+ 1173 07d2 404A     		ldr	r2, .L98+24
+ 1174 07d4 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1175 07d6 03F0FD03 		and	r3, r3, #253
+ 1176 07da 1370     		strb	r3, [r2]
+ 1177              	.L43:
+ 794:.\Generated_Source\PSoC5/RTC_INT.c ****                             }
+ 795:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 36
+
+
+ 796:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 797:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 798:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Alarm DAYOFWEEK */
+ 799:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 1178              		.loc 1 799 0
+ 1179 07dc 3E4B     		ldr	r3, .L98+28
+ 1180 07de 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1181 07e0 13F0080F 		tst	r3, #8
+ 1182 07e4 11D0     		beq	.L72
+ 800:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_ALARM_DAYOFWEEK_MASK))
+ 801:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 802:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_alarmCfgTimeDate.DayOfWeek == RTC_currentTimeDate.DayOfWeek)
+ 1183              		.loc 1 802 0
+ 1184 07e6 3D4B     		ldr	r3, .L98+32
+ 1185 07e8 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 1186 07ea 354A     		ldr	r2, .L98+4
+ 1187 07ec D278     		ldrb	r2, [r2, #3]	@ zero_extendqisi2
+ 1188 07ee DBB2     		uxtb	r3, r3
+ 1189 07f0 9342     		cmp	r3, r2
+ 1190 07f2 05D1     		bne	.L73
+ 803:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 804:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus |= RTC_ALARM_DAYOFWEEK_MASK;
+ 1191              		.loc 1 804 0
+ 1192 07f4 3A4A     		ldr	r2, .L98+36
+ 1193 07f6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1194 07f8 43F00803 		orr	r3, r3, #8
+ 1195 07fc 1370     		strb	r3, [r2]
+ 1196 07fe 04E0     		b	.L72
+ 1197              	.L73:
+ 805:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 806:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 807:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 808:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_DAYOFWEEK_MASK);
+ 1198              		.loc 1 808 0
+ 1199 0800 374A     		ldr	r2, .L98+36
+ 1200 0802 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1201 0804 03F0F703 		and	r3, r3, #247
+ 1202 0808 1370     		strb	r3, [r2]
+ 1203              	.L72:
+ 809:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 810:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 811:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 812:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Alarm DAYOFYEAR */
+ 813:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 1204              		.loc 1 813 0
+ 1205 080a 334B     		ldr	r3, .L98+28
+ 1206 080c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1207 080e 13F0200F 		tst	r3, #32
+ 1208 0812 12D0     		beq	.L74
+ 814:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_ALARM_DAYOFYEAR_MASK))
+ 815:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 816:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_alarmCfgTimeDate.DayOfYear == RTC_currentTimeDate.DayOfYear)
+ 1209              		.loc 1 816 0
+ 1210 0814 314B     		ldr	r3, .L98+32
+ 1211 0816 DA88     		ldrh	r2, [r3, #6]
+ 1212 0818 92B2     		uxth	r2, r2
+ 1213 081a 294B     		ldr	r3, .L98+4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 37
+
+
+ 1214 081c DB88     		ldrh	r3, [r3, #6]
+ 1215 081e 9BB2     		uxth	r3, r3
+ 1216 0820 9A42     		cmp	r2, r3
+ 1217 0822 05D1     		bne	.L75
+ 817:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 818:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus |= RTC_ALARM_DAYOFYEAR_MASK;
+ 1218              		.loc 1 818 0
+ 1219 0824 2E4A     		ldr	r2, .L98+36
+ 1220 0826 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1221 0828 43F02003 		orr	r3, r3, #32
+ 1222 082c 1370     		strb	r3, [r2]
+ 1223 082e 04E0     		b	.L74
+ 1224              	.L75:
+ 819:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 820:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 821:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 822:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_DAYOFYEAR_MASK);
+ 1225              		.loc 1 822 0
+ 1226 0830 2B4A     		ldr	r2, .L98+36
+ 1227 0832 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1228 0834 03F0DF03 		and	r3, r3, #223
+ 1229 0838 1370     		strb	r3, [r2]
+ 1230              	.L74:
+ 823:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 824:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 825:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 826:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Alarm DAYOFMONTH */
+ 827:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 1231              		.loc 1 827 0
+ 1232 083a 274B     		ldr	r3, .L98+28
+ 1233 083c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1234 083e 13F0100F 		tst	r3, #16
+ 1235 0842 11D0     		beq	.L76
+ 828:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_ALARM_DAYOFMONTH_MASK))
+ 829:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 830:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_alarmCfgTimeDate.DayOfMonth == RTC_currentTimeDate.DayOfMonth)
+ 1236              		.loc 1 830 0
+ 1237 0844 254B     		ldr	r3, .L98+32
+ 1238 0846 1B79     		ldrb	r3, [r3, #4]	@ zero_extendqisi2
+ 1239 0848 1D4A     		ldr	r2, .L98+4
+ 1240 084a 1279     		ldrb	r2, [r2, #4]	@ zero_extendqisi2
+ 1241 084c DBB2     		uxtb	r3, r3
+ 1242 084e 9342     		cmp	r3, r2
+ 1243 0850 05D1     		bne	.L77
+ 831:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 832:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus |= RTC_ALARM_DAYOFMONTH_MASK;
+ 1244              		.loc 1 832 0
+ 1245 0852 234A     		ldr	r2, .L98+36
+ 1246 0854 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1247 0856 43F01003 		orr	r3, r3, #16
+ 1248 085a 1370     		strb	r3, [r2]
+ 1249 085c 04E0     		b	.L76
+ 1250              	.L77:
+ 833:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 834:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 835:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 836:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_DAYOFMONTH_MASK);
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 38
+
+
+ 1251              		.loc 1 836 0
+ 1252 085e 204A     		ldr	r2, .L98+36
+ 1253 0860 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1254 0862 03F0EF03 		and	r3, r3, #239
+ 1255 0866 1370     		strb	r3, [r2]
+ 1256              	.L76:
+ 837:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 838:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 839:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 840:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Alarm MONTH */
+ 841:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 1257              		.loc 1 841 0
+ 1258 0868 1B4B     		ldr	r3, .L98+28
+ 1259 086a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1260 086c 13F0400F 		tst	r3, #64
+ 1261 0870 11D0     		beq	.L78
+ 842:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_ALARM_MONTH_MASK))
+ 843:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 844:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_alarmCfgTimeDate.Month == RTC_currentTimeDate.Month)
+ 1262              		.loc 1 844 0
+ 1263 0872 1A4B     		ldr	r3, .L98+32
+ 1264 0874 1B7A     		ldrb	r3, [r3, #8]	@ zero_extendqisi2
+ 1265 0876 124A     		ldr	r2, .L98+4
+ 1266 0878 127A     		ldrb	r2, [r2, #8]	@ zero_extendqisi2
+ 1267 087a DBB2     		uxtb	r3, r3
+ 1268 087c 9342     		cmp	r3, r2
+ 1269 087e 05D1     		bne	.L79
+ 845:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 846:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus |= RTC_ALARM_MONTH_MASK;
+ 1270              		.loc 1 846 0
+ 1271 0880 174A     		ldr	r2, .L98+36
+ 1272 0882 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1273 0884 43F04003 		orr	r3, r3, #64
+ 1274 0888 1370     		strb	r3, [r2]
+ 1275 088a 04E0     		b	.L78
+ 1276              	.L79:
+ 847:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 848:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 849:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 850:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_MONTH_MASK);
+ 1277              		.loc 1 850 0
+ 1278 088c 144A     		ldr	r2, .L98+36
+ 1279 088e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1280 0890 03F0BF03 		and	r3, r3, #191
+ 1281 0894 1370     		strb	r3, [r2]
+ 1282              	.L78:
+ 851:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 852:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 853:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 854:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Alarm YEAR */
+ 855:.\Generated_Source\PSoC5/RTC_INT.c ****                     if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask,
+ 1283              		.loc 1 855 0
+ 1284 0896 104B     		ldr	r3, .L98+28
+ 1285 0898 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1286 089a 13F0800F 		tst	r3, #128
+ 1287 089e 26D0     		beq	.L80
+ 856:.\Generated_Source\PSoC5/RTC_INT.c ****                                                          RTC_ALARM_YEAR_MASK))
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 39
+
+
+ 857:.\Generated_Source\PSoC5/RTC_INT.c ****                     {
+ 858:.\Generated_Source\PSoC5/RTC_INT.c ****                         if(RTC_alarmCfgTimeDate.Year == RTC_currentTimeDate.Year)
+ 1288              		.loc 1 858 0
+ 1289 08a0 0E4B     		ldr	r3, .L98+32
+ 1290 08a2 5A89     		ldrh	r2, [r3, #10]
+ 1291 08a4 92B2     		uxth	r2, r2
+ 1292 08a6 064B     		ldr	r3, .L98+4
+ 1293 08a8 5B89     		ldrh	r3, [r3, #10]
+ 1294 08aa 9BB2     		uxth	r3, r3
+ 1295 08ac 9A42     		cmp	r2, r3
+ 1296 08ae 19D1     		bne	.L81
+ 859:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 860:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus |= RTC_ALARM_YEAR_MASK;
+ 1297              		.loc 1 860 0
+ 1298 08b0 0B4A     		ldr	r2, .L98+36
+ 1299 08b2 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1300 08b4 43F08003 		orr	r3, r3, #128
+ 1301 08b8 1370     		strb	r3, [r2]
+ 1302 08ba 18E0     		b	.L80
+ 1303              	.L99:
+ 1304              		.align	2
+ 1305              	.L98:
+ 1306 08bc 00000000 		.word	RTC_statusDateTime
+ 1307 08c0 00000000 		.word	RTC_currentTimeDate
+ 1308 08c4 00000000 		.word	RTC_daysInMonths
+ 1309 08c8 1F85EB51 		.word	1374389535
+ 1310 08cc 00000000 		.word	RTC_dstStartStatus
+ 1311 08d0 00000000 		.word	RTC_dstTimeDateStop
+ 1312 08d4 00000000 		.word	RTC_dstStopStatus
+ 1313 08d8 00000000 		.word	RTC_alarmCfgMask
+ 1314 08dc 00000000 		.word	RTC_alarmCfgTimeDate
+ 1315 08e0 00000000 		.word	RTC_alarmCurStatus
+ 1316              	.L81:
+ 861:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 862:.\Generated_Source\PSoC5/RTC_INT.c ****                         else
+ 863:.\Generated_Source\PSoC5/RTC_INT.c ****                         {
+ 864:.\Generated_Source\PSoC5/RTC_INT.c ****                             RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_YEAR_MASK);
+ 1317              		.loc 1 864 0
+ 1318 08e4 4C4A     		ldr	r2, .L100
+ 1319 08e6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1320 08e8 03F07F03 		and	r3, r3, #127
+ 1321 08ec 1370     		strb	r3, [r2]
+ 1322              	.L80:
+ 865:.\Generated_Source\PSoC5/RTC_INT.c ****                         }
+ 866:.\Generated_Source\PSoC5/RTC_INT.c ****                     }
+ 867:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 868:.\Generated_Source\PSoC5/RTC_INT.c ****                     /* Set Alarm flag event */
+ 869:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_tmp = RTC_alarmCfgMask;
+ 1323              		.loc 1 869 0
+ 1324 08ee 4B4B     		ldr	r3, .L100+4
+ 1325 08f0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1326              	.LVL7:
+ 870:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_SET_ALARM(RTC_tmp,
+ 1327              		.loc 1 870 0
+ 1328 08f2 03F0FF02 		and	r2, r3, #255
+ 1329 08f6 63B1     		cbz	r3, .L41
+ 1330              		.loc 1 870 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 40
+
+
+ 1331 08f8 474B     		ldr	r3, .L100
+ 1332              	.LVL8:
+ 1333 08fa 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1334 08fc 1340     		ands	r3, r3, r2
+ 1335 08fe 9342     		cmp	r3, r2
+ 1336 0900 07D1     		bne	.L41
+ 1337              		.loc 1 870 0 discriminator 2
+ 1338 0902 474A     		ldr	r2, .L100+8
+ 1339 0904 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1340 0906 43F00803 		orr	r3, r3, #8
+ 1341 090a 1370     		strb	r3, [r2]
+ 1342 090c 0022     		movs	r2, #0
+ 1343 090e 424B     		ldr	r3, .L100
+ 1344 0910 1A70     		strb	r2, [r3]
+ 1345              	.L41:
+ 871:.\Generated_Source\PSoC5/RTC_INT.c ****                                                RTC_alarmCurStatus,
+ 872:.\Generated_Source\PSoC5/RTC_INT.c ****                                                RTC_statusDateTime);
+ 873:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 874:.\Generated_Source\PSoC5/RTC_INT.c ****             #endif /* 1u == RTC_DST_FUNC_ENABLE */
+ 875:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 876:.\Generated_Source\PSoC5/RTC_INT.c ****             /* Alarm HOUR */
+ 877:.\Generated_Source\PSoC5/RTC_INT.c ****             if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask, RTC_ALARM_HOUR_MASK))
+ 1346              		.loc 1 877 0 is_stmt 1
+ 1347 0912 424B     		ldr	r3, .L100+4
+ 1348 0914 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1349 0916 13F0040F 		tst	r3, #4
+ 1350 091a 11D0     		beq	.L82
+ 878:.\Generated_Source\PSoC5/RTC_INT.c ****             {
+ 879:.\Generated_Source\PSoC5/RTC_INT.c ****                 if(RTC_alarmCfgTimeDate.Hour == RTC_currentTimeDate.Hour)
+ 1351              		.loc 1 879 0
+ 1352 091c 414B     		ldr	r3, .L100+12
+ 1353 091e 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 1354 0920 414A     		ldr	r2, .L100+16
+ 1355 0922 9278     		ldrb	r2, [r2, #2]	@ zero_extendqisi2
+ 1356 0924 DBB2     		uxtb	r3, r3
+ 1357 0926 9342     		cmp	r3, r2
+ 1358 0928 05D1     		bne	.L83
+ 880:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 881:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_alarmCurStatus |= RTC_ALARM_HOUR_MASK;
+ 1359              		.loc 1 881 0
+ 1360 092a 3B4A     		ldr	r2, .L100
+ 1361 092c 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1362 092e 43F00403 		orr	r3, r3, #4
+ 1363 0932 1370     		strb	r3, [r2]
+ 1364 0934 04E0     		b	.L82
+ 1365              	.L83:
+ 882:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ 883:.\Generated_Source\PSoC5/RTC_INT.c ****                 else
+ 884:.\Generated_Source\PSoC5/RTC_INT.c ****                 {
+ 885:.\Generated_Source\PSoC5/RTC_INT.c ****                     RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_HOUR_MASK);
+ 1366              		.loc 1 885 0
+ 1367 0936 384A     		ldr	r2, .L100
+ 1368 0938 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1369 093a 03F0FB03 		and	r3, r3, #251
+ 1370 093e 1370     		strb	r3, [r2]
+ 1371              	.L82:
+ 886:.\Generated_Source\PSoC5/RTC_INT.c ****                 }
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 41
+
+
+ 887:.\Generated_Source\PSoC5/RTC_INT.c ****             }
+ 888:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 889:.\Generated_Source\PSoC5/RTC_INT.c ****             /* Set Alarm flag event */
+ 890:.\Generated_Source\PSoC5/RTC_INT.c ****             RTC_tmp = RTC_alarmCfgMask;
+ 1372              		.loc 1 890 0
+ 1373 0940 364B     		ldr	r3, .L100+4
+ 1374 0942 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1375              	.LVL9:
+ 891:.\Generated_Source\PSoC5/RTC_INT.c ****             RTC_SET_ALARM(RTC_tmp,
+ 1376              		.loc 1 891 0
+ 1377 0944 03F0FF02 		and	r2, r3, #255
+ 1378 0948 63B1     		cbz	r3, .L84
+ 1379              		.loc 1 891 0 is_stmt 0 discriminator 1
+ 1380 094a 334B     		ldr	r3, .L100
+ 1381              	.LVL10:
+ 1382 094c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1383 094e 1340     		ands	r3, r3, r2
+ 1384 0950 9342     		cmp	r3, r2
+ 1385 0952 07D1     		bne	.L84
+ 1386              		.loc 1 891 0 discriminator 2
+ 1387 0954 324A     		ldr	r2, .L100+8
+ 1388 0956 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1389 0958 43F00803 		orr	r3, r3, #8
+ 1390 095c 1370     		strb	r3, [r2]
+ 1391 095e 0022     		movs	r2, #0
+ 1392 0960 2D4B     		ldr	r3, .L100
+ 1393 0962 1A70     		strb	r2, [r3]
+ 1394              	.L84:
+ 892:.\Generated_Source\PSoC5/RTC_INT.c ****                                        RTC_alarmCurStatus,
+ 893:.\Generated_Source\PSoC5/RTC_INT.c ****                                        RTC_statusDateTime);
+ 894:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 895:.\Generated_Source\PSoC5/RTC_INT.c ****             /* Every Hour */
+ 896:.\Generated_Source\PSoC5/RTC_INT.c ****             if(0u != RTC_IS_BIT_SET(RTC_intervalCfgMask, RTC_INTERVAL_HOUR_MASK))
+ 1395              		.loc 1 896 0 is_stmt 1
+ 1396 0964 314B     		ldr	r3, .L100+20
+ 1397 0966 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1398              	.L3:
+ 897:.\Generated_Source\PSoC5/RTC_INT.c ****             {
+ 898:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_EveryHourHandler();
+ 899:.\Generated_Source\PSoC5/RTC_INT.c ****             }
+ 900:.\Generated_Source\PSoC5/RTC_INT.c ****         } /* Min > 59 = Hour */
+ 901:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 902:.\Generated_Source\PSoC5/RTC_INT.c ****         /* Alarm MIN */
+ 903:.\Generated_Source\PSoC5/RTC_INT.c ****         if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask, RTC_ALARM_MIN_MASK))
+ 1399              		.loc 1 903 0
+ 1400 0968 2C4B     		ldr	r3, .L100+4
+ 1401 096a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1402 096c 13F0020F 		tst	r3, #2
+ 1403 0970 11D0     		beq	.L85
+ 904:.\Generated_Source\PSoC5/RTC_INT.c ****         {
+ 905:.\Generated_Source\PSoC5/RTC_INT.c ****             if(RTC_alarmCfgTimeDate.Min == RTC_currentTimeDate.Min)
+ 1404              		.loc 1 905 0
+ 1405 0972 2C4B     		ldr	r3, .L100+12
+ 1406 0974 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1407 0976 2C4A     		ldr	r2, .L100+16
+ 1408 0978 5278     		ldrb	r2, [r2, #1]	@ zero_extendqisi2
+ 1409 097a DBB2     		uxtb	r3, r3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 42
+
+
+ 1410 097c 9342     		cmp	r3, r2
+ 1411 097e 05D1     		bne	.L86
+ 906:.\Generated_Source\PSoC5/RTC_INT.c ****             {
+ 907:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_alarmCurStatus |= RTC_ALARM_MIN_MASK;
+ 1412              		.loc 1 907 0
+ 1413 0980 254A     		ldr	r2, .L100
+ 1414 0982 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1415 0984 43F00203 		orr	r3, r3, #2
+ 1416 0988 1370     		strb	r3, [r2]
+ 1417 098a 04E0     		b	.L85
+ 1418              	.L86:
+ 908:.\Generated_Source\PSoC5/RTC_INT.c ****             }
+ 909:.\Generated_Source\PSoC5/RTC_INT.c ****             else
+ 910:.\Generated_Source\PSoC5/RTC_INT.c ****             {
+ 911:.\Generated_Source\PSoC5/RTC_INT.c ****                 RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_MIN_MASK);
+ 1419              		.loc 1 911 0
+ 1420 098c 224A     		ldr	r2, .L100
+ 1421 098e 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1422 0990 03F0FD03 		and	r3, r3, #253
+ 1423 0994 1370     		strb	r3, [r2]
+ 1424              	.L85:
+ 912:.\Generated_Source\PSoC5/RTC_INT.c ****             }
+ 913:.\Generated_Source\PSoC5/RTC_INT.c ****         }
+ 914:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 915:.\Generated_Source\PSoC5/RTC_INT.c ****         /* Set Alarm flag event */
+ 916:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_tmp = RTC_alarmCfgMask;
+ 1425              		.loc 1 916 0
+ 1426 0996 214B     		ldr	r3, .L100+4
+ 1427 0998 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1428              	.LVL11:
+ 917:.\Generated_Source\PSoC5/RTC_INT.c ****         RTC_SET_ALARM(RTC_tmp,
+ 1429              		.loc 1 917 0
+ 1430 099a 03F0FF02 		and	r2, r3, #255
+ 1431 099e 63B1     		cbz	r3, .L87
+ 1432              		.loc 1 917 0 is_stmt 0 discriminator 1
+ 1433 09a0 1D4B     		ldr	r3, .L100
+ 1434              	.LVL12:
+ 1435 09a2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1436 09a4 1340     		ands	r3, r3, r2
+ 1437 09a6 9342     		cmp	r3, r2
+ 1438 09a8 07D1     		bne	.L87
+ 1439              		.loc 1 917 0 discriminator 2
+ 1440 09aa 1D4A     		ldr	r2, .L100+8
+ 1441 09ac 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1442 09ae 43F00803 		orr	r3, r3, #8
+ 1443 09b2 1370     		strb	r3, [r2]
+ 1444 09b4 0022     		movs	r2, #0
+ 1445 09b6 184B     		ldr	r3, .L100
+ 1446 09b8 1A70     		strb	r2, [r3]
+ 1447              	.L87:
+ 918:.\Generated_Source\PSoC5/RTC_INT.c ****                                    RTC_alarmCurStatus,
+ 919:.\Generated_Source\PSoC5/RTC_INT.c ****                                    RTC_statusDateTime);
+ 920:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 921:.\Generated_Source\PSoC5/RTC_INT.c ****         /* Every Min */
+ 922:.\Generated_Source\PSoC5/RTC_INT.c ****         if(0u != RTC_IS_BIT_SET(RTC_intervalCfgMask, RTC_INTERVAL_MIN_MASK))
+ 1448              		.loc 1 922 0 is_stmt 1
+ 1449 09ba 1C4B     		ldr	r3, .L100+20
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 43
+
+
+ 1450 09bc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1451              	.L2:
+ 923:.\Generated_Source\PSoC5/RTC_INT.c ****         {
+ 924:.\Generated_Source\PSoC5/RTC_INT.c ****             RTC_EveryMinuteHandler();
+ 925:.\Generated_Source\PSoC5/RTC_INT.c ****         }
+ 926:.\Generated_Source\PSoC5/RTC_INT.c ****     } /* Sec */
+ 927:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 928:.\Generated_Source\PSoC5/RTC_INT.c ****     /* Alarm SEC */
+ 929:.\Generated_Source\PSoC5/RTC_INT.c ****     if(0u != RTC_IS_BIT_SET(RTC_alarmCfgMask, RTC_ALARM_SEC_MASK))
+ 1452              		.loc 1 929 0
+ 1453 09be 174B     		ldr	r3, .L100+4
+ 1454 09c0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1455 09c2 13F0010F 		tst	r3, #1
+ 1456 09c6 11D0     		beq	.L88
+ 930:.\Generated_Source\PSoC5/RTC_INT.c ****     {
+ 931:.\Generated_Source\PSoC5/RTC_INT.c ****         if(RTC_alarmCfgTimeDate.Sec == RTC_currentTimeDate.Sec)
+ 1457              		.loc 1 931 0
+ 1458 09c8 164B     		ldr	r3, .L100+12
+ 1459 09ca 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1460 09cc 164A     		ldr	r2, .L100+16
+ 1461 09ce 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
+ 1462 09d0 DBB2     		uxtb	r3, r3
+ 1463 09d2 9342     		cmp	r3, r2
+ 1464 09d4 05D1     		bne	.L89
+ 932:.\Generated_Source\PSoC5/RTC_INT.c ****         {
+ 933:.\Generated_Source\PSoC5/RTC_INT.c ****             RTC_alarmCurStatus |= RTC_ALARM_SEC_MASK;
+ 1465              		.loc 1 933 0
+ 1466 09d6 104A     		ldr	r2, .L100
+ 1467 09d8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1468 09da 43F00103 		orr	r3, r3, #1
+ 1469 09de 1370     		strb	r3, [r2]
+ 1470 09e0 04E0     		b	.L88
+ 1471              	.L89:
+ 934:.\Generated_Source\PSoC5/RTC_INT.c ****         }
+ 935:.\Generated_Source\PSoC5/RTC_INT.c ****         else
+ 936:.\Generated_Source\PSoC5/RTC_INT.c ****         {
+ 937:.\Generated_Source\PSoC5/RTC_INT.c ****             RTC_alarmCurStatus &= (uint8)(~RTC_ALARM_SEC_MASK);
+ 1472              		.loc 1 937 0
+ 1473 09e2 0D4A     		ldr	r2, .L100
+ 1474 09e4 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1475 09e6 03F0FE03 		and	r3, r3, #254
+ 1476 09ea 1370     		strb	r3, [r2]
+ 1477              	.L88:
+ 938:.\Generated_Source\PSoC5/RTC_INT.c ****         }
+ 939:.\Generated_Source\PSoC5/RTC_INT.c ****     }
+ 940:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 941:.\Generated_Source\PSoC5/RTC_INT.c ****     /* Set Alarm flag event */
+ 942:.\Generated_Source\PSoC5/RTC_INT.c ****     RTC_tmp = RTC_alarmCfgMask;
+ 1478              		.loc 1 942 0
+ 1479 09ec 0B4B     		ldr	r3, .L100+4
+ 1480 09ee 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1481              	.LVL13:
+ 943:.\Generated_Source\PSoC5/RTC_INT.c ****     RTC_SET_ALARM(RTC_tmp, RTC_alarmCurStatus, RTC_statusDateTime);
+ 1482              		.loc 1 943 0
+ 1483 09f0 03F0FF02 		and	r2, r3, #255
+ 1484 09f4 63B1     		cbz	r3, .L90
+ 1485              		.loc 1 943 0 is_stmt 0 discriminator 1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 44
+
+
+ 1486 09f6 084B     		ldr	r3, .L100
+ 1487              	.LVL14:
+ 1488 09f8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1489 09fa 1340     		ands	r3, r3, r2
+ 1490 09fc 9342     		cmp	r3, r2
+ 1491 09fe 07D1     		bne	.L90
+ 1492              		.loc 1 943 0 discriminator 2
+ 1493 0a00 074A     		ldr	r2, .L100+8
+ 1494 0a02 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 1495 0a04 43F00803 		orr	r3, r3, #8
+ 1496 0a08 1370     		strb	r3, [r2]
+ 1497 0a0a 0022     		movs	r2, #0
+ 1498 0a0c 024B     		ldr	r3, .L100
+ 1499 0a0e 1A70     		strb	r2, [r3]
+ 1500              	.L90:
+ 944:.\Generated_Source\PSoC5/RTC_INT.c **** 
+ 945:.\Generated_Source\PSoC5/RTC_INT.c ****     /* Execute every second handler if needed */
+ 946:.\Generated_Source\PSoC5/RTC_INT.c ****     if(0u != RTC_IS_BIT_SET(RTC_intervalCfgMask, RTC_INTERVAL_SEC_MASK))
+ 1501              		.loc 1 946 0 is_stmt 1
+ 1502 0a10 064B     		ldr	r3, .L100+20
+ 1503 0a12 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1504 0a14 08BD     		pop	{r3, pc}
+ 1505              	.L101:
+ 1506 0a16 00BF     		.align	2
+ 1507              	.L100:
+ 1508 0a18 00000000 		.word	RTC_alarmCurStatus
+ 1509 0a1c 00000000 		.word	RTC_alarmCfgMask
+ 1510 0a20 00000000 		.word	RTC_statusDateTime
+ 1511 0a24 00000000 		.word	RTC_alarmCfgTimeDate
+ 1512 0a28 00000000 		.word	RTC_currentTimeDate
+ 1513 0a2c 00000000 		.word	RTC_intervalCfgMask
+ 1514              		.cfi_endproc
+ 1515              	.LFE7:
+ 1516              		.size	RTC_ISR, .-RTC_ISR
+ 1517              		.text
+ 1518              	.Letext0:
+ 1519              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 1520              		.file 3 ".\\Generated_Source\\PSoC5\\RTC.h"
+ 1521              		.file 4 ".\\Generated_Source\\PSoC5\\cyPm.h"
+ 1522              		.section	.debug_info,"",%progbits
+ 1523              	.Ldebug_info0:
+ 1524 0000 67020000 		.4byte	0x267
+ 1525 0004 0400     		.2byte	0x4
+ 1526 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1527 000a 04       		.byte	0x4
+ 1528 000b 01       		.uleb128 0x1
+ 1529 000c 21010000 		.4byte	.LASF37
+ 1530 0010 01       		.byte	0x1
+ 1531 0011 10000000 		.4byte	.LASF38
+ 1532 0015 57020000 		.4byte	.LASF39
+ 1533 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1534 001d 00000000 		.4byte	0
+ 1535 0021 00000000 		.4byte	.Ldebug_line0
+ 1536 0025 02       		.uleb128 0x2
+ 1537 0026 01       		.byte	0x1
+ 1538 0027 06       		.byte	0x6
+ 1539 0028 D1020000 		.4byte	.LASF0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 45
+
+
+ 1540 002c 02       		.uleb128 0x2
+ 1541 002d 01       		.byte	0x1
+ 1542 002e 08       		.byte	0x8
+ 1543 002f 78000000 		.4byte	.LASF1
+ 1544 0033 02       		.uleb128 0x2
+ 1545 0034 02       		.byte	0x2
+ 1546 0035 05       		.byte	0x5
+ 1547 0036 9A020000 		.4byte	.LASF2
+ 1548 003a 02       		.uleb128 0x2
+ 1549 003b 02       		.byte	0x2
+ 1550 003c 07       		.byte	0x7
+ 1551 003d 44000000 		.4byte	.LASF3
+ 1552 0041 02       		.uleb128 0x2
+ 1553 0042 04       		.byte	0x4
+ 1554 0043 05       		.byte	0x5
+ 1555 0044 C8020000 		.4byte	.LASF4
+ 1556 0048 02       		.uleb128 0x2
+ 1557 0049 04       		.byte	0x4
+ 1558 004a 07       		.byte	0x7
+ 1559 004b A1000000 		.4byte	.LASF5
+ 1560 004f 02       		.uleb128 0x2
+ 1561 0050 08       		.byte	0x8
+ 1562 0051 05       		.byte	0x5
+ 1563 0052 36020000 		.4byte	.LASF6
+ 1564 0056 02       		.uleb128 0x2
+ 1565 0057 08       		.byte	0x8
+ 1566 0058 07       		.byte	0x7
+ 1567 0059 BC010000 		.4byte	.LASF7
+ 1568 005d 03       		.uleb128 0x3
+ 1569 005e 04       		.byte	0x4
+ 1570 005f 05       		.byte	0x5
+ 1571 0060 696E7400 		.ascii	"int\000"
+ 1572 0064 02       		.uleb128 0x2
+ 1573 0065 04       		.byte	0x4
+ 1574 0066 07       		.byte	0x7
+ 1575 0067 AF010000 		.4byte	.LASF8
+ 1576 006b 04       		.uleb128 0x4
+ 1577 006c B3000000 		.4byte	.LASF9
+ 1578 0070 02       		.byte	0x2
+ 1579 0071 9201     		.2byte	0x192
+ 1580 0073 2C000000 		.4byte	0x2c
+ 1581 0077 04       		.uleb128 0x4
+ 1582 0078 1A010000 		.4byte	.LASF10
+ 1583 007c 02       		.byte	0x2
+ 1584 007d 9301     		.2byte	0x193
+ 1585 007f 3A000000 		.4byte	0x3a
+ 1586 0083 02       		.uleb128 0x2
+ 1587 0084 04       		.byte	0x4
+ 1588 0085 04       		.byte	0x4
+ 1589 0086 72000000 		.4byte	.LASF11
+ 1590 008a 02       		.uleb128 0x2
+ 1591 008b 08       		.byte	0x8
+ 1592 008c 04       		.byte	0x4
+ 1593 008d F4000000 		.4byte	.LASF12
+ 1594 0091 02       		.uleb128 0x2
+ 1595 0092 01       		.byte	0x1
+ 1596 0093 08       		.byte	0x8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 46
+
+
+ 1597 0094 44020000 		.4byte	.LASF13
+ 1598 0098 05       		.uleb128 0x5
+ 1599 0099 6B000000 		.4byte	0x6b
+ 1600 009d 06       		.uleb128 0x6
+ 1601 009e 0C       		.byte	0xc
+ 1602 009f 03       		.byte	0x3
+ 1603 00a0 30       		.byte	0x30
+ 1604 00a1 06010000 		.4byte	0x106
+ 1605 00a5 07       		.uleb128 0x7
+ 1606 00a6 53656300 		.ascii	"Sec\000"
+ 1607 00aa 03       		.byte	0x3
+ 1608 00ab 32       		.byte	0x32
+ 1609 00ac 6B000000 		.4byte	0x6b
+ 1610 00b0 00       		.byte	0
+ 1611 00b1 07       		.uleb128 0x7
+ 1612 00b2 4D696E00 		.ascii	"Min\000"
+ 1613 00b6 03       		.byte	0x3
+ 1614 00b7 33       		.byte	0x33
+ 1615 00b8 6B000000 		.4byte	0x6b
+ 1616 00bc 01       		.byte	0x1
+ 1617 00bd 08       		.uleb128 0x8
+ 1618 00be A4020000 		.4byte	.LASF14
+ 1619 00c2 03       		.byte	0x3
+ 1620 00c3 34       		.byte	0x34
+ 1621 00c4 6B000000 		.4byte	0x6b
+ 1622 00c8 02       		.byte	0x2
+ 1623 00c9 08       		.uleb128 0x8
+ 1624 00ca BE020000 		.4byte	.LASF15
+ 1625 00ce 03       		.byte	0x3
+ 1626 00cf 35       		.byte	0x35
+ 1627 00d0 6B000000 		.4byte	0x6b
+ 1628 00d4 03       		.byte	0x3
+ 1629 00d5 08       		.uleb128 0x8
+ 1630 00d6 00000000 		.4byte	.LASF16
+ 1631 00da 03       		.byte	0x3
+ 1632 00db 36       		.byte	0x36
+ 1633 00dc 6B000000 		.4byte	0x6b
+ 1634 00e0 04       		.byte	0x4
+ 1635 00e1 08       		.uleb128 0x8
+ 1636 00e2 B9000000 		.4byte	.LASF17
+ 1637 00e6 03       		.byte	0x3
+ 1638 00e7 37       		.byte	0x37
+ 1639 00e8 77000000 		.4byte	0x77
+ 1640 00ec 06       		.byte	0x6
+ 1641 00ed 08       		.uleb128 0x8
+ 1642 00ee C3000000 		.4byte	.LASF18
+ 1643 00f2 03       		.byte	0x3
+ 1644 00f3 38       		.byte	0x38
+ 1645 00f4 6B000000 		.4byte	0x6b
+ 1646 00f8 08       		.byte	0x8
+ 1647 00f9 08       		.uleb128 0x8
+ 1648 00fa DE000000 		.4byte	.LASF19
+ 1649 00fe 03       		.byte	0x3
+ 1650 00ff 39       		.byte	0x39
+ 1651 0100 77000000 		.4byte	0x77
+ 1652 0104 0A       		.byte	0xa
+ 1653 0105 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 47
+
+
+ 1654 0106 09       		.uleb128 0x9
+ 1655 0107 49020000 		.4byte	.LASF20
+ 1656 010b 03       		.byte	0x3
+ 1657 010c 3A       		.byte	0x3a
+ 1658 010d 11010000 		.4byte	0x111
+ 1659 0111 05       		.uleb128 0x5
+ 1660 0112 9D000000 		.4byte	0x9d
+ 1661 0116 06       		.uleb128 0x6
+ 1662 0117 05       		.byte	0x5
+ 1663 0118 03       		.byte	0x3
+ 1664 0119 3C       		.byte	0x3c
+ 1665 011a 5B010000 		.4byte	0x15b
+ 1666 011e 08       		.uleb128 0x8
+ 1667 011f A4020000 		.4byte	.LASF14
+ 1668 0123 03       		.byte	0x3
+ 1669 0124 3E       		.byte	0x3e
+ 1670 0125 6B000000 		.4byte	0x6b
+ 1671 0129 00       		.byte	0
+ 1672 012a 08       		.uleb128 0x8
+ 1673 012b BE020000 		.4byte	.LASF15
+ 1674 012f 03       		.byte	0x3
+ 1675 0130 3F       		.byte	0x3f
+ 1676 0131 6B000000 		.4byte	0x6b
+ 1677 0135 01       		.byte	0x1
+ 1678 0136 08       		.uleb128 0x8
+ 1679 0137 0B000000 		.4byte	.LASF21
+ 1680 013b 03       		.byte	0x3
+ 1681 013c 40       		.byte	0x40
+ 1682 013d 6B000000 		.4byte	0x6b
+ 1683 0141 02       		.byte	0x2
+ 1684 0142 08       		.uleb128 0x8
+ 1685 0143 00000000 		.4byte	.LASF16
+ 1686 0147 03       		.byte	0x3
+ 1687 0148 41       		.byte	0x41
+ 1688 0149 6B000000 		.4byte	0x6b
+ 1689 014d 03       		.byte	0x3
+ 1690 014e 08       		.uleb128 0x8
+ 1691 014f C3000000 		.4byte	.LASF18
+ 1692 0153 03       		.byte	0x3
+ 1693 0154 42       		.byte	0x42
+ 1694 0155 6B000000 		.4byte	0x6b
+ 1695 0159 04       		.byte	0x4
+ 1696 015a 00       		.byte	0
+ 1697 015b 09       		.uleb128 0x9
+ 1698 015c FB000000 		.4byte	.LASF22
+ 1699 0160 03       		.byte	0x3
+ 1700 0161 43       		.byte	0x43
+ 1701 0162 66010000 		.4byte	0x166
+ 1702 0166 05       		.uleb128 0x5
+ 1703 0167 16010000 		.4byte	0x116
+ 1704 016b 02       		.uleb128 0x2
+ 1705 016c 04       		.byte	0x4
+ 1706 016d 07       		.byte	0x7
+ 1707 016e 1C020000 		.4byte	.LASF23
+ 1708 0172 0A       		.uleb128 0xa
+ 1709 0173 86000000 		.4byte	.LASF40
+ 1710 0177 01       		.byte	0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 48
+
+
+ 1711 0178 0901     		.2byte	0x109
+ 1712 017a 00000000 		.4byte	.LFB7
+ 1713 017e 300A0000 		.4byte	.LFE7-.LFB7
+ 1714 0182 01       		.uleb128 0x1
+ 1715 0183 9C       		.byte	0x9c
+ 1716 0184 A8010000 		.4byte	0x1a8
+ 1717 0188 0B       		.uleb128 0xb
+ 1718 0189 57000000 		.4byte	.LASF41
+ 1719 018d 01       		.byte	0x1
+ 1720 018e 0B01     		.2byte	0x10b
+ 1721 0190 6B000000 		.4byte	0x6b
+ 1722 0194 00000000 		.4byte	.LLST0
+ 1723 0198 0C       		.uleb128 0xc
+ 1724 0199 08000000 		.4byte	.LVL0
+ 1725 019d 59020000 		.4byte	0x259
+ 1726 01a1 0D       		.uleb128 0xd
+ 1727 01a2 01       		.uleb128 0x1
+ 1728 01a3 50       		.byte	0x50
+ 1729 01a4 01       		.uleb128 0x1
+ 1730 01a5 34       		.byte	0x34
+ 1731 01a6 00       		.byte	0
+ 1732 01a7 00       		.byte	0
+ 1733 01a8 0E       		.uleb128 0xe
+ 1734 01a9 C9000000 		.4byte	.LASF24
+ 1735 01ad 03       		.byte	0x3
+ 1736 01ae 2D01     		.2byte	0x12d
+ 1737 01b0 06010000 		.4byte	0x106
+ 1738 01b4 0E       		.uleb128 0xe
+ 1739 01b5 F6010000 		.4byte	.LASF25
+ 1740 01b9 03       		.byte	0x3
+ 1741 01ba 2E01     		.2byte	0x12e
+ 1742 01bc 06010000 		.4byte	0x106
+ 1743 01c0 0E       		.uleb128 0xe
+ 1744 01c1 D3010000 		.4byte	.LASF26
+ 1745 01c5 03       		.byte	0x3
+ 1746 01c6 3101     		.2byte	0x131
+ 1747 01c8 98000000 		.4byte	0x98
+ 1748 01cc 0E       		.uleb128 0xe
+ 1749 01cd A9020000 		.4byte	.LASF27
+ 1750 01d1 03       		.byte	0x3
+ 1751 01d2 3201     		.2byte	0x132
+ 1752 01d4 5B010000 		.4byte	0x15b
+ 1753 01d8 0E       		.uleb128 0xe
+ 1754 01d9 06010000 		.4byte	.LASF28
+ 1755 01dd 03       		.byte	0x3
+ 1756 01de 3301     		.2byte	0x133
+ 1757 01e0 5B010000 		.4byte	0x15b
+ 1758 01e4 0E       		.uleb128 0xe
+ 1759 01e5 33000000 		.4byte	.LASF29
+ 1760 01e9 03       		.byte	0x3
+ 1761 01ea 3401     		.2byte	0x134
+ 1762 01ec 98000000 		.4byte	0x98
+ 1763 01f0 0E       		.uleb128 0xe
+ 1764 01f1 8E000000 		.4byte	.LASF30
+ 1765 01f5 03       		.byte	0x3
+ 1766 01f6 3501     		.2byte	0x135
+ 1767 01f8 98000000 		.4byte	0x98
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 49
+
+
+ 1768 01fc 0E       		.uleb128 0xe
+ 1769 01fd 0A020000 		.4byte	.LASF31
+ 1770 0201 03       		.byte	0x3
+ 1771 0202 3601     		.2byte	0x136
+ 1772 0204 98000000 		.4byte	0x98
+ 1773 0208 0E       		.uleb128 0xe
+ 1774 0209 E3000000 		.4byte	.LASF32
+ 1775 020d 03       		.byte	0x3
+ 1776 020e 3901     		.2byte	0x139
+ 1777 0210 98000000 		.4byte	0x98
+ 1778 0214 0E       		.uleb128 0xe
+ 1779 0215 E3010000 		.4byte	.LASF33
+ 1780 0219 03       		.byte	0x3
+ 1781 021a 3A01     		.2byte	0x13a
+ 1782 021c 98000000 		.4byte	0x98
+ 1783 0220 0E       		.uleb128 0xe
+ 1784 0221 EC020000 		.4byte	.LASF34
+ 1785 0225 03       		.byte	0x3
+ 1786 0226 3B01     		.2byte	0x13b
+ 1787 0228 98000000 		.4byte	0x98
+ 1788 022c 0E       		.uleb128 0xe
+ 1789 022d 5F000000 		.4byte	.LASF35
+ 1790 0231 03       		.byte	0x3
+ 1791 0232 3C01     		.2byte	0x13c
+ 1792 0234 98000000 		.4byte	0x98
+ 1793 0238 0F       		.uleb128 0xf
+ 1794 0239 6B000000 		.4byte	0x6b
+ 1795 023d 48020000 		.4byte	0x248
+ 1796 0241 10       		.uleb128 0x10
+ 1797 0242 6B010000 		.4byte	0x16b
+ 1798 0246 0B       		.byte	0xb
+ 1799 0247 00       		.byte	0
+ 1800 0248 0E       		.uleb128 0xe
+ 1801 0249 25020000 		.4byte	.LASF36
+ 1802 024d 03       		.byte	0x3
+ 1803 024e 3E01     		.2byte	0x13e
+ 1804 0250 54020000 		.4byte	0x254
+ 1805 0254 11       		.uleb128 0x11
+ 1806 0255 38020000 		.4byte	0x238
+ 1807 0259 12       		.uleb128 0x12
+ 1808 025a DD020000 		.4byte	.LASF42
+ 1809 025e 04       		.byte	0x4
+ 1810 025f 26       		.byte	0x26
+ 1811 0260 6B000000 		.4byte	0x6b
+ 1812 0264 13       		.uleb128 0x13
+ 1813 0265 6B000000 		.4byte	0x6b
+ 1814 0269 00       		.byte	0
+ 1815 026a 00       		.byte	0
+ 1816              		.section	.debug_abbrev,"",%progbits
+ 1817              	.Ldebug_abbrev0:
+ 1818 0000 01       		.uleb128 0x1
+ 1819 0001 11       		.uleb128 0x11
+ 1820 0002 01       		.byte	0x1
+ 1821 0003 25       		.uleb128 0x25
+ 1822 0004 0E       		.uleb128 0xe
+ 1823 0005 13       		.uleb128 0x13
+ 1824 0006 0B       		.uleb128 0xb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 50
+
+
+ 1825 0007 03       		.uleb128 0x3
+ 1826 0008 0E       		.uleb128 0xe
+ 1827 0009 1B       		.uleb128 0x1b
+ 1828 000a 0E       		.uleb128 0xe
+ 1829 000b 55       		.uleb128 0x55
+ 1830 000c 17       		.uleb128 0x17
+ 1831 000d 11       		.uleb128 0x11
+ 1832 000e 01       		.uleb128 0x1
+ 1833 000f 10       		.uleb128 0x10
+ 1834 0010 17       		.uleb128 0x17
+ 1835 0011 00       		.byte	0
+ 1836 0012 00       		.byte	0
+ 1837 0013 02       		.uleb128 0x2
+ 1838 0014 24       		.uleb128 0x24
+ 1839 0015 00       		.byte	0
+ 1840 0016 0B       		.uleb128 0xb
+ 1841 0017 0B       		.uleb128 0xb
+ 1842 0018 3E       		.uleb128 0x3e
+ 1843 0019 0B       		.uleb128 0xb
+ 1844 001a 03       		.uleb128 0x3
+ 1845 001b 0E       		.uleb128 0xe
+ 1846 001c 00       		.byte	0
+ 1847 001d 00       		.byte	0
+ 1848 001e 03       		.uleb128 0x3
+ 1849 001f 24       		.uleb128 0x24
+ 1850 0020 00       		.byte	0
+ 1851 0021 0B       		.uleb128 0xb
+ 1852 0022 0B       		.uleb128 0xb
+ 1853 0023 3E       		.uleb128 0x3e
+ 1854 0024 0B       		.uleb128 0xb
+ 1855 0025 03       		.uleb128 0x3
+ 1856 0026 08       		.uleb128 0x8
+ 1857 0027 00       		.byte	0
+ 1858 0028 00       		.byte	0
+ 1859 0029 04       		.uleb128 0x4
+ 1860 002a 16       		.uleb128 0x16
+ 1861 002b 00       		.byte	0
+ 1862 002c 03       		.uleb128 0x3
+ 1863 002d 0E       		.uleb128 0xe
+ 1864 002e 3A       		.uleb128 0x3a
+ 1865 002f 0B       		.uleb128 0xb
+ 1866 0030 3B       		.uleb128 0x3b
+ 1867 0031 05       		.uleb128 0x5
+ 1868 0032 49       		.uleb128 0x49
+ 1869 0033 13       		.uleb128 0x13
+ 1870 0034 00       		.byte	0
+ 1871 0035 00       		.byte	0
+ 1872 0036 05       		.uleb128 0x5
+ 1873 0037 35       		.uleb128 0x35
+ 1874 0038 00       		.byte	0
+ 1875 0039 49       		.uleb128 0x49
+ 1876 003a 13       		.uleb128 0x13
+ 1877 003b 00       		.byte	0
+ 1878 003c 00       		.byte	0
+ 1879 003d 06       		.uleb128 0x6
+ 1880 003e 13       		.uleb128 0x13
+ 1881 003f 01       		.byte	0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 51
+
+
+ 1882 0040 0B       		.uleb128 0xb
+ 1883 0041 0B       		.uleb128 0xb
+ 1884 0042 3A       		.uleb128 0x3a
+ 1885 0043 0B       		.uleb128 0xb
+ 1886 0044 3B       		.uleb128 0x3b
+ 1887 0045 0B       		.uleb128 0xb
+ 1888 0046 01       		.uleb128 0x1
+ 1889 0047 13       		.uleb128 0x13
+ 1890 0048 00       		.byte	0
+ 1891 0049 00       		.byte	0
+ 1892 004a 07       		.uleb128 0x7
+ 1893 004b 0D       		.uleb128 0xd
+ 1894 004c 00       		.byte	0
+ 1895 004d 03       		.uleb128 0x3
+ 1896 004e 08       		.uleb128 0x8
+ 1897 004f 3A       		.uleb128 0x3a
+ 1898 0050 0B       		.uleb128 0xb
+ 1899 0051 3B       		.uleb128 0x3b
+ 1900 0052 0B       		.uleb128 0xb
+ 1901 0053 49       		.uleb128 0x49
+ 1902 0054 13       		.uleb128 0x13
+ 1903 0055 38       		.uleb128 0x38
+ 1904 0056 0B       		.uleb128 0xb
+ 1905 0057 00       		.byte	0
+ 1906 0058 00       		.byte	0
+ 1907 0059 08       		.uleb128 0x8
+ 1908 005a 0D       		.uleb128 0xd
+ 1909 005b 00       		.byte	0
+ 1910 005c 03       		.uleb128 0x3
+ 1911 005d 0E       		.uleb128 0xe
+ 1912 005e 3A       		.uleb128 0x3a
+ 1913 005f 0B       		.uleb128 0xb
+ 1914 0060 3B       		.uleb128 0x3b
+ 1915 0061 0B       		.uleb128 0xb
+ 1916 0062 49       		.uleb128 0x49
+ 1917 0063 13       		.uleb128 0x13
+ 1918 0064 38       		.uleb128 0x38
+ 1919 0065 0B       		.uleb128 0xb
+ 1920 0066 00       		.byte	0
+ 1921 0067 00       		.byte	0
+ 1922 0068 09       		.uleb128 0x9
+ 1923 0069 16       		.uleb128 0x16
+ 1924 006a 00       		.byte	0
+ 1925 006b 03       		.uleb128 0x3
+ 1926 006c 0E       		.uleb128 0xe
+ 1927 006d 3A       		.uleb128 0x3a
+ 1928 006e 0B       		.uleb128 0xb
+ 1929 006f 3B       		.uleb128 0x3b
+ 1930 0070 0B       		.uleb128 0xb
+ 1931 0071 49       		.uleb128 0x49
+ 1932 0072 13       		.uleb128 0x13
+ 1933 0073 00       		.byte	0
+ 1934 0074 00       		.byte	0
+ 1935 0075 0A       		.uleb128 0xa
+ 1936 0076 2E       		.uleb128 0x2e
+ 1937 0077 01       		.byte	0x1
+ 1938 0078 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 52
+
+
+ 1939 0079 19       		.uleb128 0x19
+ 1940 007a 03       		.uleb128 0x3
+ 1941 007b 0E       		.uleb128 0xe
+ 1942 007c 3A       		.uleb128 0x3a
+ 1943 007d 0B       		.uleb128 0xb
+ 1944 007e 3B       		.uleb128 0x3b
+ 1945 007f 05       		.uleb128 0x5
+ 1946 0080 27       		.uleb128 0x27
+ 1947 0081 19       		.uleb128 0x19
+ 1948 0082 11       		.uleb128 0x11
+ 1949 0083 01       		.uleb128 0x1
+ 1950 0084 12       		.uleb128 0x12
+ 1951 0085 06       		.uleb128 0x6
+ 1952 0086 40       		.uleb128 0x40
+ 1953 0087 18       		.uleb128 0x18
+ 1954 0088 9742     		.uleb128 0x2117
+ 1955 008a 19       		.uleb128 0x19
+ 1956 008b 01       		.uleb128 0x1
+ 1957 008c 13       		.uleb128 0x13
+ 1958 008d 00       		.byte	0
+ 1959 008e 00       		.byte	0
+ 1960 008f 0B       		.uleb128 0xb
+ 1961 0090 34       		.uleb128 0x34
+ 1962 0091 00       		.byte	0
+ 1963 0092 03       		.uleb128 0x3
+ 1964 0093 0E       		.uleb128 0xe
+ 1965 0094 3A       		.uleb128 0x3a
+ 1966 0095 0B       		.uleb128 0xb
+ 1967 0096 3B       		.uleb128 0x3b
+ 1968 0097 05       		.uleb128 0x5
+ 1969 0098 49       		.uleb128 0x49
+ 1970 0099 13       		.uleb128 0x13
+ 1971 009a 02       		.uleb128 0x2
+ 1972 009b 17       		.uleb128 0x17
+ 1973 009c 00       		.byte	0
+ 1974 009d 00       		.byte	0
+ 1975 009e 0C       		.uleb128 0xc
+ 1976 009f 898201   		.uleb128 0x4109
+ 1977 00a2 01       		.byte	0x1
+ 1978 00a3 11       		.uleb128 0x11
+ 1979 00a4 01       		.uleb128 0x1
+ 1980 00a5 31       		.uleb128 0x31
+ 1981 00a6 13       		.uleb128 0x13
+ 1982 00a7 00       		.byte	0
+ 1983 00a8 00       		.byte	0
+ 1984 00a9 0D       		.uleb128 0xd
+ 1985 00aa 8A8201   		.uleb128 0x410a
+ 1986 00ad 00       		.byte	0
+ 1987 00ae 02       		.uleb128 0x2
+ 1988 00af 18       		.uleb128 0x18
+ 1989 00b0 9142     		.uleb128 0x2111
+ 1990 00b2 18       		.uleb128 0x18
+ 1991 00b3 00       		.byte	0
+ 1992 00b4 00       		.byte	0
+ 1993 00b5 0E       		.uleb128 0xe
+ 1994 00b6 34       		.uleb128 0x34
+ 1995 00b7 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 53
+
+
+ 1996 00b8 03       		.uleb128 0x3
+ 1997 00b9 0E       		.uleb128 0xe
+ 1998 00ba 3A       		.uleb128 0x3a
+ 1999 00bb 0B       		.uleb128 0xb
+ 2000 00bc 3B       		.uleb128 0x3b
+ 2001 00bd 05       		.uleb128 0x5
+ 2002 00be 49       		.uleb128 0x49
+ 2003 00bf 13       		.uleb128 0x13
+ 2004 00c0 3F       		.uleb128 0x3f
+ 2005 00c1 19       		.uleb128 0x19
+ 2006 00c2 3C       		.uleb128 0x3c
+ 2007 00c3 19       		.uleb128 0x19
+ 2008 00c4 00       		.byte	0
+ 2009 00c5 00       		.byte	0
+ 2010 00c6 0F       		.uleb128 0xf
+ 2011 00c7 01       		.uleb128 0x1
+ 2012 00c8 01       		.byte	0x1
+ 2013 00c9 49       		.uleb128 0x49
+ 2014 00ca 13       		.uleb128 0x13
+ 2015 00cb 01       		.uleb128 0x1
+ 2016 00cc 13       		.uleb128 0x13
+ 2017 00cd 00       		.byte	0
+ 2018 00ce 00       		.byte	0
+ 2019 00cf 10       		.uleb128 0x10
+ 2020 00d0 21       		.uleb128 0x21
+ 2021 00d1 00       		.byte	0
+ 2022 00d2 49       		.uleb128 0x49
+ 2023 00d3 13       		.uleb128 0x13
+ 2024 00d4 2F       		.uleb128 0x2f
+ 2025 00d5 0B       		.uleb128 0xb
+ 2026 00d6 00       		.byte	0
+ 2027 00d7 00       		.byte	0
+ 2028 00d8 11       		.uleb128 0x11
+ 2029 00d9 26       		.uleb128 0x26
+ 2030 00da 00       		.byte	0
+ 2031 00db 49       		.uleb128 0x49
+ 2032 00dc 13       		.uleb128 0x13
+ 2033 00dd 00       		.byte	0
+ 2034 00de 00       		.byte	0
+ 2035 00df 12       		.uleb128 0x12
+ 2036 00e0 2E       		.uleb128 0x2e
+ 2037 00e1 01       		.byte	0x1
+ 2038 00e2 3F       		.uleb128 0x3f
+ 2039 00e3 19       		.uleb128 0x19
+ 2040 00e4 03       		.uleb128 0x3
+ 2041 00e5 0E       		.uleb128 0xe
+ 2042 00e6 3A       		.uleb128 0x3a
+ 2043 00e7 0B       		.uleb128 0xb
+ 2044 00e8 3B       		.uleb128 0x3b
+ 2045 00e9 0B       		.uleb128 0xb
+ 2046 00ea 27       		.uleb128 0x27
+ 2047 00eb 19       		.uleb128 0x19
+ 2048 00ec 49       		.uleb128 0x49
+ 2049 00ed 13       		.uleb128 0x13
+ 2050 00ee 3C       		.uleb128 0x3c
+ 2051 00ef 19       		.uleb128 0x19
+ 2052 00f0 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 54
+
+
+ 2053 00f1 00       		.byte	0
+ 2054 00f2 13       		.uleb128 0x13
+ 2055 00f3 05       		.uleb128 0x5
+ 2056 00f4 00       		.byte	0
+ 2057 00f5 49       		.uleb128 0x49
+ 2058 00f6 13       		.uleb128 0x13
+ 2059 00f7 00       		.byte	0
+ 2060 00f8 00       		.byte	0
+ 2061 00f9 00       		.byte	0
+ 2062              		.section	.debug_loc,"",%progbits
+ 2063              	.Ldebug_loc0:
+ 2064              	.LLST0:
+ 2065 0000 8C010000 		.4byte	.LVL1
+ 2066 0004 94010000 		.4byte	.LVL2
+ 2067 0008 0100     		.2byte	0x1
+ 2068 000a 53       		.byte	0x53
+ 2069 000b 2A020000 		.4byte	.LVL3
+ 2070 000f 32020000 		.4byte	.LVL4
+ 2071 0013 0100     		.2byte	0x1
+ 2072 0015 53       		.byte	0x53
+ 2073 0016 58030000 		.4byte	.LVL5
+ 2074 001a 60030000 		.4byte	.LVL6
+ 2075 001e 0100     		.2byte	0x1
+ 2076 0020 53       		.byte	0x53
+ 2077 0021 F2080000 		.4byte	.LVL7
+ 2078 0025 FA080000 		.4byte	.LVL8
+ 2079 0029 0100     		.2byte	0x1
+ 2080 002b 53       		.byte	0x53
+ 2081 002c 44090000 		.4byte	.LVL9
+ 2082 0030 4C090000 		.4byte	.LVL10
+ 2083 0034 0100     		.2byte	0x1
+ 2084 0036 53       		.byte	0x53
+ 2085 0037 9A090000 		.4byte	.LVL11
+ 2086 003b A2090000 		.4byte	.LVL12
+ 2087 003f 0100     		.2byte	0x1
+ 2088 0041 53       		.byte	0x53
+ 2089 0042 F0090000 		.4byte	.LVL13
+ 2090 0046 F8090000 		.4byte	.LVL14
+ 2091 004a 0100     		.2byte	0x1
+ 2092 004c 53       		.byte	0x53
+ 2093 004d 00000000 		.4byte	0
+ 2094 0051 00000000 		.4byte	0
+ 2095              		.section	.debug_aranges,"",%progbits
+ 2096 0000 1C000000 		.4byte	0x1c
+ 2097 0004 0200     		.2byte	0x2
+ 2098 0006 00000000 		.4byte	.Ldebug_info0
+ 2099 000a 04       		.byte	0x4
+ 2100 000b 00       		.byte	0
+ 2101 000c 0000     		.2byte	0
+ 2102 000e 0000     		.2byte	0
+ 2103 0010 00000000 		.4byte	.LFB7
+ 2104 0014 300A0000 		.4byte	.LFE7-.LFB7
+ 2105 0018 00000000 		.4byte	0
+ 2106 001c 00000000 		.4byte	0
+ 2107              		.section	.debug_ranges,"",%progbits
+ 2108              	.Ldebug_ranges0:
+ 2109 0000 00000000 		.4byte	.LFB7
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 55
+
+
+ 2110 0004 300A0000 		.4byte	.LFE7
+ 2111 0008 00000000 		.4byte	0
+ 2112 000c 00000000 		.4byte	0
+ 2113              		.section	.debug_line,"",%progbits
+ 2114              	.Ldebug_line0:
+ 2115 0000 F2010000 		.section	.debug_str,"MS",%progbits,1
+ 2115      02005900 
+ 2115      00000201 
+ 2115      FB0E0D00 
+ 2115      01010101 
+ 2116              	.LASF16:
+ 2117 0000 4461794F 		.ascii	"DayOfMonth\000"
+ 2117      664D6F6E 
+ 2117      746800
+ 2118              	.LASF21:
+ 2119 000b 5765656B 		.ascii	"Week\000"
+ 2119      00
+ 2120              	.LASF38:
+ 2121 0010 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\RTC_INT.c\000"
+ 2121      6E657261 
+ 2121      7465645F 
+ 2121      536F7572 
+ 2121      63655C50 
+ 2122              	.LASF29:
+ 2123 0033 5254435F 		.ascii	"RTC_dstOffsetMin\000"
+ 2123      6473744F 
+ 2123      66667365 
+ 2123      744D696E 
+ 2123      00
+ 2124              	.LASF3:
+ 2125 0044 73686F72 		.ascii	"short unsigned int\000"
+ 2125      7420756E 
+ 2125      7369676E 
+ 2125      65642069 
+ 2125      6E7400
+ 2126              	.LASF41:
+ 2127 0057 5254435F 		.ascii	"RTC_tmp\000"
+ 2127      746D7000 
+ 2128              	.LASF35:
+ 2129 005f 5254435F 		.ascii	"RTC_statusDateTime\000"
+ 2129      73746174 
+ 2129      75734461 
+ 2129      74655469 
+ 2129      6D6500
+ 2130              	.LASF11:
+ 2131 0072 666C6F61 		.ascii	"float\000"
+ 2131      7400
+ 2132              	.LASF1:
+ 2133 0078 756E7369 		.ascii	"unsigned char\000"
+ 2133      676E6564 
+ 2133      20636861 
+ 2133      7200
+ 2134              	.LASF40:
+ 2135 0086 5254435F 		.ascii	"RTC_ISR\000"
+ 2135      49535200 
+ 2136              	.LASF30:
+ 2137 008e 5254435F 		.ascii	"RTC_dstStartStatus\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 56
+
+
+ 2137      64737453 
+ 2137      74617274 
+ 2137      53746174 
+ 2137      757300
+ 2138              	.LASF5:
+ 2139 00a1 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2139      20756E73 
+ 2139      69676E65 
+ 2139      6420696E 
+ 2139      7400
+ 2140              	.LASF9:
+ 2141 00b3 75696E74 		.ascii	"uint8\000"
+ 2141      3800
+ 2142              	.LASF17:
+ 2143 00b9 4461794F 		.ascii	"DayOfYear\000"
+ 2143      66596561 
+ 2143      7200
+ 2144              	.LASF18:
+ 2145 00c3 4D6F6E74 		.ascii	"Month\000"
+ 2145      6800
+ 2146              	.LASF24:
+ 2147 00c9 5254435F 		.ascii	"RTC_alarmCfgTimeDate\000"
+ 2147      616C6172 
+ 2147      6D436667 
+ 2147      54696D65 
+ 2147      44617465 
+ 2148              	.LASF19:
+ 2149 00de 59656172 		.ascii	"Year\000"
+ 2149      00
+ 2150              	.LASF32:
+ 2151 00e3 5254435F 		.ascii	"RTC_alarmCfgMask\000"
+ 2151      616C6172 
+ 2151      6D436667 
+ 2151      4D61736B 
+ 2151      00
+ 2152              	.LASF12:
+ 2153 00f4 646F7562 		.ascii	"double\000"
+ 2153      6C6500
+ 2154              	.LASF22:
+ 2155 00fb 5254435F 		.ascii	"RTC_DSTIME\000"
+ 2155      44535449 
+ 2155      4D4500
+ 2156              	.LASF28:
+ 2157 0106 5254435F 		.ascii	"RTC_dstTimeDateStop\000"
+ 2157      64737454 
+ 2157      696D6544 
+ 2157      61746553 
+ 2157      746F7000 
+ 2158              	.LASF10:
+ 2159 011a 75696E74 		.ascii	"uint16\000"
+ 2159      313600
+ 2160              	.LASF37:
+ 2161 0121 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2161      4320342E 
+ 2161      392E3320 
+ 2161      32303135 
+ 2161      30333033 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 57
+
+
+ 2162 0154 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2162      20726576 
+ 2162      6973696F 
+ 2162      6E203232 
+ 2162      31323230 
+ 2163 0187 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2163      66756E63 
+ 2163      74696F6E 
+ 2163      2D736563 
+ 2163      74696F6E 
+ 2164              	.LASF8:
+ 2165 01af 756E7369 		.ascii	"unsigned int\000"
+ 2165      676E6564 
+ 2165      20696E74 
+ 2165      00
+ 2166              	.LASF7:
+ 2167 01bc 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2167      206C6F6E 
+ 2167      6720756E 
+ 2167      7369676E 
+ 2167      65642069 
+ 2168              	.LASF26:
+ 2169 01d3 5254435F 		.ascii	"RTC_dstModeType\000"
+ 2169      6473744D 
+ 2169      6F646554 
+ 2169      79706500 
+ 2170              	.LASF33:
+ 2171 01e3 5254435F 		.ascii	"RTC_alarmCurStatus\000"
+ 2171      616C6172 
+ 2171      6D437572 
+ 2171      53746174 
+ 2171      757300
+ 2172              	.LASF25:
+ 2173 01f6 5254435F 		.ascii	"RTC_currentTimeDate\000"
+ 2173      63757272 
+ 2173      656E7454 
+ 2173      696D6544 
+ 2173      61746500 
+ 2174              	.LASF31:
+ 2175 020a 5254435F 		.ascii	"RTC_dstStopStatus\000"
+ 2175      64737453 
+ 2175      746F7053 
+ 2175      74617475 
+ 2175      7300
+ 2176              	.LASF23:
+ 2177 021c 73697A65 		.ascii	"sizetype\000"
+ 2177      74797065 
+ 2177      00
+ 2178              	.LASF36:
+ 2179 0225 5254435F 		.ascii	"RTC_daysInMonths\000"
+ 2179      64617973 
+ 2179      496E4D6F 
+ 2179      6E746873 
+ 2179      00
+ 2180              	.LASF6:
+ 2181 0236 6C6F6E67 		.ascii	"long long int\000"
+ 2181      206C6F6E 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 58
+
+
+ 2181      6720696E 
+ 2181      7400
+ 2182              	.LASF13:
+ 2183 0244 63686172 		.ascii	"char\000"
+ 2183      00
+ 2184              	.LASF20:
+ 2185 0249 5254435F 		.ascii	"RTC_TIME_DATE\000"
+ 2185      54494D45 
+ 2185      5F444154 
+ 2185      4500
+ 2186              	.LASF39:
+ 2187 0257 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\Projects\\BarBot\\B"
+ 2187      73657273 
+ 2187      5C6D6172 
+ 2187      6B365C47 
+ 2187      6F6F676C 
+ 2188 0284 6172426F 		.ascii	"arBot\\Bartender.cydsn\000"
+ 2188      745C4261 
+ 2188      7274656E 
+ 2188      6465722E 
+ 2188      63796473 
+ 2189              	.LASF2:
+ 2190 029a 73686F72 		.ascii	"short int\000"
+ 2190      7420696E 
+ 2190      7400
+ 2191              	.LASF14:
+ 2192 02a4 486F7572 		.ascii	"Hour\000"
+ 2192      00
+ 2193              	.LASF27:
+ 2194 02a9 5254435F 		.ascii	"RTC_dstTimeDateStart\000"
+ 2194      64737454 
+ 2194      696D6544 
+ 2194      61746553 
+ 2194      74617274 
+ 2195              	.LASF15:
+ 2196 02be 4461794F 		.ascii	"DayOfWeek\000"
+ 2196      66576565 
+ 2196      6B00
+ 2197              	.LASF4:
+ 2198 02c8 6C6F6E67 		.ascii	"long int\000"
+ 2198      20696E74 
+ 2198      00
+ 2199              	.LASF0:
+ 2200 02d1 7369676E 		.ascii	"signed char\000"
+ 2200      65642063 
+ 2200      68617200 
+ 2201              	.LASF42:
+ 2202 02dd 4379506D 		.ascii	"CyPmReadStatus\000"
+ 2202      52656164 
+ 2202      53746174 
+ 2202      757300
+ 2203              	.LASF34:
+ 2204 02ec 5254435F 		.ascii	"RTC_intervalCfgMask\000"
+ 2204      696E7465 
+ 2204      7276616C 
+ 2204      4366674D 
+ 2204      61736B00 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\cc1vMf1B.s 			page 59
+
+
+ 2205              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

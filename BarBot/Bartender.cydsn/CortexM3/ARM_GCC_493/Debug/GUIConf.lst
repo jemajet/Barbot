@@ -1,0 +1,1777 @@
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"GUIConf.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.GUI_X_Config,"ax",%progbits
+  19              		.align	2
+  20              		.global	GUI_X_Config
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	GUI_X_Config, %function
+  24              	GUI_X_Config:
+  25              	.LFB0:
+  26              		.file 1 "..\\..\\..\\..\\College-MIT\\S6Spring2020\\6.115\\FinalProject\\BunkerKnowledge\\PSoC_5_F
+   1:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** /*********************************************************************
+   2:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *        Solutions for real time microcontroller applications        *
+   4:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** **********************************************************************
+   5:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *                                                                    *
+   6:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *                                                                    *
+   8:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *                                                                    *
+  10:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** **********************************************************************
+  11:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** 
+  12:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** ** emWin V5.46 - Graphical user interface for embedded applications **
+  13:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** source code may not be used to write a similar product.  This file may
+  16:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** only be used in accordance with the following terms:
+  17:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** 
+  18:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** The software  has been licensed to  Cypress Semiconductor Corporation,
+  19:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** whose registered  office is situated  at 198 Champion Ct. San Jose, CA 
+  20:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** 95134 USA  solely for the  purposes of creating  libraries for Cypress
+  21:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** PSoC3 and  PSoC5 processor-based devices,  sublicensed and distributed
+  22:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** under  the  terms  and  conditions  of  the  Cypress  End User License
+  23:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Agreement.
+  24:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Full source code is available at: www.segger.com
+  25:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** 
+  26:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** We appreciate your understanding and fairness.
+  27:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** ----------------------------------------------------------------------
+  28:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Licensing information
+  29:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Licensor:                 SEGGER Microcontroller Systems LLC
+  30:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Licensed to:              Cypress Semiconductor Corp, 198 Champion Ct., San Jose, CA 95134, USA
+  31:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Licensed SEGGER software: emWin
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 2
+
+
+  32:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** License number:           GUI-00319
+  33:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** License model:            Services and License Agreement, signed June 10th, 2009
+  34:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Licensed platform:        Any Cypress platform (Initial targets are: PSoC3, PSoC5)
+  35:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** ----------------------------------------------------------------------
+  36:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Support and Update Agreement (SUA)
+  37:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** SUA period:               2009-06-12 - 2022-07-27
+  38:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Contact to extend SUA:    sales@segger.com
+  39:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** ----------------------------------------------------------------------
+  40:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** File        : GUIConf.c
+  41:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** Purpose     : Display controller initialization
+  42:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** ---------------------------END-OF-HEADER------------------------------
+  43:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** */
+  44:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** 
+  45:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** #include "GUI.h"
+  46:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** 
+  47:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** /*********************************************************************
+  48:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *
+  49:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *       Defines
+  50:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *
+  51:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** **********************************************************************
+  52:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** */
+  53:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** //
+  54:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** // Define the available number of bytes available for the GUI
+  55:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** //
+  56:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** #define GUI_NUMBYTES  0x2000
+  57:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** 
+  58:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** /*********************************************************************
+  59:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *
+  60:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *       Public code
+  61:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *
+  62:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** **********************************************************************
+  63:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** */
+  64:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** /*********************************************************************
+  65:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *
+  66:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *       GUI_X_Config
+  67:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *
+  68:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** * Purpose:
+  69:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *   Called during the initialization process in order to set up the
+  70:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** *   available memory for the GUI.
+  71:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** */
+  72:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c **** void GUI_X_Config(void) {
+  27              		.loc 1 72 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              		.cfi_def_cfa_offset 8
+  33              		.cfi_offset 3, -8
+  34              		.cfi_offset 14, -4
+  73:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   //
+  74:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   // 32 bit aligned memory area
+  75:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   //
+  76:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   static U32 aMemory[GUI_NUMBYTES / 4];
+  77:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   //
+  78:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   // Assign memory to emWin
+  79:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   //
+  80:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   GUI_ALLOC_AssignMemory(aMemory, GUI_NUMBYTES);
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 3
+
+
+  35              		.loc 1 80 0
+  36 0002 0448     		ldr	r0, .L3
+  37 0004 4FF40051 		mov	r1, #8192
+  38 0008 FFF7FEFF 		bl	GUI_ALLOC_AssignMemory
+  39              	.LVL0:
+  81:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   //
+  82:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   // Set default font
+  83:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   //
+  84:..\..\..\..\College-MIT\S6Spring2020\6.115\FinalProject\BunkerKnowledge\PSoC_5_Files\Processor.cydsn/GUIConf.c ****   GUI_SetDefaultFont(GUI_FONT_6X8);
+  40              		.loc 1 84 0
+  41 000c 0248     		ldr	r0, .L3+4
+  42 000e FFF7FEFF 		bl	GUI_SetDefaultFont
+  43              	.LVL1:
+  44 0012 08BD     		pop	{r3, pc}
+  45              	.L4:
+  46              		.align	2
+  47              	.L3:
+  48 0014 00000000 		.word	.LANCHOR0
+  49 0018 00000000 		.word	GUI_Font6x8
+  50              		.cfi_endproc
+  51              	.LFE0:
+  52              		.size	GUI_X_Config, .-GUI_X_Config
+  53              		.bss
+  54              		.align	2
+  55              		.set	.LANCHOR0,. + 0
+  56              		.type	aMemory.7986, %object
+  57              		.size	aMemory.7986, 8192
+  58              	aMemory.7986:
+  59 0000 00000000 		.space	8192
+  59      00000000 
+  59      00000000 
+  59      00000000 
+  59      00000000 
+  60              		.text
+  61              	.Letext0:
+  62              		.file 2 "..\\..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI_Type.h"
+  63              		.file 3 "..\\..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI.h"
+  64              		.section	.debug_info,"",%progbits
+  65              	.Ldebug_info0:
+  66 0000 3C060000 		.4byte	0x63c
+  67 0004 0400     		.2byte	0x4
+  68 0006 00000000 		.4byte	.Ldebug_abbrev0
+  69 000a 04       		.byte	0x4
+  70 000b 01       		.uleb128 0x1
+  71 000c 2B030000 		.4byte	.LASF63
+  72 0010 01       		.byte	0x1
+  73 0011 89020000 		.4byte	.LASF64
+  74 0015 00000000 		.4byte	.LASF65
+  75 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  76 001d 00000000 		.4byte	0
+  77 0021 00000000 		.4byte	.Ldebug_line0
+  78 0025 02       		.uleb128 0x2
+  79 0026 04       		.byte	0x4
+  80 0027 05       		.byte	0x5
+  81 0028 696E7400 		.ascii	"int\000"
+  82 002c 03       		.uleb128 0x3
+  83 002d 04       		.byte	0x4
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 4
+
+
+  84 002e 07       		.byte	0x7
+  85 002f E6010000 		.4byte	.LASF0
+  86 0033 03       		.uleb128 0x3
+  87 0034 04       		.byte	0x4
+  88 0035 07       		.byte	0x7
+  89 0036 05030000 		.4byte	.LASF1
+  90 003a 03       		.uleb128 0x3
+  91 003b 02       		.byte	0x2
+  92 003c 05       		.byte	0x5
+  93 003d 71000000 		.4byte	.LASF2
+  94 0041 03       		.uleb128 0x3
+  95 0042 01       		.byte	0x1
+  96 0043 08       		.byte	0x8
+  97 0044 2F020000 		.4byte	.LASF3
+  98 0048 03       		.uleb128 0x3
+  99 0049 01       		.byte	0x1
+ 100 004a 08       		.byte	0x8
+ 101 004b AD010000 		.4byte	.LASF4
+ 102 004f 04       		.uleb128 0x4
+ 103 0050 04       		.byte	0x4
+ 104 0051 03       		.uleb128 0x3
+ 105 0052 04       		.byte	0x4
+ 106 0053 05       		.byte	0x5
+ 107 0054 6B010000 		.4byte	.LASF5
+ 108 0058 05       		.uleb128 0x5
+ 109 0059 04       		.byte	0x4
+ 110 005a 5E000000 		.4byte	0x5e
+ 111 005e 06       		.uleb128 0x6
+ 112 005f 48000000 		.4byte	0x48
+ 113 0063 05       		.uleb128 0x5
+ 114 0064 04       		.byte	0x4
+ 115 0065 69000000 		.4byte	0x69
+ 116 0069 07       		.uleb128 0x7
+ 117 006a 05       		.uleb128 0x5
+ 118 006b 04       		.byte	0x4
+ 119 006c 70000000 		.4byte	0x70
+ 120 0070 06       		.uleb128 0x6
+ 121 0071 41000000 		.4byte	0x41
+ 122 0075 03       		.uleb128 0x3
+ 123 0076 02       		.byte	0x2
+ 124 0077 07       		.byte	0x7
+ 125 0078 1C020000 		.4byte	.LASF6
+ 126 007c 08       		.uleb128 0x8
+ 127 007d 04       		.byte	0x4
+ 128 007e 02       		.byte	0x2
+ 129 007f B6       		.byte	0xb6
+ 130 0080 9B000000 		.4byte	0x9b
+ 131 0084 09       		.uleb128 0x9
+ 132 0085 633000   		.ascii	"c0\000"
+ 133 0088 02       		.byte	0x2
+ 134 0089 B7       		.byte	0xb7
+ 135 008a 3A000000 		.4byte	0x3a
+ 136 008e 00       		.byte	0
+ 137 008f 09       		.uleb128 0x9
+ 138 0090 633100   		.ascii	"c1\000"
+ 139 0093 02       		.byte	0x2
+ 140 0094 B8       		.byte	0xb8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 5
+
+
+ 141 0095 3A000000 		.4byte	0x3a
+ 142 0099 02       		.byte	0x2
+ 143 009a 00       		.byte	0
+ 144 009b 0A       		.uleb128 0xa
+ 145 009c CE000000 		.4byte	.LASF10
+ 146 00a0 02       		.byte	0x2
+ 147 00a1 B9       		.byte	0xb9
+ 148 00a2 7C000000 		.4byte	0x7c
+ 149 00a6 08       		.uleb128 0x8
+ 150 00a7 08       		.byte	0x8
+ 151 00a8 02       		.byte	0x2
+ 152 00a9 BB       		.byte	0xbb
+ 153 00aa D3000000 		.4byte	0xd3
+ 154 00ae 0B       		.uleb128 0xb
+ 155 00af 34020000 		.4byte	.LASF7
+ 156 00b3 02       		.byte	0x2
+ 157 00b4 BC       		.byte	0xbc
+ 158 00b5 75000000 		.4byte	0x75
+ 159 00b9 00       		.byte	0
+ 160 00ba 0B       		.uleb128 0xb
+ 161 00bb 38040000 		.4byte	.LASF8
+ 162 00bf 02       		.byte	0x2
+ 163 00c0 BD       		.byte	0xbd
+ 164 00c1 75000000 		.4byte	0x75
+ 165 00c5 02       		.byte	0x2
+ 166 00c6 0B       		.uleb128 0xb
+ 167 00c7 43000000 		.4byte	.LASF9
+ 168 00cb 02       		.byte	0x2
+ 169 00cc BE       		.byte	0xbe
+ 170 00cd D3000000 		.4byte	0xd3
+ 171 00d1 04       		.byte	0x4
+ 172 00d2 00       		.byte	0
+ 173 00d3 05       		.uleb128 0x5
+ 174 00d4 04       		.byte	0x4
+ 175 00d5 D9000000 		.4byte	0xd9
+ 176 00d9 06       		.uleb128 0x6
+ 177 00da 9B000000 		.4byte	0x9b
+ 178 00de 0A       		.uleb128 0xa
+ 179 00df 30010000 		.4byte	.LASF11
+ 180 00e3 02       		.byte	0x2
+ 181 00e4 BF       		.byte	0xbf
+ 182 00e5 A6000000 		.4byte	0xa6
+ 183 00e9 08       		.uleb128 0x8
+ 184 00ea 08       		.byte	0x8
+ 185 00eb 02       		.byte	0x2
+ 186 00ec C1       		.byte	0xc1
+ 187 00ed 22010000 		.4byte	0x122
+ 188 00f1 0B       		.uleb128 0xb
+ 189 00f2 F7000000 		.4byte	.LASF12
+ 190 00f6 02       		.byte	0x2
+ 191 00f7 C2       		.byte	0xc2
+ 192 00f8 48000000 		.4byte	0x48
+ 193 00fc 00       		.byte	0
+ 194 00fd 0B       		.uleb128 0xb
+ 195 00fe E0010000 		.4byte	.LASF13
+ 196 0102 02       		.byte	0x2
+ 197 0103 C3       		.byte	0xc3
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 6
+
+
+ 198 0104 48000000 		.4byte	0x48
+ 199 0108 01       		.byte	0x1
+ 200 0109 0B       		.uleb128 0xb
+ 201 010a 9B000000 		.4byte	.LASF14
+ 202 010e 02       		.byte	0x2
+ 203 010f C4       		.byte	0xc4
+ 204 0110 48000000 		.4byte	0x48
+ 205 0114 02       		.byte	0x2
+ 206 0115 0B       		.uleb128 0xb
+ 207 0116 61000000 		.4byte	.LASF15
+ 208 011a 02       		.byte	0x2
+ 209 011b C5       		.byte	0xc5
+ 210 011c 58000000 		.4byte	0x58
+ 211 0120 04       		.byte	0x4
+ 212 0121 00       		.byte	0
+ 213 0122 0A       		.uleb128 0xa
+ 214 0123 49000000 		.4byte	.LASF16
+ 215 0127 02       		.byte	0x2
+ 216 0128 C6       		.byte	0xc6
+ 217 0129 E9000000 		.4byte	0xe9
+ 218 012d 08       		.uleb128 0x8
+ 219 012e 0C       		.byte	0xc
+ 220 012f 02       		.byte	0x2
+ 221 0130 C8       		.byte	0xc8
+ 222 0131 7E010000 		.4byte	0x17e
+ 223 0135 0B       		.uleb128 0xb
+ 224 0136 F7000000 		.4byte	.LASF12
+ 225 013a 02       		.byte	0x2
+ 226 013b C9       		.byte	0xc9
+ 227 013c 48000000 		.4byte	0x48
+ 228 0140 00       		.byte	0
+ 229 0141 0B       		.uleb128 0xb
+ 230 0142 16020000 		.4byte	.LASF17
+ 231 0146 02       		.byte	0x2
+ 232 0147 CA       		.byte	0xca
+ 233 0148 48000000 		.4byte	0x48
+ 234 014c 01       		.byte	0x1
+ 235 014d 0B       		.uleb128 0xb
+ 236 014e 1D010000 		.4byte	.LASF18
+ 237 0152 02       		.byte	0x2
+ 238 0153 CB       		.byte	0xcb
+ 239 0154 7E010000 		.4byte	0x17e
+ 240 0158 02       		.byte	0x2
+ 241 0159 0B       		.uleb128 0xb
+ 242 015a F3010000 		.4byte	.LASF19
+ 243 015e 02       		.byte	0x2
+ 244 015f CC       		.byte	0xcc
+ 245 0160 7E010000 		.4byte	0x17e
+ 246 0164 03       		.byte	0x3
+ 247 0165 0B       		.uleb128 0xb
+ 248 0166 E0010000 		.4byte	.LASF13
+ 249 016a 02       		.byte	0x2
+ 250 016b CD       		.byte	0xcd
+ 251 016c 48000000 		.4byte	0x48
+ 252 0170 04       		.byte	0x4
+ 253 0171 0B       		.uleb128 0xb
+ 254 0172 61000000 		.4byte	.LASF15
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 7
+
+
+ 255 0176 02       		.byte	0x2
+ 256 0177 CE       		.byte	0xce
+ 257 0178 58000000 		.4byte	0x58
+ 258 017c 08       		.byte	0x8
+ 259 017d 00       		.byte	0
+ 260 017e 03       		.uleb128 0x3
+ 261 017f 01       		.byte	0x1
+ 262 0180 06       		.byte	0x6
+ 263 0181 D4010000 		.4byte	.LASF20
+ 264 0185 0A       		.uleb128 0xa
+ 265 0186 74010000 		.4byte	.LASF21
+ 266 018a 02       		.byte	0x2
+ 267 018b CF       		.byte	0xcf
+ 268 018c 2D010000 		.4byte	0x12d
+ 269 0190 0C       		.uleb128 0xc
+ 270 0191 7B020000 		.4byte	.LASF26
+ 271 0195 0C       		.byte	0xc
+ 272 0196 02       		.byte	0x2
+ 273 0197 D1       		.byte	0xd1
+ 274 0198 CD010000 		.4byte	0x1cd
+ 275 019c 0B       		.uleb128 0xb
+ 276 019d 17030000 		.4byte	.LASF22
+ 277 01a1 02       		.byte	0x2
+ 278 01a2 D2       		.byte	0xd2
+ 279 01a3 75000000 		.4byte	0x75
+ 280 01a7 00       		.byte	0
+ 281 01a8 0B       		.uleb128 0xb
+ 282 01a9 66010000 		.4byte	.LASF23
+ 283 01ad 02       		.byte	0x2
+ 284 01ae D3       		.byte	0xd3
+ 285 01af 75000000 		.4byte	0x75
+ 286 01b3 02       		.byte	0x2
+ 287 01b4 0B       		.uleb128 0xb
+ 288 01b5 4D010000 		.4byte	.LASF24
+ 289 01b9 02       		.byte	0x2
+ 290 01ba D4       		.byte	0xd4
+ 291 01bb CD010000 		.4byte	0x1cd
+ 292 01bf 04       		.byte	0x4
+ 293 01c0 0B       		.uleb128 0xb
+ 294 01c1 58010000 		.4byte	.LASF25
+ 295 01c5 02       		.byte	0x2
+ 296 01c6 D5       		.byte	0xd5
+ 297 01c7 D8010000 		.4byte	0x1d8
+ 298 01cb 08       		.byte	0x8
+ 299 01cc 00       		.byte	0
+ 300 01cd 05       		.uleb128 0x5
+ 301 01ce 04       		.byte	0x4
+ 302 01cf D3010000 		.4byte	0x1d3
+ 303 01d3 06       		.uleb128 0x6
+ 304 01d4 22010000 		.4byte	0x122
+ 305 01d8 05       		.uleb128 0x5
+ 306 01d9 04       		.byte	0x4
+ 307 01da DE010000 		.4byte	0x1de
+ 308 01de 06       		.uleb128 0x6
+ 309 01df 90010000 		.4byte	0x190
+ 310 01e3 0A       		.uleb128 0xa
+ 311 01e4 7B020000 		.4byte	.LASF26
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 8
+
+
+ 312 01e8 02       		.byte	0x2
+ 313 01e9 D6       		.byte	0xd6
+ 314 01ea 90010000 		.4byte	0x190
+ 315 01ee 0C       		.uleb128 0xc
+ 316 01ef BC000000 		.4byte	.LASF27
+ 317 01f3 0C       		.byte	0xc
+ 318 01f4 02       		.byte	0x2
+ 319 01f5 D8       		.byte	0xd8
+ 320 01f6 2B020000 		.4byte	0x22b
+ 321 01fa 0B       		.uleb128 0xb
+ 322 01fb 17030000 		.4byte	.LASF22
+ 323 01ff 02       		.byte	0x2
+ 324 0200 D9       		.byte	0xd9
+ 325 0201 75000000 		.4byte	0x75
+ 326 0205 00       		.byte	0
+ 327 0206 0B       		.uleb128 0xb
+ 328 0207 66010000 		.4byte	.LASF23
+ 329 020b 02       		.byte	0x2
+ 330 020c DA       		.byte	0xda
+ 331 020d 75000000 		.4byte	0x75
+ 332 0211 02       		.byte	0x2
+ 333 0212 0B       		.uleb128 0xb
+ 334 0213 4D010000 		.4byte	.LASF24
+ 335 0217 02       		.byte	0x2
+ 336 0218 DB       		.byte	0xdb
+ 337 0219 2B020000 		.4byte	0x22b
+ 338 021d 04       		.byte	0x4
+ 339 021e 0B       		.uleb128 0xb
+ 340 021f 58010000 		.4byte	.LASF25
+ 341 0223 02       		.byte	0x2
+ 342 0224 DC       		.byte	0xdc
+ 343 0225 36020000 		.4byte	0x236
+ 344 0229 08       		.byte	0x8
+ 345 022a 00       		.byte	0
+ 346 022b 05       		.uleb128 0x5
+ 347 022c 04       		.byte	0x4
+ 348 022d 31020000 		.4byte	0x231
+ 349 0231 06       		.uleb128 0x6
+ 350 0232 85010000 		.4byte	0x185
+ 351 0236 05       		.uleb128 0x5
+ 352 0237 04       		.byte	0x4
+ 353 0238 3C020000 		.4byte	0x23c
+ 354 023c 06       		.uleb128 0x6
+ 355 023d EE010000 		.4byte	0x1ee
+ 356 0241 0A       		.uleb128 0xa
+ 357 0242 BC000000 		.4byte	.LASF27
+ 358 0246 02       		.byte	0x2
+ 359 0247 DD       		.byte	0xdd
+ 360 0248 EE010000 		.4byte	0x1ee
+ 361 024c 08       		.uleb128 0x8
+ 362 024d 14       		.byte	0x14
+ 363 024e 02       		.byte	0x2
+ 364 024f DF       		.byte	0xdf
+ 365 0250 B5020000 		.4byte	0x2b5
+ 366 0254 0B       		.uleb128 0xb
+ 367 0255 61000000 		.4byte	.LASF15
+ 368 0259 02       		.byte	0x2
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 9
+
+
+ 369 025a E0       		.byte	0xe0
+ 370 025b 58000000 		.4byte	0x58
+ 371 025f 00       		.byte	0
+ 372 0260 0B       		.uleb128 0xb
+ 373 0261 85010000 		.4byte	.LASF28
+ 374 0265 02       		.byte	0x2
+ 375 0266 E1       		.byte	0xe1
+ 376 0267 58000000 		.4byte	0x58
+ 377 026b 04       		.byte	0x4
+ 378 026c 0B       		.uleb128 0xb
+ 379 026d B5000000 		.4byte	.LASF29
+ 380 0271 02       		.byte	0x2
+ 381 0272 E2       		.byte	0xe2
+ 382 0273 B5020000 		.4byte	0x2b5
+ 383 0277 08       		.byte	0x8
+ 384 0278 0B       		.uleb128 0xb
+ 385 0279 34020000 		.4byte	.LASF7
+ 386 027d 02       		.byte	0x2
+ 387 027e E3       		.byte	0xe3
+ 388 027f 75000000 		.4byte	0x75
+ 389 0283 0C       		.byte	0xc
+ 390 0284 0B       		.uleb128 0xb
+ 391 0285 38040000 		.4byte	.LASF8
+ 392 0289 02       		.byte	0x2
+ 393 028a E4       		.byte	0xe4
+ 394 028b 75000000 		.4byte	0x75
+ 395 028f 0E       		.byte	0xe
+ 396 0290 0B       		.uleb128 0xb
+ 397 0291 F7000000 		.4byte	.LASF12
+ 398 0295 02       		.byte	0x2
+ 399 0296 E5       		.byte	0xe5
+ 400 0297 48000000 		.4byte	0x48
+ 401 029b 10       		.byte	0x10
+ 402 029c 0B       		.uleb128 0xb
+ 403 029d E0010000 		.4byte	.LASF13
+ 404 02a1 02       		.byte	0x2
+ 405 02a2 E6       		.byte	0xe6
+ 406 02a3 48000000 		.4byte	0x48
+ 407 02a7 11       		.byte	0x11
+ 408 02a8 0B       		.uleb128 0xb
+ 409 02a9 9B000000 		.4byte	.LASF14
+ 410 02ad 02       		.byte	0x2
+ 411 02ae E7       		.byte	0xe7
+ 412 02af 48000000 		.4byte	0x48
+ 413 02b3 12       		.byte	0x12
+ 414 02b4 00       		.byte	0
+ 415 02b5 05       		.uleb128 0x5
+ 416 02b6 04       		.byte	0x4
+ 417 02b7 BB020000 		.4byte	0x2bb
+ 418 02bb 06       		.uleb128 0x6
+ 419 02bc DE000000 		.4byte	0xde
+ 420 02c0 0A       		.uleb128 0xa
+ 421 02c1 1D030000 		.4byte	.LASF30
+ 422 02c5 02       		.byte	0x2
+ 423 02c6 E8       		.byte	0xe8
+ 424 02c7 4C020000 		.4byte	0x24c
+ 425 02cb 08       		.uleb128 0x8
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 10
+
+
+ 426 02cc 06       		.byte	0x6
+ 427 02cd 02       		.byte	0x2
+ 428 02ce F1       		.byte	0xf1
+ 429 02cf 04030000 		.4byte	0x304
+ 430 02d3 0B       		.uleb128 0xb
+ 431 02d4 22010000 		.4byte	.LASF31
+ 432 02d8 02       		.byte	0x2
+ 433 02d9 F2       		.byte	0xf2
+ 434 02da 75000000 		.4byte	0x75
+ 435 02de 00       		.byte	0
+ 436 02df 0B       		.uleb128 0xb
+ 437 02e0 EE000000 		.4byte	.LASF32
+ 438 02e4 02       		.byte	0x2
+ 439 02e5 F3       		.byte	0xf3
+ 440 02e6 48000000 		.4byte	0x48
+ 441 02ea 02       		.byte	0x2
+ 442 02eb 0B       		.uleb128 0xb
+ 443 02ec E1000000 		.4byte	.LASF33
+ 444 02f0 02       		.byte	0x2
+ 445 02f1 F4       		.byte	0xf4
+ 446 02f2 48000000 		.4byte	0x48
+ 447 02f6 03       		.byte	0x3
+ 448 02f7 0B       		.uleb128 0xb
+ 449 02f8 28010000 		.4byte	.LASF34
+ 450 02fc 02       		.byte	0x2
+ 451 02fd F5       		.byte	0xf5
+ 452 02fe 48000000 		.4byte	0x48
+ 453 0302 04       		.byte	0x4
+ 454 0303 00       		.byte	0
+ 455 0304 0A       		.uleb128 0xa
+ 456 0305 2B040000 		.4byte	.LASF35
+ 457 0309 02       		.byte	0x2
+ 458 030a F6       		.byte	0xf6
+ 459 030b CB020000 		.4byte	0x2cb
+ 460 030f 0D       		.uleb128 0xd
+ 461 0310 60020000 		.4byte	.LASF36
+ 462 0314 02       		.byte	0x2
+ 463 0315 1301     		.2byte	0x113
+ 464 0317 1B030000 		.4byte	0x31b
+ 465 031b 0E       		.uleb128 0xe
+ 466 031c 25000000 		.4byte	0x25
+ 467 0320 2F030000 		.4byte	0x32f
+ 468 0324 0F       		.uleb128 0xf
+ 469 0325 6A000000 		.4byte	0x6a
+ 470 0329 0F       		.uleb128 0xf
+ 471 032a 25000000 		.4byte	0x25
+ 472 032e 00       		.byte	0
+ 473 032f 0D       		.uleb128 0xd
+ 474 0330 FA030000 		.4byte	.LASF37
+ 475 0334 02       		.byte	0x2
+ 476 0335 1401     		.2byte	0x114
+ 477 0337 1B030000 		.4byte	0x31b
+ 478 033b 0D       		.uleb128 0xd
+ 479 033c 1E040000 		.4byte	.LASF38
+ 480 0340 02       		.byte	0x2
+ 481 0341 1501     		.2byte	0x115
+ 482 0343 47030000 		.4byte	0x347
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 11
+
+
+ 483 0347 10       		.uleb128 0x10
+ 484 0348 57030000 		.4byte	0x357
+ 485 034c 0F       		.uleb128 0xf
+ 486 034d 6A000000 		.4byte	0x6a
+ 487 0351 0F       		.uleb128 0xf
+ 488 0352 25000000 		.4byte	0x25
+ 489 0356 00       		.byte	0
+ 490 0357 11       		.uleb128 0x11
+ 491 0358 0C       		.byte	0xc
+ 492 0359 02       		.byte	0x2
+ 493 035a 1701     		.2byte	0x117
+ 494 035c 88030000 		.4byte	0x388
+ 495 0360 12       		.uleb128 0x12
+ 496 0361 3E020000 		.4byte	.LASF39
+ 497 0365 02       		.byte	0x2
+ 498 0366 1801     		.2byte	0x118
+ 499 0368 88030000 		.4byte	0x388
+ 500 036c 00       		.byte	0
+ 501 036d 12       		.uleb128 0x12
+ 502 036e A8000000 		.4byte	.LASF40
+ 503 0372 02       		.byte	0x2
+ 504 0373 1901     		.2byte	0x119
+ 505 0375 8E030000 		.4byte	0x38e
+ 506 0379 04       		.byte	0x4
+ 507 037a 12       		.uleb128 0x12
+ 508 037b C9010000 		.4byte	.LASF41
+ 509 037f 02       		.byte	0x2
+ 510 0380 1A01     		.2byte	0x11a
+ 511 0382 94030000 		.4byte	0x394
+ 512 0386 08       		.byte	0x8
+ 513 0387 00       		.byte	0
+ 514 0388 05       		.uleb128 0x5
+ 515 0389 04       		.byte	0x4
+ 516 038a 0F030000 		.4byte	0x30f
+ 517 038e 05       		.uleb128 0x5
+ 518 038f 04       		.byte	0x4
+ 519 0390 2F030000 		.4byte	0x32f
+ 520 0394 05       		.uleb128 0x5
+ 521 0395 04       		.byte	0x4
+ 522 0396 3B030000 		.4byte	0x33b
+ 523 039a 0D       		.uleb128 0xd
+ 524 039b 0C010000 		.4byte	.LASF42
+ 525 039f 02       		.byte	0x2
+ 526 03a0 1B01     		.2byte	0x11b
+ 527 03a2 57030000 		.4byte	0x357
+ 528 03a6 0D       		.uleb128 0xd
+ 529 03a7 72020000 		.4byte	.LASF43
+ 530 03ab 02       		.byte	0x2
+ 531 03ac 2401     		.2byte	0x124
+ 532 03ae B2030000 		.4byte	0x3b2
+ 533 03b2 13       		.uleb128 0x13
+ 534 03b3 72020000 		.4byte	.LASF43
+ 535 03b7 24       		.byte	0x24
+ 536 03b8 02       		.byte	0x2
+ 537 03b9 B101     		.2byte	0x1b1
+ 538 03bb 74040000 		.4byte	0x474
+ 539 03bf 12       		.uleb128 0x12
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 12
+
+
+ 540 03c0 E9030000 		.4byte	.LASF44
+ 541 03c4 02       		.byte	0x2
+ 542 03c5 B201     		.2byte	0x1b2
+ 543 03c7 7F050000 		.4byte	0x57f
+ 544 03cb 00       		.byte	0
+ 545 03cc 12       		.uleb128 0x12
+ 546 03cd B9030000 		.4byte	.LASF45
+ 547 03d1 02       		.byte	0x2
+ 548 03d2 B301     		.2byte	0x1b3
+ 549 03d4 85050000 		.4byte	0x585
+ 550 03d8 04       		.byte	0x4
+ 551 03d9 12       		.uleb128 0x12
+ 552 03da 10040000 		.4byte	.LASF46
+ 553 03de 02       		.byte	0x2
+ 554 03df B401     		.2byte	0x1b4
+ 555 03e1 8B050000 		.4byte	0x58b
+ 556 03e5 08       		.byte	0x8
+ 557 03e6 12       		.uleb128 0x12
+ 558 03e7 56000000 		.4byte	.LASF47
+ 559 03eb 02       		.byte	0x2
+ 560 03ec B501     		.2byte	0x1b5
+ 561 03ee 91050000 		.4byte	0x591
+ 562 03f2 0C       		.byte	0xc
+ 563 03f3 12       		.uleb128 0x12
+ 564 03f4 BB010000 		.4byte	.LASF48
+ 565 03f8 02       		.byte	0x2
+ 566 03f9 B601     		.2byte	0x1b6
+ 567 03fb 97050000 		.4byte	0x597
+ 568 03ff 10       		.byte	0x10
+ 569 0400 12       		.uleb128 0x12
+ 570 0401 43010000 		.4byte	.LASF49
+ 571 0405 02       		.byte	0x2
+ 572 0406 B701     		.2byte	0x1b7
+ 573 0408 9D050000 		.4byte	0x59d
+ 574 040c 14       		.byte	0x14
+ 575 040d 12       		.uleb128 0x12
+ 576 040e 16020000 		.4byte	.LASF17
+ 577 0412 02       		.byte	0x2
+ 578 0413 B801     		.2byte	0x1b8
+ 579 0415 48000000 		.4byte	0x48
+ 580 0419 18       		.byte	0x18
+ 581 041a 12       		.uleb128 0x12
+ 582 041b F4030000 		.4byte	.LASF50
+ 583 041f 02       		.byte	0x2
+ 584 0420 B901     		.2byte	0x1b9
+ 585 0422 48000000 		.4byte	0x48
+ 586 0426 19       		.byte	0x19
+ 587 0427 12       		.uleb128 0x12
+ 588 0428 E4030000 		.4byte	.LASF51
+ 589 042c 02       		.byte	0x2
+ 590 042d BA01     		.2byte	0x1ba
+ 591 042f 48000000 		.4byte	0x48
+ 592 0433 1A       		.byte	0x1a
+ 593 0434 12       		.uleb128 0x12
+ 594 0435 E9000000 		.4byte	.LASF52
+ 595 0439 02       		.byte	0x2
+ 596 043a BB01     		.2byte	0x1bb
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 13
+
+
+ 597 043c 48000000 		.4byte	0x48
+ 598 0440 1B       		.byte	0x1b
+ 599 0441 14       		.uleb128 0x14
+ 600 0442 7000     		.ascii	"p\000"
+ 601 0444 02       		.byte	0x2
+ 602 0445 C101     		.2byte	0x1c1
+ 603 0447 24050000 		.4byte	0x524
+ 604 044b 1C       		.byte	0x1c
+ 605 044c 12       		.uleb128 0x12
+ 606 044d EE000000 		.4byte	.LASF32
+ 607 0451 02       		.byte	0x2
+ 608 0452 C201     		.2byte	0x1c2
+ 609 0454 48000000 		.4byte	0x48
+ 610 0458 20       		.byte	0x20
+ 611 0459 12       		.uleb128 0x12
+ 612 045a E1000000 		.4byte	.LASF33
+ 613 045e 02       		.byte	0x2
+ 614 045f C301     		.2byte	0x1c3
+ 615 0461 48000000 		.4byte	0x48
+ 616 0465 21       		.byte	0x21
+ 617 0466 12       		.uleb128 0x12
+ 618 0467 28010000 		.4byte	.LASF34
+ 619 046b 02       		.byte	0x2
+ 620 046c C401     		.2byte	0x1c4
+ 621 046e 48000000 		.4byte	0x48
+ 622 0472 22       		.byte	0x22
+ 623 0473 00       		.byte	0
+ 624 0474 0D       		.uleb128 0xd
+ 625 0475 A0010000 		.4byte	.LASF53
+ 626 0479 02       		.byte	0x2
+ 627 047a 2601     		.2byte	0x126
+ 628 047c 80040000 		.4byte	0x480
+ 629 0480 10       		.uleb128 0x10
+ 630 0481 8B040000 		.4byte	0x48b
+ 631 0485 0F       		.uleb128 0xf
+ 632 0486 75000000 		.4byte	0x75
+ 633 048a 00       		.byte	0
+ 634 048b 0D       		.uleb128 0xd
+ 635 048c F8010000 		.4byte	.LASF54
+ 636 0490 02       		.byte	0x2
+ 637 0491 2701     		.2byte	0x127
+ 638 0493 97040000 		.4byte	0x497
+ 639 0497 0E       		.uleb128 0xe
+ 640 0498 25000000 		.4byte	0x25
+ 641 049c AB040000 		.4byte	0x4ab
+ 642 04a0 0F       		.uleb128 0xf
+ 643 04a1 75000000 		.4byte	0x75
+ 644 04a5 0F       		.uleb128 0xf
+ 645 04a6 AB040000 		.4byte	0x4ab
+ 646 04aa 00       		.byte	0
+ 647 04ab 05       		.uleb128 0x5
+ 648 04ac 04       		.byte	0x4
+ 649 04ad 25000000 		.4byte	0x25
+ 650 04b1 0D       		.uleb128 0xd
+ 651 04b2 C8030000 		.4byte	.LASF55
+ 652 04b6 02       		.byte	0x2
+ 653 04b7 2801     		.2byte	0x128
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 14
+
+
+ 654 04b9 BD040000 		.4byte	0x4bd
+ 655 04bd 10       		.uleb128 0x10
+ 656 04be CD040000 		.4byte	0x4cd
+ 657 04c2 0F       		.uleb128 0xf
+ 658 04c3 CD040000 		.4byte	0x4cd
+ 659 04c7 0F       		.uleb128 0xf
+ 660 04c8 D8040000 		.4byte	0x4d8
+ 661 04cc 00       		.byte	0
+ 662 04cd 05       		.uleb128 0x5
+ 663 04ce 04       		.byte	0x4
+ 664 04cf D3040000 		.4byte	0x4d3
+ 665 04d3 06       		.uleb128 0x6
+ 666 04d4 A6030000 		.4byte	0x3a6
+ 667 04d8 05       		.uleb128 0x5
+ 668 04d9 04       		.byte	0x4
+ 669 04da 04030000 		.4byte	0x304
+ 670 04de 0D       		.uleb128 0xd
+ 671 04df 09020000 		.4byte	.LASF56
+ 672 04e3 02       		.byte	0x2
+ 673 04e4 2901     		.2byte	0x129
+ 674 04e6 EA040000 		.4byte	0x4ea
+ 675 04ea 0E       		.uleb128 0xe
+ 676 04eb 41000000 		.4byte	0x41
+ 677 04ef FE040000 		.4byte	0x4fe
+ 678 04f3 0F       		.uleb128 0xf
+ 679 04f4 CD040000 		.4byte	0x4cd
+ 680 04f8 0F       		.uleb128 0xf
+ 681 04f9 75000000 		.4byte	0x75
+ 682 04fd 00       		.byte	0
+ 683 04fe 0D       		.uleb128 0xd
+ 684 04ff 90010000 		.4byte	.LASF57
+ 685 0503 02       		.byte	0x2
+ 686 0504 2A01     		.2byte	0x12a
+ 687 0506 0A050000 		.4byte	0x50a
+ 688 050a 0E       		.uleb128 0xe
+ 689 050b 25000000 		.4byte	0x25
+ 690 050f 1E050000 		.4byte	0x51e
+ 691 0513 0F       		.uleb128 0xf
+ 692 0514 75000000 		.4byte	0x75
+ 693 0518 0F       		.uleb128 0xf
+ 694 0519 1E050000 		.4byte	0x51e
+ 695 051d 00       		.byte	0
+ 696 051e 05       		.uleb128 0x5
+ 697 051f 04       		.byte	0x4
+ 698 0520 85010000 		.4byte	0x185
+ 699 0524 15       		.uleb128 0x15
+ 700 0525 04       		.byte	0x4
+ 701 0526 02       		.byte	0x2
+ 702 0527 BC01     		.2byte	0x1bc
+ 703 0529 5E050000 		.4byte	0x55e
+ 704 052d 16       		.uleb128 0x16
+ 705 052e 67000000 		.4byte	.LASF58
+ 706 0532 02       		.byte	0x2
+ 707 0533 BD01     		.2byte	0x1bd
+ 708 0535 63000000 		.4byte	0x63
+ 709 0539 16       		.uleb128 0x16
+ 710 053a FD000000 		.4byte	.LASF59
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 15
+
+
+ 711 053e 02       		.byte	0x2
+ 712 053f BE01     		.2byte	0x1be
+ 713 0541 5E050000 		.4byte	0x55e
+ 714 0545 16       		.uleb128 0x16
+ 715 0546 0A040000 		.4byte	.LASF60
+ 716 054a 02       		.byte	0x2
+ 717 054b BF01     		.2byte	0x1bf
+ 718 054d 69050000 		.4byte	0x569
+ 719 0551 16       		.uleb128 0x16
+ 720 0552 03010000 		.4byte	.LASF61
+ 721 0556 02       		.byte	0x2
+ 722 0557 C001     		.2byte	0x1c0
+ 723 0559 74050000 		.4byte	0x574
+ 724 055d 00       		.byte	0
+ 725 055e 05       		.uleb128 0x5
+ 726 055f 04       		.byte	0x4
+ 727 0560 64050000 		.4byte	0x564
+ 728 0564 06       		.uleb128 0x6
+ 729 0565 C0020000 		.4byte	0x2c0
+ 730 0569 05       		.uleb128 0x5
+ 731 056a 04       		.byte	0x4
+ 732 056b 6F050000 		.4byte	0x56f
+ 733 056f 06       		.uleb128 0x6
+ 734 0570 E3010000 		.4byte	0x1e3
+ 735 0574 05       		.uleb128 0x5
+ 736 0575 04       		.byte	0x4
+ 737 0576 7A050000 		.4byte	0x57a
+ 738 057a 06       		.uleb128 0x6
+ 739 057b 41020000 		.4byte	0x241
+ 740 057f 05       		.uleb128 0x5
+ 741 0580 04       		.byte	0x4
+ 742 0581 74040000 		.4byte	0x474
+ 743 0585 05       		.uleb128 0x5
+ 744 0586 04       		.byte	0x4
+ 745 0587 8B040000 		.4byte	0x48b
+ 746 058b 05       		.uleb128 0x5
+ 747 058c 04       		.byte	0x4
+ 748 058d B1040000 		.4byte	0x4b1
+ 749 0591 05       		.uleb128 0x5
+ 750 0592 04       		.byte	0x4
+ 751 0593 DE040000 		.4byte	0x4de
+ 752 0597 05       		.uleb128 0x5
+ 753 0598 04       		.byte	0x4
+ 754 0599 FE040000 		.4byte	0x4fe
+ 755 059d 05       		.uleb128 0x5
+ 756 059e 04       		.byte	0x4
+ 757 059f A3050000 		.4byte	0x5a3
+ 758 05a3 06       		.uleb128 0x6
+ 759 05a4 9A030000 		.4byte	0x39a
+ 760 05a8 03       		.uleb128 0x3
+ 761 05a9 04       		.byte	0x4
+ 762 05aa 07       		.byte	0x7
+ 763 05ab 7B000000 		.4byte	.LASF62
+ 764 05af 17       		.uleb128 0x17
+ 765 05b0 F8020000 		.4byte	.LASF66
+ 766 05b4 01       		.byte	0x1
+ 767 05b5 48       		.byte	0x48
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 16
+
+
+ 768 05b6 00000000 		.4byte	.LFB0
+ 769 05ba 1C000000 		.4byte	.LFE0-.LFB0
+ 770 05be 01       		.uleb128 0x1
+ 771 05bf 9C       		.byte	0x9c
+ 772 05c0 FD050000 		.4byte	0x5fd
+ 773 05c4 18       		.uleb128 0x18
+ 774 05c5 5E010000 		.4byte	.LASF67
+ 775 05c9 01       		.byte	0x1
+ 776 05ca 4C       		.byte	0x4c
+ 777 05cb FD050000 		.4byte	0x5fd
+ 778 05cf 05       		.uleb128 0x5
+ 779 05d0 03       		.byte	0x3
+ 780 05d1 00000000 		.4byte	aMemory.7986
+ 781 05d5 19       		.uleb128 0x19
+ 782 05d6 0C000000 		.4byte	.LVL0
+ 783 05da 1A060000 		.4byte	0x61a
+ 784 05de F3050000 		.4byte	0x5f3
+ 785 05e2 1A       		.uleb128 0x1a
+ 786 05e3 01       		.uleb128 0x1
+ 787 05e4 51       		.byte	0x51
+ 788 05e5 03       		.uleb128 0x3
+ 789 05e6 0A       		.byte	0xa
+ 790 05e7 0020     		.2byte	0x2000
+ 791 05e9 1A       		.uleb128 0x1a
+ 792 05ea 01       		.uleb128 0x1
+ 793 05eb 50       		.byte	0x50
+ 794 05ec 05       		.uleb128 0x5
+ 795 05ed 03       		.byte	0x3
+ 796 05ee 00000000 		.4byte	.LANCHOR0
+ 797 05f2 00       		.byte	0
+ 798 05f3 1B       		.uleb128 0x1b
+ 799 05f4 12000000 		.4byte	.LVL1
+ 800 05f8 31060000 		.4byte	0x631
+ 801 05fc 00       		.byte	0
+ 802 05fd 1C       		.uleb128 0x1c
+ 803 05fe 33000000 		.4byte	0x33
+ 804 0602 0E060000 		.4byte	0x60e
+ 805 0606 1D       		.uleb128 0x1d
+ 806 0607 A8050000 		.4byte	0x5a8
+ 807 060b FF07     		.2byte	0x7ff
+ 808 060d 00       		.byte	0
+ 809 060e 1E       		.uleb128 0x1e
+ 810 060f D8030000 		.4byte	.LASF68
+ 811 0613 03       		.byte	0x3
+ 812 0614 1908     		.2byte	0x819
+ 813 0616 D3040000 		.4byte	0x4d3
+ 814 061a 1F       		.uleb128 0x1f
+ 815 061b 84000000 		.4byte	.LASF69
+ 816 061f 03       		.byte	0x3
+ 817 0620 B203     		.2byte	0x3b2
+ 818 0622 31060000 		.4byte	0x631
+ 819 0626 0F       		.uleb128 0xf
+ 820 0627 4F000000 		.4byte	0x4f
+ 821 062b 0F       		.uleb128 0xf
+ 822 062c 33000000 		.4byte	0x33
+ 823 0630 00       		.byte	0
+ 824 0631 20       		.uleb128 0x20
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 17
+
+
+ 825 0632 4D020000 		.4byte	.LASF70
+ 826 0636 03       		.byte	0x3
+ 827 0637 7801     		.2byte	0x178
+ 828 0639 0F       		.uleb128 0xf
+ 829 063a CD040000 		.4byte	0x4cd
+ 830 063e 00       		.byte	0
+ 831 063f 00       		.byte	0
+ 832              		.section	.debug_abbrev,"",%progbits
+ 833              	.Ldebug_abbrev0:
+ 834 0000 01       		.uleb128 0x1
+ 835 0001 11       		.uleb128 0x11
+ 836 0002 01       		.byte	0x1
+ 837 0003 25       		.uleb128 0x25
+ 838 0004 0E       		.uleb128 0xe
+ 839 0005 13       		.uleb128 0x13
+ 840 0006 0B       		.uleb128 0xb
+ 841 0007 03       		.uleb128 0x3
+ 842 0008 0E       		.uleb128 0xe
+ 843 0009 1B       		.uleb128 0x1b
+ 844 000a 0E       		.uleb128 0xe
+ 845 000b 55       		.uleb128 0x55
+ 846 000c 17       		.uleb128 0x17
+ 847 000d 11       		.uleb128 0x11
+ 848 000e 01       		.uleb128 0x1
+ 849 000f 10       		.uleb128 0x10
+ 850 0010 17       		.uleb128 0x17
+ 851 0011 00       		.byte	0
+ 852 0012 00       		.byte	0
+ 853 0013 02       		.uleb128 0x2
+ 854 0014 24       		.uleb128 0x24
+ 855 0015 00       		.byte	0
+ 856 0016 0B       		.uleb128 0xb
+ 857 0017 0B       		.uleb128 0xb
+ 858 0018 3E       		.uleb128 0x3e
+ 859 0019 0B       		.uleb128 0xb
+ 860 001a 03       		.uleb128 0x3
+ 861 001b 08       		.uleb128 0x8
+ 862 001c 00       		.byte	0
+ 863 001d 00       		.byte	0
+ 864 001e 03       		.uleb128 0x3
+ 865 001f 24       		.uleb128 0x24
+ 866 0020 00       		.byte	0
+ 867 0021 0B       		.uleb128 0xb
+ 868 0022 0B       		.uleb128 0xb
+ 869 0023 3E       		.uleb128 0x3e
+ 870 0024 0B       		.uleb128 0xb
+ 871 0025 03       		.uleb128 0x3
+ 872 0026 0E       		.uleb128 0xe
+ 873 0027 00       		.byte	0
+ 874 0028 00       		.byte	0
+ 875 0029 04       		.uleb128 0x4
+ 876 002a 0F       		.uleb128 0xf
+ 877 002b 00       		.byte	0
+ 878 002c 0B       		.uleb128 0xb
+ 879 002d 0B       		.uleb128 0xb
+ 880 002e 00       		.byte	0
+ 881 002f 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 18
+
+
+ 882 0030 05       		.uleb128 0x5
+ 883 0031 0F       		.uleb128 0xf
+ 884 0032 00       		.byte	0
+ 885 0033 0B       		.uleb128 0xb
+ 886 0034 0B       		.uleb128 0xb
+ 887 0035 49       		.uleb128 0x49
+ 888 0036 13       		.uleb128 0x13
+ 889 0037 00       		.byte	0
+ 890 0038 00       		.byte	0
+ 891 0039 06       		.uleb128 0x6
+ 892 003a 26       		.uleb128 0x26
+ 893 003b 00       		.byte	0
+ 894 003c 49       		.uleb128 0x49
+ 895 003d 13       		.uleb128 0x13
+ 896 003e 00       		.byte	0
+ 897 003f 00       		.byte	0
+ 898 0040 07       		.uleb128 0x7
+ 899 0041 26       		.uleb128 0x26
+ 900 0042 00       		.byte	0
+ 901 0043 00       		.byte	0
+ 902 0044 00       		.byte	0
+ 903 0045 08       		.uleb128 0x8
+ 904 0046 13       		.uleb128 0x13
+ 905 0047 01       		.byte	0x1
+ 906 0048 0B       		.uleb128 0xb
+ 907 0049 0B       		.uleb128 0xb
+ 908 004a 3A       		.uleb128 0x3a
+ 909 004b 0B       		.uleb128 0xb
+ 910 004c 3B       		.uleb128 0x3b
+ 911 004d 0B       		.uleb128 0xb
+ 912 004e 01       		.uleb128 0x1
+ 913 004f 13       		.uleb128 0x13
+ 914 0050 00       		.byte	0
+ 915 0051 00       		.byte	0
+ 916 0052 09       		.uleb128 0x9
+ 917 0053 0D       		.uleb128 0xd
+ 918 0054 00       		.byte	0
+ 919 0055 03       		.uleb128 0x3
+ 920 0056 08       		.uleb128 0x8
+ 921 0057 3A       		.uleb128 0x3a
+ 922 0058 0B       		.uleb128 0xb
+ 923 0059 3B       		.uleb128 0x3b
+ 924 005a 0B       		.uleb128 0xb
+ 925 005b 49       		.uleb128 0x49
+ 926 005c 13       		.uleb128 0x13
+ 927 005d 38       		.uleb128 0x38
+ 928 005e 0B       		.uleb128 0xb
+ 929 005f 00       		.byte	0
+ 930 0060 00       		.byte	0
+ 931 0061 0A       		.uleb128 0xa
+ 932 0062 16       		.uleb128 0x16
+ 933 0063 00       		.byte	0
+ 934 0064 03       		.uleb128 0x3
+ 935 0065 0E       		.uleb128 0xe
+ 936 0066 3A       		.uleb128 0x3a
+ 937 0067 0B       		.uleb128 0xb
+ 938 0068 3B       		.uleb128 0x3b
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 19
+
+
+ 939 0069 0B       		.uleb128 0xb
+ 940 006a 49       		.uleb128 0x49
+ 941 006b 13       		.uleb128 0x13
+ 942 006c 00       		.byte	0
+ 943 006d 00       		.byte	0
+ 944 006e 0B       		.uleb128 0xb
+ 945 006f 0D       		.uleb128 0xd
+ 946 0070 00       		.byte	0
+ 947 0071 03       		.uleb128 0x3
+ 948 0072 0E       		.uleb128 0xe
+ 949 0073 3A       		.uleb128 0x3a
+ 950 0074 0B       		.uleb128 0xb
+ 951 0075 3B       		.uleb128 0x3b
+ 952 0076 0B       		.uleb128 0xb
+ 953 0077 49       		.uleb128 0x49
+ 954 0078 13       		.uleb128 0x13
+ 955 0079 38       		.uleb128 0x38
+ 956 007a 0B       		.uleb128 0xb
+ 957 007b 00       		.byte	0
+ 958 007c 00       		.byte	0
+ 959 007d 0C       		.uleb128 0xc
+ 960 007e 13       		.uleb128 0x13
+ 961 007f 01       		.byte	0x1
+ 962 0080 03       		.uleb128 0x3
+ 963 0081 0E       		.uleb128 0xe
+ 964 0082 0B       		.uleb128 0xb
+ 965 0083 0B       		.uleb128 0xb
+ 966 0084 3A       		.uleb128 0x3a
+ 967 0085 0B       		.uleb128 0xb
+ 968 0086 3B       		.uleb128 0x3b
+ 969 0087 0B       		.uleb128 0xb
+ 970 0088 01       		.uleb128 0x1
+ 971 0089 13       		.uleb128 0x13
+ 972 008a 00       		.byte	0
+ 973 008b 00       		.byte	0
+ 974 008c 0D       		.uleb128 0xd
+ 975 008d 16       		.uleb128 0x16
+ 976 008e 00       		.byte	0
+ 977 008f 03       		.uleb128 0x3
+ 978 0090 0E       		.uleb128 0xe
+ 979 0091 3A       		.uleb128 0x3a
+ 980 0092 0B       		.uleb128 0xb
+ 981 0093 3B       		.uleb128 0x3b
+ 982 0094 05       		.uleb128 0x5
+ 983 0095 49       		.uleb128 0x49
+ 984 0096 13       		.uleb128 0x13
+ 985 0097 00       		.byte	0
+ 986 0098 00       		.byte	0
+ 987 0099 0E       		.uleb128 0xe
+ 988 009a 15       		.uleb128 0x15
+ 989 009b 01       		.byte	0x1
+ 990 009c 27       		.uleb128 0x27
+ 991 009d 19       		.uleb128 0x19
+ 992 009e 49       		.uleb128 0x49
+ 993 009f 13       		.uleb128 0x13
+ 994 00a0 01       		.uleb128 0x1
+ 995 00a1 13       		.uleb128 0x13
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 20
+
+
+ 996 00a2 00       		.byte	0
+ 997 00a3 00       		.byte	0
+ 998 00a4 0F       		.uleb128 0xf
+ 999 00a5 05       		.uleb128 0x5
+ 1000 00a6 00       		.byte	0
+ 1001 00a7 49       		.uleb128 0x49
+ 1002 00a8 13       		.uleb128 0x13
+ 1003 00a9 00       		.byte	0
+ 1004 00aa 00       		.byte	0
+ 1005 00ab 10       		.uleb128 0x10
+ 1006 00ac 15       		.uleb128 0x15
+ 1007 00ad 01       		.byte	0x1
+ 1008 00ae 27       		.uleb128 0x27
+ 1009 00af 19       		.uleb128 0x19
+ 1010 00b0 01       		.uleb128 0x1
+ 1011 00b1 13       		.uleb128 0x13
+ 1012 00b2 00       		.byte	0
+ 1013 00b3 00       		.byte	0
+ 1014 00b4 11       		.uleb128 0x11
+ 1015 00b5 13       		.uleb128 0x13
+ 1016 00b6 01       		.byte	0x1
+ 1017 00b7 0B       		.uleb128 0xb
+ 1018 00b8 0B       		.uleb128 0xb
+ 1019 00b9 3A       		.uleb128 0x3a
+ 1020 00ba 0B       		.uleb128 0xb
+ 1021 00bb 3B       		.uleb128 0x3b
+ 1022 00bc 05       		.uleb128 0x5
+ 1023 00bd 01       		.uleb128 0x1
+ 1024 00be 13       		.uleb128 0x13
+ 1025 00bf 00       		.byte	0
+ 1026 00c0 00       		.byte	0
+ 1027 00c1 12       		.uleb128 0x12
+ 1028 00c2 0D       		.uleb128 0xd
+ 1029 00c3 00       		.byte	0
+ 1030 00c4 03       		.uleb128 0x3
+ 1031 00c5 0E       		.uleb128 0xe
+ 1032 00c6 3A       		.uleb128 0x3a
+ 1033 00c7 0B       		.uleb128 0xb
+ 1034 00c8 3B       		.uleb128 0x3b
+ 1035 00c9 05       		.uleb128 0x5
+ 1036 00ca 49       		.uleb128 0x49
+ 1037 00cb 13       		.uleb128 0x13
+ 1038 00cc 38       		.uleb128 0x38
+ 1039 00cd 0B       		.uleb128 0xb
+ 1040 00ce 00       		.byte	0
+ 1041 00cf 00       		.byte	0
+ 1042 00d0 13       		.uleb128 0x13
+ 1043 00d1 13       		.uleb128 0x13
+ 1044 00d2 01       		.byte	0x1
+ 1045 00d3 03       		.uleb128 0x3
+ 1046 00d4 0E       		.uleb128 0xe
+ 1047 00d5 0B       		.uleb128 0xb
+ 1048 00d6 0B       		.uleb128 0xb
+ 1049 00d7 3A       		.uleb128 0x3a
+ 1050 00d8 0B       		.uleb128 0xb
+ 1051 00d9 3B       		.uleb128 0x3b
+ 1052 00da 05       		.uleb128 0x5
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 21
+
+
+ 1053 00db 01       		.uleb128 0x1
+ 1054 00dc 13       		.uleb128 0x13
+ 1055 00dd 00       		.byte	0
+ 1056 00de 00       		.byte	0
+ 1057 00df 14       		.uleb128 0x14
+ 1058 00e0 0D       		.uleb128 0xd
+ 1059 00e1 00       		.byte	0
+ 1060 00e2 03       		.uleb128 0x3
+ 1061 00e3 08       		.uleb128 0x8
+ 1062 00e4 3A       		.uleb128 0x3a
+ 1063 00e5 0B       		.uleb128 0xb
+ 1064 00e6 3B       		.uleb128 0x3b
+ 1065 00e7 05       		.uleb128 0x5
+ 1066 00e8 49       		.uleb128 0x49
+ 1067 00e9 13       		.uleb128 0x13
+ 1068 00ea 38       		.uleb128 0x38
+ 1069 00eb 0B       		.uleb128 0xb
+ 1070 00ec 00       		.byte	0
+ 1071 00ed 00       		.byte	0
+ 1072 00ee 15       		.uleb128 0x15
+ 1073 00ef 17       		.uleb128 0x17
+ 1074 00f0 01       		.byte	0x1
+ 1075 00f1 0B       		.uleb128 0xb
+ 1076 00f2 0B       		.uleb128 0xb
+ 1077 00f3 3A       		.uleb128 0x3a
+ 1078 00f4 0B       		.uleb128 0xb
+ 1079 00f5 3B       		.uleb128 0x3b
+ 1080 00f6 05       		.uleb128 0x5
+ 1081 00f7 01       		.uleb128 0x1
+ 1082 00f8 13       		.uleb128 0x13
+ 1083 00f9 00       		.byte	0
+ 1084 00fa 00       		.byte	0
+ 1085 00fb 16       		.uleb128 0x16
+ 1086 00fc 0D       		.uleb128 0xd
+ 1087 00fd 00       		.byte	0
+ 1088 00fe 03       		.uleb128 0x3
+ 1089 00ff 0E       		.uleb128 0xe
+ 1090 0100 3A       		.uleb128 0x3a
+ 1091 0101 0B       		.uleb128 0xb
+ 1092 0102 3B       		.uleb128 0x3b
+ 1093 0103 05       		.uleb128 0x5
+ 1094 0104 49       		.uleb128 0x49
+ 1095 0105 13       		.uleb128 0x13
+ 1096 0106 00       		.byte	0
+ 1097 0107 00       		.byte	0
+ 1098 0108 17       		.uleb128 0x17
+ 1099 0109 2E       		.uleb128 0x2e
+ 1100 010a 01       		.byte	0x1
+ 1101 010b 3F       		.uleb128 0x3f
+ 1102 010c 19       		.uleb128 0x19
+ 1103 010d 03       		.uleb128 0x3
+ 1104 010e 0E       		.uleb128 0xe
+ 1105 010f 3A       		.uleb128 0x3a
+ 1106 0110 0B       		.uleb128 0xb
+ 1107 0111 3B       		.uleb128 0x3b
+ 1108 0112 0B       		.uleb128 0xb
+ 1109 0113 27       		.uleb128 0x27
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 22
+
+
+ 1110 0114 19       		.uleb128 0x19
+ 1111 0115 11       		.uleb128 0x11
+ 1112 0116 01       		.uleb128 0x1
+ 1113 0117 12       		.uleb128 0x12
+ 1114 0118 06       		.uleb128 0x6
+ 1115 0119 40       		.uleb128 0x40
+ 1116 011a 18       		.uleb128 0x18
+ 1117 011b 9742     		.uleb128 0x2117
+ 1118 011d 19       		.uleb128 0x19
+ 1119 011e 01       		.uleb128 0x1
+ 1120 011f 13       		.uleb128 0x13
+ 1121 0120 00       		.byte	0
+ 1122 0121 00       		.byte	0
+ 1123 0122 18       		.uleb128 0x18
+ 1124 0123 34       		.uleb128 0x34
+ 1125 0124 00       		.byte	0
+ 1126 0125 03       		.uleb128 0x3
+ 1127 0126 0E       		.uleb128 0xe
+ 1128 0127 3A       		.uleb128 0x3a
+ 1129 0128 0B       		.uleb128 0xb
+ 1130 0129 3B       		.uleb128 0x3b
+ 1131 012a 0B       		.uleb128 0xb
+ 1132 012b 49       		.uleb128 0x49
+ 1133 012c 13       		.uleb128 0x13
+ 1134 012d 02       		.uleb128 0x2
+ 1135 012e 18       		.uleb128 0x18
+ 1136 012f 00       		.byte	0
+ 1137 0130 00       		.byte	0
+ 1138 0131 19       		.uleb128 0x19
+ 1139 0132 898201   		.uleb128 0x4109
+ 1140 0135 01       		.byte	0x1
+ 1141 0136 11       		.uleb128 0x11
+ 1142 0137 01       		.uleb128 0x1
+ 1143 0138 31       		.uleb128 0x31
+ 1144 0139 13       		.uleb128 0x13
+ 1145 013a 01       		.uleb128 0x1
+ 1146 013b 13       		.uleb128 0x13
+ 1147 013c 00       		.byte	0
+ 1148 013d 00       		.byte	0
+ 1149 013e 1A       		.uleb128 0x1a
+ 1150 013f 8A8201   		.uleb128 0x410a
+ 1151 0142 00       		.byte	0
+ 1152 0143 02       		.uleb128 0x2
+ 1153 0144 18       		.uleb128 0x18
+ 1154 0145 9142     		.uleb128 0x2111
+ 1155 0147 18       		.uleb128 0x18
+ 1156 0148 00       		.byte	0
+ 1157 0149 00       		.byte	0
+ 1158 014a 1B       		.uleb128 0x1b
+ 1159 014b 898201   		.uleb128 0x4109
+ 1160 014e 00       		.byte	0
+ 1161 014f 11       		.uleb128 0x11
+ 1162 0150 01       		.uleb128 0x1
+ 1163 0151 31       		.uleb128 0x31
+ 1164 0152 13       		.uleb128 0x13
+ 1165 0153 00       		.byte	0
+ 1166 0154 00       		.byte	0
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 23
+
+
+ 1167 0155 1C       		.uleb128 0x1c
+ 1168 0156 01       		.uleb128 0x1
+ 1169 0157 01       		.byte	0x1
+ 1170 0158 49       		.uleb128 0x49
+ 1171 0159 13       		.uleb128 0x13
+ 1172 015a 01       		.uleb128 0x1
+ 1173 015b 13       		.uleb128 0x13
+ 1174 015c 00       		.byte	0
+ 1175 015d 00       		.byte	0
+ 1176 015e 1D       		.uleb128 0x1d
+ 1177 015f 21       		.uleb128 0x21
+ 1178 0160 00       		.byte	0
+ 1179 0161 49       		.uleb128 0x49
+ 1180 0162 13       		.uleb128 0x13
+ 1181 0163 2F       		.uleb128 0x2f
+ 1182 0164 05       		.uleb128 0x5
+ 1183 0165 00       		.byte	0
+ 1184 0166 00       		.byte	0
+ 1185 0167 1E       		.uleb128 0x1e
+ 1186 0168 34       		.uleb128 0x34
+ 1187 0169 00       		.byte	0
+ 1188 016a 03       		.uleb128 0x3
+ 1189 016b 0E       		.uleb128 0xe
+ 1190 016c 3A       		.uleb128 0x3a
+ 1191 016d 0B       		.uleb128 0xb
+ 1192 016e 3B       		.uleb128 0x3b
+ 1193 016f 05       		.uleb128 0x5
+ 1194 0170 49       		.uleb128 0x49
+ 1195 0171 13       		.uleb128 0x13
+ 1196 0172 3F       		.uleb128 0x3f
+ 1197 0173 19       		.uleb128 0x19
+ 1198 0174 3C       		.uleb128 0x3c
+ 1199 0175 19       		.uleb128 0x19
+ 1200 0176 00       		.byte	0
+ 1201 0177 00       		.byte	0
+ 1202 0178 1F       		.uleb128 0x1f
+ 1203 0179 2E       		.uleb128 0x2e
+ 1204 017a 01       		.byte	0x1
+ 1205 017b 3F       		.uleb128 0x3f
+ 1206 017c 19       		.uleb128 0x19
+ 1207 017d 03       		.uleb128 0x3
+ 1208 017e 0E       		.uleb128 0xe
+ 1209 017f 3A       		.uleb128 0x3a
+ 1210 0180 0B       		.uleb128 0xb
+ 1211 0181 3B       		.uleb128 0x3b
+ 1212 0182 05       		.uleb128 0x5
+ 1213 0183 27       		.uleb128 0x27
+ 1214 0184 19       		.uleb128 0x19
+ 1215 0185 3C       		.uleb128 0x3c
+ 1216 0186 19       		.uleb128 0x19
+ 1217 0187 01       		.uleb128 0x1
+ 1218 0188 13       		.uleb128 0x13
+ 1219 0189 00       		.byte	0
+ 1220 018a 00       		.byte	0
+ 1221 018b 20       		.uleb128 0x20
+ 1222 018c 2E       		.uleb128 0x2e
+ 1223 018d 01       		.byte	0x1
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 24
+
+
+ 1224 018e 3F       		.uleb128 0x3f
+ 1225 018f 19       		.uleb128 0x19
+ 1226 0190 03       		.uleb128 0x3
+ 1227 0191 0E       		.uleb128 0xe
+ 1228 0192 3A       		.uleb128 0x3a
+ 1229 0193 0B       		.uleb128 0xb
+ 1230 0194 3B       		.uleb128 0x3b
+ 1231 0195 05       		.uleb128 0x5
+ 1232 0196 27       		.uleb128 0x27
+ 1233 0197 19       		.uleb128 0x19
+ 1234 0198 3C       		.uleb128 0x3c
+ 1235 0199 19       		.uleb128 0x19
+ 1236 019a 00       		.byte	0
+ 1237 019b 00       		.byte	0
+ 1238 019c 00       		.byte	0
+ 1239              		.section	.debug_aranges,"",%progbits
+ 1240 0000 1C000000 		.4byte	0x1c
+ 1241 0004 0200     		.2byte	0x2
+ 1242 0006 00000000 		.4byte	.Ldebug_info0
+ 1243 000a 04       		.byte	0x4
+ 1244 000b 00       		.byte	0
+ 1245 000c 0000     		.2byte	0
+ 1246 000e 0000     		.2byte	0
+ 1247 0010 00000000 		.4byte	.LFB0
+ 1248 0014 1C000000 		.4byte	.LFE0-.LFB0
+ 1249 0018 00000000 		.4byte	0
+ 1250 001c 00000000 		.4byte	0
+ 1251              		.section	.debug_ranges,"",%progbits
+ 1252              	.Ldebug_ranges0:
+ 1253 0000 00000000 		.4byte	.LFB0
+ 1254 0004 1C000000 		.4byte	.LFE0
+ 1255 0008 00000000 		.4byte	0
+ 1256 000c 00000000 		.4byte	0
+ 1257              		.section	.debug_line,"",%progbits
+ 1258              	.Ldebug_line0:
+ 1259 0000 E3000000 		.section	.debug_str,"MS",%progbits,1
+ 1259      0200CB00 
+ 1259      00000201 
+ 1259      FB0E0D00 
+ 1259      01010101 
+ 1260              	.LASF65:
+ 1261 0000 433A5C55 		.ascii	"C:\\Users\\mark6\\Google Drive\\Projects\\BarBot\\B"
+ 1261      73657273 
+ 1261      5C6D6172 
+ 1261      6B365C47 
+ 1261      6F6F676C 
+ 1262 002d 6172426F 		.ascii	"arBot\\Bartender.cydsn\000"
+ 1262      745C4261 
+ 1262      7274656E 
+ 1262      6465722E 
+ 1262      63796473 
+ 1263              	.LASF9:
+ 1264 0043 704C6973 		.ascii	"pList\000"
+ 1264      7400
+ 1265              	.LASF16:
+ 1266 0049 4755495F 		.ascii	"GUI_CHARINFO\000"
+ 1266      43484152 
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 25
+
+
+ 1266      494E464F 
+ 1266      00
+ 1267              	.LASF47:
+ 1268 0056 70664973 		.ascii	"pfIsInFont\000"
+ 1268      496E466F 
+ 1268      6E7400
+ 1269              	.LASF15:
+ 1270 0061 70446174 		.ascii	"pData\000"
+ 1270      6100
+ 1271              	.LASF58:
+ 1272 0067 70466F6E 		.ascii	"pFontData\000"
+ 1272      74446174 
+ 1272      6100
+ 1273              	.LASF2:
+ 1274 0071 73686F72 		.ascii	"short int\000"
+ 1274      7420696E 
+ 1274      7400
+ 1275              	.LASF62:
+ 1276 007b 73697A65 		.ascii	"sizetype\000"
+ 1276      74797065 
+ 1276      00
+ 1277              	.LASF69:
+ 1278 0084 4755495F 		.ascii	"GUI_ALLOC_AssignMemory\000"
+ 1278      414C4C4F 
+ 1278      435F4173 
+ 1278      7369676E 
+ 1278      4D656D6F 
+ 1279              	.LASF14:
+ 1280 009b 42797465 		.ascii	"BytesPerLine\000"
+ 1280      73506572 
+ 1280      4C696E65 
+ 1280      00
+ 1281              	.LASF40:
+ 1282 00a8 70664765 		.ascii	"pfGetLineLen\000"
+ 1282      744C696E 
+ 1282      654C656E 
+ 1282      00
+ 1283              	.LASF29:
+ 1284 00b5 70547261 		.ascii	"pTrans\000"
+ 1284      6E7300
+ 1285              	.LASF27:
+ 1286 00bc 4755495F 		.ascii	"GUI_FONT_PROP_EXT\000"
+ 1286      464F4E54 
+ 1286      5F50524F 
+ 1286      505F4558 
+ 1286      5400
+ 1287              	.LASF10:
+ 1288 00ce 4755495F 		.ascii	"GUI_FONT_TRANSLIST\000"
+ 1288      464F4E54 
+ 1288      5F545241 
+ 1288      4E534C49 
+ 1288      535400
+ 1289              	.LASF33:
+ 1290 00e1 4C486569 		.ascii	"LHeight\000"
+ 1290      67687400 
+ 1291              	.LASF52:
+ 1292 00e9 594D6167 		.ascii	"YMag\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 26
+
+
+ 1292      00
+ 1293              	.LASF32:
+ 1294 00ee 42617365 		.ascii	"Baseline\000"
+ 1294      6C696E65 
+ 1294      00
+ 1295              	.LASF12:
+ 1296 00f7 5853697A 		.ascii	"XSize\000"
+ 1296      6500
+ 1297              	.LASF59:
+ 1298 00fd 704D6F6E 		.ascii	"pMono\000"
+ 1298      6F00
+ 1299              	.LASF61:
+ 1300 0103 7050726F 		.ascii	"pPropExt\000"
+ 1300      70457874 
+ 1300      00
+ 1301              	.LASF42:
+ 1302 010c 74475549 		.ascii	"tGUI_ENC_APIList\000"
+ 1302      5F454E43 
+ 1302      5F415049 
+ 1302      4C697374 
+ 1302      00
+ 1303              	.LASF18:
+ 1304 011d 58506F73 		.ascii	"XPos\000"
+ 1304      00
+ 1305              	.LASF31:
+ 1306 0122 466C6167 		.ascii	"Flags\000"
+ 1306      7300
+ 1307              	.LASF34:
+ 1308 0128 43486569 		.ascii	"CHeight\000"
+ 1308      67687400 
+ 1309              	.LASF11:
+ 1310 0130 4755495F 		.ascii	"GUI_FONT_TRANSINFO\000"
+ 1310      464F4E54 
+ 1310      5F545241 
+ 1310      4E53494E 
+ 1310      464F00
+ 1311              	.LASF49:
+ 1312 0143 70616645 		.ascii	"pafEncode\000"
+ 1312      6E636F64 
+ 1312      6500
+ 1313              	.LASF24:
+ 1314 014d 70614368 		.ascii	"paCharInfo\000"
+ 1314      6172496E 
+ 1314      666F00
+ 1315              	.LASF25:
+ 1316 0158 704E6578 		.ascii	"pNext\000"
+ 1316      7400
+ 1317              	.LASF67:
+ 1318 015e 614D656D 		.ascii	"aMemory\000"
+ 1318      6F727900 
+ 1319              	.LASF23:
+ 1320 0166 4C617374 		.ascii	"Last\000"
+ 1320      00
+ 1321              	.LASF5:
+ 1322 016b 6C6F6E67 		.ascii	"long int\000"
+ 1322      20696E74 
+ 1322      00
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 27
+
+
+ 1323              	.LASF21:
+ 1324 0174 4755495F 		.ascii	"GUI_CHARINFO_EXT\000"
+ 1324      43484152 
+ 1324      494E464F 
+ 1324      5F455854 
+ 1324      00
+ 1325              	.LASF28:
+ 1326 0185 70547261 		.ascii	"pTransData\000"
+ 1326      6E734461 
+ 1326      746100
+ 1327              	.LASF57:
+ 1328 0190 4755495F 		.ascii	"GUI_GETCHARINFO\000"
+ 1328      47455443 
+ 1328      48415249 
+ 1328      4E464F00 
+ 1329              	.LASF53:
+ 1330 01a0 4755495F 		.ascii	"GUI_DISPCHAR\000"
+ 1330      44495350 
+ 1330      43484152 
+ 1330      00
+ 1331              	.LASF4:
+ 1332 01ad 756E7369 		.ascii	"unsigned char\000"
+ 1332      676E6564 
+ 1332      20636861 
+ 1332      7200
+ 1333              	.LASF48:
+ 1334 01bb 70664765 		.ascii	"pfGetCharInfo\000"
+ 1334      74436861 
+ 1334      72496E66 
+ 1334      6F00
+ 1335              	.LASF41:
+ 1336 01c9 70664469 		.ascii	"pfDispLine\000"
+ 1336      73704C69 
+ 1336      6E6500
+ 1337              	.LASF20:
+ 1338 01d4 7369676E 		.ascii	"signed char\000"
+ 1338      65642063 
+ 1338      68617200 
+ 1339              	.LASF13:
+ 1340 01e0 58446973 		.ascii	"XDist\000"
+ 1340      7400
+ 1341              	.LASF0:
+ 1342 01e6 756E7369 		.ascii	"unsigned int\000"
+ 1342      676E6564 
+ 1342      20696E74 
+ 1342      00
+ 1343              	.LASF19:
+ 1344 01f3 59506F73 		.ascii	"YPos\000"
+ 1344      00
+ 1345              	.LASF54:
+ 1346 01f8 4755495F 		.ascii	"GUI_GETCHARDISTX\000"
+ 1346      47455443 
+ 1346      48415244 
+ 1346      49535458 
+ 1346      00
+ 1347              	.LASF56:
+ 1348 0209 4755495F 		.ascii	"GUI_ISINFONT\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 28
+
+
+ 1348      4953494E 
+ 1348      464F4E54 
+ 1348      00
+ 1349              	.LASF17:
+ 1350 0216 5953697A 		.ascii	"YSize\000"
+ 1350      6500
+ 1351              	.LASF6:
+ 1352 021c 73686F72 		.ascii	"short unsigned int\000"
+ 1352      7420756E 
+ 1352      7369676E 
+ 1352      65642069 
+ 1352      6E7400
+ 1353              	.LASF3:
+ 1354 022f 63686172 		.ascii	"char\000"
+ 1354      00
+ 1355              	.LASF7:
+ 1356 0234 46697273 		.ascii	"FirstChar\000"
+ 1356      74436861 
+ 1356      7200
+ 1357              	.LASF39:
+ 1358 023e 70664765 		.ascii	"pfGetLineDistX\000"
+ 1358      744C696E 
+ 1358      65446973 
+ 1358      745800
+ 1359              	.LASF70:
+ 1360 024d 4755495F 		.ascii	"GUI_SetDefaultFont\000"
+ 1360      53657444 
+ 1360      65666175 
+ 1360      6C74466F 
+ 1360      6E7400
+ 1361              	.LASF36:
+ 1362 0260 74475549 		.ascii	"tGUI_GetLineDistX\000"
+ 1362      5F476574 
+ 1362      4C696E65 
+ 1362      44697374 
+ 1362      5800
+ 1363              	.LASF43:
+ 1364 0272 4755495F 		.ascii	"GUI_FONT\000"
+ 1364      464F4E54 
+ 1364      00
+ 1365              	.LASF26:
+ 1366 027b 4755495F 		.ascii	"GUI_FONT_PROP\000"
+ 1366      464F4E54 
+ 1366      5F50524F 
+ 1366      5000
+ 1367              	.LASF64:
+ 1368 0289 2E2E5C2E 		.ascii	"..\\..\\..\\..\\College-MIT\\S6Spring2020\\6.115\\F"
+ 1368      2E5C2E2E 
+ 1368      5C2E2E5C 
+ 1368      436F6C6C 
+ 1368      6567652D 
+ 1369 02b5 696E616C 		.ascii	"inalProject\\BunkerKnowledge\\PSoC_5_Files\\Process"
+ 1369      50726F6A 
+ 1369      6563745C 
+ 1369      42756E6B 
+ 1369      65724B6E 
+ 1370 02e5 6F722E63 		.ascii	"or.cydsn\\GUIConf.c\000"
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 29
+
+
+ 1370      7964736E 
+ 1370      5C475549 
+ 1370      436F6E66 
+ 1370      2E6300
+ 1371              	.LASF66:
+ 1372 02f8 4755495F 		.ascii	"GUI_X_Config\000"
+ 1372      585F436F 
+ 1372      6E666967 
+ 1372      00
+ 1373              	.LASF1:
+ 1374 0305 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1374      20756E73 
+ 1374      69676E65 
+ 1374      6420696E 
+ 1374      7400
+ 1375              	.LASF22:
+ 1376 0317 46697273 		.ascii	"First\000"
+ 1376      7400
+ 1377              	.LASF30:
+ 1378 031d 4755495F 		.ascii	"GUI_FONT_MONO\000"
+ 1378      464F4E54 
+ 1378      5F4D4F4E 
+ 1378      4F00
+ 1379              	.LASF63:
+ 1380 032b 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 1380      4320342E 
+ 1380      392E3320 
+ 1380      32303135 
+ 1380      30333033 
+ 1381 035e 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 1381      20726576 
+ 1381      6973696F 
+ 1381      6E203232 
+ 1381      31323230 
+ 1382 0391 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1382      66756E63 
+ 1382      74696F6E 
+ 1382      2D736563 
+ 1382      74696F6E 
+ 1383              	.LASF45:
+ 1384 03b9 70664765 		.ascii	"pfGetCharDistX\000"
+ 1384      74436861 
+ 1384      72446973 
+ 1384      745800
+ 1385              	.LASF55:
+ 1386 03c8 4755495F 		.ascii	"GUI_GETFONTINFO\000"
+ 1386      47455446 
+ 1386      4F4E5449 
+ 1386      4E464F00 
+ 1387              	.LASF68:
+ 1388 03d8 4755495F 		.ascii	"GUI_Font6x8\000"
+ 1388      466F6E74 
+ 1388      36783800 
+ 1389              	.LASF51:
+ 1390 03e4 584D6167 		.ascii	"XMag\000"
+ 1390      00
+ 1391              	.LASF44:
+ARM GAS  C:\Users\mark6\AppData\Local\Temp\ccD4keOw.s 			page 30
+
+
+ 1392 03e9 70664469 		.ascii	"pfDispChar\000"
+ 1392      73704368 
+ 1392      617200
+ 1393              	.LASF50:
+ 1394 03f4 59446973 		.ascii	"YDist\000"
+ 1394      7400
+ 1395              	.LASF37:
+ 1396 03fa 74475549 		.ascii	"tGUI_GetLineLen\000"
+ 1396      5F476574 
+ 1396      4C696E65 
+ 1396      4C656E00 
+ 1397              	.LASF60:
+ 1398 040a 7050726F 		.ascii	"pProp\000"
+ 1398      7000
+ 1399              	.LASF46:
+ 1400 0410 70664765 		.ascii	"pfGetFontInfo\000"
+ 1400      74466F6E 
+ 1400      74496E66 
+ 1400      6F00
+ 1401              	.LASF38:
+ 1402 041e 74474C5F 		.ascii	"tGL_DispLine\000"
+ 1402      44697370 
+ 1402      4C696E65 
+ 1402      00
+ 1403              	.LASF35:
+ 1404 042b 4755495F 		.ascii	"GUI_FONTINFO\000"
+ 1404      464F4E54 
+ 1404      494E464F 
+ 1404      00
+ 1405              	.LASF8:
+ 1406 0438 4C617374 		.ascii	"LastChar\000"
+ 1406      43686172 
+ 1406      00
+ 1407              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
